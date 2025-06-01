@@ -133,10 +133,9 @@
                 <div style="font-size: 14px; color: #6c757d;">Cola de mensajes</div>
             </div>
         </div>
-        
-        <div style="margin: 15px 0;">
+          <div style="margin: 15px 0;">
             <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                <input type="checkbox" @bind="isMonitoringActive" @onchange="ToggleMonitoring" />
+                <input type="checkbox" checked="@isMonitoringActive" @onchange="ToggleMonitoring" />
                 <span>@(isMonitoringActive ? "⏸️ Pausar" : "▶️ Iniciar") monitoreo automático</span>
             </label>
         </div>
@@ -175,9 +174,10 @@
         showMessage = false;
         StateHasChanged();
     }
-    
-    private void ToggleMonitoring()
+      private void ToggleMonitoring(ChangeEventArgs e)
     {
+        isMonitoringActive = (bool)(e.Value ?? false);
+        
         if (isMonitoringActive)
         {
             StartMonitoring();
@@ -186,6 +186,8 @@
         {
             StopMonitoring();
         }
+        
+        StateHasChanged();
     }
     
     private void StartMonitoring()
