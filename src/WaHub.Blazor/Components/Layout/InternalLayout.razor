@@ -1,7 +1,6 @@
-@using Microsoft.AspNetCore.Components.Authorization
 @using WaHub.Blazor.Services
+@using Microsoft.AspNetCore.Components.Authorization
 @inject NavigationService Navigation
-@inject AuthService Auth
 @inject LocalizationService Localization
 
 <CascadingAuthenticationState>
@@ -36,7 +35,18 @@
             }
         </Authorized>
         <NotAuthorized>
-            @ChildContent
+            @code {
+                // Definir rutas públicas
+                private static readonly string[] PublicRoutes = new[] { "/login", "/register", "/privacy", "/contact", "/pricing", "/" };
+            }
+            @if (!PublicRoutes.Any(r => string.Equals(r, Navigation.GetCurrentPath(), StringComparison.OrdinalIgnoreCase)))
+            {
+                Navigation.Push("/login");
+            }
+            else
+            {
+                <div>@ChildContent</div>
+            }
         </NotAuthorized>
     </AuthorizeView>
 </CascadingAuthenticationState>

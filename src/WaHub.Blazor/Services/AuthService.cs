@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using System.Security.Claims;
+using WaHub.Blazor.Models;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace WaHub.Blazor.Services
 {
@@ -44,11 +47,47 @@ namespace WaHub.Blazor.Services
         public async Task SetTokenAsync(string token)
         {
             await _localStorage.SetAsync("token", token);
+            // Extraer información del usuario del token (simulado)
+            var userInfo = ExtractUserInfoFromToken(token);
+            await _localStorage.SetAsync("userInfo", userInfo);
+
+            // Notificar cambio de estado de autenticación
+            if (_authStateProvider is CustomAuthStateProvider customProvider)
+            {
+                await customProvider.NotifyAuthenticationStateChangedAsync();
+            }
+        }
+
+        public async Task<UserInfo?> GetUserInfoAsync()
+        {
+            try
+            {
+                var result = await _localStorage.GetAsync<UserInfo>("userInfo");
+                return result.Success ? result.Value : null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private UserInfo ExtractUserInfoFromToken(string token)
+        {
+            // Simulación de extracción de información del token
+            var isAdmin = token.Contains("admin");
+            return new UserInfo
+            {
+                Name = isAdmin ? "Administrador" : "Usuario",
+                Email = isAdmin ? "admin@wahub.com" : "user@wahub.com",
+                Role = isAdmin ? "Admin" : "User",
+                Avatar = isAdmin ? "👑" : "👤"
+            };
         }
 
         public async Task LogoutAsync()
         {
             await _localStorage.DeleteAsync("token");
+            await _localStorage.DeleteAsync("userInfo");
             // Notificar cambio de estado de autenticación
             if (_authStateProvider is CustomAuthStateProvider customProvider)
             {
@@ -60,37 +99,57 @@ namespace WaHub.Blazor.Services
     public class CustomAuthStateProvider : AuthenticationStateProvider
     {
         private readonly ProtectedLocalStorage _localStorage;
+        private readonly NavigationManager _navigationManager;
+        private readonly IJSRuntime _jsRuntime;
 
-        public CustomAuthStateProvider(ProtectedLocalStorage localStorage)
+        public CustomAuthStateProvider(
+            ProtectedLocalStorage localStorage,
+            NavigationManager navigationManager,
+            IJSRuntime jsRuntime)
         {
             _localStorage = localStorage;
+            _navigationManager = navigationManager;
+            _jsRuntime = jsRuntime;
         }
 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
-            try
+            // Detectar prerenderizado
+            if (_jsRuntime is IJSInProcessRuntime)
             {
-                var result = await _localStorage.GetAsync<string>("token");
-                
-                if (result.Success && !string.IsNullOrEmpty(result.Value))
+                // Estamos en el lado cliente, es seguro usar JS interop
+                try
                 {
-                    // Crear claims del usuario autenticado
-                    var claims = new[]
+                    var tokenResult = await _localStorage.GetAsync<string>("token");
+                    var userInfoResult = await _localStorage.GetAsync<UserInfo>("userInfo");
+
+                    if (tokenResult.Success && !string.IsNullOrEmpty(tokenResult.Value) &&
+                        userInfoResult.Success && userInfoResult.Value != null)
                     {
-                        new Claim(ClaimTypes.Name, "Jonas Requena"),
-                        new Claim(ClaimTypes.Authentication, "true")
-                    };
+                        var userInfo = userInfoResult.Value;
 
-                    var identity = new ClaimsIdentity(claims, "jwt");
-                    var user = new ClaimsPrincipal(identity);
+                        var claims = new[]
+                        {
+                            new Claim(ClaimTypes.Name, userInfo.Name),
+                            new Claim(ClaimTypes.Email, userInfo.Email),
+                            new Claim(ClaimTypes.Role, userInfo.Role),
+                            new Claim("avatar", userInfo.Avatar),
+                            new Claim(ClaimTypes.Authentication, "true")
+                        };
 
-                    return new AuthenticationState(user);
+                        var identity = new ClaimsIdentity(claims, "jwt");
+                        var user = new ClaimsPrincipal(identity);
+
+                        return new AuthenticationState(user);
+                    }
+                }
+                catch
+                {
+                    // Error al acceder al localStorage
                 }
             }
-            catch
-            {
-                // Error al acceder al localStorage
-            }            // Usuario no autenticado
+
+            // Si estamos prerenderizando, devolvemos un usuario no autenticado
             return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
         }
 

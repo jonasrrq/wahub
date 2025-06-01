@@ -12,15 +12,30 @@
 <div class="login-container">
     <div class="login-form">
         <h1>@Localization.Login</h1>
+          @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="error-message">
+                @errorMessage
+            </div>
+        }        <div class="test-credentials">
+            <p><strong>Credenciales de prueba:</strong></p>            <div class="credentials-buttons">
+                <button type="button" class="test-cred-btn" @onclick="FillAdminCredentials">
+                    👑 Admin: admin@wahub.com
+                </button>
+                <button type="button" class="test-cred-btn" @onclick="FillUserCredentials">
+                    👤 Usuario: user@wahub.com
+                </button>
+            </div>
+        </div>
         
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" @bind="email" required />
+            <input type="email" id="email" @bind="email" placeholder="admin@wahub.com" required />
         </div>
         
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" @bind="password" required />
+            <input type="password" id="password" @bind="password" placeholder="admin123" required />
         </div>
           <button type="button" class="login-button" disabled="@isLoading" @onclick="HandleLogin">
             @if (isLoading)
@@ -44,19 +59,74 @@
     private string email = "";
     private string password = "";
     private bool isLoading = false;
+    private string errorMessage = "";
+
+    // Datos de prueba para el login
+    private readonly Dictionary<string, string> testUsers = new()
+    {
+        { "admin@wahub.com", "admin123" },
+        { "user@wahub.com", "user123" },
+        { "demo@wahub.com", "demo123" }
+    };
 
     private async Task HandleLogin()
     {
+        if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+        {
+            errorMessage = "Por favor, ingresa tu email y contraseña.";
+            return;
+        }
+
         isLoading = true;
+        errorMessage = "";
         
-        // Simular login exitoso (en una app real, aquí harías la llamada a la API)
-        await Task.Delay(1000);
-        
-        // Simular token de autenticación
-        await Auth.SetTokenAsync("fake-jwt-token");
-        
-        Navigation.Push("/dashboard");
-        
-        isLoading = false;
+        try
+        {
+            // Simular delay de red
+            await Task.Delay(1000);
+              // Validar credenciales de prueba
+            if (testUsers.ContainsKey(email.ToLower()) && testUsers[email.ToLower()] == password)
+            {
+                // Login exitoso
+                var userType = email.Contains("admin") ? "admin" : "user";
+                var token = $"fake-jwt-token-{userType}-{DateTime.Now:yyyyMMddHHmmss}";
+                
+                await Auth.SetTokenAsync(token);
+                
+                // Esperar un momento para que se procese el estado de autenticación
+                await Task.Delay(100);
+                
+                // Forzar actualización del estado
+                StateHasChanged();                // Navegar al dashboard
+                Navigation.Push("/dashboard");
+            }
+            else
+            {
+                errorMessage = "Credenciales incorrectas. Usa las credenciales de prueba mostradas arriba.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error durante el login: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }    private void FillTestCredentials(string email, string password)
+    {
+        this.email = email;
+        this.password = password;
+        StateHasChanged();
+    }
+
+    private void FillAdminCredentials()
+    {
+        FillTestCredentials("admin@wahub.com", "admin123");
+    }
+
+    private void FillUserCredentials()
+    {
+        FillTestCredentials("user@wahub.com", "user123");
     }
 }

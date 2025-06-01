@@ -1,30 +1,22 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components.Authorization;
+
 using WaHub.Blazor.Components;
 using WaHub.Blazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Add services to the container.
 builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+    .AddInteractiveServerComponents()
+    .AddInteractiveWebAssemblyComponents();
 
 // Add authentication and authorization services
-builder.Services.AddAuthentication("Cookies")
-    .AddCookie("Cookies", options =>
-    {
-        options.LoginPath = "/login";
-        options.LogoutPath = "/logout";
-        options.AccessDeniedPath = "/access-denied";
-        options.ExpireTimeSpan = TimeSpan.FromDays(7);
-        options.SlidingExpiration = true;
-        options.Cookie.HttpOnly = true;
-        options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-    });
-
 builder.Services.AddAuthorizationCore();
 
 // Add custom services
+builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<NavigationService>();
 builder.Services.AddScoped<LocalizationService>();
@@ -59,14 +51,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Add authentication and authorization middleware
-app.UseAuthentication();
-app.UseAuthorization();
-
 app.UseAntiforgery();
 
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+    .AddInteractiveServerRenderMode()
+    .AddInteractiveWebAssemblyRenderMode();
+    //.AddAdditionalAssemblies(typeof(BlazorApp1.Client._Imports).Assembly); ;
 
 app.Run();

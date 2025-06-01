@@ -1,0 +1,76 @@
+@page "/test-dashboard"
+@rendermode InteractiveServer
+@using WaHub.Blazor.Services
+@inject LocalizationService Localization
+
+<PageTitle>Test Dashboard - WaHub</PageTitle>
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>Test Dashboard (Sin autorización)</h1>
+        <p>Esta es una página de prueba para verificar la navegación</p>
+    </div>
+    
+    <div class="dashboard-grid">
+        <div class="dashboard-card">
+            <div class="card-title">Navegación Exitosa</div>
+            <div class="card-value">✅</div>
+            <div class="card-change positive">El login funcionó correctamente</div>
+        </div>
+    </div>
+</div>
+
+<style>
+.dashboard-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.card-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}
+
+.card-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.25rem;
+}
+
+.card-change {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.card-change.positive {
+    color: #10b981;
+}
+</style>

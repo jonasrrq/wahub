@@ -1,4 +1,4 @@
-namespace WaHub.Blazor.Services
+namespace WaHub.Blazor.Models
 {
     // DTOs para WhatsApp API
     public class WhatsAppInstanceDto
@@ -63,5 +63,14 @@ namespace WaHub.Blazor.Services
         public int Contacts { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime LastActivity { get; set; }
+    }
+
+    // DTO para información del usuario autenticado
+    public class UserInfo
+    {
+        public string Name { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string Role { get; set; } = "";
+        public string Avatar { get; set; } = "";
     }
 }

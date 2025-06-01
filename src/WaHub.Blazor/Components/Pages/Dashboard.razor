@@ -1,14 +1,16 @@
 @page "/dashboard"
 @rendermode InteractiveServer
+@using Microsoft.AspNetCore.Authorization
 @using WaHub.Blazor.Services
 @using Microsoft.AspNetCore.Components.Authorization
 @implements IDisposable
 @inject LocalizationService Localization
-@attribute [Authorize]
 
 <PageTitle>Dashboard - WaHub</PageTitle>
 
-<div class="dashboard-container">
+<AuthorizeView>
+    <Authorized>
+        <div class="dashboard-container">
     <div class="dashboard-header">
         <h1>Dashboard</h1>
         <p>Bienvenido a tu panel de control de WaHub</p>
@@ -145,9 +147,18 @@
             <div style="padding: 10px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 5px; color: #155724;">
                 ✅ Monitor activo - Actualizando datos cada 3 segundos...
             </div>
-        }
-    </div>
+        }    </div>
 </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h1>Acceso Denegado</h1>
+                <p>No estás autenticado. <a href="/login">Ir al Login</a></p>
+            </div>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
 
 @code {
     private int clickCount = 0;
@@ -160,6 +171,7 @@
     private int queueSize = 8;
     private bool isMonitoringActive = false;
     private Timer? monitoringTimer;
+    private bool isDisposed = false;
 
     private void TestInteractivity()
     {
@@ -192,7 +204,11 @@
     
     private void StartMonitoring()
     {
-        monitoringTimer = new Timer(UpdateMetrics, null, TimeSpan.Zero, TimeSpan.FromSeconds(3));
+        // Solo iniciar si no está disposed
+        if (!isDisposed)
+        {
+            monitoringTimer = new Timer(UpdateMetrics, null, TimeSpan.Zero, TimeSpan.FromSeconds(3));
+        }
     }
     
     private void StopMonitoring()
@@ -203,26 +219,54 @@
     
     private void UpdateMetrics(object? state)
     {
-        var random = new Random();
+        // Verificar si el componente está disposed antes de actualizar
+        if (isDisposed)
+        {
+            StopMonitoring();
+            return;
+        }
         
-        // Simular cambios realistas en las métricas
-        onlineUsers += random.Next(-5, 8);
-        onlineUsers = Math.Max(50, Math.Min(200, onlineUsers));
-        
-        messagesPerSecond += random.Next(-3, 5);
-        messagesPerSecond = Math.Max(5, Math.Min(30, messagesPerSecond));
-        
-        serverLoad += random.Next(-8, 10);
-        serverLoad = Math.Max(20, Math.Min(90, serverLoad));
-        
-        queueSize += random.Next(-2, 4);
-        queueSize = Math.Max(0, Math.Min(20, queueSize));
-        
-        InvokeAsync(StateHasChanged);
+        try
+        {
+            var random = new Random();
+            
+            // Simular cambios realistas en las métricas
+            onlineUsers += random.Next(-5, 8);
+            onlineUsers = Math.Max(50, Math.Min(200, onlineUsers));
+            
+            messagesPerSecond += random.Next(-3, 5);
+            messagesPerSecond = Math.Max(5, Math.Min(30, messagesPerSecond));
+            
+            serverLoad += random.Next(-8, 10);
+            serverLoad = Math.Max(20, Math.Min(90, serverLoad));
+            
+            queueSize += random.Next(-2, 4);
+            queueSize = Math.Max(0, Math.Min(20, queueSize));
+            
+            // Usar InvokeAsync con verificación de disposed
+            InvokeAsync(() =>
+            {
+                if (!isDisposed)
+                {
+                    StateHasChanged();
+                }
+            });
+        }
+        catch (ObjectDisposedException)
+        {
+            // Si el componente está disposed, detener el timer
+            StopMonitoring();
+        }
+        catch (Exception)
+        {
+            // En caso de cualquier otro error, detener el monitoreo
+            StopMonitoring();
+        }
     }
     
     public void Dispose()
     {
-        monitoringTimer?.Dispose();
+        isDisposed = true;
+        StopMonitoring();
     }
 }
