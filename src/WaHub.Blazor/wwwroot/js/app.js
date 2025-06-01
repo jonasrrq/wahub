@@ -1,0 +1,182 @@
+// WaHub Mobile Navigation and App Functionality
+window.waHubApp = {
+    // Mobile Navigation
+    mobileNav: {
+        isOpen: false,
+        
+        toggle: function() {
+            this.isOpen = !this.isOpen;
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            const toggle = document.querySelector('.mobile-nav-toggle');
+            
+            if (this.isOpen) {
+                sidebar?.classList.add('mobile-open');
+                overlay?.classList.add('active');
+                toggle?.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                sidebar?.classList.remove('mobile-open');
+                overlay?.classList.remove('active');
+                toggle?.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        },
+        
+        close: function() {
+            if (this.isOpen) {
+                this.toggle();
+            }
+        },
+        
+        init: function() {
+            // Close sidebar when clicking overlay
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('sidebar-overlay')) {
+                    this.close();
+                }
+            });
+            
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener('click', (e) => {
+                const sidebar = document.querySelector('.sidebar');
+                const toggle = document.querySelector('.mobile-nav-toggle');
+                
+                if (this.isOpen && 
+                    !sidebar?.contains(e.target) && 
+                    !toggle?.contains(e.target) &&
+                    window.innerWidth <= 768) {
+                    this.close();
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768 && this.isOpen) {
+                    this.close();
+                }
+            });
+        }
+    },
+    
+    // Theme Management
+    theme: {
+        current: 'light',
+        
+        init: function() {
+            // Load saved theme
+            const savedTheme = localStorage.getItem('wahub-theme') || 'light';
+            this.setTheme(savedTheme);
+        },
+        
+        setTheme: function(theme) {
+            this.current = theme;
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('wahub-theme', theme);
+        },
+        
+        toggle: function() {
+            const newTheme = this.current === 'light' ? 'dark' : 'light';
+            this.setTheme(newTheme);
+            return newTheme;
+        }
+    },
+    
+    // Loading Management
+    loading: {
+        show: function(message = 'Cargando...') {
+            const overlay = document.createElement('div');
+            overlay.className = 'loading-overlay';
+            overlay.id = 'loading-overlay';
+            overlay.innerHTML = `
+                <div class="loading-content">
+                    <div class="loading-spinner"></div>
+                    <div class="loading-text">${message}</div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+        },
+        
+        hide: function() {
+            const overlay = document.getElementById('loading-overlay');
+            if (overlay) {
+                overlay.remove();
+            }
+        }
+    },
+    
+    // Utility functions
+    utils: {
+        // Debounce function for performance
+        debounce: function(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        },
+        
+        // Format time ago
+        timeAgo: function(date) {
+            const now = new Date();
+            const diff = now - date;
+            const seconds = Math.floor(diff / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+            
+            if (days > 0) return `hace ${days} día${days > 1 ? 's' : ''}`;
+            if (hours > 0) return `hace ${hours} hora${hours > 1 ? 's' : ''}`;
+            if (minutes > 0) return `hace ${minutes} minuto${minutes > 1 ? 's' : ''}`;
+            return 'hace un momento';
+        },
+        
+        // Copy to clipboard
+        copyToClipboard: async function(text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                return true;
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    return true;
+                } catch (fallbackErr) {
+                    return false;
+                } finally {
+                    document.body.removeChild(textArea);
+                }
+            }
+        }
+    },
+    
+    // Initialize the app
+    init: function() {
+        this.theme.init();
+        this.mobileNav.init();
+        
+        // Add event listeners for common functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('WaHub App initialized');
+        });
+    }
+};
+
+// Auto-initialize when script loads
+window.waHubApp.init();
+
+// Expose functions for Blazor interop
+window.toggleMobileNav = () => window.waHubApp.mobileNav.toggle();
+window.closeMobileNav = () => window.waHubApp.mobileNav.close();
+window.toggleTheme = () => window.waHubApp.theme.toggle();
+window.showLoading = (message) => window.waHubApp.loading.show(message);
+window.hideLoading = () => window.waHubApp.loading.hide();
+window.copyToClipboard = (text) => window.waHubApp.utils.copyToClipboard(text);

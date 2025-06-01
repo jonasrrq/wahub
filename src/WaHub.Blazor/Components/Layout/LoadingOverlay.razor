@@ -1,0 +1,67 @@
+@if (IsVisible)
+{
+    <div class="loading-overlay @AdditionalClass">
+        <div class="loading-content">
+            <div class="spinner @SpinnerSize"></div>
+            @if (!string.IsNullOrEmpty(Message))
+            {
+                <p class="loading-message">@Message</p>
+            }
+        </div>
+    </div>
+}
+
+<style>
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        backdrop-filter: blur(3px);
+    }
+
+    .loading-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .loading-message {
+        color: white;
+        font-size: 1.1rem;
+        text-align: center;
+        margin: 0;
+    }
+
+    .spinner.small {
+        width: 24px;
+        height: 24px;
+        border-width: 3px;
+    }
+
+    .spinner.medium {
+        width: 40px;
+        height: 40px;
+        border-width: 4px;
+    }
+
+    .spinner.large {
+        width: 60px;
+        height: 60px;
+        border-width: 6px;
+    }
+</style>
+
+@code {
+    [Parameter] public bool IsVisible { get; set; } = false;
+    [Parameter] public string Message { get; set; } = "";
+    [Parameter] public string SpinnerSize { get; set; } = "medium";
+    [Parameter] public string AdditionalClass { get; set; } = "";
+}

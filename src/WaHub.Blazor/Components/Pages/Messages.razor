@@ -1,0 +1,469 @@
+@page "/messages"
+@rendermode InteractiveServer
+@using WaHub.Blazor.Services
+@inject ApiService ApiService
+@inject NotificationService NotificationService
+@inject IJSRuntime JSRuntime
+
+<div class="page-header">
+    <div class="page-title">
+        <h1>📨 Mensajes</h1>
+        <p>Gestiona y envía mensajes de WhatsApp</p>
+    </div>
+    <div class="page-actions">
+        <button class="btn btn-primary" @onclick="OpenNewMessageModal">
+            <i class="icon">✉️</i>
+            Nuevo Mensaje
+        </button>
+        <button class="btn btn-secondary" @onclick="OpenTemplateModal">
+            <i class="icon">📝</i>
+            Templates
+        </button>
+    </div>
+</div>
+
+<div class="messages-content">
+    <!-- Filters and Search -->
+    <div class="messages-filters">
+        <div class="search-box">
+            <input type="text" @bind="searchTerm" @oninput="FilterMessages"
+                   placeholder="Buscar mensajes..." class="search-input" />
+            <button class="search-btn">🔍</button>
+        </div>
+
+        <div class="filter-controls">
+            <select @bind="selectedStatus" class="filter-select">
+                <option value="">Todos los estados</option>
+                <option value="sent">Enviados</option>
+                <option value="pending">Pendientes</option>
+                <option value="failed">Fallidos</option>
+                <option value="scheduled">Programados</option>
+            </select>
+
+            <select @bind="selectedInstance" class="filter-select">
+                <option value="">Todas las instancias</option>
+                @foreach (var instance in instances)
+                {
+                    <option value="@instance.Id">@instance.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <!-- Messages List -->
+    <div class="messages-grid">
+        @if (isLoading)
+        {
+            <div class="loading-card">
+                <div class="loading-spinner"></div>
+                <p>Cargando mensajes...</p>
+            </div>
+        }
+        else if (filteredMessages.Any())
+        {
+            @foreach (var message in filteredMessages)
+            {
+                <div class="message-card @GetMessageStatusClass(message.Status)" @key="message.Id">
+                    <div class="message-header">
+                        <div class="message-info">
+                            <span class="message-recipient">
+                                <i class="icon">👤</i>
+                                @(string.IsNullOrEmpty(message.RecipientName) ? message.RecipientPhone : message.RecipientName)
+                            </span>
+                            <span class="message-instance">@message.InstanceName</span>
+                        </div>
+                        <div class="message-status">
+                            <span class="status-badge status-@message.Status.ToLower()">
+                                @GetStatusIcon(message.Status) @GetStatusText(message.Status)
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="message-content">
+                        <p class="message-text">@message.Content</p>
+                        @if (!string.IsNullOrEmpty(message.MediaUrl))
+                        {
+                            <div class="message-media">
+                                <span class="media-indicator">📎 Archivo adjunto</span>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="message-footer">
+                        <div class="message-meta">
+                            <span class="message-date">📅 @message.CreatedAt.ToString("dd/MM/yyyy HH:mm")</span>
+                            @if (message.ScheduledAt.HasValue)
+                            {
+                                <span class="scheduled-date">⏰ @message.ScheduledAt.Value.ToString("dd/MM/yyyy HH:mm")</span>
+                            }
+                        </div>
+                        <div class="message-actions">
+                            @if (message.Status == "failed")
+                            {
+                                <button class="btn btn-sm btn-warning" @onclick="() => ResendMessage(message.Id)">
+                                    🔄 Reenviar
+                                </button>
+                            }
+                            @if (message.Status == "scheduled")
+                            {
+                                <button class="btn btn-sm btn-secondary" @onclick="() => EditScheduledMessage(message.Id)">
+                                    ✏️ Editar
+                                </button>
+                                <button class="btn btn-sm btn-danger" @onclick="() => CancelScheduledMessage(message.Id)">
+                                    ❌ Cancelar
+                                </button>
+                            }
+                            <button class="btn btn-sm btn-outline" @onclick="() => ViewMessageDetails(message.Id)">
+                                👁️ Ver
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="empty-state">
+                <div class="empty-icon">📭</div>
+                <h3>No hay mensajes</h3>
+                <p>No se encontraron mensajes con los filtros aplicados.</p>
+                <button class="btn btn-primary" @onclick="OpenNewMessageModal">
+                    Enviar primer mensaje
+                </button>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Pagination -->
+@if (totalPages > 1)
+{
+    <div class="pagination">
+        <button class="btn btn-outline btn-sm" @onclick="() => GoToPage(currentPage - 1)" 
+                disabled="@(currentPage <= 1)">
+            ← Anterior
+        </button>
+        
+        <div class="pagination-info">
+            Página @currentPage de @totalPages
+        </div>
+        
+        <button class="btn btn-outline btn-sm" @onclick="() => GoToPage(currentPage + 1)" 
+                disabled="@(currentPage >= totalPages)">
+            Siguiente →
+        </button>
+    </div>
+}
+
+<!-- New Message Modal -->
+@if (showNewMessageModal)
+{
+    <div class="modal-overlay" @onclick="CloseNewMessageModal">
+        <div class="modal-content" @onclick:stopPropagation="true">
+            <div class="modal-header">
+                <h2>📨 Nuevo Mensaje</h2>
+                <button class="modal-close" @onclick="CloseNewMessageModal">✖</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="instance-select">Instancia</label>
+                    <select @bind="newMessage.InstanceId" id="instance-select" class="form-input">
+                        <option value="">Seleccionar instancia...</option>
+                        @foreach (var instance in instances.Where(i => i.Status == "connected"))
+                        {
+                            <option value="@instance.Id">@instance.Name</option>
+                        }
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipient-input">Destinatario</label>
+                    <input type="tel" @bind="newMessage.RecipientPhone" id="recipient-input" 
+                           class="form-input" placeholder="+573001234567" />
+                </div>
+                
+                <div class="form-group">
+                    <label for="message-content">Mensaje</label>
+                    <textarea @bind="newMessage.Content" id="message-content" 
+                              class="form-textarea" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+                    <div class="char-counter">@(newMessage.Content?.Length ?? 0) / 4096</div>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" @bind="newMessage.IsScheduled" />
+                        Programar envío
+                    </label>
+                </div>
+                
+                @if (newMessage.IsScheduled)
+                {
+                    <div class="form-group">
+                        <label for="scheduled-datetime">Fecha y hora de envío</label>
+                        <input type="datetime-local" @bind="newMessage.ScheduledAt" 
+                               id="scheduled-datetime" class="form-input" 
+                               min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
+                    </div>
+                }
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-secondary" @onclick="CloseNewMessageModal">
+                    Cancelar
+                </button>
+                <button class="btn btn-primary" @onclick="SendMessage" disabled="@isSendingMessage">
+                    @if (isSendingMessage)
+                    {
+                        <span class="loading-spinner small"></span>
+                    }
+                    @(newMessage.IsScheduled ? "Programar" : "Enviar")
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private List<MessageDto> messages = new();
+    private List<MessageDto> filteredMessages = new();
+    private List<WhatsAppInstanceDto> instances = new();
+    
+    private bool isLoading = true;
+    private bool showNewMessageModal = false;
+    private bool isSendingMessage = false;
+    
+    private string searchTerm = "";
+    private string selectedStatus = "";
+    private string selectedInstance = "";
+    
+    private int currentPage = 1;
+    private int pageSize = 10;
+    private int totalPages = 1;
+    
+    private NewMessageDto newMessage = new();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadData();
+    }
+    
+    private async Task LoadData()
+    {
+        isLoading = true;
+        try
+        {
+            var messagesTask = ApiService.GetMessagesAsync();
+            var instancesTask = ApiService.GetInstancesAsync();
+            
+            await Task.WhenAll(messagesTask, instancesTask);
+            
+            messages = messagesTask.Result;
+            instances = instancesTask.Result;
+            
+            FilterMessages();
+        }
+        catch (Exception ex)
+        {
+            NotificationService.ShowError($"Error al cargar datos: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+    
+    private void FilterMessages()
+    {
+        var filtered = messages.AsEnumerable();
+        
+        if (!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            filtered = filtered.Where(m => 
+                m.Content.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                m.RecipientPhone.Contains(searchTerm) ||
+                (!string.IsNullOrEmpty(m.RecipientName) && m.RecipientName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)));
+        }
+        
+        if (!string.IsNullOrWhiteSpace(selectedStatus))
+        {
+            filtered = filtered.Where(m => m.Status.Equals(selectedStatus, StringComparison.OrdinalIgnoreCase));
+        }
+        
+        if (!string.IsNullOrWhiteSpace(selectedInstance))
+        {
+            filtered = filtered.Where(m => m.InstanceId.Equals(selectedInstance));
+        }
+        
+        filteredMessages = filtered.OrderByDescending(m => m.CreatedAt).ToList();
+        
+        totalPages = (int)Math.Ceiling((double)filteredMessages.Count / pageSize);
+        currentPage = Math.Min(currentPage, Math.Max(1, totalPages));
+        
+        filteredMessages = filteredMessages
+            .Skip((currentPage - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+            
+        StateHasChanged();
+    }
+    
+    private void GoToPage(int page)
+    {
+        currentPage = page;
+        FilterMessages();
+    }
+    
+    private void OpenNewMessageModal()
+    {
+        newMessage = new NewMessageDto();
+        showNewMessageModal = true;
+    }
+    
+    private void CloseNewMessageModal()
+    {
+        showNewMessageModal = false;
+        newMessage = new NewMessageDto();
+    }
+    
+    private async Task SendMessage()
+    {
+        if (string.IsNullOrWhiteSpace(newMessage.InstanceId) ||
+            string.IsNullOrWhiteSpace(newMessage.RecipientPhone) ||
+            string.IsNullOrWhiteSpace(newMessage.Content))
+        {
+            NotificationService.ShowWarning("Por favor completa todos los campos requeridos.");
+            return;
+        }
+        
+        if (newMessage.IsScheduled && newMessage.ScheduledAt <= DateTime.Now)
+        {
+            NotificationService.ShowWarning("La fecha programada debe ser en el futuro.");
+            return;
+        }
+        
+        isSendingMessage = true;
+        try
+        {
+            var success = await ApiService.SendMessageAsync(newMessage);
+            if (success)
+            {
+                NotificationService.ShowSuccess(newMessage.IsScheduled ? 
+                    "Mensaje programado exitosamente" : 
+                    "Mensaje enviado exitosamente");
+                CloseNewMessageModal();
+                await LoadData();
+            }
+            else
+            {
+                NotificationService.ShowError("Error al enviar el mensaje");
+            }
+        }
+        catch (Exception ex)
+        {
+            NotificationService.ShowError($"Error: {ex.Message}");
+        }
+        finally
+        {
+            isSendingMessage = false;
+        }
+    }
+    
+    private async Task ResendMessage(string messageId)
+    {
+        try
+        {
+            var success = await ApiService.ResendMessageAsync(messageId);
+            if (success)
+            {
+                NotificationService.ShowSuccess("Mensaje reenviado exitosamente");
+                await LoadData();
+            }
+            else
+            {
+                NotificationService.ShowError("Error al reenviar el mensaje");
+            }
+        }
+        catch (Exception ex)
+        {
+            NotificationService.ShowError($"Error: {ex.Message}");
+        }
+    }
+    
+    private async Task CancelScheduledMessage(string messageId)
+    {
+        try
+        {
+            var success = await ApiService.CancelScheduledMessageAsync(messageId);
+            if (success)
+            {
+                NotificationService.ShowSuccess("Mensaje programado cancelado");
+                await LoadData();
+            }
+            else
+            {
+                NotificationService.ShowError("Error al cancelar el mensaje");
+            }
+        }
+        catch (Exception ex)
+        {
+            NotificationService.ShowError($"Error: {ex.Message}");
+        }
+    }
+    
+    private void EditScheduledMessage(string messageId)
+    {
+        // TODO: Implementar edición de mensajes programados
+        NotificationService.ShowInfo("Funcionalidad en desarrollo");
+    }
+    
+    private void ViewMessageDetails(string messageId)
+    {
+        // TODO: Implementar vista de detalles de mensaje
+        NotificationService.ShowInfo("Funcionalidad en desarrollo");
+    }
+    
+    private void OpenTemplateModal()
+    {
+        // TODO: Implementar gestión de templates
+        NotificationService.ShowInfo("Funcionalidad en desarrollo");
+    }
+    
+    private string GetMessageStatusClass(string status)
+    {
+        return status.ToLower() switch
+        {
+            "sent" => "message-sent",
+            "pending" => "message-pending",
+            "failed" => "message-failed",
+            "scheduled" => "message-scheduled",
+            _ => ""
+        };
+    }
+    
+    private string GetStatusIcon(string status)
+    {
+        return status.ToLower() switch
+        {
+            "sent" => "✅",
+            "pending" => "⏳",
+            "failed" => "❌",
+            "scheduled" => "⏰",
+            _ => "❓"
+        };
+    }
+    
+    private string GetStatusText(string status)
+    {
+        return status.ToLower() switch
+        {
+            "sent" => "Enviado",
+            "pending" => "Pendiente",
+            "failed" => "Fallido",
+            "scheduled" => "Programado",
+            _ => "Desconocido"
+        };
+    }
+}
+

@@ -1,0 +1,98 @@
+@using WaHub.Blazor.Services
+@inject NavigationService Navigation
+@inject AuthService Auth
+@inject LocalizationService Localization
+
+<div class="sidebar">
+    <!-- Logo y nombre -->
+    <div class="logo-section" @onclick="NavigateToDashboard">
+        <h2>WaHub</h2>
+    </div>
+
+    <!-- Menú principal -->
+    <div class="menu-section">
+        @foreach (var item in mainMenu)
+        {
+            <button class="menu-item @(item.Active ? "active" : "")" @onclick="@(() => NavigateToPage(item.Href))">
+                <span>@item.Label</span>
+                @if (!string.IsNullOrEmpty(item.Badge))
+                {
+                    <span class="badge @(item.Badge.ToLower())">@item.Badge</span>
+                }
+            </button>
+        }
+
+        @foreach (var item in bottomMenu)
+        {
+            <button class="menu-item" @onclick="@(() => NavigateToPage(item.Href))">
+                <span>@item.Label</span>
+            </button>
+        }
+    </div>
+
+    <!-- Usuario -->
+    <div class="user-section">        <div class="user-info">
+            <div class="user-avatar">JR</div>
+            <div class="user-details">
+                <h4>@Localization.UserName</h4>
+                <p>Usuario activo</p>
+            </div>        </div>
+          <div class="theme-toggle-container">
+            <ThemeToggle />
+        </div>
+        
+        <button class="menu-item" @onclick="@(() => NavigateToPage("/profile"))">
+            <span>@Localization.Profile</span>
+        </button>
+        
+        <button class="menu-item" @onclick="HandleLogout">
+            <span>@Localization.Logout</span>
+        </button>
+    </div>
+</div>
+
+@code {
+    private MenuItem[] mainMenu = Array.Empty<MenuItem>();
+    private MenuItem[] bottomMenu = Array.Empty<MenuItem>();
+
+    protected override void OnInitialized()
+    {
+        mainMenu = new[]
+        {
+            new MenuItem { Label = "Instancias", Href = "/instances", Active = true },
+            new MenuItem { Label = "Prueba Gratis", Href = "/trial", Badge = "TRIAL" },
+            new MenuItem { Label = "Suscripción", Href = "/subscription" },
+            new MenuItem { Label = "Documentación", Href = "/documentation" },
+            new MenuItem { Label = "Wabulk", Href = "/wabulk", Badge = "BETA" },
+        };
+
+        bottomMenu = new[]
+        {
+            new MenuItem { Label = "API Token", Href = "/api-token" },
+            new MenuItem { Label = "Webhook Settings", Href = "/webhook-settings" },
+            new MenuItem { Label = "Soporte", Href = "/support" },
+        };
+    }
+
+    private void NavigateToDashboard()
+    {
+        Navigation.Push("/dashboard");
+    }    private void NavigateToPage(string href)
+    {
+        Navigation.Push(href);
+    }
+
+    private async Task HandleLogout()
+    {
+        await Auth.LogoutAsync();
+        Navigation.Push("/login");
+    }
+
+    private class MenuItem
+    {
+        public string Label { get; set; } = "";
+        public string Href { get; set; } = "";
+        public bool Active { get; set; }
+        public string Badge { get; set; } = "";
+    }
+}

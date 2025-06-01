@@ -1,0 +1,50 @@
+@using Microsoft.AspNetCore.Components.Authorization
+@using WaHub.Blazor.Services
+@inject NavigationService Navigation
+@inject AuthService Auth
+@inject LocalizationService Localization
+
+<CascadingAuthenticationState>
+    <AuthorizeView>
+        <Authorized>            @if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
+            {                <div class="internal-layout">
+                    <MobileNavToggle />
+                    <div class="sidebar-overlay"></div>
+                    <div class="sidebar-container">
+                        <WaHubSidebar />
+                    </div>
+                    <div class="main-content"><div class="language-switcher-container">
+                            <div class="language-switcher">
+                                <select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
+                                    <option value="es">🇪🇸 Español</option>
+                                    <option value="en">🇺🇸 English</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="content">
+                            @ChildContent
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                @ChildContent
+            }
+        </Authorized>
+        <NotAuthorized>
+            @ChildContent
+        </NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    
+    private async Task OnLanguageChanged(ChangeEventArgs e)
+    {
+        var selectedLanguage = e.Value?.ToString() ?? "es";
+        await Localization.SetLanguageAsync(selectedLanguage);
+        StateHasChanged();
+    }
+}

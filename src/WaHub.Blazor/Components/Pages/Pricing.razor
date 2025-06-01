@@ -1,0 +1,159 @@
+@page "/pricing"
+@rendermode InteractiveServer
+@using WaHub.Blazor.Services
+@inject NavigationService Navigation
+@inject LocalizationService Localization
+
+<PageTitle>Precios - WaHub</PageTitle>
+
+<div class="pricing-container">
+    <HomeNavbar />
+    
+    <div class="pricing-content">
+        <div class="pricing-header">
+            <h1>Planes que se adaptan a tu negocio</h1>
+            <p>Comienza gratis y escala según tus necesidades. Sin contratos, sin sorpresas.</p>
+            
+            <div class="billing-toggle">
+                <span class="toggle-label @(isAnnual ? "" : "active")">Mensual</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" @bind="isAnnual" />
+                    <span class="slider"></span>
+                </label>
+                <span class="toggle-label @(isAnnual ? "active" : "")">Anual <span class="discount">-20%</span></span>
+            </div>
+        </div>
+        
+        <div class="pricing-grid">
+            <!-- Plan Gratuito -->
+            <div class="pricing-card">
+                <div class="plan-header">
+                    <h3>Gratuito</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">0</span>
+                        <span class="period">/mes</span>
+                    </div>
+                    <p class="plan-description">Perfecto para proyectos personales y pruebas</p>
+                </div>
+                
+                <ul class="features-list">
+                    <li>✅ 1,000 mensajes/mes</li>
+                    <li>✅ 1 instancia de WhatsApp</li>
+                    <li>✅ API REST básica</li>
+                    <li>✅ Webhooks</li>
+                    <li>✅ Dashboard básico</li>
+                    <li>✅ Soporte por email</li>
+                    <li>❌ Analíticas avanzadas</li>
+                    <li>❌ Múltiples instancias</li>
+                </ul>
+                
+                <button class="btn btn-outline" @onclick="@(() => Navigation.Push("/register"))">
+                    Comenzar gratis
+                </button>
+            </div>
+            
+            <!-- Plan Profesional -->
+            <div class="pricing-card featured">
+                <div class="featured-badge">Más popular</div>
+                <div class="plan-header">
+                    <h3>Profesional</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">@(isAnnual ? "39" : "49")</span>
+                        <span class="period">/mes</span>
+                    </div>
+                    @if (isAnnual)
+                    {
+                        <div class="original-price">$49/mes</div>
+                    }
+                    <p class="plan-description">Ideal para pequeñas y medianas empresas</p>
+                </div>
+                
+                <ul class="features-list">
+                    <li>✅ 10,000 mensajes/mes</li>
+                    <li>✅ 5 instancias de WhatsApp</li>
+                    <li>✅ API REST completa</li>
+                    <li>✅ Webhooks avanzados</li>
+                    <li>✅ Dashboard completo</li>
+                    <li>✅ Analíticas en tiempo real</li>
+                    <li>✅ Soporte prioritario</li>
+                    <li>✅ Integraciones</li>
+                </ul>
+                
+                <button class="btn btn-primary" @onclick="@(() => Navigation.Push("/register"))">
+                    Empezar prueba gratuita
+                </button>
+            </div>
+            
+            <!-- Plan Empresarial -->
+            <div class="pricing-card">
+                <div class="plan-header">
+                    <h3>Empresarial</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">@(isAnnual ? "199" : "249")</span>
+                        <span class="period">/mes</span>
+                    </div>
+                    @if (isAnnual)
+                    {
+                        <div class="original-price">$249/mes</div>
+                    }
+                    <p class="plan-description">Para empresas con altos volúmenes</p>
+                </div>
+                
+                <ul class="features-list">
+                    <li>✅ 100,000 mensajes/mes</li>
+                    <li>✅ Instancias ilimitadas</li>
+                    <li>✅ API REST Enterprise</li>
+                    <li>✅ Webhooks personalizados</li>
+                    <li>✅ Dashboard avanzado</li>
+                    <li>✅ Analíticas completas</li>
+                    <li>✅ Soporte 24/7</li>
+                    <li>✅ Gerente de cuenta dedicado</li>
+                </ul>
+                
+                <button class="btn btn-outline" @onclick="@(() => Navigation.Push("/contact"))">
+                    Contactar ventas
+                </button>
+            </div>
+        </div>
+        
+        <div class="pricing-faq">
+            <h2>Preguntas frecuentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>¿Puedo cambiar de plan en cualquier momento?</h4>
+                    <p>Sí, puedes upgradar o downgradar tu plan cuando quieras. Los cambios se aplican inmediatamente.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>¿Qué pasa si supero mi límite de mensajes?</h4>
+                    <p>Te notificaremos cuando estés cerca del límite. Puedes upgradar tu plan o comprar mensajes adicionales.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>¿Ofrecen descuentos para ONGs?</h4>
+                    <p>Sí, ofrecemos descuentos especiales para organizaciones sin fines de lucro. Contáctanos para más información.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>¿Hay costos de configuración?</h4>
+                    <p>No, no hay costos de configuración ni tarifas ocultas. Solo pagas por lo que usas.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pricing-cta">
+            <h2>¿Listo para empezar?</h2>
+            <p>Únete a más de 10,000 desarrolladores que confían en WaHub</p>
+            <button class="btn btn-primary btn-large" @onclick="@(() => Navigation.Push("/register"))">
+                Comenzar gratis
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool isAnnual = false;
+}

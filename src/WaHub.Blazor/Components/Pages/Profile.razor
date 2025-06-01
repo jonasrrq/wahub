@@ -1,0 +1,475 @@
+@page "/profile"
+@rendermode InteractiveServer
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Mi Perfil - WaHub</PageTitle>
+
+<div class="profile-page">
+    <div class="profile-header">
+        <div class="container">
+            <div class="profile-header-content">
+                <div class="profile-avatar">
+                    <img src="@(userProfile.AvatarUrl ?? "/images/default-avatar.png")" alt="Avatar" />
+                    <button class="avatar-edit-btn" @onclick="ChangeAvatar">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="profile-info">
+                    <h1>@userProfile.FullName</h1>
+                    <p class="profile-email">@userProfile.Email</p>
+                    <div class="profile-badges">
+                        <span class="badge badge-primary">@userProfile.Plan</span>
+                        <span class="badge badge-success">Verificado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-content">
+        <div class="container">
+            <div class="profile-tabs">
+                <div class="tab-navigation">
+                    <button class='tab-btn @(activeTab == "personal" ? "active" : "")' @onclick='() => SetActiveTab("personal")'>
+                        <i class="fas fa-user"></i>
+                        Información Personal
+                    </button>
+                    <button class='tab-btn @(activeTab == "security" ? "active" : "")' @onclick='() => SetActiveTab("security")'>
+                        <i class="fas fa-shield-alt"></i>
+                        Seguridad
+                    </button>
+                    <button class='tab-btn @(activeTab == "preferences" ? "active" : "")' @onclick='() => SetActiveTab("preferences")'>
+                        <i class="fas fa-cog"></i>
+                        Preferencias
+                    </button>
+                    <button class='tab-btn @(activeTab == "billing" ? "active" : "")' @onclick='() => SetActiveTab("billing")'>
+                        <i class="fas fa-credit-card"></i>
+                        Facturación
+                    </button>
+                </div>
+
+                <div class="tab-content">
+                    @if (activeTab == "personal")
+                    {
+                        <div class="tab-panel">
+                            <h2>Información Personal</h2>
+                            <EditForm Model="@userProfile" OnValidSubmit="@SavePersonalInfo" FormName="personalForm">
+                                <DataAnnotationsValidator />
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">Nombre</label>
+                                        <InputText id="firstName" @bind-Value="userProfile.FirstName" class="form-input" />
+                                        <ValidationMessage For="@(() => userProfile.FirstName)" />
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="lastName">Apellido</label>
+                                        <InputText id="lastName" @bind-Value="userProfile.LastName" class="form-input" />
+                                        <ValidationMessage For="@(() => userProfile.LastName)" />
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <InputText id="email" @bind-Value="userProfile.Email" class="form-input" disabled />
+                                    <small class="form-help">Para cambiar tu email, contacta al soporte</small>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="phone">Teléfono</label>
+                                        <InputText id="phone" @bind-Value="userProfile.Phone" class="form-input" />
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="company">Empresa</label>
+                                        <InputText id="company" @bind-Value="userProfile.Company" class="form-input" />
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="bio">Biografía</label>
+                                    <InputTextArea id="bio" @bind-Value="userProfile.Bio" class="form-textarea" rows="4" />
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary" disabled="@isSaving">
+                                    @if (isSaving)
+                                    {
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        <span>Guardando...</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Guardar Cambios</span>
+                                    }
+                                </button>
+                            </EditForm>
+                        </div>
+                    }
+                    else if (activeTab == "security")
+                    {
+                        <div class="tab-panel">
+                            <h2>Seguridad</h2>
+                            
+                            <div class="security-section">
+                                <h3>Cambiar Contraseña</h3>
+                                <EditForm Model="@passwordForm" OnValidSubmit="@ChangePassword" FormName="passwordForm">
+                                    <DataAnnotationsValidator />
+                                    
+                                    <div class="form-group">
+                                        <label for="currentPassword">Contraseña Actual</label>
+                                        <InputText id="currentPassword" @bind-Value="passwordForm.CurrentPassword" type="password" class="form-input" />
+                                        <ValidationMessage For="@(() => passwordForm.CurrentPassword)" />
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="newPassword">Nueva Contraseña</label>
+                                        <InputText id="newPassword" @bind-Value="passwordForm.NewPassword" type="password" class="form-input" />
+                                        <ValidationMessage For="@(() => passwordForm.NewPassword)" />
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Confirmar Nueva Contraseña</label>
+                                        <InputText id="confirmPassword" @bind-Value="passwordForm.ConfirmPassword" type="password" class="form-input" />
+                                        <ValidationMessage For="@(() => passwordForm.ConfirmPassword)" />
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Cambiar Contraseña</button>
+                                </EditForm>
+                            </div>
+                            
+                            <div class="security-section">
+                                <h3>Autenticación de Dos Factores</h3>
+                                <div class="two-factor-card">
+                                    <div class="two-factor-info">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <div>
+                                            <h4>2FA @(userProfile.TwoFactorEnabled ? "Activado" : "Desactivado")</h4>
+                                            <p>Agrega una capa extra de seguridad a tu cuenta</p>
+                                        </div>
+                                    </div>
+                                    <button class="btn @(userProfile.TwoFactorEnabled ? "btn-secondary" : "btn-primary")" @onclick="ToggleTwoFactor">
+                                        @(userProfile.TwoFactorEnabled ? "Desactivar" : "Activar") 2FA
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="security-section">
+                                <h3>Sesiones Activas</h3>
+                                <div class="sessions-list">
+                                    @foreach (var session in activeSessions)
+                                    {
+                                        <div class="session-item">
+                                            <div class="session-info">
+                                                <i class="fas fa-@(session.DeviceType)"></i>
+                                                <div>
+                                                    <h4>@session.DeviceName</h4>
+                                                    <p>@session.Location • @session.LastActive</p>
+                                                </div>
+                                            </div>
+                                            @if (session.IsCurrent)
+                                            {
+                                                <span class="badge badge-success">Actual</span>
+                                            }
+                                            else
+                                            {
+                                                <button class="btn btn-outline btn-sm" @onclick="() => RevokeSession(session.Id)">
+                                                    Cerrar Sesión
+                                                </button>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else if (activeTab == "preferences")
+                    {
+                        <div class="tab-panel">
+                            <h2>Preferencias</h2>
+                            
+                            <div class="preferences-section">
+                                <h3>Apariencia</h3>
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>Tema</h4>
+                                        <p>Elige el tema de la interfaz</p>
+                                    </div>
+                                    <select @bind="userProfile.Theme" class="form-select">
+                                        <option value="light">Claro</option>
+                                        <option value="dark">Oscuro</option>
+                                        <option value="auto">Automático</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>Idioma</h4>
+                                        <p>Idioma de la interfaz</p>
+                                    </div>
+                                    <select @bind="userProfile.Language" class="form-select">
+                                        <option value="es">Español</option>
+                                        <option value="en">English</option>
+                                        <option value="pt">Português</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="preferences-section">
+                                <h3>Notificaciones</h3>
+                                <div class="notification-preferences">
+                                    <div class="preference-item">
+                                        <div class="preference-info">
+                                            <h4>Notificaciones por Email</h4>
+                                            <p>Recibe actualizaciones importantes por email</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" @bind="userProfile.EmailNotifications" />
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="preference-item">
+                                        <div class="preference-info">
+                                            <h4>Notificaciones Push</h4>
+                                            <p>Notificaciones en tiempo real en el navegador</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" @bind="userProfile.PushNotifications" />
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="preference-item">
+                                        <div class="preference-info">
+                                            <h4>Boletín de Novedades</h4>
+                                            <p>Mantente al día con nuevas funciones y consejos</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" @bind="userProfile.Newsletter" />
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-primary" @onclick="SavePreferences">Guardar Preferencias</button>
+                        </div>
+                    }
+                    else if (activeTab == "billing")
+                    {
+                        <div class="tab-panel">
+                            <h2>Facturación</h2>
+                            
+                            <div class="billing-overview">
+                                <div class="billing-card">
+                                    <h3>Plan Actual</h3>
+                                    <div class="plan-info">
+                                        <span class="plan-name">@userProfile.Plan</span>
+                                        <span class="plan-price">$@userProfile.MonthlyPrice/mes</span>
+                                    </div>
+                                    <p>Próxima facturación: @userProfile.NextBilling</p>
+                                    <button class="btn btn-outline">Cambiar Plan</button>
+                                </div>
+                                
+                                <div class="billing-card">
+                                    <h3>Método de Pago</h3>
+                                    <div class="payment-method">
+                                        <i class="fab fa-cc-visa"></i>
+                                        <span>•••• •••• •••• @userProfile.LastFourDigits</span>
+                                    </div>
+                                    <button class="btn btn-outline">Actualizar</button>
+                                </div>
+                            </div>
+                            
+                            <div class="billing-history">
+                                <h3>Historial de Facturación</h3>
+                                <div class="invoices-list">
+                                    @foreach (var invoice in billingHistory)
+                                    {
+                                        <div class="invoice-item">
+                                            <div class="invoice-info">
+                                                <span class="invoice-date">@invoice.Date</span>
+                                                <span class="invoice-description">@invoice.Description</span>
+                                            </div>
+                                            <div class="invoice-actions">
+                                                <span class="invoice-amount">$@invoice.Amount</span>
+                                                <button class="btn btn-outline btn-sm">Descargar</button>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string activeTab = "personal";
+    private bool isSaving = false;
+    
+    private UserProfileModel userProfile = new()
+    {
+        FirstName = "Juan",
+        LastName = "Pérez",
+        Email = "juan.perez@example.com",
+        Phone = "+1 (555) 123-4567",
+        Company = "TechCorp Inc.",
+        Bio = "Desarrollador Full Stack con experiencia en automatización de WhatsApp",
+        Plan = "Professional",
+        MonthlyPrice = "49.99",
+        NextBilling = "15 de Enero, 2024",
+        LastFourDigits = "1234",
+        TwoFactorEnabled = false,
+        Theme = "light",
+        Language = "es",
+        EmailNotifications = true,
+        PushNotifications = true,
+        Newsletter = false
+    };
+
+    private PasswordChangeModel passwordForm = new();
+
+    private List<ActiveSession> activeSessions = new()
+    {
+        new() { Id = "1", DeviceName = "Chrome en Windows", DeviceType = "desktop", Location = "Madrid, España", LastActive = "Ahora", IsCurrent = true },
+        new() { Id = "2", DeviceName = "Safari en iPhone", DeviceType = "mobile-alt", Location = "Madrid, España", LastActive = "Hace 2 horas", IsCurrent = false },
+        new() { Id = "3", DeviceName = "Firefox en Ubuntu", DeviceType = "desktop", Location = "Barcelona, España", LastActive = "Ayer", IsCurrent = false }
+    };
+
+    private List<BillingInvoice> billingHistory = new()
+    {
+        new() { Date = "01 Dic 2023", Description = "Plan Professional - Diciembre", Amount = "49.99" },
+        new() { Date = "01 Nov 2023", Description = "Plan Professional - Noviembre", Amount = "49.99" },
+        new() { Date = "01 Oct 2023", Description = "Plan Professional - Octubre", Amount = "49.99" }
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Aquí se cargaría el perfil del usuario desde el backend
+        await Task.CompletedTask;
+    }
+
+    private void SetActiveTab(string tab)
+    {
+        activeTab = tab;
+    }
+
+    private async Task SavePersonalInfo()
+    {
+        isSaving = true;
+        StateHasChanged();
+
+        try
+        {
+            await Task.Delay(1000); // Simular llamada a API
+            await JSRuntime.InvokeVoidAsync("alert", "Información personal actualizada exitosamente");
+        }
+        finally
+        {
+            isSaving = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task ChangePassword()
+    {
+        try
+        {
+            await Task.Delay(1000); // Simular llamada a API
+            await JSRuntime.InvokeVoidAsync("alert", "Contraseña cambiada exitosamente");
+            passwordForm = new(); // Limpiar formulario
+        }
+        catch (Exception)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Error al cambiar la contraseña");
+        }
+    }
+
+    private async Task ToggleTwoFactor()
+    {
+        userProfile.TwoFactorEnabled = !userProfile.TwoFactorEnabled;
+        await JSRuntime.InvokeVoidAsync("alert", 
+            $"Autenticación de dos factores {(userProfile.TwoFactorEnabled ? "activada" : "desactivada")}");
+    }
+
+    private async Task RevokeSession(string sessionId)
+    {
+        activeSessions.RemoveAll(s => s.Id == sessionId);
+        await JSRuntime.InvokeVoidAsync("alert", "Sesión cerrada exitosamente");
+        StateHasChanged();
+    }
+
+    private async Task SavePreferences()
+    {
+        try
+        {
+            await Task.Delay(1000); // Simular llamada a API
+            await JSRuntime.InvokeVoidAsync("alert", "Preferencias guardadas exitosamente");
+        }
+        catch (Exception)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Error al guardar preferencias");
+        }
+    }
+
+    private async Task ChangeAvatar()
+    {
+        await JSRuntime.InvokeVoidAsync("alert", "Función de cambio de avatar próximamente disponible");
+    }
+
+    public class UserProfileModel
+    {
+        [Required] public string FirstName { get; set; } = "";
+        [Required] public string LastName { get; set; } = "";
+        [Required] [EmailAddress] public string Email { get; set; } = "";
+        public string Phone { get; set; } = "";
+        public string Company { get; set; } = "";
+        public string Bio { get; set; } = "";
+        public string AvatarUrl { get; set; } = "";
+        public string Plan { get; set; } = "";
+        public string MonthlyPrice { get; set; } = "";
+        public string NextBilling { get; set; } = "";
+        public string LastFourDigits { get; set; } = "";
+        public bool TwoFactorEnabled { get; set; }
+        public string Theme { get; set; } = "";
+        public string Language { get; set; } = "";
+        public bool EmailNotifications { get; set; }
+        public bool PushNotifications { get; set; }
+        public bool Newsletter { get; set; }
+        
+        public string FullName => $"{FirstName} {LastName}".Trim();
+    }
+
+    public class PasswordChangeModel
+    {
+        [Required] public string CurrentPassword { get; set; } = "";
+        [Required] [MinLength(8)] public string NewPassword { get; set; } = "";
+        [Required] [Compare(nameof(NewPassword))] public string ConfirmPassword { get; set; } = "";
+    }
+
+    public class ActiveSession
+    {
+        public string Id { get; set; } = "";
+        public string DeviceName { get; set; } = "";
+        public string DeviceType { get; set; } = "";
+        public string Location { get; set; } = "";
+        public string LastActive { get; set; } = "";
+        public bool IsCurrent { get; set; }
+    }
+
+    public class BillingInvoice
+    {
+        public string Date { get; set; } = "";
+        public string Description { get; set; } = "";
+        public string Amount { get; set; } = "";
+    }
+}

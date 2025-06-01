@@ -1,0 +1,695 @@
+@page "/settings"
+@rendermode InteractiveServer
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Configuraciones - WaHub</PageTitle>
+
+<div class="settings-page">
+    <div class="settings-header">
+        <div class="container">
+            <h1>Configuraciones</h1>
+            <p>Gestiona la configuración de tu cuenta y aplicación</p>
+        </div>
+    </div>
+
+    <div class="settings-content">
+        <div class="container">
+            <div class="settings-grid">
+                <div class="settings-sidebar">
+                    <div class="settings-nav">
+                        <button class='settings-nav-item @(activeSection == "general" ? "active" : "")' @onclick='() => SetActiveSection("general")'>
+                            <i class="fas fa-cog"></i>
+                            General
+                        </button>
+                        <button class='settings-nav-item @(activeSection == "whatsapp" ? "active" : "")' @onclick='() => SetActiveSection("whatsapp")'>
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </button>
+                        <button class='settings-nav-item @(activeSection == "automation" ? "active" : "")' @onclick='() => SetActiveSection("automation")'>
+                            <i class="fas fa-robot"></i>
+                            Automatización
+                        </button>
+                        <button class='settings-nav-item @(activeSection == "api" ? "active" : "")' @onclick='() => SetActiveSection("api")'>
+                            <i class="fas fa-code"></i>
+                            API
+                        </button>
+                        <button class='settings-nav-item @(activeSection == "integrations" ? "active" : "")' @onclick='() => SetActiveSection("integrations")'>
+                            <i class="fas fa-plug"></i>
+                            Integraciones
+                        </button>
+                        <button class='settings-nav-item @(activeSection == "advanced" ? "active" : "")' @onclick='() => SetActiveSection("advanced")'>
+                            <i class="fas fa-tools"></i>
+                            Avanzado
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-main">
+                    @if (activeSection == "general")
+                    {
+                        <div class="settings-section">
+                            <h2>Configuración General</h2>
+                            
+                            <div class="setting-group">
+                                <h3>Zona Horaria</h3>
+                                <div class="setting-item">
+                                    <label for="timezone">Zona Horaria</label>
+                                    <select id="timezone" @bind="settings.Timezone" class="form-select">
+                                        <option value="America/Mexico_City">Ciudad de México (GMT-6)</option>
+                                        <option value="America/New_York">Nueva York (GMT-5)</option>
+                                        <option value="Europe/Madrid">Madrid (GMT+1)</option>
+                                        <option value="America/Sao_Paulo">São Paulo (GMT-3)</option>
+                                        <option value="UTC">UTC (GMT+0)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="setting-group">
+                                <h3>Formato de Fecha y Hora</h3>
+                                <div class="setting-item">
+                                    <label for="dateFormat">Formato de Fecha</label>
+                                    <select id="dateFormat" @bind="settings.DateFormat" class="form-select">
+                                        <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                                        <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                                        <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="setting-item">
+                                    <label for="timeFormat">Formato de Hora</label>
+                                    <select id="timeFormat" @bind="settings.TimeFormat" class="form-select">
+                                        <option value="24">24 horas</option>
+                                        <option value="12">12 horas (AM/PM)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="setting-group">
+                                <h3>Configuración de Sesión</h3>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Auto-logout</h4>
+                                        <p>Cerrar sesión automáticamente después de inactividad</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" @bind="settings.AutoLogout" />
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                @if (settings.AutoLogout)
+                                {
+                                    <div class="setting-item">
+                                        <label for="logoutTime">Tiempo de inactividad (minutos)</label>
+                                        <input id="logoutTime" type="number" @bind="settings.LogoutTimeMinutes" class="form-input" min="5" max="480" />
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                    else if (activeSection == "whatsapp")
+                    {
+                        <div class="settings-section">
+                            <h2>Configuración de WhatsApp</h2>
+                            
+                            <div class="setting-group">
+                                <h3>Instancias Conectadas</h3>
+                                <div class="whatsapp-instances">
+                                    @foreach (var instance in whatsappInstances)
+                                    {
+                                        <div class="instance-card">
+                                            <div class="instance-info">
+                                                <div class="instance-avatar">
+                                                    <img src="@instance.Avatar" alt="@instance.Name" />
+                                                </div>
+                                                <div class="instance-details">
+                                                    <h4>@instance.Name</h4>
+                                                    <p>@instance.Phone</p>
+                                                    <span class="status-badge @(instance.Status.ToLower())">@instance.Status</span>
+                                                </div>
+                                            </div>
+                                            <div class="instance-actions">
+                                                <button class="btn btn-outline btn-sm" @onclick="() => ConfigureInstance(instance.Id)">
+                                                    Configurar
+                                                </button>
+                                                <button class="btn btn-danger btn-sm" @onclick="() => DisconnectInstance(instance.Id)">
+                                                    Desconectar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                
+                                <button class="btn btn-primary" @onclick="AddNewInstance">
+                                    <i class="fas fa-plus"></i>
+                                    Agregar Nueva Instancia
+                                </button>
+                            </div>
+
+                            <div class="setting-group">
+                                <h3>Configuración de Mensajes</h3>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Lectura Automática</h4>
+                                        <p>Marcar mensajes como leídos automáticamente</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" @bind="settings.AutoReadMessages" />
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Delay entre Mensajes</h4>
+                                        <p>Tiempo de espera entre el envío de mensajes (segundos)</p>
+                                    </div>
+                                    <input type="number" @bind="settings.MessageDelay" class="form-input" min="1" max="60" />
+                                </div>
+                                
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Límite de Mensajes por Hora</h4>
+                                        <p>Número máximo de mensajes que se pueden enviar por hora</p>
+                                    </div>
+                                    <input type="number" @bind="settings.MessageRateLimit" class="form-input" min="10" max="1000" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else if (activeSection == "automation")
+                    {
+                        <div class="settings-section">
+                            <h2>Configuración de Automatización</h2>
+                            
+                            <div class="setting-group">
+                                <h3>Respuestas Automáticas</h3>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Activar Respuestas Automáticas</h4>
+                                        <p>Responder automáticamente a mensajes entrantes</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" @bind="settings.AutoResponses" />
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                @if (settings.AutoResponses)
+                                {
+                                    <div class="setting-item">
+                                        <label for="autoResponseMessage">Mensaje de Respuesta Automática</label>
+                                        <textarea id="autoResponseMessage" @bind="settings.AutoResponseMessage" class="form-textarea" rows="3" placeholder="Gracias por tu mensaje. Te responderemos pronto."></textarea>
+                                    </div>
+                                    
+                                    <div class="setting-item">
+                                        <label for="responseDelay">Delay de Respuesta (segundos)</label>
+                                        <input id="responseDelay" type="number" @bind="settings.AutoResponseDelay" class="form-input" min="1" max="300" />
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="setting-group">
+                                <h3>Horarios de Actividad</h3>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Horario de Trabajo</h4>
+                                        <p>Define cuándo están activas las automatizaciones</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" @bind="settings.WorkingHours" />
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                @if (settings.WorkingHours)
+                                {
+                                    <div class="working-hours">
+                                        <div class="time-range">
+                                            <label for="startTime">Hora de Inicio</label>
+                                            <input id="startTime" type="time" @bind="settings.StartTime" class="form-input" />
+                                        </div>
+                                        <div class="time-range">
+                                            <label for="endTime">Hora de Fin</label>
+                                            <input id="endTime" type="time" @bind="settings.EndTime" class="form-input" />
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="days-selection">
+                                        <h4>Días de Trabajo</h4>
+                                        <div class="days-grid">
+                                            @for (int i = 0; i < daysOfWeek.Length; i++)
+                                            {
+                                                int index = i; // Capturar el índice para el lambda
+                                                <label class="day-checkbox">
+                                                    <input type="checkbox" @bind="settings.WorkingDays[index]" />
+                                                    <span>@daysOfWeek[index]</span>
+                                                </label>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                    else if (activeSection == "api")
+                    {
+                        <div class="settings-section">
+                            <h2>Configuración de API</h2>
+                            
+                            <div class="setting-group">
+                                <h3>Claves de API</h3>
+                                <div class="api-keys">
+                                    @foreach (var apiKey in apiKeys)
+                                    {
+                                        <div class="api-key-item">
+                                            <div class="api-key-info">
+                                                <h4>@apiKey.Name</h4>
+                                                <p>Creada: @apiKey.Created</p>
+                                                <p>Último uso: @apiKey.LastUsed</p>
+                                            </div>
+                                            <div class="api-key-actions">
+                                                <button class="btn btn-outline btn-sm" @onclick="() => ShowApiKey(apiKey.Id)">
+                                                    Ver Clave
+                                                </button>
+                                                <button class="btn btn-danger btn-sm" @onclick="() => RevokeApiKey(apiKey.Id)">
+                                                    Revocar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                
+                                <button class="btn btn-primary" @onclick="CreateApiKey">
+                                    <i class="fas fa-plus"></i>
+                                    Crear Nueva Clave API
+                                </button>
+                            </div>
+
+                            <div class="setting-group">
+                                <h3>Límites de API</h3>
+                                <div class="api-limits">
+                                    <div class="limit-item">
+                                        <span class="limit-label">Requests por Minuto</span>
+                                        <span class="limit-value">@settings.ApiRateLimit</span>
+                                    </div>
+                                    <div class="limit-item">
+                                        <span class="limit-label">Requests Diarios</span>
+                                        <span class="limit-value">@settings.DailyApiLimit</span>
+                                    </div>
+                                    <div class="limit-item">
+                                        <span class="limit-label">Uso Actual del Mes</span>
+                                        <span class="limit-value">@settings.MonthlyApiUsage / @settings.MonthlyApiLimit</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="setting-group">
+                                <h3>Webhooks</h3>
+                                <div class="setting-item">
+                                    <label for="webhookUrl">URL del Webhook</label>
+                                    <input id="webhookUrl" type="url" @bind="settings.WebhookUrl" class="form-input" placeholder="https://tu-servidor.com/webhook" />
+                                </div>
+                                
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Activar Webhooks</h4>
+                                        <p>Recibir notificaciones en tiempo real de eventos</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" @bind="settings.WebhooksEnabled" />
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <button class="btn btn-outline" @onclick="TestWebhook">
+                                    Probar Webhook
+                                </button>
+                            </div>
+                        </div>
+                    }
+                    else if (activeSection == "integrations")
+                    {
+                        <div class="settings-section">
+                            <h2>Integraciones</h2>
+                            
+                            <div class="integrations-grid">
+                                @foreach (var integration in availableIntegrations)
+                                {
+                                    <div class="integration-card">
+                                        <div class="integration-header">
+                                            <img src="@integration.Logo" alt="@integration.Name" class="integration-logo" />
+                                            <div class="integration-info">
+                                                <h3>@integration.Name</h3>
+                                                <p>@integration.Description</p>
+                                            </div>
+                                        </div>
+                                        <div class="integration-actions">
+                                            @if (integration.IsConnected)
+                                            {
+                                                <span class="badge badge-success">Conectado</span>
+                                                <button class="btn btn-outline btn-sm" @onclick="() => ConfigureIntegration(integration.Id)">
+                                                    Configurar
+                                                </button>
+                                                <button class="btn btn-danger btn-sm" @onclick="() => DisconnectIntegration(integration.Id)">
+                                                    Desconectar
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <button class="btn btn-primary btn-sm" @onclick="() => ConnectIntegration(integration.Id)">
+                                                    Conectar
+                                                </button>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                    else if (activeSection == "advanced")
+                    {
+                        <div class="settings-section">
+                            <h2>Configuración Avanzada</h2>
+                            
+                            <div class="setting-group">
+                                <h3>Registro y Depuración</h3>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Nivel de Registro</h4>
+                                        <p>Controla el nivel de detalle en los registros</p>
+                                    </div>
+                                    <select @bind="settings.LogLevel" class="form-select">
+                                        <option value="Error">Solo Errores</option>
+                                        <option value="Warning">Advertencias y Errores</option>
+                                        <option value="Info">Información</option>
+                                        <option value="Debug">Depuración (Detallado)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Retención de Registros</h4>
+                                        <p>Tiempo que se mantienen los registros (días)</p>
+                                    </div>
+                                    <input type="number" @bind="settings.LogRetentionDays" class="form-input" min="1" max="365" />
+                                </div>
+                            </div>
+
+                            <div class="setting-group">
+                                <h3>Exportar/Importar Datos</h3>
+                                <div class="data-management">
+                                    <button class="btn btn-outline" @onclick="ExportData">
+                                        <i class="fas fa-download"></i>
+                                        Exportar Datos
+                                    </button>
+                                    <button class="btn btn-outline" @onclick="ImportData">
+                                        <i class="fas fa-upload"></i>
+                                        Importar Datos
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="setting-group danger-zone">
+                                <h3>Zona de Peligro</h3>
+                                <div class="danger-actions">
+                                    <div class="danger-item">
+                                        <div class="danger-info">
+                                            <h4>Limpiar Todos los Registros</h4>
+                                            <p>Elimina permanentemente todos los registros y logs</p>
+                                        </div>
+                                        <button class="btn btn-danger" @onclick="ClearAllLogs">
+                                            Limpiar Registros
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="danger-item">
+                                        <div class="danger-info">
+                                            <h4>Restablecer Configuración</h4>
+                                            <p>Vuelve toda la configuración a los valores por defecto</p>
+                                        </div>
+                                        <button class="btn btn-danger" @onclick="ResetSettings">
+                                            Restablecer
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="danger-item">
+                                        <div class="danger-info">
+                                            <h4>Eliminar Cuenta</h4>
+                                            <p>Elimina permanentemente tu cuenta y todos los datos</p>
+                                        </div>
+                                        <button class="btn btn-danger" @onclick="DeleteAccount">
+                                            Eliminar Cuenta
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="settings-actions">
+                        <button class="btn btn-primary" @onclick="SaveSettings" disabled="@isSaving">
+                            @if (isSaving)
+                            {
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <span>Guardando...</span>
+                            }
+                            else
+                            {
+                                <span>Guardar Cambios</span>
+                            }
+                        </button>
+                        <button class="btn btn-outline" @onclick="ResetChanges">
+                            Descartar Cambios
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string activeSection = "general";
+    private bool isSaving = false;
+    private string[] daysOfWeek = { "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom" };    private SettingsModel settings = new()
+    {
+        Timezone = "America/Mexico_City",
+        DateFormat = "DD/MM/YYYY",
+        TimeFormat = "24",
+        AutoLogout = true,
+        LogoutTimeMinutes = 30,
+        AutoReadMessages = false,
+        MessageDelay = 5,
+        MessageRateLimit = 100,
+        AutoResponses = false,
+        AutoResponseMessage = "Gracias por tu mensaje. Te responderemos pronto.",
+        AutoResponseDelay = 10,
+        WorkingHours = false,
+        StartTime = new TimeOnly(9, 0),
+        EndTime = new TimeOnly(18, 0),
+        WorkingDays = new bool[] { true, true, true, true, true, false, false },
+        ApiRateLimit = 60,
+        DailyApiLimit = 10000,
+        MonthlyApiUsage = 2500,
+        MonthlyApiLimit = 100000,
+        WebhookUrl = "",
+        WebhooksEnabled = false,
+        LogLevel = "Info",
+        LogRetentionDays = 30
+    };
+
+    private List<WhatsAppInstance> whatsappInstances = new()
+    {
+        new() { Id = "1", Name = "Soporte Principal", Phone = "+1 (555) 123-4567", Status = "Conectado", Avatar = "/images/whatsapp-avatar1.png" },
+        new() { Id = "2", Name = "Ventas", Phone = "+1 (555) 987-6543", Status = "Desconectado", Avatar = "/images/whatsapp-avatar2.png" }
+    };
+
+    private List<ApiKeyModel> apiKeys = new()
+    {
+        new() { Id = "1", Name = "Aplicación Principal", Created = "15 Nov 2023", LastUsed = "Hoy" },
+        new() { Id = "2", Name = "Desarrollo", Created = "20 Oct 2023", LastUsed = "Ayer" }
+    };
+
+    private List<IntegrationModel> availableIntegrations = new()
+    {
+        new() { Id = "zapier", Name = "Zapier", Description = "Conecta con miles de aplicaciones", Logo = "/images/zapier-logo.png", IsConnected = true },
+        new() { Id = "slack", Name = "Slack", Description = "Notificaciones en Slack", Logo = "/images/slack-logo.png", IsConnected = false },
+        new() { Id = "hubspot", Name = "HubSpot", Description = "CRM y automatización de marketing", Logo = "/images/hubspot-logo.png", IsConnected = false },
+        new() { Id = "salesforce", Name = "Salesforce", Description = "Plataforma CRM líder", Logo = "/images/salesforce-logo.png", IsConnected = false }
+    };
+
+    private void SetActiveSection(string section)
+    {
+        activeSection = section;
+    }
+
+    private async Task SaveSettings()
+    {
+        isSaving = true;
+        StateHasChanged();
+
+        try
+        {
+            await Task.Delay(1000); // Simular llamada a API
+            await JSRuntime.InvokeVoidAsync("alert", "Configuración guardada exitosamente");
+        }
+        finally
+        {
+            isSaving = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task ResetChanges()
+    {
+        // Recargar configuración desde el servidor
+        await JSRuntime.InvokeVoidAsync("alert", "Cambios descartados");
+    }
+
+    // Métodos para WhatsApp
+    private async Task ConfigureInstance(string instanceId)
+    {
+        await JSRuntime.InvokeVoidAsync("alert", $"Configurando instancia {instanceId}");
+    }
+
+    private async Task DisconnectInstance(string instanceId)
+    {
+        await JSRuntime.InvokeVoidAsync("alert", $"Instancia {instanceId} desconectada");
+    }
+
+    private async Task AddNewInstance()
+    {
+        await JSRuntime.InvokeVoidAsync("alert", "Redirigiendo a configuración de nueva instancia");
+    }
+
+    // Métodos para API
+    private async Task CreateApiKey()
+    {
+        await JSRuntime.InvokeVoidAsync("alert", "Nueva clave API creada");
+    }
+
+    private async Task ShowApiKey(string keyId)
+    {
+        await JSRuntime.InvokeVoidAsync("alert", "Mostrando clave API");
+    }
+
+    private async Task RevokeApiKey(string keyId)
+    {
+        await JSRuntime.InvokeVoidAsync("alert", "Clave API revocada");
+    }
+
+    private async Task TestWebhook()
+    {
+        await JSRuntime.InvokeVoidAsync("alert", "Webhook probado exitosamente");
+    }
+
+    // Métodos para Integraciones
+    private async Task ConnectIntegration(string integrationId)
+    {
+        await JSRuntime.InvokeVoidAsync("alert", $"Conectando con {integrationId}");
+    }
+
+    private async Task DisconnectIntegration(string integrationId)
+    {
+        await JSRuntime.InvokeVoidAsync("alert", $"Desconectando de {integrationId}");
+    }
+
+    private async Task ConfigureIntegration(string integrationId)
+    {
+        await JSRuntime.InvokeVoidAsync("alert", $"Configurando integración {integrationId}");
+    }
+
+    // Métodos avanzados
+    private async Task ExportData()
+    {
+        await JSRuntime.InvokeVoidAsync("alert", "Exportando datos...");
+    }
+
+    private async Task ImportData()
+    {
+        await JSRuntime.InvokeVoidAsync("alert", "Seleccionar archivo para importar");
+    }
+
+    private async Task ClearAllLogs()
+    {
+        var confirmed = await JSRuntime.InvokeAsync<bool>("confirm", "¿Estás seguro de que quieres limpiar todos los registros?");
+        if (confirmed)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Todos los registros han sido limpiados");
+        }
+    }
+
+    private async Task ResetSettings()
+    {
+        var confirmed = await JSRuntime.InvokeAsync<bool>("confirm", "¿Estás seguro de que quieres restablecer toda la configuración?");
+        if (confirmed)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Configuración restablecida a valores por defecto");
+        }
+    }
+
+    private async Task DeleteAccount()
+    {
+        var confirmed = await JSRuntime.InvokeAsync<bool>("confirm", "¿ESTÁS SEGURO? Esta acción eliminará permanentemente tu cuenta y TODOS los datos. Esta acción NO SE PUEDE DESHACER.");
+        if (confirmed)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Proceso de eliminación de cuenta iniciado");
+        }
+    }    // Modelos
+    public class SettingsModel
+    {
+        public string Timezone { get; set; } = "";
+        public string DateFormat { get; set; } = "";
+        public string TimeFormat { get; set; } = "";
+        public bool AutoLogout { get; set; }
+        public int LogoutTimeMinutes { get; set; }
+        public bool AutoReadMessages { get; set; }
+        public int MessageDelay { get; set; }
+        public int MessageRateLimit { get; set; }
+        public bool AutoResponses { get; set; }
+        public string AutoResponseMessage { get; set; } = "";
+        public int AutoResponseDelay { get; set; }
+        public bool WorkingHours { get; set; }
+        public TimeOnly StartTime { get; set; } = new TimeOnly(9, 0);
+        public TimeOnly EndTime { get; set; } = new TimeOnly(18, 0);
+        public bool[] WorkingDays { get; set; } = new bool[7];
+        public int ApiRateLimit { get; set; }
+        public int DailyApiLimit { get; set; }
+        public int MonthlyApiUsage { get; set; }
+        public int MonthlyApiLimit { get; set; }
+        public string WebhookUrl { get; set; } = "";
+        public bool WebhooksEnabled { get; set; }
+        public string LogLevel { get; set; } = "";
+        public int LogRetentionDays { get; set; }
+    }
+
+    public class WhatsAppInstance
+    {
+        public string Id { get; set; } = "";
+        public string Name { get; set; } = "";
+        public string Phone { get; set; } = "";
+        public string Status { get; set; } = "";
+        public string Avatar { get; set; } = "";
+    }
+
+    public class ApiKeyModel
+    {
+        public string Id { get; set; } = "";
+        public string Name { get; set; } = "";
+        public string Created { get; set; } = "";
+        public string LastUsed { get; set; } = "";
+    }
+
+    public class IntegrationModel
+    {
+        public string Id { get; set; } = "";
+        public string Name { get; set; } = "";
+        public string Description { get; set; } = "";
+        public string Logo { get; set; } = "";
+        public bool IsConnected { get; set; }
+    }
+}

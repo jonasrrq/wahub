@@ -1,0 +1,233 @@
+@page "/contact"
+@rendermode InteractiveServer
+@inject IJSRuntime JSRuntime
+@inject NavigationService Navigation
+@inject LocalizationService Localization
+
+<PageTitle>Contacto - WaHub</PageTitle>
+
+<div class="contact-page">
+    <HomeNavbar />
+    
+    <div class="contact-hero">
+        <div class="container">
+            <div class="contact-hero-content">
+                <h1>Contáctanos</h1>
+                <p>¿Tienes preguntas? Nos encantaría ayudarte. Ponte en contacto con nuestro equipo.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Información de Contacto</h2>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>support@wahub.com</p>
+                                <span>Respuesta en 24 horas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Teléfono</h3>
+                                <p>+1 (555) 123-4567</p>
+                                <span>Lunes a Viernes 9AM - 6PM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>WhatsApp</h3>
+                                <p>+1 (555) 987-6543</p>
+                                <span>Soporte inmediato</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Oficina</h3>
+                                <p>123 Tech Street<br>Innovation City, IC 12345</p>
+                                <span>Visítanos con cita previa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-section">
+                    <h2>Envíanos un Mensaje</h2>
+                    <EditForm Model="@contactForm" OnValidSubmit="@HandleContactSubmit" FormName="contactForm">
+                        <DataAnnotationsValidator />
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Nombre</label>
+                                <InputText id="firstName" @bind-Value="contactForm.FirstName" class="form-input" placeholder="Tu nombre" />
+                                <ValidationMessage For="@(() => contactForm.FirstName)" />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">Apellido</label>
+                                <InputText id="lastName" @bind-Value="contactForm.LastName" class="form-input" placeholder="Tu apellido" />
+                                <ValidationMessage For="@(() => contactForm.LastName)" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <InputText id="email" @bind-Value="contactForm.Email" class="form-input" placeholder="tu@email.com" type="email" />
+                            <ValidationMessage For="@(() => contactForm.Email)" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Empresa (Opcional)</label>
+                            <InputText id="company" @bind-Value="contactForm.Company" class="form-input" placeholder="Nombre de tu empresa" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <InputSelect id="subject" @bind-Value="contactForm.Subject" class="form-input">
+                                <option value="">Selecciona un asunto</option>
+                                <option value="sales">Consulta de Ventas</option>
+                                <option value="support">Soporte Técnico</option>
+                                <option value="billing">Facturación</option>
+                                <option value="feature">Solicitud de Función</option>
+                                <option value="partnership">Asociación</option>
+                                <option value="other">Otro</option>
+                            </InputSelect>
+                            <ValidationMessage For="@(() => contactForm.Subject)" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <InputTextArea id="message" @bind-Value="contactForm.Message" class="form-textarea" placeholder="Cuéntanos cómo podemos ayudarte..." rows="5" />
+                            <ValidationMessage For="@(() => contactForm.Message)" />
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <InputCheckbox @bind-Value="contactForm.AcceptPrivacy" />
+                                <span class="checkmark"></span>
+                                Acepto la <a href="/privacy">Política de Privacidad</a> y los <a href="/terms">Términos de Servicio</a>
+                            </label>
+                            <ValidationMessage For="@(() => contactForm.AcceptPrivacy)" />
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large" disabled="@isSubmitting">
+                            @if (isSubmitting)
+                            {
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <span>Enviando...</span>
+                            }
+                            else
+                            {
+                                <span>Enviar Mensaje</span>
+                            }
+                        </button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-faq">
+        <div class="container">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>¿Cuánto tiempo toma recibir una respuesta?</h3>
+                    <p>Respondemos a todos los emails dentro de 24 horas durante días laborables. Para consultas urgentes, utiliza nuestro WhatsApp.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>¿Ofrecen soporte en español?</h3>
+                    <p>¡Por supuesto! Nuestro equipo de soporte está disponible en español, inglés y otros idiomas.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>¿Puedo agendar una demo personalizada?</h3>
+                    <p>Sí, ofrecemos demos personalizadas gratuitas. Contacta a nuestro equipo de ventas para agendar una sesión.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>¿Hay descuentos para organizaciones sin fines de lucro?</h3>
+                    <p>Sí, ofrecemos precios especiales para ONGs y organizaciones educativas. Contacta a ventas para más detalles.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private ContactFormModel contactForm = new();
+    private bool isSubmitting = false;
+
+    public class ContactFormModel
+    {
+        [Required(ErrorMessage = "El nombre es requerido")]
+        public string FirstName { get; set; } = "";
+
+        [Required(ErrorMessage = "El apellido es requerido")]
+        public string LastName { get; set; } = "";
+
+        [Required(ErrorMessage = "El email es requerido")]
+        [EmailAddress(ErrorMessage = "Formato de email inválido")]
+        public string Email { get; set; } = "";
+
+        public string Company { get; set; } = "";
+
+        [Required(ErrorMessage = "Selecciona un asunto")]
+        public string Subject { get; set; } = "";
+
+        [Required(ErrorMessage = "El mensaje es requerido")]
+        [MinLength(10, ErrorMessage = "El mensaje debe tener al menos 10 caracteres")]
+        public string Message { get; set; } = "";
+
+        [Range(typeof(bool), "true", "true", ErrorMessage = "Debes aceptar la política de privacidad")]
+        public bool AcceptPrivacy { get; set; } = false;
+    }
+
+    private async Task HandleContactSubmit()
+    {
+        isSubmitting = true;
+        StateHasChanged();
+
+        try
+        {
+            // Simular envío del formulario
+            await Task.Delay(2000);
+            
+            // Aquí iría la lógica para enviar el email
+            await JSRuntime.InvokeVoidAsync("alert", "¡Mensaje enviado exitosamente! Te contactaremos pronto.");
+              // Limpiar formulario
+            contactForm = new();
+        }
+        catch (Exception ex)
+        {
+            // Registro del error para debugging
+            _ = ex; // Suprimir advertencia sobre variable no utilizada
+            await JSRuntime.InvokeVoidAsync("alert", "Error al enviar el mensaje. Por favor, intenta de nuevo.");
+        }
+        finally
+        {
+            isSubmitting = false;
+            StateHasChanged();
+        }
+    }
+}

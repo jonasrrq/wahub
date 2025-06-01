@@ -1,0 +1,226 @@
+@page "/dashboard"
+@rendermode InteractiveServer
+@using WaHub.Blazor.Services
+@using Microsoft.AspNetCore.Components.Authorization
+@implements IDisposable
+@inject LocalizationService Localization
+@attribute [Authorize]
+
+<PageTitle>Dashboard - WaHub</PageTitle>
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>Dashboard</h1>
+        <p>Bienvenido a tu panel de control de WaHub</p>
+    </div>
+    
+    <div class="dashboard-grid">
+        <div class="dashboard-card">
+            <div class="card-title">Instancias Activas</div>
+            <div class="card-value">3</div>
+            <div class="card-change positive">+1 esta semana</div>
+        </div>
+        
+        <div class="dashboard-card">
+            <div class="card-title">Mensajes Enviados</div>
+            <div class="card-value">1,234</div>
+            <div class="card-change positive">+12% vs mes anterior</div>
+        </div>
+        
+        <div class="dashboard-card">
+            <div class="card-title">Contactos</div>
+            <div class="card-value">567</div>
+            <div class="card-change positive">+23 nuevos</div>
+        </div>
+        
+        <div class="dashboard-card">
+            <div class="card-title">API Calls</div>
+            <div class="card-value">89,012</div>
+            <div class="card-change negative">-5% vs ayer</div>
+        </div>
+    </div>
+    
+    <div class="chart-container">
+        <h2 class="chart-title">Mensajes por Día</h2>
+        <div class="chart-placeholder">
+            Gráfico de mensajes enviados (integrar Chart.js)
+        </div>
+    </div>
+    
+    <div class="recent-activity">
+        <h2 class="activity-title">Actividad Reciente</h2>
+        <ul class="activity-list">
+            <li class="activity-item">
+                <span class="activity-text">Mensaje enviado a +34 123 456 789</span>
+                <span class="activity-time">Hace 5 min</span>
+            </li>
+            <li class="activity-item">
+                <span class="activity-text">Nueva instancia "Soporte Cliente" creada</span>
+                <span class="activity-time">Hace 1 hora</span>
+            </li>
+            <li class="activity-item">
+                <span class="activity-text">Webhook configurado para instancia principal</span>
+                <span class="activity-time">Hace 2 horas</span>
+            </li>
+            <li class="activity-item">
+                <span class="activity-text">Contacto agregado: Juan Pérez</span>
+                <span class="activity-time">Hace 3 horas</span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="quick-actions">
+        <h2 class="actions-title">Acciones Rápidas</h2>
+        <div class="actions-grid">
+            <button class="action-button">
+                Nueva Instancia
+            </button>
+            <button class="action-button secondary">
+                Enviar Mensaje
+            </button>
+            <button class="action-button success">
+                Ver API Docs
+            </button>
+            <button class="action-button warning">
+                Soporte
+            </button>
+        </div>
+        
+        <!-- Sección de prueba de interactividad -->
+        <div class="dashboard-card" style="grid-column: 1 / -1; margin-top: 20px;">
+            <div class="card-title">🧪 Prueba de Interactividad</div>
+            <p>Esta sección demuestra que la interactividad del servidor está funcionando:</p>
+            <div style="margin: 15px 0;">
+                <button class="action-button primary" @onclick="TestInteractivity">
+                    Probar Interactividad (Clicks: @clickCount)
+                </button>
+                <button class="action-button secondary" @onclick="ResetCounter" style="margin-left: 10px;">
+                    Reiniciar Contador
+                </button>
+            </div>
+            @if (showMessage)
+            {
+                <div style="padding: 10px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 5px; color: #155724; margin-top: 10px;">
+                    ✅ ¡La interactividad funciona perfectamente! Los botones responden a los eventos onclick.
+                </div>
+            }
+        </div>
+    </div>
+    
+    <!-- Monitor de Estado en Tiempo Real -->
+    <div class="dashboard-card" style="grid-column: 1 / -1; margin-top: 20px;">
+        <div class="card-title">📊 Monitor de Estado en Tiempo Real</div>
+        <p>Datos que se actualizan automáticamente cada 3 segundos:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+            <div style="padding: 15px; background-color: #f8f9fa; border-radius: 8px; text-align: center;">
+                <div style="font-size: 24px; font-weight: bold; color: #007bff;">@onlineUsers</div>
+                <div style="font-size: 14px; color: #6c757d;">Usuarios en línea</div>
+            </div>
+            
+            <div style="padding: 15px; background-color: #f8f9fa; border-radius: 8px; text-align: center;">
+                <div style="font-size: 24px; font-weight: bold; color: #28a745;">@messagesPerSecond/s</div>
+                <div style="font-size: 14px; color: #6c757d;">Mensajes por segundo</div>
+            </div>
+            
+            <div style="padding: 15px; background-color: #f8f9fa; border-radius: 8px; text-align: center;">
+                <div style="font-size: 24px; font-weight: bold; color: #ffc107;">@serverLoad%</div>
+                <div style="font-size: 14px; color: #6c757d;">Carga del servidor</div>
+            </div>
+            
+            <div style="padding: 15px; background-color: #f8f9fa; border-radius: 8px; text-align: center;">
+                <div style="font-size: 24px; font-weight: bold; color: #17a2b8;">@queueSize</div>
+                <div style="font-size: 14px; color: #6c757d;">Cola de mensajes</div>
+            </div>
+        </div>
+        
+        <div style="margin: 15px 0;">
+            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                <input type="checkbox" @bind="isMonitoringActive" @onchange="ToggleMonitoring" />
+                <span>@(isMonitoringActive ? "⏸️ Pausar" : "▶️ Iniciar") monitoreo automático</span>
+            </label>
+        </div>
+        
+        @if (isMonitoringActive)
+        {
+            <div style="padding: 10px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 5px; color: #155724;">
+                ✅ Monitor activo - Actualizando datos cada 3 segundos...
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private int clickCount = 0;
+    private bool showMessage = false;
+    
+    // Monitor de estado en tiempo real
+    private int onlineUsers = 127;
+    private int messagesPerSecond = 15;
+    private int serverLoad = 42;
+    private int queueSize = 8;
+    private bool isMonitoringActive = false;
+    private Timer? monitoringTimer;
+
+    private void TestInteractivity()
+    {
+        clickCount++;
+        showMessage = true;
+        StateHasChanged();
+    }
+
+    private void ResetCounter()
+    {
+        clickCount = 0;
+        showMessage = false;
+        StateHasChanged();
+    }
+    
+    private void ToggleMonitoring()
+    {
+        if (isMonitoringActive)
+        {
+            StartMonitoring();
+        }
+        else
+        {
+            StopMonitoring();
+        }
+    }
+    
+    private void StartMonitoring()
+    {
+        monitoringTimer = new Timer(UpdateMetrics, null, TimeSpan.Zero, TimeSpan.FromSeconds(3));
+    }
+    
+    private void StopMonitoring()
+    {
+        monitoringTimer?.Dispose();
+        monitoringTimer = null;
+    }
+    
+    private void UpdateMetrics(object? state)
+    {
+        var random = new Random();
+        
+        // Simular cambios realistas en las métricas
+        onlineUsers += random.Next(-5, 8);
+        onlineUsers = Math.Max(50, Math.Min(200, onlineUsers));
+        
+        messagesPerSecond += random.Next(-3, 5);
+        messagesPerSecond = Math.Max(5, Math.Min(30, messagesPerSecond));
+        
+        serverLoad += random.Next(-8, 10);
+        serverLoad = Math.Max(20, Math.Min(90, serverLoad));
+        
+        queueSize += random.Next(-2, 4);
+        queueSize = Math.Max(0, Math.Min(20, queueSize));
+        
+        InvokeAsync(StateHasChanged);
+    }
+    
+    public void Dispose()
+    {
+        monitoringTimer?.Dispose();
+    }
+}

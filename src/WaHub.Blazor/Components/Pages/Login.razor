@@ -1,0 +1,60 @@
+@page "/login"
+@rendermode InteractiveServer
+@using WaHub.Blazor.Services
+@inject NavigationService Navigation
+@inject AuthService Auth
+@inject LocalizationService Localization
+
+<PageTitle>@Localization.Login - WaHub</PageTitle>
+
+<div class="login-container">
+    <HomeNavbar />
+    
+    <div class="login-form">
+        <h1>@Localization.Login</h1>
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" @bind="email" required />
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" @bind="password" required />
+        </div>
+        
+        <button type="button" class="login-button" disabled="@isLoading" @onclick="HandleLogin">
+            @if (isLoading)
+            {
+                <span>Iniciando sesión...</span>
+            }
+            else
+            {
+                <span>@Localization.Login</span>
+            }
+        </button>
+        
+        <p>¿No tienes cuenta? <a href="/register">Regístrate aquí</a></p>
+    </div>
+</div>
+
+@code {
+    private string email = "";
+    private string password = "";
+    private bool isLoading = false;
+
+    private async Task HandleLogin()
+    {
+        isLoading = true;
+        
+        // Simular login exitoso (en una app real, aquí harías la llamada a la API)
+        await Task.Delay(1000);
+        
+        // Simular token de autenticación
+        await Auth.SetTokenAsync("fake-jwt-token");
+        
+        Navigation.Push("/dashboard");
+        
+        isLoading = false;
+    }
+}

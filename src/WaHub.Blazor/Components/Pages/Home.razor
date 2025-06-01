@@ -1,0 +1,266 @@
+@page "/"
+@rendermode InteractiveServer
+@using WaHub.Blazor.Services
+@inject NavigationService Navigation
+@inject LocalizationService Localization
+
+<PageTitle>WaHub - Plataforma de Gestión de WhatsApp</PageTitle>
+
+<div class="home-container">
+    <HomeNavbar />
+    
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="logo-title">
+                <span class="status-icon">🟢</span>
+                <h1 class="app-title">WaHub</h1>
+            </div>
+            
+            <h2 class="main-title">
+                @Localization.HomeTitle <span class="highlight">@Localization.ForDevelopers</span>
+            </h2>
+            
+            <p class="description">
+                @Localization.HomeDescription
+            </p>
+            
+            <div class="action-buttons">
+                <button class="btn btn-primary" @onclick="@(() => Navigation.Push("/register"))">
+                    @Localization.StartFreeTrial
+                </button>
+                <button class="btn btn-secondary" @onclick="@(() => Navigation.Push("/login"))">
+                    @Localization.Login
+                </button>
+            </div>
+            
+            <p class="trial-info">
+                @Localization.TrialInfo
+            </p>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegir WaHub?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>API Ultrarrápida</h3>
+                    <p>Integra WhatsApp en segundos con nuestra API REST simple y potente. Tiempo de respuesta promedio &lt; 100ms.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Seguridad Avanzada</h3>
+                    <p>Autenticación JWT, encriptación end-to-end y cumplimiento GDPR. Tus datos están protegidos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Analytics en Tiempo Real</h3>
+                    <p>Monitorea métricas de entrega, respuesta y engagement con dashboards interactivos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Webhooks Inteligentes</h3>
+                    <p>Recibe notificaciones instantáneas de mensajes entrantes y estados de entrega.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Múltiples Instancias</h3>
+                    <p>Gestiona varios números de WhatsApp desde una sola plataforma. Ideal para equipos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Multimedia Completo</h3>
+                    <p>Envía imágenes, videos, audios, documentos y ubicaciones sin limitaciones.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Code Example Section -->
+    <div class="code-section">
+        <div class="container">
+            <h2 class="section-title">Integración en minutos</h2>
+            <div class="code-example">
+                <div class="code-header">
+                    <span class="code-language">JavaScript</span>
+                    <button class="copy-btn">Copiar</button>
+                </div>
+                <pre class="code-content"><code>// Enviar mensaje con WaHub API
+const response = await fetch('https://api.wahub.dev/v1/messages', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    to: '+34666123456',
+    message: '¡Hola! Mensaje enviado desde WaHub 🚀'
+  })
+});
+
+const result = await response.json();
+console.log('Mensaje enviado:', result.messageId);</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Precios transparentes</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Desarrollador</h3>
+                    <div class="price">
+                        <span class="currency">€</span>
+                        <span class="amount">0</span>
+                        <span class="period">/mes</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>✅ 1,000 mensajes/mes</li>
+                        <li>✅ 1 instancia</li>
+                        <li>✅ API completa</li>
+                        <li>✅ Soporte por email</li>
+                    </ul>
+                    <button class="btn btn-outline">Comenzar gratis</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="badge">Más popular</div>
+                    <h3>Startup</h3>
+                    <div class="price">
+                        <span class="currency">€</span>
+                        <span class="amount">29</span>
+                        <span class="period">/mes</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>✅ 50,000 mensajes/mes</li>
+                        <li>✅ 5 instancias</li>
+                        <li>✅ Analytics avanzados</li>
+                        <li>✅ Webhooks</li>
+                        <li>✅ Soporte prioritario</li>
+                    </ul>
+                    <button class="btn btn-primary">Empezar prueba</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Empresa</h3>
+                    <div class="price">
+                        <span class="currency">€</span>
+                        <span class="amount">99</span>
+                        <span class="period">/mes</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>✅ 500,000 mensajes/mes</li>
+                        <li>✅ Instancias ilimitadas</li>
+                        <li>✅ SLA 99.9%</li>
+                        <li>✅ Soporte 24/7</li>
+                        <li>✅ Custom integrations</li>
+                    </ul>
+                    <button class="btn btn-outline">Contactar ventas</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen nuestros usuarios</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p>"WaHub transformó completamente nuestro sistema de notificaciones. La integración fue increíblemente fácil."</p>
+                    <div class="author">
+                        <strong>Carlos Martínez</strong>
+                        <span>CTO, TechStartup</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p>"La API más rápida y confiable que hemos usado. El soporte técnico es excepcional."</p>
+                    <div class="author">
+                        <strong>Ana García</strong>
+                        <span>Lead Developer, E-commerce</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p>"Escalamos de 1,000 a 100,000 mensajes sin problemas. WaHub creció con nosotros."</p>
+                    <div class="author">
+                        <strong>Miguel López</strong>
+                        <span>Founder, SaaS Company</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <div class="container">
+            <h2>¿Listo para comenzar?</h2>
+            <p>Únete a más de 1,000 desarrolladores que ya confían en WaHub</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary large" @onclick="@(() => Navigation.Push("/register"))">
+                    Comenzar gratis
+                </button>
+                <button class="btn btn-secondary large" @onclick="@(() => Navigation.Push("/contact"))">
+                    Contactar ventas
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>WaHub</h4>
+                    <p>La plataforma de WhatsApp API más confiable para desarrolladores.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Producto</h4>
+                    <ul>
+                        <li><a href="/api-docs">API Docs</a></li>
+                        <li><a href="/pricing">Precios</a></li>
+                        <li><a href="/status">Estado del servicio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="/help">Centro de ayuda</a></li>
+                        <li><a href="/contact">Contacto</a></li>
+                        <li><a href="/community">Comunidad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy">Privacidad</a></li>
+                        <li><a href="/terms">Términos</a></li>
+                        <li><a href="/gdpr">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 WaHub. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</div>
