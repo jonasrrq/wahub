@@ -6,14 +6,17 @@
 
 <CascadingAuthenticationState>
     <AuthorizeView>
-        <Authorized>            @if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
-            {                <div class="internal-layout">
+        <Authorized>
+            @if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
+            {
+                <div class="internal-layout">
                     <MobileNavToggle />
                     <div class="sidebar-overlay"></div>
                     <div class="sidebar-container">
                         <WaHubSidebar />
                     </div>
-                    <div class="main-content"><div class="language-switcher-container">
+                    <div class="main-content">
+                        <div class="language-switcher-container">
                             <div class="language-switcher">
                                 <select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
                                     <option value="es">🇪🇸 Español</option>
@@ -40,7 +43,7 @@
 
 @code {
     [Parameter] public RenderFragment? ChildContent { get; set; }
-    
+
     private async Task OnLanguageChanged(ChangeEventArgs e)
     {
         var selectedLanguage = e.Value?.ToString() ?? "es";

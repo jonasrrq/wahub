@@ -2,11 +2,14 @@
 @inject NavigationService Navigation
 @inject LocalizationService Localization
 
-<nav class="home-navbar">
-    <div class="navbar-content">        <div class="logo-section">
-            <img src="/logo-wahub.webp" alt="WaHub Logo" class="logo" />
-            <span class="app-name">WaHub</span>
-        </div>        <div class="nav-actions">
+<nav class="home-navbar">    <div class="navbar-content">
+        <div class="logo-section">
+            <a href="/" @onclick="@(() => Navigation.Push("/"))" @onclick:preventDefault="true" class="logo-link">
+                <img src="/logo-wahub.webp" alt="WaHub Logo" class="logo" />
+                <span class="app-name">WaHub</span>
+            </a>
+        </div>       
+        <div class="nav-actions">
             <nav class="nav-menu">
                 <a href="/pricing" @onclick="@(() => Navigation.Push("/pricing"))" @onclick:preventDefault="true">Precios</a>
                 <a href="/docs" @onclick="@(() => Navigation.Push("/docs"))" @onclick:preventDefault="true">API</a>
@@ -18,7 +21,7 @@
                     <option value="en">🇺🇸 EN</option>
                 </select>
             </div>
-            <button class="nav-btn" @onclick="GoToLogin">
+            <button class="nav-btn nav-btn-primary" @onclick="GoToLogin">
                 @Localization.Login
             </button>
             <button class="nav-btn nav-btn-primary" @onclick="GoToRegister">
@@ -33,12 +36,12 @@
     {
         Navigation.Push("/login");
     }
-    
+
     private void GoToRegister()
     {
         Navigation.Push("/register");
     }
-    
+
     private async Task OnLanguageChanged(ChangeEventArgs e)
     {
         var selectedLanguage = e.Value?.ToString() ?? "es";

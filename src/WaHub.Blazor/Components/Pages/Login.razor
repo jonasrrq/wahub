@@ -7,9 +7,9 @@
 
 <PageTitle>@Localization.Login - WaHub</PageTitle>
 
+<HomeNavbar />
+
 <div class="login-container">
-    <HomeNavbar />
-    
     <div class="login-form">
         <h1>@Localization.Login</h1>
         
@@ -22,11 +22,13 @@
             <label for="password">Password</label>
             <input type="password" id="password" @bind="password" required />
         </div>
-        
-        <button type="button" class="login-button" disabled="@isLoading" @onclick="HandleLogin">
+          <button type="button" class="login-button" disabled="@isLoading" @onclick="HandleLogin">
             @if (isLoading)
             {
-                <span>Iniciando sesión...</span>
+                <div class="login-loading">
+                    <div class="login-spinner"></div>
+                    <span>Iniciando sesión...</span>
+                </div>
             }
             else
             {
