@@ -1,4 +1,6 @@
-namespace WaHub.Services;
+using WaHub.Shared.Services;
+
+namespace WaHub.Shared.Models;
 
 public class NotificationService
 {
@@ -43,21 +45,4 @@ public class NotificationService
             Duration = duration
         });
     }
-}
-
-public class NotificationMessage
-{
-    public NotificationType Type { get; set; }
-    public string Message { get; set; } = "";
-    public int Duration { get; set; } = 5000;
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
-    public string Id { get; set; } = Guid.NewGuid().ToString();
-}
-
-public enum NotificationType
-{
-    Success,
-    Error,
-    Warning,
-    Info
 }

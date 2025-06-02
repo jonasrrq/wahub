@@ -13,6 +13,7 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/WaHub/WaHub.csproj", "src/WaHub/"]
+COPY ["src/WaHub.Shared/WaHub.Shared.csproj", "src/WaHub.Shared/"]
 COPY ["src/WaHub.Client/WaHub.Client.csproj", "src/WaHub.Client/"]
 RUN dotnet restore "./src/WaHub/WaHub.csproj"
 COPY . .

@@ -4,7 +4,7 @@ using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
 
-namespace WaHub.Blazor.Services
+namespace WaHub.Blazor.Handlers
 {
     public class BlazorAuthenticationSchemeOptions : AuthenticationSchemeOptions
     {

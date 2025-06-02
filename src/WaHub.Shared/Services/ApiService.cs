@@ -1,58 +1,34 @@
-using System.Net.Http.Headers;
+using System.Net.Http.Json;
 
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using WaHub.Shared.Models;
 
-using WaHub.Models;
-
-namespace WaHub.Services
+namespace WaHub.Shared.Services
 {
     public class ApiService
     {
         private readonly HttpClient _httpClient;
-        private readonly ProtectedLocalStorage _localStorage;
-        private readonly NavigationManager _navigation;
 
-        public ApiService(HttpClient httpClient, ProtectedLocalStorage localStorage, NavigationManager navigation)
+        public ApiService(IHttpClientFactory httpClientFactory)//, NavigationManager navigation)
         {
-            _httpClient = httpClient;
-            _localStorage = localStorage;
-            _navigation = navigation;
-        }
-
-        private async Task AddAuthHeaderAsync()
-        {
-            var tokenResult = await _localStorage.GetAsync<string>("token");
-            if (tokenResult.Success && !string.IsNullOrEmpty(tokenResult.Value))
-            {
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenResult.Value);
-            }
-            else
-            {
-                _httpClient.DefaultRequestHeaders.Authorization = null;
-            }
+            _httpClient = httpClientFactory.CreateClient("AuthHttpClient");
         }
 
         public async Task<T?> GetAsync<T>(string url)
-        {
-            await AddAuthHeaderAsync();
+        {          
             return await _httpClient.GetFromJsonAsync<T>(url);
         }
 
         public async Task<HttpResponseMessage> PostAsync<T>(string url, T data)
         {
-            await AddAuthHeaderAsync();
             return await _httpClient.PostAsJsonAsync(url, data);
         }
 
         public async Task<HttpResponseMessage> PutAsync<T>(string url, T data)
         {
-            await AddAuthHeaderAsync();
             return await _httpClient.PutAsJsonAsync(url, data);
         }
         public async Task<HttpResponseMessage> DeleteAsync(string url)
         {
-            await AddAuthHeaderAsync();
             return await _httpClient.DeleteAsync(url);
         }
 

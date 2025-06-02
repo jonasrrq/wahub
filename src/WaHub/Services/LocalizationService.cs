@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.Extensions.Localization;
 
-namespace WaHub.Services;
+namespace WaHub.Shared.Services;
 
 public class LocalizationService
 {

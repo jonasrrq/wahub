@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Components.Authorization;
 
+using WaHub.Blazor.Handlers;
 using WaHub.Components;
 using WaHub.Services;
+using WaHub.Shared.Models;
+using WaHub.Shared.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,21 +13,27 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
+builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<ApiService>();
 builder.Services.AddScoped<NavigationService>();
 builder.Services.AddScoped<LocalizationService>();
 builder.Services.AddScoped<NotificationService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
+builder.Services.AddScoped<ICrossPlatformStorageService, CrossPlatformStorageService>();
 
 // Add localization services
 builder.Services.AddLocalization();
 
-// Add HTTP client
-builder.Services.AddHttpClient();
+// Add HTTP client with auth handler
+builder.Services.AddScoped<AuthHeaderHandler>();
+builder.Services.AddHttpClient("AuthHttpClient")
+    .AddHttpMessageHandler<AuthHeaderHandler>();
+
+// Register a named client without auth for public endpoints if needed
+builder.Services.AddHttpClient("PublicHttpClient");
 
 var app = builder.Build();
-
 
 // Configure localization
 //var supportedCultures = new[] { "es", "en" };
@@ -44,7 +53,6 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 
 app.UseAntiforgery();
 
