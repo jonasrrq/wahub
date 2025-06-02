@@ -1,0 +1,173 @@
+@page "/register"
+@rendermode InteractiveServer
+
+@inject NavigationService Navigation
+@inject LocalizationService Localization
+@inject AuthService AuthService
+@inject ApiService ApiService
+
+<PageTitle>Registro - WaHub</PageTitle>
+
+<HomeNavbar />
+
+<div class="register-container">
+    <div class="register-content">
+        <div class="register-form-container">
+            <div class="register-form">
+                <div class="form-header">
+                    <h1>Crear cuenta</h1>
+                    <p>Únete a WaHub y comienza a integrar WhatsApp en tus aplicaciones</p>
+                </div>
+                
+                <form @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Nombre</label>
+                            <input type="text" id="firstName" @bind="registerModel.FirstName" required />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Apellido</label>
+                            <input type="text" id="lastName" @bind="registerModel.LastName" required />
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" @bind="registerModel.Email" required />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Empresa</label>
+                        <input type="text" id="company" @bind="registerModel.Company" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" @bind="registerModel.Password" required />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar contraseña</label>
+                        <input type="password" id="confirmPassword" @bind="registerModel.ConfirmPassword" required />
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" @bind="acceptTerms" required />
+                            <span class="checkmark"></span>
+                            Acepto los <a href="/terms" target="_blank">términos y condiciones</a> y la <a href="/privacy" target="_blank">política de privacidad</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full" disabled="@(!acceptTerms || isLoading)">
+                        @if (isLoading)
+                        {
+                            <span class="loading-spinner"></span>
+                            <span>Creando cuenta...</span>
+                        }
+                        else
+                        {
+                            <span>Crear cuenta gratuita</span>
+                        }
+                    </button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>¿Ya tienes una cuenta? <a href="/login" @onclick="@(() => Navigation.Push("/login"))" @onclick:preventDefault="true">Inicia sesión</a></p>
+                </div>
+                
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="error-message">
+                        @errorMessage
+                    </div>
+                }
+            </div>
+            
+            <div class="register-benefits">
+                <h3>Lo que obtienes con WaHub</h3>
+                <ul class="benefits-list">
+                    <li>✅ 1,000 mensajes gratuitos al mes</li>
+                    <li>✅ API REST fácil de usar</li>
+                    <li>✅ Webhooks en tiempo real</li>
+                    <li>✅ Dashboard de analíticas</li>
+                    <li>✅ Soporte técnico 24/7</li>
+                    <li>✅ Documentación completa</li>
+                </ul>
+                
+                <div class="testimonial">
+                    <blockquote>
+                        "WaHub transformó nuestra comunicación con clientes. La integración fue súper simple."
+                    </blockquote>
+                    <cite>- María González, CTO de TechCorp</cite>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private RegisterModel registerModel = new();
+    private bool acceptTerms = false;
+    private bool isLoading = false;
+    private string errorMessage = "";
+
+    public class RegisterModel
+    {
+        public string FirstName { get; set; } = "";
+        public string LastName { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string Company { get; set; } = "";
+        public string Password { get; set; } = "";
+        public string ConfirmPassword { get; set; } = "";
+    }
+
+    private async Task HandleSubmit()
+    {
+        errorMessage = "";
+        
+        if (registerModel.Password != registerModel.ConfirmPassword)
+        {
+            errorMessage = "Las contraseñas no coinciden";
+            return;
+        }
+        
+        if (registerModel.Password.Length < 6)
+        {
+            errorMessage = "La contraseña debe tener al menos 6 caracteres";
+            return;
+        }
+        
+        if (!acceptTerms)
+        {
+            errorMessage = "Debes aceptar los términos y condiciones";
+            return;
+        }
+        
+        isLoading = true;
+        
+        try
+        {
+            // Llamada real al backend para registro
+            var response = await ApiService.PostAsync("https://api.wahub.dev/v1/auth/register", registerModel);
+            if (response.IsSuccessStatusCode)
+            {
+                // Redirigir a dashboard después del registro exitoso
+                Navigation.Push("/dashboard");
+            }
+            else
+            {
+                errorMessage = "Error al crear la cuenta. Por favor, verifica los datos.";
+            }
+        }
+        catch (Exception)
+        {
+            errorMessage = "Error al crear la cuenta. Por favor, inténtalo de nuevo.";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}

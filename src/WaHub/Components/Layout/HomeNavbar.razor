@@ -1,0 +1,57 @@
+
+@inject NavigationService Navigation
+@inject LocalizationService Localization
+
+<nav class="home-navbar">
+    <div class="navbar-content">
+        <div class="logo-section">
+            <a href="/" @onclick="@(() => Navigation.Push("/"))" @onclick:preventDefault="true" class="logo-link">
+                <img src="/logo-wahub.webp" alt="WaHub Logo" class="logo" />
+                <span class="app-name">WaHub</span>
+            </a>
+        </div>
+        <div class="nav-actions">
+            <nav class="nav-menu">
+                <a href="/pricing" @onclick="@(() => Navigation.Push("/pricing"))" @onclick:preventDefault="true">Precios</a>
+                <a href="/docs" @onclick="@(() => Navigation.Push("/docs"))" @onclick:preventDefault="true">API</a>
+                <a href="/contact" @onclick="@(() => Navigation.Push("/contact"))" @onclick:preventDefault="true">Contacto</a>
+            </nav>
+            <div class="language-switcher">
+                <select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="en">🇺🇸 EN</option>
+                </select>
+            </div>
+
+            <a class="nav-btn nav-btn-primary" href="/login" @onclick="@(() => Navigation.Push("/login"))" @onclick:preventDefault="true">@Localization.Login</a>
+            <a class="nav-btn nav-btn-primary" href="/register" @onclick="@(() => Navigation.Push("/register"))" @onclick:preventDefault="true">Registrarse</a>
+            
+
+            @* <button class="nav-btn nav-btn-primary" @onclick="GoToLogin">
+                @Localization.Login
+            </button>
+            <button class="nav-btn nav-btn-primary" @onclick="GoToRegister">
+                Registrarse
+            </button> *@
+        </div>
+    </div>
+</nav>
+
+@code {
+    private void GoToLogin()
+    {
+        Navigation.Push("/login");
+    }
+
+    private void GoToRegister()
+    {
+        Navigation.Push("/register");
+    }
+
+    private async Task OnLanguageChanged(ChangeEventArgs e)
+    {
+        var selectedLanguage = e.Value?.ToString() ?? "es";
+        await Localization.SetLanguageAsync(selectedLanguage);
+        StateHasChanged();
+    }
+}

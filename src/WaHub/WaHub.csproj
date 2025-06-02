@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<EnableSdkContainerSupport>true</EnableSdkContainerSupport>
+		<ContainerRepository>jonasrq/wahub</ContainerRepository>
+		<ContainerFamily>alpine</ContainerFamily>
+		<RuntimeIdentifiers>linux-x64;linux-arm64</RuntimeIdentifiers>
+		<UserSecretsId>d4cbdb5e-d7ce-4171-8189-25d279d6eca0</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..</DockerfileContext>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.5" />
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="9.0.5" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1-Preview.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\WaHub.Client\WaHub.Client.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,120 @@
+
+@inject NotificationService NotificationService
+@implements IDisposable
+
+<div class="notifications-container">
+    @foreach (var notification in _notifications)
+    {
+        <div class="notification notification-@notification.Type.ToString().ToLower() @(notification.IsRemoving ? "removing" : "")" 
+             @key="notification.Id">
+            <div class="notification-content">
+                <div class="notification-icon">
+                    @GetIcon(notification.Type)
+                </div>
+                <div class="notification-message">
+                    @notification.Message
+                </div>
+                <button class="notification-close" @onclick="() => RemoveNotification(notification.Id)">
+                    ✖
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private readonly List<NotificationItemViewModel> _notifications = new();
+    private System.Threading.Timer? _cleanupTimer;
+
+    protected override void OnInitialized()
+    {
+        NotificationService.OnNotification += HandleNotification;
+        
+        // Timer para limpiar notificaciones expiradas
+        _cleanupTimer = new System.Threading.Timer(CleanupExpiredNotifications, null, 1000, 1000);
+    }
+
+    private void HandleNotification(NotificationMessage notification)
+    {
+        var viewModel = new NotificationItemViewModel
+        {
+            Id = notification.Id,
+            Type = notification.Type,
+            Message = notification.Message,
+            Duration = notification.Duration,
+            CreatedAt = notification.CreatedAt,
+            IsRemoving = false
+        };
+
+        _notifications.Add(viewModel);
+        InvokeAsync(StateHasChanged);
+
+        // Auto-remover después del tiempo especificado
+        _ = Task.Delay(notification.Duration).ContinueWith(_ =>
+        {
+            InvokeAsync(() => RemoveNotification(notification.Id));
+        });
+    }
+
+    private async Task RemoveNotification(string id)
+    {
+        var notification = _notifications.FirstOrDefault(n => n.Id == id);
+        if (notification != null)
+        {
+            notification.IsRemoving = true;
+            StateHasChanged();
+            
+            // Esperar a que termine la animación
+            await Task.Delay(300);
+            
+            _notifications.Remove(notification);
+            StateHasChanged();
+        }
+    }
+
+    private void CleanupExpiredNotifications(object? state)
+    {
+        var now = DateTime.Now;
+        var expiredNotifications = _notifications
+            .Where(n => now - n.CreatedAt > TimeSpan.FromMilliseconds(n.Duration + 300))
+            .ToList();
+
+        if (expiredNotifications.Any())
+        {
+            foreach (var notification in expiredNotifications)
+            {
+                _notifications.Remove(notification);
+            }
+            
+            InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private static string GetIcon(NotificationType type)
+    {
+        return type switch
+        {
+            NotificationType.Success => "✓",
+            NotificationType.Error => "✗",
+            NotificationType.Warning => "⚠",
+            NotificationType.Info => "ℹ",
+            _ => "ℹ"
+        };
+    }
+
+    public void Dispose()
+    {
+        NotificationService.OnNotification -= HandleNotification;
+        _cleanupTimer?.Dispose();
+    }
+
+    private class NotificationItemViewModel
+    {
+        public string Id { get; set; } = "";
+        public NotificationType Type { get; set; }
+        public string Message { get; set; } = "";
+        public int Duration { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public bool IsRemoving { get; set; }
+    }
+}

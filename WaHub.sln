@@ -1,8 +1,11 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.2.0
+VisualStudioVersion = 17.14.36127.28 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaHub.Blazor", "src\WaHub.Blazor\WaHub.Blazor.csproj", "{1D591233-848D-CFC2-4382-EF0453592E32}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaHub", "src\WaHub\WaHub.csproj", "{8DE67ADB-EEAB-4C7F-A6AF-CC2AB97A8113}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaHub.Client", "src\WaHub.Client\WaHub.Client.csproj", "{924D9A41-A4CD-481E-8D00-884A66455145}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,15 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1D591233-848D-CFC2-4382-EF0453592E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D591233-848D-CFC2-4382-EF0453592E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D591233-848D-CFC2-4382-EF0453592E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D591233-848D-CFC2-4382-EF0453592E32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DE67ADB-EEAB-4C7F-A6AF-CC2AB97A8113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DE67ADB-EEAB-4C7F-A6AF-CC2AB97A8113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DE67ADB-EEAB-4C7F-A6AF-CC2AB97A8113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DE67ADB-EEAB-4C7F-A6AF-CC2AB97A8113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{924D9A41-A4CD-481E-8D00-884A66455145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{924D9A41-A4CD-481E-8D00-884A66455145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{924D9A41-A4CD-481E-8D00-884A66455145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{924D9A41-A4CD-481E-8D00-884A66455145}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {65C30110-5EA4-49E0-9FFE-D33214A97A90}
+		SolutionGuid = {97764568-0386-4EFC-B462-CA5CBD1B2083}
 	EndGlobalSection
 EndGlobal

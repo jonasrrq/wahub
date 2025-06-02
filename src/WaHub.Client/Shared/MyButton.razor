@@ -1,0 +1,13 @@
+﻿<button @onclick="OnClick">Cliqueame</button>
+
+<span>@text</span>
+
+@code {
+    string text = string.Empty;
+
+    void OnClick()
+    {
+        text = "Hola Mundo desde el botón";
+        Console.WriteLine("El botón ha sido clickeado");
+    }
+}
