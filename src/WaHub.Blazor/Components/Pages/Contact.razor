@@ -9,166 +9,218 @@
 <HomeNavbar />
 
 <div class="contact-page">
-    <div class="contact-hero">
-        <div class="container">
-            <div class="contact-hero-content">
-                <h1>Contáctanos</h1>
-                <p>¿Tienes preguntas? Nos encantaría ayudarte. Ponte en contacto con nuestro equipo.</p>
+    <div class="contact-hero bg-gradient-primary text-white py-8 py-lg-10">
+        <div class="container text-center">
+            <div class="contact-hero-content max-w-3xl mx-auto">
+                <h1 class="display-4 fw-bold mb-3">Contáctanos</h1>
+                <p class="lead mb-0">¿Tienes preguntas? Nos encantaría ayudarte. Ponte en contacto con nuestro equipo.</p>
             </div>
         </div>
     </div>
 
-    <div class="contact-content">
+    <div class="contact-content py-6 py-lg-8">
         <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Información de Contacto</h2>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <div class="contact-info bg-white p-4 p-lg-5 rounded-3 shadow-sm h-100">
+                        <h2 class="h3 fw-bold mb-4">Información de Contacto</h2>
+                        <div class="d-flex flex-column gap-4">
+                            <div class="contact-method d-flex gap-3 p-3 rounded-3 bg-light-hover transition-all">
+                                <div class="contact-icon d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle" style="width: 48px; height: 48px; flex-shrink: 0;">
+                                    <i class="fas fa-envelope fa-lg"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3 class="h6 fw-bold mb-1">Email</h3>
+                                    <p class="mb-1">support@wahub.com</p>
+                                    <span class="text-muted small">Respuesta en 24 horas</span>
+                                </div>
                             </div>
-                            <div class="contact-details">
-                                <h3>Email</h3>
-                                <p>support@wahub.com</p>
-                                <span>Respuesta en 24 horas</span>
+                            
+                            <div class="contact-method d-flex gap-3 p-3 rounded-3 bg-light-hover transition-all">
+                                <div class="contact-icon d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle" style="width: 48px; height: 48px; flex-shrink: 0;">
+                                    <i class="fas fa-phone fa-lg"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3 class="h6 fw-bold mb-1">Teléfono</h3>
+                                    <p class="mb-1">+1 (555) 123-4567</p>
+                                    <span class="text-muted small">Lunes a Viernes 9AM - 6PM</span>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
+                            
+                            <div class="contact-method d-flex gap-3 p-3 rounded-3 bg-light-hover transition-all">
+                                <div class="contact-icon d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle" style="width: 48px; height: 48px; flex-shrink: 0;">
+                                    <i class="fab fa-whatsapp fa-lg"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3 class="h6 fw-bold mb-1">WhatsApp</h3>
+                                    <p class="mb-1">+1 (555) 987-6543</p>
+                                    <span class="text-muted small">Soporte inmediato</span>
+                                </div>
                             </div>
-                            <div class="contact-details">
-                                <h3>Teléfono</h3>
-                                <p>+1 (555) 123-4567</p>
-                                <span>Lunes a Viernes 9AM - 6PM</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>WhatsApp</h3>
-                                <p>+1 (555) 987-6543</p>
-                                <span>Soporte inmediato</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h3>Oficina</h3>
-                                <p>123 Tech Street<br>Innovation City, IC 12345</p>
-                                <span>Visítanos con cita previa</span>
+                            
+                            <div class="contact-method d-flex gap-3 p-3 rounded-3 bg-light-hover transition-all">
+                                <div class="contact-icon d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle" style="width: 48px; height: 48px; flex-shrink: 0;">
+                                    <i class="fas fa-map-marker-alt fa-lg"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3 class="h6 fw-bold mb-1">Oficina</h3>
+                                    <p class="mb-1">123 Tech Street<br>Innovation City, IC 12345</p>
+                                    <span class="text-muted small">Visítanos con cita previa</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="contact-form-section">
-                    <h2>Envíanos un Mensaje</h2>
-                    <EditForm Model="@contactForm" OnValidSubmit="@HandleContactSubmit" FormName="contactForm">
-                        <DataAnnotationsValidator />
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">Nombre</label>
-                                <InputText id="firstName" @bind-Value="contactForm.FirstName" class="form-input" placeholder="Tu nombre" />
-                                <ValidationMessage For="@(() => contactForm.FirstName)" />
+                <div class="col-lg-7">
+                    <div class="contact-form-section bg-white p-4 p-lg-5 rounded-3 shadow-sm h-100">
+                        <h2 class="h3 fw-bold mb-4">Envía un Mensaje</h2>
+                        <EditForm Model="@contactForm" OnValidSubmit="@HandleContactSubmit" FormName="contactForm">
+                            <DataAnnotationsValidator />
+                            
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName" class="form-label fw-medium">Nombre</label>
+                                        <InputText id="firstName" @bind-Value="contactForm.FirstName" class="form-control form-control-lg" placeholder="Tu nombre" />
+                                        <ValidationMessage For="@(() => contactForm.FirstName)" class="invalid-feedback d-block" />
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastName" class="form-label fw-medium">Apellido</label>
+                                        <InputText id="lastName" @bind-Value="contactForm.LastName" class="form-control form-control-lg" placeholder="Tu apellido" />
+                                        <ValidationMessage For="@(() => contactForm.LastName)" class="invalid-feedback d-block" />
+                                    </div>
+                                </div>
                             </div>
                             
-                            <div class="form-group">
-                                <label for="lastName">Apellido</label>
-                                <InputText id="lastName" @bind-Value="contactForm.LastName" class="form-input" placeholder="Tu apellido" />
-                                <ValidationMessage For="@(() => contactForm.LastName)" />
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-medium">Email</label>
+                                <InputText id="email" @bind-Value="contactForm.Email" class="form-control form-control-lg" placeholder="tu@email.com" type="email" />
+                                <ValidationMessage For="@(() => contactForm.Email)" class="invalid-feedback d-block" />
                             </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <InputText id="email" @bind-Value="contactForm.Email" class="form-input" placeholder="tu@email.com" type="email" />
-                            <ValidationMessage For="@(() => contactForm.Email)" />
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Empresa (Opcional)</label>
-                            <InputText id="company" @bind-Value="contactForm.Company" class="form-input" placeholder="Nombre de tu empresa" />
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Asunto</label>
-                            <InputSelect id="subject" @bind-Value="contactForm.Subject" class="form-input">
-                                <option value="">Selecciona un asunto</option>
-                                <option value="sales">Consulta de Ventas</option>
-                                <option value="support">Soporte Técnico</option>
-                                <option value="billing">Facturación</option>
-                                <option value="feature">Solicitud de Función</option>
-                                <option value="partnership">Asociación</option>
-                                <option value="other">Otro</option>
-                            </InputSelect>
-                            <ValidationMessage For="@(() => contactForm.Subject)" />
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Mensaje</label>
-                            <InputTextArea id="message" @bind-Value="contactForm.Message" class="form-textarea" placeholder="Cuéntanos cómo podemos ayudarte..." rows="5" />
-                            <ValidationMessage For="@(() => contactForm.Message)" />
-                        </div>
-                        
-                        <div class="form-group checkbox-group">
-                            <label class="checkbox-label">
-                                <InputCheckbox @bind-Value="contactForm.AcceptPrivacy" />
-                                <span class="checkmark"></span>
-                                Acepto la <a href="/privacy">Política de Privacidad</a> y los <a href="/terms">Términos de Servicio</a>
-                            </label>
-                            <ValidationMessage For="@(() => contactForm.AcceptPrivacy)" />
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-large" disabled="@isSubmitting">
-                            @if (isSubmitting)
-                            {
-                                <i class="fas fa-spinner fa-spin"></i>
-                                <span>Enviando...</span>
-                            }
-                            else
-                            {
-                                <span>Enviar Mensaje</span>
-                            }
-                        </button>
-                    </EditForm>
+                            
+                            <div class="mb-3">
+                                <label for="company" class="form-label fw-medium">Empresa <span class="text-muted">(Opcional)</span></label>
+                                <InputText id="company" @bind-Value="contactForm.Company" class="form-control form-control-lg" placeholder="Nombre de tu empresa" />
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="subject" class="form-label fw-medium">Asunto</label>
+                                <InputSelect id="subject" @bind-Value="contactForm.Subject" class="form-select form-select-lg">
+                                    <option value="">Selecciona un asunto</option>
+                                    <option value="sales">Consulta de Ventas</option>
+                                    <option value="support">Soporte Técnico</option>
+                                    <option value="billing">Facturación</option>
+                                    <option value="feature">Solicitud de Función</option>
+                                    <option value="partnership">Asociación</option>
+                                    <option value="other">Otro</option>
+                                </InputSelect>
+                                <ValidationMessage For="@(() => contactForm.Subject)" class="invalid-feedback d-block" />
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="message" class="form-label fw-medium">Mensaje</label>
+                                <InputTextArea id="message" @bind-Value="contactForm.Message" class="form-control form-control-lg" style="min-height: 120px;" placeholder="Cuéntanos cómo podemos ayudarte..." />
+                                <ValidationMessage For="@(() => contactForm.Message)" class="invalid-feedback d-block" />
+                            </div>
+                            
+                            <div class="form-check mb-4">
+                                <InputCheckbox id="acceptPrivacy" @bind-Value="contactForm.AcceptPrivacy" class="form-check-input" />
+                                <label class="form-check-label" for="acceptPrivacy">
+                                    Acepto la <a href="/privacy" class="text-primary text-decoration-underline">Política de Privacidad</a> y los <a href="/terms" class="text-primary text-decoration-underline">Términos de Servicio</a>
+                                </label>
+                                <ValidationMessage For="@(() => contactForm.AcceptPrivacy)" class="invalid-feedback d-block" />
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-lg w-100 py-3 fw-semibold" disabled="@isSubmitting">
+                                @if (isSubmitting)
+                                {
+                                    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                    <span>Enviando...</span>
+                                }
+                                else
+                                {
+                                    <span>Enviar Mensaje</span>
+                                }
+                            </button>
+                        </EditForm>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="contact-faq">
+    <div class="contact-faq py-6 py-lg-8 bg-light">
         <div class="container">
-            <h2>Preguntas Frecuentes</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>¿Cuánto tiempo toma recibir una respuesta?</h3>
-                    <p>Respondemos a todos los emails dentro de 24 horas durante días laborables. Para consultas urgentes, utiliza nuestro WhatsApp.</p>
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Preguntas Frecuentes</h2>
+                <p class="lead text-muted max-w-3xl mx-auto">Respuestas a las preguntas más comunes que recibimos de nuestros clientes</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="faq-item bg-white p-4 p-lg-5 rounded-3 shadow-sm h-100">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="text-primary mt-1">
+                                <i class="far fa-clock fa-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 fw-bold mb-2">¿Cuánto tiempo toma recibir una respuesta?</h3>
+                                <p class="mb-0 text-muted">Respondemos a todos los emails dentro de 24 horas durante días laborables. Para consultas urgentes, te recomendamos utilizar nuestro chat de WhatsApp para una respuesta más rápida.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="faq-item">
-                    <h3>¿Ofrecen soporte en español?</h3>
-                    <p>¡Por supuesto! Nuestro equipo de soporte está disponible en español, inglés y otros idiomas.</p>
+                <div class="col-md-6">
+                    <div class="faq-item bg-white p-4 p-lg-5 rounded-3 shadow-sm h-100">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="text-primary mt-1">
+                                <i class="fas fa-language fa-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 fw-bold mb-2">¿Ofrecen soporte en español?</h3>
+                                <p class="mb-0 text-muted">¡Por supuesto! Nuestro equipo de soporte está disponible en español, inglés y otros idiomas. No dudes en contactarnos en el idioma con el que te sientas más cómodo.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="faq-item">
-                    <h3>¿Puedo agendar una demo personalizada?</h3>
-                    <p>Sí, ofrecemos demos personalizadas gratuitas. Contacta a nuestro equipo de ventas para agendar una sesión.</p>
+                <div class="col-md-6">
+                    <div class="faq-item bg-white p-4 p-lg-5 rounded-3 shadow-sm h-100">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="text-primary mt-1">
+                                <i class="fas fa-desktop fa-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 fw-bold mb-2">¿Puedo agendar una demo personalizada?</h3>
+                                <p class="mb-0 text-muted">Sí, ofrecemos demos personalizadas gratuitas donde te mostraremos todas las características de nuestra plataforma. Nuestro equipo de ventas estará encantado de adaptar la demo a tus necesidades específicas.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="faq-item">
-                    <h3>¿Hay descuentos para organizaciones sin fines de lucro?</h3>
-                    <p>Sí, ofrecemos precios especiales para ONGs y organizaciones educativas. Contacta a ventas para más detalles.</p>
+                <div class="col-md-6">
+                    <div class="faq-item bg-white p-4 p-lg-5 rounded-3 shadow-sm h-100">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="text-primary mt-1">
+                                <i class="fas fa-hand-holding-heart fa-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 fw-bold mb-2">¿Hay descuentos para organizaciones sin fines de lucro?</h3>
+                                <p class="mb-0 text-muted">Sí, ofrecemos precios especiales para ONGs, organizaciones educativas y sin fines de lucro. Contáctanos para obtener más información sobre nuestros programas de descuento.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            
+            <div class="text-center mt-6">
+                <p class="mb-4">¿No encuentras lo que buscas?</p>
+                <a href="#contact-form" class="btn btn-outline-primary btn-lg">Contáctanos</a>
             </div>
         </div>
     </div>
