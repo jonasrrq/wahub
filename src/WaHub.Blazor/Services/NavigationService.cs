@@ -29,7 +29,7 @@ namespace WaHub.Blazor.Services
 
         public bool IsExternalRoute(string path)
         {
-            var externalRoutes = new[] { "/", "/login", "/register", "/docs", "/contact" };
+            var externalRoutes = new[] { "/", "/login", "/register", "/docs", "/privacy", "/contact", "/pricing" };
             return externalRoutes.Contains(path);
         }
     }

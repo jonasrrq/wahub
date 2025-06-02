@@ -35,11 +35,11 @@
             }
         </Authorized>
         <NotAuthorized>
-            @code {
+            @* @code {
                 // Definir rutas públicas
                 private static readonly string[] PublicRoutes = new[] { "/login", "/register", "/privacy", "/contact", "/pricing", "/" };
-            }
-            @if (!PublicRoutes.Any(r => string.Equals(r, Navigation.GetCurrentPath(), StringComparison.OrdinalIgnoreCase)))
+            } *@
+            @if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
             {
                 Navigation.Push("/login");
             }

@@ -2,13 +2,14 @@
 @inject NavigationService Navigation
 @inject LocalizationService Localization
 
-<nav class="home-navbar">    <div class="navbar-content">
+<nav class="home-navbar">
+    <div class="navbar-content">
         <div class="logo-section">
             <a href="/" @onclick="@(() => Navigation.Push("/"))" @onclick:preventDefault="true" class="logo-link">
                 <img src="/logo-wahub.webp" alt="WaHub Logo" class="logo" />
                 <span class="app-name">WaHub</span>
             </a>
-        </div>       
+        </div>
         <div class="nav-actions">
             <nav class="nav-menu">
                 <a href="/pricing" @onclick="@(() => Navigation.Push("/pricing"))" @onclick:preventDefault="true">Precios</a>
