@@ -13,7 +13,7 @@ public class NavigationService
 
     public void Push(string uri)
     {
-        _navigationManager.NavigateTo(uri);
+        _navigationManager.NavigateTo(uri);        
     }
 
     public void Replace(string uri)

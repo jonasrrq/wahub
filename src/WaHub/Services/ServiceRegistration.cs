@@ -13,12 +13,12 @@ public static class ServiceRegistration
 {
     public static void AddServices(WebApplicationBuilder builder)
     {
-       
-        builder.Services.AddScoped<AuthService>();
+         builder.Services.AddScoped<AuthService>();
         builder.Services.AddScoped<ApiService>();
         builder.Services.AddScoped<NavigationService>();
         builder.Services.AddScoped<LocalizationService>();
         builder.Services.AddScoped<NotificationService>();
+        builder.Services.AddHttpContextAccessor(); // Agregar para acceder al HttpContext
         //builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
         //builder.Services.AddScoped<ICrossPlatformStorageService, CrossPlatformStorageService>();
 
@@ -33,7 +33,7 @@ public static class ServiceRegistration
         // Register a named client without auth for public endpoints if needed
         builder.Services.AddHttpClient("PublicHttpClient");
 
-        // Configuración de autenticación JWT para APIs
+        // Configuraciï¿½n de autenticaciï¿½n JWT para APIs
         //builder.Services.AddJwtAuthentication(builder.Configuration);
 
         builder.Services.AddDbContext<ApplicationDbContext>(options =>

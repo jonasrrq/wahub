@@ -2,15 +2,15 @@
 @* @rendermode InteractiveServer *@
 @* @attribute [StreamRendering] *@
 
-@inject LocalizationService Localization
+@using System.ComponentModel.DataAnnotations
 
+@inject LocalizationService Localization
 @inject SignInManager<ApplicationUser> singInManager
 @inject UserManager<ApplicationUser> userManager
-@inject NavigationService Navigation
+@inject NavigationService navigation
+@inject IHttpContextAccessor httpContextAccessor
 
 <PageTitle>@Localization.Login - WaHub</PageTitle>
-
-
 
 <div class="login-container">
     <div class="login-form">
@@ -21,45 +21,36 @@
                 @errorMessage
             </div>
         }
-        @* <div class="test-credentials">
-            <p><strong>Credenciales de prueba:</strong></p>            
-            <div class="credentials-buttons">
-                <button type="button" class="test-cred-btn" @onclick="FillAdminCredentials">
-                    👑 Admin: admin@wahub.com
-                </button>
-                <button type="button" class="test-cred-btn" @onclick="FillUserCredentials">
-                    👤 Usuario: user@wahub.com
-                </button>
+
+        <EditForm Model="inputModel" OnValidSubmit="HandleLogin" FormName="Login">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <InputText id="email" @bind-Value="inputModel.Email" placeholder="admin@wahub.com" />
+                <ValidationMessage For="@(() => inputModel.Email)" />
             </div>
-        </div> *@
 
-        <EditForm Model="inputModel" method="post" FormName="Refister">
-
+            <div class="form-group">
+                <label for="password">Password</label>
+                <InputText type="password" id="password" @bind-Value="inputModel.Password" placeholder="admin123" />
+                <ValidationMessage For="@(() => inputModel.Password)" />
+            </div>
+            <button type="submit" class="login-button" disabled="@isLoading">
+                @if (isLoading)
+                {
+                    <div class="login-loading">
+                        <div class="login-spinner"></div>
+                        <span>Iniciando sesión...</span>
+                    </div>
+                }
+                else
+                {
+                    <span>@Localization.Login</span>
+                }
+            </button>
         </EditForm>
-
-
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" @bind="email" placeholder="admin@wahub.com" required />
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" @bind="password" placeholder="admin123" required />
-        </div>
-        <button type="button" class="login-button" disabled="@isLoading" @onclick="HandleLogin">
-            @if (isLoading)
-            {
-                <div class="login-loading">
-                    <div class="login-spinner"></div>
-                    <span>Iniciando sesión...</span>
-                </div>
-            }
-            else
-            {
-                <span>@Localization.Login</span>
-            }
-        </button>
 
         <p>¿No tienes cuenta? <a href="/Account/register">Regístrate aquí</a></p>
     </div>
@@ -67,30 +58,23 @@
 
 @code {
     [SupplyParameterFromForm]
-    private LoginModel inputModel { get; set; } = new();
-
-    private string email = "";
-    private string password = "";
-    private bool isLoading = false;
+    private LoginModel inputModel { get; set; } = new(); private bool isLoading = false;
     private string errorMessage = "";
 
     public class LoginModel
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
-    }
+        [Required(ErrorMessage = "El email es requerido")]
+        [EmailAddress(ErrorMessage = "Ingrese un email válido")]
+        public string Email { get; set; } = "";
 
-    // Datos de prueba para el login
-    // private readonly Dictionary<string, string> testUsers = new()
-    // {
-    //     { "admin@wahub.com", "admin123" },
-    //     { "user@wahub.com", "user123" },
-    //     { "demo@wahub.com", "demo123" }
-    // };
+        [Required(ErrorMessage = "La contraseña es requerida")]
+        [MinLength(6, ErrorMessage = "La contraseña debe tener al menos 6 caracteres")]
+        public string Password { get; set; } = "";
+    }
 
     private async Task HandleLogin()
     {
-        if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+        if (string.IsNullOrWhiteSpace(inputModel.Email) || string.IsNullOrWhiteSpace(inputModel.Password))
         {
             errorMessage = "Por favor, ingresa tu email y contraseña.";
             return;
@@ -101,47 +85,25 @@
 
         try
         {
-
-            var findUser = await userManager.FindByEmailAsync(email);
+            var findUser = await userManager.FindByEmailAsync(inputModel.Email);
             if (findUser == null)
             {
                 errorMessage = "Credenciales incorrectas. Usa las credenciales de prueba mostradas arriba.";
                 return;
             }
-
-            var result = await singInManager.CheckPasswordSignInAsync(findUser, password, false);
+            var result = await singInManager.PasswordSignInAsync(findUser, inputModel.Password, false, false);
 
             if (!result.Succeeded)
             {
                 errorMessage = "Credenciales incorrectas. Usa las credenciales de prueba mostradas arriba.";
                 return;
+            }            // Usar redirección HTTP en lugar de navegación del cliente
+            var httpContext = httpContextAccessor.HttpContext;
+            if (httpContext != null)
+            {
+                httpContext.Response.Redirect("/dashboard");
+                return;
             }
-
-            await singInManager.PasswordSignInAsync(findUser, password, false, false);
-            Navigation.Push("/dashboard");
-
-            // // Simular delay de red
-            // await Task.Delay(1000);
-            // // Validar credenciales de prueba
-            // if (testUsers.ContainsKey(email.ToLower()) && testUsers[email.ToLower()] == password)
-            // {
-            //     // Login exitoso
-            //     var userType = email.Contains("admin") ? "admin" : "user";
-            //     var token = $"fake-jwt-token-{userType}-{DateTime.Now:yyyyMMddHHmmss}";
-
-            //     await Auth.SetTokenAsync(token);
-
-            //     // Esperar un momento para que se procese el estado de autenticación
-            //     await Task.Delay(100);
-
-            //     // Forzar actualización del estado
-            //     StateHasChanged();                // Navegar al dashboard
-            //     Navigation.Push("/dashboard");
-            // }
-            // else
-            // {
-            //     errorMessage = "Credenciales incorrectas. Usa las credenciales de prueba mostradas arriba.";
-            // }
         }
         catch (Exception ex)
         {
@@ -151,22 +113,5 @@
         {
             isLoading = false;
         }
-    }
-
-    private void FillTestCredentials(string email, string password)
-    {
-        this.email = email;
-        this.password = password;
-        StateHasChanged();
-    }
-
-    private void FillAdminCredentials()
-    {
-        FillTestCredentials("admin@wahub.com", "admin123");
-    }
-
-    private void FillUserCredentials()
-    {
-        FillTestCredentials("user@wahub.com", "user123");
     }
 }

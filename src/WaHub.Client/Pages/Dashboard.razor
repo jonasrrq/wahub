@@ -12,6 +12,13 @@
 
 
 <AuthorizeView>
-    Hola @context.User.Identity?.Name
+    <Authorized>
+        Hola @context.User.Identity?.Name
+    </Authorized>
+    <NotAuthorized>
+        NOT Hola @context.User.Identity?.Name
+    </NotAuthorized>   
 </AuthorizeView>
+
+
 
