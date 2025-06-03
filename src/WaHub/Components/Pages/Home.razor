@@ -26,13 +26,13 @@
             </p>
             
             <div class="action-buttons">
-                <a class="btn btn-primary" href="/register" @onclick="@(() => Navigation.Push("/register"))" @onclick:preventDefault="true">@Localization.StartFreeTrial</a>
-                <a class="btn btn-secondary" href="/login" @onclick="@(() => Navigation.Push("/login"))" @onclick:preventDefault="true">@Localization.Login</a>
+                <a class="btn btn-primary" href="/Account/register" @onclick="@(() => Navigation.Push("/Account/register"))" @onclick:preventDefault="true">@Localization.StartFreeTrial</a>
+                <a class="btn btn-secondary" href="/Account/login" @onclick="@(() => Navigation.Push("/Account/login"))" @onclick:preventDefault="true">@Localization.Login</a>
 
-               @*  <button class="btn btn-primary" @onclick="@(() => Navigation.Push("/register"))">
+               @*  <button class="btn btn-primary" @onclick="@(() => Navigation.Push("/Account/register"))">
                     @Localization.StartFreeTrial
                 </button>
-                <button class="btn btn-secondary" @onclick="@(() => Navigation.Push("/login"))">
+                <button class="btn btn-secondary" @onclick="@(() => Navigation.Push("/Account/login"))">
                     @Localization.Login
                 </button> *@
             </div>
@@ -133,7 +133,7 @@ console.log('Mensaje enviado:', result.messageId);</code></pre>
                         <li>✅ API completa</li>
                         <li>✅ Soporte por email</li>
                     </ul>
-                    <a class="btn btn-outline" href="/register" @onclick="@(() => Navigation.Push("/register"))" @onclick:preventDefault="true">Comenzar gratis</a>
+                    <a class="btn btn-outline" href="/Account/register" @onclick="@(() => Navigation.Push("/Account/register"))" @onclick:preventDefault="true">Comenzar gratis</a>
                     @* <button class="btn btn-outline">Comenzar gratis</button> *@
                 </div>
                 
@@ -152,7 +152,7 @@ console.log('Mensaje enviado:', result.messageId);</code></pre>
                         <li>✅ Webhooks</li>
                         <li>✅ Soporte prioritario</li>
                     </ul>
-                    <a class="btn btn-primary" href="/register" @onclick="@(() => Navigation.Push("/register"))" @onclick:preventDefault="true">Empezar prueba</a>
+                    <a class="btn btn-primary" href="/Account/register" @onclick="@(() => Navigation.Push("/Account/register"))" @onclick:preventDefault="true">Empezar prueba</a>
                   @*   <button class="btn btn-primary">Empezar prueba</button> *@
                 </div>
                 
@@ -218,11 +218,11 @@ console.log('Mensaje enviado:', result.messageId);</code></pre>
             <h2>¿Listo para comenzar?</h2>
             <p>Únete a más de 1,000 desarrolladores que ya confían en WaHub</p>
             <div class="cta-buttons">
-                <a class="btn btn-primary large" href="/register" @onclick="@(() => Navigation.Push("/register"))" @onclick:preventDefault="true">Comenzar gratis</a>
+                <a class="btn btn-primary large" href="/Account/register" @onclick="@(() => Navigation.Push("/Account/register"))" @onclick:preventDefault="true">Comenzar gratis</a>
                 <a class="btn btn-secondary large" href="/contact" @onclick="@(() => Navigation.Push("/contact"))" @onclick:preventDefault="true">Contactar ventas</a>
 
 
-               @*  <button class="btn btn-primary large" @onclick="@(() => Navigation.Push("/register"))">
+               @*  <button class="btn btn-primary large" @onclick="@(() => Navigation.Push("/Account/register"))">
                     Comenzar gratis
                 </button>
                 <button class="btn btn-secondary large" @onclick="@(() => Navigation.Push("/contact"))">

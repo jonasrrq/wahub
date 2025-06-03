@@ -5,12 +5,12 @@ namespace WaHub.Services;
 
 public class AuthService
 {
-    private readonly ICrossPlatformStorageService _storageService;
+    
     private readonly AuthenticationStateProvider _authStateProvider;
 
-    public AuthService(ICrossPlatformStorageService storageService, AuthenticationStateProvider authStateProvider)
+    public AuthService(AuthenticationStateProvider authStateProvider)
     {
-        _storageService = storageService;
+       
         _authStateProvider = authStateProvider;
     }
 
@@ -18,8 +18,9 @@ public class AuthService
     {
         try
         {
-            var result = await _storageService.GetAsync<string>("token");
-            return result.Success && !string.IsNullOrEmpty(result.Value);
+            //var result = await _storageService.GetAsync<string>("token");
+            //return result.Success && !string.IsNullOrEmpty(result.Value);
+            return await Task.FromResult(true);
         }
         catch
         {
@@ -31,8 +32,9 @@ public class AuthService
     {
         try
         {
-            var result = await _storageService.GetAsync<string>("token");
-            return result.Success ? result.Value : null;
+            //var result = await _storageService.GetAsync<string>("token");
+            //return result.Success ? result.Value : null;
+            return await Task.FromResult("true");
         }
         catch
         {
@@ -42,29 +44,30 @@ public class AuthService
 
     public async Task SetTokenAsync(string token)
     {
-        await _storageService.SetAsync("token", token);
-        // Extraer información del usuario del token (simulado)
-        var userInfo = ExtractUserInfoFromToken(token);
-        await _storageService.SetAsync("userInfo", userInfo);
+        //await _storageService.SetAsync("token", token);
+        //// Extraer información del usuario del token (simulado)
+        //var userInfo = ExtractUserInfoFromToken(token);
+        //await _storageService.SetAsync("userInfo", userInfo);
 
-        // Notificar cambio de estado de autenticación
-        if (_authStateProvider is CustomAuthStateProvider customProvider)
-        {
-            await customProvider.NotifyAuthenticationStateChangedAsync();
-        }
+        //// Notificar cambio de estado de autenticación
+        //if (_authStateProvider is CustomAuthStateProvider customProvider)
+        //{
+        //    await customProvider.NotifyAuthenticationStateChangedAsync();
+        //}
     }
 
     public async Task<UserInfo?> GetUserInfoAsync()
     {
-        try
-        {
-            var result = await _storageService.GetAsync<UserInfo>("userInfo");
-            return result.Success ? result.Value : null;
-        }
-        catch
-        {
-            return null;
-        }
+       return await Task.FromResult<UserInfo>(new UserInfo());
+        //try
+        //{
+        //    var result = await _storageService.GetAsync<UserInfo>("userInfo");
+        //    return result.Success ? result.Value : null;
+        //}
+        //catch
+        //{
+        //    return null;
+        //}
     }
 
     private UserInfo ExtractUserInfoFromToken(string token)
@@ -82,12 +85,13 @@ public class AuthService
 
     public async Task LogoutAsync()
     {
-        await _storageService.DeleteAsync("token");
-        await _storageService.DeleteAsync("userInfo");
-        // Notificar cambio de estado de autenticación
-        if (_authStateProvider is CustomAuthStateProvider customProvider)
-        {
-            await customProvider.NotifyAuthenticationStateChangedAsync();
-        }
+        await Task.Delay(1);
+        //await _storageService.DeleteAsync("token");
+        //await _storageService.DeleteAsync("userInfo");
+        //// Notificar cambio de estado de autenticación
+        //if (_authStateProvider is CustomAuthStateProvider customProvider)
+        //{
+        //    await customProvider.NotifyAuthenticationStateChangedAsync();
+        //}
     }
 }

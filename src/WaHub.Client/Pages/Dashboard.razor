@@ -1,9 +1,17 @@
-﻿@page "/dashboard-test"
+﻿@page "/dashboard"
+@* @using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization *@
+@attribute [Authorize]
 @rendermode InteractiveAuto
-@* @layout InternalLayout *@
+
+
+<PageTitle>Dashboard</PageTitle>
 
 <h1>Dashboard</h1>
+<h3>Paguna autenticada</h3>
 
-@code {
 
-}
+<AuthorizeView>
+    Hola @context.User.Identity?.Name
+</AuthorizeView>
+

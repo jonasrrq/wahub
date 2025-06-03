@@ -20,6 +20,10 @@ public class NavigationService
     {
         _navigationManager.NavigateTo(uri, replace: true);
     }
+    public void Force(string uri)
+    {
+        _navigationManager.NavigateTo(uri, forceLoad: true);
+    }
 
     public string GetCurrentPath()
     {
@@ -29,7 +33,7 @@ public class NavigationService
 
     public bool IsExternalRoute(string path)
     {
-        var externalRoutes = new[] { "/", "/login", "/register", "/docs", "/privacy", "/contact", "/pricing" };
+        var externalRoutes = new[] { "/", "/Account/login", "/Account/register", "/docs", "/privacy", "/contact", "/pricing" };
         return externalRoutes.Contains(path, StringComparer.OrdinalIgnoreCase);
     }
 }

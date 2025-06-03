@@ -1,10 +1,9 @@
-@page "/register"
+@page "/Account/register"
 @rendermode InteractiveServer
 
+@inject SignInManager<ApplicationUser> singInManager
+@inject UserManager<ApplicationUser> userManager
 @inject NavigationService Navigation
-@inject LocalizationService Localization
-@inject AuthService AuthService
-@inject ApiService ApiService
 
 <PageTitle>Registro - WaHub</PageTitle>
 
@@ -18,40 +17,40 @@
                     <h1>Crear cuenta</h1>
                     <p>Únete a WaHub y comienza a integrar WhatsApp en tus aplicaciones</p>
                 </div>
-                
+
                 <form @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">Nombre</label>
                             <input type="text" id="firstName" @bind="registerModel.FirstName" required />
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="lastName">Apellido</label>
                             <input type="text" id="lastName" @bind="registerModel.LastName" required />
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">Correo electrónico</label>
                         <input type="email" id="email" @bind="registerModel.Email" required />
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="company">Empresa</label>
                         <input type="text" id="company" @bind="registerModel.Company" />
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="password">Contraseña</label>
                         <input type="password" id="password" @bind="registerModel.Password" required />
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="confirmPassword">Confirmar contraseña</label>
                         <input type="password" id="confirmPassword" @bind="registerModel.ConfirmPassword" required />
                     </div>
-                    
+
                     <div class="form-group checkbox-group">
                         <label class="checkbox-label">
                             <input type="checkbox" @bind="acceptTerms" required />
@@ -59,7 +58,7 @@
                             Acepto los <a href="/terms" target="_blank">términos y condiciones</a> y la <a href="/privacy" target="_blank">política de privacidad</a>
                         </label>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary btn-full" disabled="@(!acceptTerms || isLoading)">
                         @if (isLoading)
                         {
@@ -72,11 +71,11 @@
                         }
                     </button>
                 </form>
-                
+
                 <div class="form-footer">
-                    <p>¿Ya tienes una cuenta? <a href="/login" @onclick="@(() => Navigation.Push("/login"))" @onclick:preventDefault="true">Inicia sesión</a></p>
+                    <p>¿Ya tienes una cuenta? <a href="/Account/login" @onclick="@(() => Navigation.Push("/Account/login"))" @onclick:preventDefault="true">Inicia sesión</a></p>
                 </div>
-                
+
                 @if (!string.IsNullOrEmpty(errorMessage))
                 {
                     <div class="error-message">
@@ -84,7 +83,7 @@
                     </div>
                 }
             </div>
-            
+
             <div class="register-benefits">
                 <h3>Lo que obtienes con WaHub</h3>
                 <ul class="benefits-list">
@@ -95,7 +94,7 @@
                     <li>✅ Soporte técnico 24/7</li>
                     <li>✅ Documentación completa</li>
                 </ul>
-                
+
                 <div class="testimonial">
                     <blockquote>
                         "WaHub transformó nuestra comunicación con clientes. La integración fue súper simple."
@@ -126,39 +125,40 @@
     private async Task HandleSubmit()
     {
         errorMessage = "";
-        
-        if (registerModel.Password != registerModel.ConfirmPassword)
+        var validationErrors = ValidateRegistration();
+
+        if (validationErrors.Any())
         {
-            errorMessage = "Las contraseñas no coinciden";
+            errorMessage = string.Join("\n", validationErrors);
             return;
         }
-        
-        if (registerModel.Password.Length < 6)
-        {
-            errorMessage = "La contraseña debe tener al menos 6 caracteres";
-            return;
-        }
-        
-        if (!acceptTerms)
-        {
-            errorMessage = "Debes aceptar los términos y condiciones";
-            return;
-        }
-        
+
         isLoading = true;
-        
+
         try
         {
-            // Llamada real al backend para registro
-            var response = await ApiService.PostAsync("https://api.wahub.dev/v1/auth/register", registerModel);
-            if (response.IsSuccessStatusCode)
+            var user = new ApplicationUser()
             {
-                // Redirigir a dashboard después del registro exitoso
-                Navigation.Push("/dashboard");
+                FirstName = registerModel.FirstName,
+                LastName = registerModel.LastName,
+                UserName = registerModel.Email,
+                Email = registerModel.Email,
+                PasswordHash = registerModel.Password,
+                CompanyName = registerModel.Company,
+                FullName = $"{registerModel.FirstName} {registerModel.LastName}"
+            };
+
+            var result = await userManager.CreateAsync(user, registerModel.Password);
+
+            if (result.Succeeded)
+            {
+                Navigation.Push("/Account/login");
             }
             else
             {
-                errorMessage = "Error al crear la cuenta. Por favor, verifica los datos.";
+
+                errorMessage = string.Join("\n", result.Errors.Select(x => x.Description));
+                // errorMessage = "Error al crear la cuenta. Por favor, verifica los datos.";
             }
         }
         catch (Exception)
@@ -168,6 +168,94 @@
         finally
         {
             isLoading = false;
+        }
+    }
+
+    private List<string> ValidateRegistration()
+    {
+        var errors = new List<string>();
+
+        // Validar campos requeridos
+        if (string.IsNullOrWhiteSpace(registerModel.FirstName?.Trim()))
+        {
+            errors.Add("El nombre es requerido");
+        }
+
+        if (string.IsNullOrWhiteSpace(registerModel.LastName?.Trim()))
+        {
+            errors.Add("El apellido es requerido");
+        }
+
+        // Validar email
+        if (string.IsNullOrWhiteSpace(registerModel.Email?.Trim()))
+        {
+            errors.Add("El correo electrónico es requerido");
+        }
+        else if (!IsValidEmail(registerModel.Email))
+        {
+            errors.Add("El formato del correo electrónico no es válido");
+        }
+
+        // Validar contraseña
+        var passwordErrors = ValidatePassword(registerModel.Password);
+        errors.AddRange(passwordErrors);
+
+        if (registerModel.Password != registerModel.ConfirmPassword)
+        {
+            errors.Add("Las contraseñas no coinciden");
+        }
+
+        if (!acceptTerms)
+        {
+            errors.Add("Debes aceptar los términos y condiciones");
+        }
+
+        return errors;
+    }
+
+    private List<string> ValidatePassword(string password)
+    {
+        var errors = new List<string>();
+
+        if (string.IsNullOrWhiteSpace(password))
+        {
+            errors.Add("La contraseña es requerida");
+            return errors;
+        }
+
+        if (password.Length < 8)
+        {
+            errors.Add("La contraseña debe tener al menos 8 caracteres");
+        }
+
+        if (!password.Any(char.IsUpper))
+        {
+            errors.Add("La contraseña debe contener al menos una letra mayúscula");
+        }
+
+        if (!password.Any(char.IsLower))
+        {
+            errors.Add("La contraseña debe contener al menos una letra minúscula");
+        }
+
+        if (!password.Any(char.IsDigit))
+        {
+            errors.Add("La contraseña debe contener al menos un número");
+        }
+
+        return errors;
+    }
+
+    private bool IsValidEmail(string email)
+    {
+        try
+        {
+            var addr = new System.Net.Mail.MailAddress(email);
+            return addr.Address == email;
+        }
+        catch
+        {
+            return false;
         }
     }
 }

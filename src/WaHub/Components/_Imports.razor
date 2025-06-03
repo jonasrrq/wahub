@@ -1,20 +1,27 @@
 ﻿@using System.Net.Http
 @using System.Net.Http.Json
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Authentication
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.Components.Routing
 @using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Identity
 @using static Microsoft.AspNetCore.Components.Web.RenderMode
 @using Microsoft.AspNetCore.Components.Web.Virtualization
 @using Microsoft.JSInterop
-
 @using Microsoft.AspNetCore.Components.Authorization
-@using Microsoft.AspNetCore.Authorization
+
+
 @using System.ComponentModel.DataAnnotations
 @using Microsoft.AspNetCore.Components
 
 
 @using WaHub
 @using WaHub.Services
+@using WaHub.Authentication
+@using WaHub.Data
+@using WaHub.Components.Pages.Account
 @using WaHub.Components
 @using WaHub.Components.Layout
 

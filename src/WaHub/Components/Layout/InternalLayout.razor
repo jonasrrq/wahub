@@ -1,9 +1,9 @@
 ﻿@inherits LayoutComponentBase
 @inject LocalizationService Localization
 @inject NavigationService NavigationService
-@inject AuthenticationStateProvider AuthStateProvider
+@* @inject AuthenticationStateProvider AuthStateProvider *@
 @inject NavigationManager NavigationManager
-@inject ICrossPlatformStorageService StorageService
+
 
 @{
     var debug = $"isLoading={isLoading}, isAuthenticated={isAuthenticated}, checkedToken={checkedToken}, authRetryCount={authRetryCount}";
@@ -68,7 +68,7 @@ else
         checkedToken = false;
         firstRenderDone = false;
         authRetryCount = 0;
-       
+
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -85,36 +85,36 @@ else
 
     private async Task CheckAuthStateAsync()
     {
-        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
-        isAuthenticated = authState.User.Identity?.IsAuthenticated == true;
+        // var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        // isAuthenticated = authState.User.Identity?.IsAuthenticated == true;
         isLoading = false;
-        var tokenResult = await StorageService.GetAsync<string>("token");
-        debugToken = tokenResult.Value;
-        StateHasChanged();
+        // var tokenResult = await StorageService.GetAsync<string>("token");
+        // debugToken = "";//tokenResult.Value;
+        // StateHasChanged();
 
-        // Si no autenticado pero hay token en LocalStorage, forzar refresco (máx 3 intentos)
-        if (!isAuthenticated && !checkedToken && !isExternalRoute && authRetryCount < MaxAuthRetries)
-        {
-            checkedToken = true;
-            if (tokenResult.Success && !string.IsNullOrEmpty(tokenResult.Value))
-            {
-                authRetryCount++;
-                if (AuthStateProvider is CustomAuthStateProvider customProvider)
-                {
-                    await customProvider.NotifyAuthenticationStateChangedAsync();
-                    await Task.Delay(150);
-                    checkedToken = false;
-                    await CheckAuthStateAsync();
-                    return;
-                }
-            }
-        }
+        // // Si no autenticado pero hay token en LocalStorage, forzar refresco (máx 3 intentos)
+        // if (!isAuthenticated && !checkedToken && !isExternalRoute && authRetryCount < MaxAuthRetries)
+        // {
+        //     checkedToken = true;
+        //     if (tokenResult.Success && !string.IsNullOrEmpty(tokenResult.Value))
+        //     {
+        //         authRetryCount++;
+        //         if (AuthStateProvider is CustomAuthStateProvider customProvider)
+        //         {
+        //             await customProvider.NotifyAuthenticationStateChangedAsync();
+        //             await Task.Delay(150);
+        //             checkedToken = false;
+        //             await CheckAuthStateAsync();
+        //             return;
+        //         }
+        //     }
+        // }
 
         // Si después de varios intentos sigue sin autenticarse, redirigir
         if (!isAuthenticated && !isExternalRoute && !hasRedirected)
         {
             hasRedirected = true;
-            NavigationManager.NavigateTo("/login", true);
+            NavigationManager.NavigateTo("/Account/login", true);
         }
     }
 

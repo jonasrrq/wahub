@@ -5,14 +5,12 @@ namespace WaHub.Shared.Services;
 
 public class LocalizationService
 {
-    private readonly IStringLocalizer<LocalizationService> _localizer;
-    private readonly ICrossPlatformStorageService _storageService;
+    private readonly IStringLocalizer<LocalizationService> _localizer;   
     private string _currentLanguage = "es";
 
-    public LocalizationService(IStringLocalizer<LocalizationService> localizer, ICrossPlatformStorageService storageService)
+    public LocalizationService(IStringLocalizer<LocalizationService> localizer)
     {
-        _localizer = localizer;
-        _storageService = storageService;
+        _localizer = localizer;       
         _ = InitializeLanguageAsync();
     }
 
@@ -29,7 +27,8 @@ public class LocalizationService
     public async Task SetLanguageAsync(string language)
     {
         _currentLanguage = language;
-        await _storageService.SetAsync("language", language);
+        //await _storageService.SetAsync("language", language);
+        
         LanguageChanged?.Invoke();
     }
 
@@ -37,11 +36,11 @@ public class LocalizationService
     {
         try
         {
-            var result = await _storageService.GetAsync<string>("language");
-            if (result.Success && !string.IsNullOrEmpty(result.Value))
-            {
-                _currentLanguage = result.Value;
-            }
+            //var result = await _storageService.GetAsync<string>("language");
+            //if (result.Success && !string.IsNullOrEmpty(result.Value))
+            //{
+            //    _currentLanguage = result.Value;
+            //}
         }
         catch
         {
