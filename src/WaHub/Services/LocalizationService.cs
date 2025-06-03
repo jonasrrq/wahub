@@ -1,18 +1,18 @@
-using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.Extensions.Localization;
+using WaHub.Services;
 
 namespace WaHub.Shared.Services;
 
 public class LocalizationService
 {
     private readonly IStringLocalizer<LocalizationService> _localizer;
-    private readonly ProtectedLocalStorage _localStorage;
+    private readonly ICrossPlatformStorageService _storageService;
     private string _currentLanguage = "es";
 
-    public LocalizationService(IStringLocalizer<LocalizationService> localizer, ProtectedLocalStorage localStorage)
+    public LocalizationService(IStringLocalizer<LocalizationService> localizer, ICrossPlatformStorageService storageService)
     {
         _localizer = localizer;
-        _localStorage = localStorage;
+        _storageService = storageService;
         _ = InitializeLanguageAsync();
     }
 
@@ -29,7 +29,7 @@ public class LocalizationService
     public async Task SetLanguageAsync(string language)
     {
         _currentLanguage = language;
-        await _localStorage.SetAsync("language", language);
+        await _storageService.SetAsync("language", language);
         LanguageChanged?.Invoke();
     }
 
@@ -37,7 +37,7 @@ public class LocalizationService
     {
         try
         {
-            var result = await _localStorage.GetAsync<string>("language");
+            var result = await _storageService.GetAsync<string>("language");
             if (result.Success && !string.IsNullOrEmpty(result.Value))
             {
                 _currentLanguage = result.Value;

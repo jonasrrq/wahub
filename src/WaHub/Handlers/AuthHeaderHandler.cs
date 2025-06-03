@@ -1,16 +1,16 @@
-using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using System.Net.Http.Headers;
+using WaHub.Services;
 
 namespace WaHub.Blazor.Handlers;
 
 public class AuthHeaderHandler : DelegatingHandler
 {
-    private readonly ProtectedLocalStorage _localStorage;
+    private readonly ICrossPlatformStorageService _storageService;
     private readonly ILogger<AuthHeaderHandler> _logger;
 
-    public AuthHeaderHandler(ProtectedLocalStorage localStorage, ILogger<AuthHeaderHandler> logger)
+    public AuthHeaderHandler(ICrossPlatformStorageService storageService, ILogger<AuthHeaderHandler> logger)
     {
-        _localStorage = localStorage;
+        _storageService = storageService;
         _logger = logger;
     }
 
@@ -20,7 +20,7 @@ public class AuthHeaderHandler : DelegatingHandler
     {
         try
         {
-            var tokenResult = await _localStorage.GetAsync<string>("token");
+            var tokenResult = await _storageService.GetAsync<string>("token");
             if (tokenResult.Success && !string.IsNullOrEmpty(tokenResult.Value))
             {
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", tokenResult.Value);

@@ -1,0 +1,10 @@
+﻿@page "/test-interactive"
+@rendermode InteractiveAuto
+
+<h3>Test Interactivo</h3>
+<button @onclick="Increment">Contador: @count</button>
+
+@code {
+    int count = 0;
+    void Increment() => count++;
+}

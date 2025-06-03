@@ -23,7 +23,7 @@ public class CustomAuthStateProvider : AuthenticationStateProvider
         // Si no estamos en navegador (es prerenderizado), no intentes acceder a LocalStorage
         if (!OperatingSystem.IsBrowser())
         {
-            // Usuario no autenticado durante prerenderizado
+            Console.WriteLine("[DEBUG] Prerenderizado: usuario no autenticado");
             return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
         }
 
@@ -31,6 +31,7 @@ public class CustomAuthStateProvider : AuthenticationStateProvider
         {
             var tokenResult = await _storageService.GetAsync<string>("token");
             var userInfoResult = await _storageService.GetAsync<UserInfo>("userInfo");
+            Console.WriteLine($"[DEBUG] Token: {tokenResult.Value}, UserInfo: {userInfoResult.Value}");
 
             if (tokenResult.Success && !string.IsNullOrEmpty(tokenResult.Value) &&
                 userInfoResult.Success && userInfoResult.Value != null)
@@ -48,13 +49,17 @@ public class CustomAuthStateProvider : AuthenticationStateProvider
 
                 var identity = new ClaimsIdentity(claims, "jwt");
                 var user = new ClaimsPrincipal(identity);
-
+                Console.WriteLine("[DEBUG] Usuario autenticado correctamente");
                 return new AuthenticationState(user);
             }
+            else
+            {
+                Console.WriteLine("[DEBUG] No hay token o userInfo válido");
+            }
         }
-        catch
+        catch (Exception ex)
         {
-            // Error al acceder al almacenamiento
+            Console.WriteLine($"[DEBUG] Error al acceder al almacenamiento: {ex.Message}");
         }
 
         // Usuario no autenticado por defecto

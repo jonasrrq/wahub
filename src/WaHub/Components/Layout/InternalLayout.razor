@@ -3,6 +3,12 @@
 @inject NavigationService NavigationService
 @inject AuthenticationStateProvider AuthStateProvider
 @inject NavigationManager NavigationManager
+@inject ICrossPlatformStorageService StorageService
+
+@{
+    var debug = $"isLoading={isLoading}, isAuthenticated={isAuthenticated}, checkedToken={checkedToken}, authRetryCount={authRetryCount}";
+}
+<div style="color:red;font-size:12px;">DEBUG: @debug</div>
 
 @if (isLoading)
 {
@@ -47,20 +53,65 @@ else
     private bool isLoading = true;
     private bool isExternalRoute = false;
     private bool hasRedirected = false;
+    private bool checkedToken = false;
+    private bool firstRenderDone = false;
+    private int authRetryCount = 0;
+    private const int MaxAuthRetries = 3;
+    private string? debugToken = null;
 
     protected override async Task OnInitializedAsync()
     {
-        var path = NavigationService.GetCurrentPath();
-        isExternalRoute = NavigationService.IsExternalRoute(path);
+        isLoading = true;
+        isAuthenticated = false;
+        isExternalRoute = false;
+        hasRedirected = false;
+        checkedToken = false;
+        firstRenderDone = false;
+        authRetryCount = 0;
+       
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !firstRenderDone)
+        {
+            firstRenderDone = true;
+            var path = NavigationService.GetCurrentPath();
+            isExternalRoute = NavigationService.IsExternalRoute(path);
+            await CheckAuthStateAsync();
+            StateHasChanged();
+        }
+    }
+
+    private async Task CheckAuthStateAsync()
+    {
         var authState = await AuthStateProvider.GetAuthenticationStateAsync();
         isAuthenticated = authState.User.Identity?.IsAuthenticated == true;
         isLoading = false;
+        var tokenResult = await StorageService.GetAsync<string>("token");
+        debugToken = tokenResult.Value;
         StateHasChanged();
-    }
 
-    protected override void OnAfterRender(bool firstRender)
-    {
-        if (firstRender && !isLoading && !isAuthenticated && !isExternalRoute && !hasRedirected)
+        // Si no autenticado pero hay token en LocalStorage, forzar refresco (máx 3 intentos)
+        if (!isAuthenticated && !checkedToken && !isExternalRoute && authRetryCount < MaxAuthRetries)
+        {
+            checkedToken = true;
+            if (tokenResult.Success && !string.IsNullOrEmpty(tokenResult.Value))
+            {
+                authRetryCount++;
+                if (AuthStateProvider is CustomAuthStateProvider customProvider)
+                {
+                    await customProvider.NotifyAuthenticationStateChangedAsync();
+                    await Task.Delay(150);
+                    checkedToken = false;
+                    await CheckAuthStateAsync();
+                    return;
+                }
+            }
+        }
+
+        // Si después de varios intentos sigue sin autenticarse, redirigir
+        if (!isAuthenticated && !isExternalRoute && !hasRedirected)
         {
             hasRedirected = true;
             NavigationManager.NavigateTo("/login", true);

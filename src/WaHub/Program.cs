@@ -5,6 +5,7 @@ using WaHub.Components;
 using WaHub.Services;
 using WaHub.Shared.Models;
 using WaHub.Shared.Services;
+using WaHub.Services.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +34,9 @@ builder.Services.AddHttpClient("AuthHttpClient")
 // Register a named client without auth for public endpoints if needed
 builder.Services.AddHttpClient("PublicHttpClient");
 
+// Configuración de autenticación JWT para APIs
+builder.Services.AddJwtAuthentication(builder.Configuration);
+
 var app = builder.Build();
 
 // Configure localization
@@ -55,6 +59,10 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAntiforgery();
+
+// Middleware de autenticación y autorización para APIs protegidas
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
