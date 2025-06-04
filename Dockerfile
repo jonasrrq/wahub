@@ -2,6 +2,13 @@
 
 # Esta fase se usa cuando se ejecuta desde VS en modo rápido (valor predeterminado para la configuración de depuración)
 FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine AS base
+
+# Configurar localización y timezone para evitar problemas de globalización
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+ENV LC_ALL=en_US.UTF-8
+ENV LANG=en_US.UTF-8
+RUN apk add --no-cache icu-libs icu-data-full
+
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
@@ -10,6 +17,11 @@ EXPOSE 8081
 
 # Esta fase se usa para compilar el proyecto de servicio
 FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build
+
+# Configurar localización para build
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+RUN apk add --no-cache icu-libs icu-data-full
+
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/WaHub/WaHub.csproj", "src/WaHub/"]

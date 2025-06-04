@@ -103,28 +103,22 @@ public static class ServiceRegistration
 
         app.MapSingOutEndpoint();
 
-    }    public static async Task ApplyMigrationsAsync(WebApplication webApp)
+    }
+
+    public static async Task ApplyMigrationsAsync(WebApplication webApp)
     {
         using var scope = webApp.Services.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
         var logger = webApp.Services.GetRequiredService<ILogger<ApplicationDbContext>>();
         var configuration = webApp.Services.GetRequiredService<IConfiguration>();
-        
-        var failOnError = configuration.GetValue<bool>("Database:FailOnMigrationError", false);
 
+        var failOnError = configuration.GetValue<bool>("Database:FailOnMigrationError", false);
+        
         try
         {
             logger.LogInformation("Starting database migration process...");
-            
-            // Check if database exists
-            var canConnect = await context.Database.CanConnectAsync();
-            if (!canConnect)
-            {
-                logger.LogInformation("Database does not exist. Creating database...");
-                await context.Database.EnsureCreatedAsync();
-            }
 
-            // Check for pending migrations
+            // Apply migrations (this will create the database if it doesn't exist)
             var pendingMigrations = await context.Database.GetPendingMigrationsAsync();
             if (pendingMigrations.Any())
             {
@@ -133,7 +127,7 @@ public static class ServiceRegistration
                 {
                     logger.LogInformation($"Pending migration: {migration}");
                 }
-                
+
                 await context.Database.MigrateAsync();
                 logger.LogInformation("All database migrations applied successfully.");
             }
@@ -145,13 +139,13 @@ public static class ServiceRegistration
         catch (Exception ex)
         {
             logger.LogError(ex, "An error occurred while applying database migrations.");
-            
+
             if (failOnError)
             {
                 logger.LogCritical("Application startup will be halted due to migration errors and FailOnMigrationError=true");
                 throw; // This will prevent the application from starting
             }
-            
+
             logger.LogWarning("Application will continue to start despite migration errors. Please check the database manually.");
         }
     }
