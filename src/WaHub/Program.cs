@@ -18,5 +18,6 @@ if (autoMigrate && !app.Environment.IsDevelopment())
 }
 
 
+ServiceRegistration.UseConfigurations(app);
 
 app.Run();

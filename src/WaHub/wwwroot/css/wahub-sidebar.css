@@ -401,7 +401,7 @@
 
 /* Contenedor del sidebar */
 .sidebar-container {
-    width: 16rem;
+    width: 18rem;
     background-color: var(--sidebar-bg);
     border-right: 1px solid var(--sidebar-border);
 }

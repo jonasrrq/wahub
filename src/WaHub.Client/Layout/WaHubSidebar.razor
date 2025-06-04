@@ -7,11 +7,12 @@
         <!-- Header con logo y theme toggle -->
         <div class="sidebar-header">
             <div class="logo-section" @onclick="NavigateToDashboard">
-                <img src="/logo-wahub.webp" alt="WaHub Logo" class="logo-image" />
+                <img src="/logo-wahub.png" alt="WaHub Logo" class="logo-image" />
                 <h2 class="logo-text">WaHub</h2>
             </div>
             <ThemeToggle />
-        </div>        <!-- Menú principal -->
+        </div>       
+        <!-- Menú principal -->
         <div class="menu-section">
             @foreach (var item in mainMenu)
             {
@@ -49,17 +50,19 @@
         <!-- Sección de usuario con menú desplegable -->
         <div class="user-section">
             <button class="user-menu-button @(isUserMenuOpen ? "open" : "")" @onclick="ToggleUserMenu">
-                <div class="user-avatar">JR</div>                <div class="user-info">
-                    <p class="user-name">Jonas Requena</p>
+                <div class="user-avatar">JR</div>                
+                <div class="user-info">
+                    <p class="user-name">@context.User.Identity?.Name</p>
                 </div>
                 <i class="chevron-icon bi bi-chevron-down"></i>
             </button>
-            
+
             <div class="user-dropdown @(isUserMenuOpen ? "open" : "")">
-                <button class="dropdown-item" @onclick="@(() => NavigateToPage("/profile"))">
+                <button class="dropdown-item" @onclick="@(() => NavigateToPage("Account/profile"))">
                     <i class="bi bi-person"></i>
                     <span>Profile</span>
-                </button>                <form action="Account/Logout" method="post" style="margin: 0;">
+                </button>                
+                <form action="Account/Logout" method="post" style="margin: 0;">
                     <AntiforgeryToken />
                     <button type="submit" class="dropdown-item">
                         <i class="bi bi-box-arrow-left"></i>
@@ -77,24 +80,25 @@
     private bool isUserMenuOpen = false;
 
     protected override void OnInitialized()
-    {        mainMenu = new[]
+    {
+        mainMenu = new[]
         {
-            new MenuItem { Label = "Tus Instancias", Icon = "bi-stack", Href = "/instances", Active = true },
-            new MenuItem { Label = "Prueba Gratis", Icon = "bi-lightning-fill", Href = "/trial", Badge = "TRIAL" },
-            new MenuItem { Label = "Suscripción", Icon = "bi-credit-card", Href = "/subscription" },
-            new MenuItem { Label = "Documentación", Icon = "bi-book", Href = "/documentation" },
-            new MenuItem { Label = "WaBulk", Icon = "bi-lightning-fill", Href = "/wabulk", Badge = "BETA" },
-        };        bottomMenu = new[]
+            new MenuItem { Label = "Tus Instancias", Icon = "bi-stack", Href = "admin/instances", Active = true },
+            new MenuItem { Label = "Prueba Gratis", Icon = "bi-lightning-fill", Href = "/admin/trial", Badge = "TRIAL" },
+            new MenuItem { Label = "Suscripción", Icon = "bi-credit-card", Href = "/admin/subscription" },
+            new MenuItem { Label = "Documentación", Icon = "bi-book", Href = "/admin/documentation" },
+            new MenuItem { Label = "WaBulk", Icon = "bi-lightning-fill", Href = "/admin/wabulk", Badge = "BETA" },
+        }; bottomMenu = new[]
         {
-            new MenuItem { Label = "API Token", Icon = "bi-key-fill", Href = "/api-token" },
-            new MenuItem { Label = "Webhook Settings", Icon = "bi-gear-fill", Href = "/webhook-settings" },
-            new MenuItem { Label = "Soporte", Icon = "bi-question-circle-fill", Href = "/support" },
+            new MenuItem { Label = "API Token", Icon = "bi-key-fill", Href = "/admin/api-token" },
+            new MenuItem { Label = "Webhook Settings", Icon = "bi-gear-fill", Href = "/admin/webhook-settings" },
+            new MenuItem { Label = "Soporte", Icon = "bi-question-circle-fill", Href = "/admin/support" },
         };
     }
 
     private void NavigateToDashboard()
     {
-        Navigation.Push("/dashboard");
+        Navigation.Push("admin/dashboard");
     }
 
     private void NavigateToPage(string href)

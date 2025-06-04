@@ -120,7 +120,7 @@
             var httpContext = httpContextAccessor.HttpContext;
             if (httpContext != null)
             {
-                httpContext.Response.Redirect("/dashboard");
+                httpContext.Response.Redirect("/admin/dashboard");
                 return;
             }
         }

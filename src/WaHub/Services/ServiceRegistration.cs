@@ -49,6 +49,8 @@ public static class ServiceRegistration
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+
         builder.Services.AddAuthentication(options =>
         {
             options.DefaultScheme = IdentityConstants.ApplicationScheme;
@@ -86,6 +88,7 @@ public static class ServiceRegistration
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
+        
 
         //app.UseHttpsRedirection();
         app.UseStaticFiles();
@@ -102,6 +105,9 @@ public static class ServiceRegistration
             .AddAdditionalAssemblies(typeof(WaHub.Client._Imports).Assembly);
 
         app.MapSingOutEndpoint();
+
+        app.UseStatusCodePagesWithRedirects("/error/{0}");
+        //app.UseStatusCodePagesWithReExecute("/error/{0}");
 
     }
 

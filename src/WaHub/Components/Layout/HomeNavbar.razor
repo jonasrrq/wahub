@@ -23,8 +23,8 @@
                 </select>
             </div>
 
-            <a class="nav-btn nav-btn-primary" href="/Account/login" @onclick="@(() => Navigation.Push("/Account/login"))" @onclick:preventDefault="true">@Localization.Login</a>
-            <a class="nav-btn nav-btn-primary" href="/Account/register" @onclick="@(() => Navigation.Push("/Account/register"))" @onclick:preventDefault="true">Registrarse</a>
+            <a class="nav-btn nav-btn-primary" href="/Account/login" @onclick="@(() => Navigation.Push("/account/login"))" @onclick:preventDefault="true">@Localization.Login</a>
+            <a class="nav-btn nav-btn-primary" href="/Account/register" @onclick="@(() => Navigation.Push("/account/register"))" @onclick:preventDefault="true">Registrarse</a>
             
 
             @* <button class="nav-btn nav-btn-primary" @onclick="GoToLogin">
@@ -40,12 +40,12 @@
 @code {
     private void GoToLogin()
     {
-        Navigation.Push("/Account/login");
+        Navigation.Push("/account/login");
     }
 
     private void GoToRegister()
     {
-        Navigation.Push("/Account/register");
+        Navigation.Push("/account/register");
     }
 
     private async Task OnLanguageChanged(ChangeEventArgs e)
