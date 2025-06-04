@@ -412,6 +412,54 @@ Enlace del Proyecto: [https://github.com/tu-usuario/wahub](https://github.com/tu
 - [Bootstrap](https://getbootstrap.com/)
 - Y a todos los contribuidores que han ayudado a hacer de WaHub una realidad.
 
+## 🗄️ Migraciones Automáticas
+
+WaHub incluye un sistema robusto de migraciones automáticas que se ejecuta en producción para mantener la base de datos actualizada sin intervención manual.
+
+### ✨ Características
+
+- ✅ **Automático en Producción**: Se ejecuta automáticamente al iniciar la aplicación
+- ✅ **Seguro para Desarrollo**: Deshabilitado en entorno Development
+- ✅ **Logs Detallados**: Registra todo el proceso de migración
+- ✅ **Manejo de Errores**: Continúa la ejecución incluso si las migraciones fallan (configurable)
+- ✅ **Validación de Conectividad**: Verifica la conexión antes de ejecutar migraciones
+
+### 🛠️ Configuración
+
+**Configurar migraciones automáticas:**
+```json
+{
+  "Database": {
+    "AutoMigrate": true,
+    "FailOnMigrationError": false
+  }
+}
+```
+
+**Variables de entorno para Docker:**
+```bash
+Database__AutoMigrate=true
+Database__FailOnMigrationError=false
+```
+
+### 📋 Comandos de Migración
+
+```bash
+# Crear nueva migración
+dotnet ef migrations add NombreMigration --project src/WaHub
+
+# Ver migraciones disponibles
+dotnet ef migrations list --project src/WaHub
+
+# Aplicar migraciones manualmente
+dotnet ef database update --project src/WaHub
+
+# Probar migraciones localmente
+.\deploy.ps1 test-migration
+```
+
+Para más información detallada, consulta [MIGRATIONS-CONFIG.md](MIGRATIONS-CONFIG.md).
+
 ---
 
 <div align="center">
