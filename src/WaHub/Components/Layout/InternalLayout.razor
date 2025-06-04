@@ -8,10 +8,10 @@
             @if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
             {
                 <div class="internal-layout">
-                    @* <MobileNavToggle /> *@
+                    <MobileNavToggle />
                     <div class="sidebar-overlay"></div>
                     <div class="sidebar-container">
-                      @*   <WaHubSidebar /> *@
+                        <WaHubSidebar />
                     </div>
                     <div class="main-content">
                         <div class="language-switcher-container">
@@ -34,7 +34,7 @@
                 @ChildContent
             }
         </Authorized>
-        <NotAuthorized>            
+        <NotAuthorized>
             @if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
             {
                 <RedirectToLogin />

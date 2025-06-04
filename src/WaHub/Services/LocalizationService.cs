@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Localization;
 using WaHub.Services;
 
-namespace WaHub.Shared.Services;
+namespace WaHub.Services;
 
 public class LocalizationService
 {

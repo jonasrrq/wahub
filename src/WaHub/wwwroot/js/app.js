@@ -158,10 +158,39 @@ window.waHubApp = {
         }
     },
     
+    // Sidebar user menu functionality
+    userMenu: {
+        init: function() {
+            // Close user dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                const userSection = document.querySelector('.user-section');
+                const userMenuButton = document.querySelector('.user-menu-button');
+                const userDropdown = document.querySelector('.user-dropdown');
+                
+                if (userSection && !userSection.contains(event.target)) {
+                    userMenuButton?.classList.remove('open');
+                    userDropdown?.classList.remove('open');
+                }
+            });
+            
+            // Handle keyboard navigation
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    const userMenuButton = document.querySelector('.user-menu-button');
+                    const userDropdown = document.querySelector('.user-dropdown');
+                    
+                    userMenuButton?.classList.remove('open');
+                    userDropdown?.classList.remove('open');
+                }
+            });
+        }
+    },
+
     // Initialize the app
     init: function() {
         this.theme.init();
         this.mobileNav.init();
+        this.userMenu.init();
         
         // Add event listeners for common functionality
         document.addEventListener('DOMContentLoaded', () => {

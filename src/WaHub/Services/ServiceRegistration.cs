@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 using WaHub.Authentication;
+using WaHub.Client.Services;
 using WaHub.Data;
 using WaHub.Shared.Models;
 using WaHub.Shared.Services;
@@ -14,7 +14,7 @@ public static class ServiceRegistration
 {
     public static void AddServices(WebApplicationBuilder builder)
     {
-         builder.Services.AddScoped<AuthService>();
+        builder.Services.AddScoped<AuthService>();
         builder.Services.AddScoped<ApiService>();
         builder.Services.AddScoped<NavigationService>();
         builder.Services.AddScoped<LocalizationService>();

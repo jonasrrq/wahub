@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace WaHub.NOVA.Services;
+namespace WaHub.Client.Services;
 
 public class NavigationService
 {

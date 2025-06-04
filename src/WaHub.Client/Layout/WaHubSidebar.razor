@@ -1,0 +1,125 @@
+@inject NavigationService Navigation
+@attribute [Authorize]
+@rendermode InteractiveAuto
+
+<AuthorizeView>
+    <div class="sidebar">
+        <!-- Header con logo y theme toggle -->
+        <div class="sidebar-header">
+            <div class="logo-section" @onclick="NavigateToDashboard">
+                <img src="/logo-wahub.webp" alt="WaHub Logo" class="logo-image" />
+                <h2 class="logo-text">WaHub</h2>
+            </div>
+            <ThemeToggle />
+        </div>        <!-- Menú principal -->
+        <div class="menu-section">
+            @foreach (var item in mainMenu)
+            {
+                <button class="menu-item @(item.Active ? "active" : "")" @onclick="@(() => NavigateToPage(item.Href))">
+                    <span class="chakra-button__icon">
+                        <i class="menu-item-icon bi @item.Icon"></i>
+                    </span>
+                    <span class="menu-item-label">@item.Label</span>
+                    @if (!string.IsNullOrEmpty(item.Badge))
+                    {
+                        <span class="chakra-button__icon badge-wrapper">
+                            <span class="badge @(item.Badge.ToLower())">@item.Badge</span>
+                        </span>
+                    }
+                </button>
+            }
+        </div>
+
+        <!-- Menú inferior -->
+        <div class="bottom-menu">
+            @foreach (var item in bottomMenu)
+            {
+                <button class="menu-item" @onclick="@(() => NavigateToPage(item.Href))">
+                    <span class="chakra-button__icon">
+                        <i class="menu-item-icon bi @item.Icon"></i>
+                    </span>
+                    <span class="menu-item-label">@item.Label</span>
+                </button>
+            }
+        </div>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Sección de usuario con menú desplegable -->
+        <div class="user-section">
+            <button class="user-menu-button @(isUserMenuOpen ? "open" : "")" @onclick="ToggleUserMenu">
+                <div class="user-avatar">JR</div>                <div class="user-info">
+                    <p class="user-name">Jonas Requena</p>
+                </div>
+                <i class="chevron-icon bi bi-chevron-down"></i>
+            </button>
+            
+            <div class="user-dropdown @(isUserMenuOpen ? "open" : "")">
+                <button class="dropdown-item" @onclick="@(() => NavigateToPage("/profile"))">
+                    <i class="bi bi-person"></i>
+                    <span>Profile</span>
+                </button>                <form action="Account/Logout" method="post" style="margin: 0;">
+                    <AntiforgeryToken />
+                    <button type="submit" class="dropdown-item">
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span>Logout</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</AuthorizeView>
+
+@code {
+    private MenuItem[] mainMenu = Array.Empty<MenuItem>();
+    private MenuItem[] bottomMenu = Array.Empty<MenuItem>();
+    private bool isUserMenuOpen = false;
+
+    protected override void OnInitialized()
+    {        mainMenu = new[]
+        {
+            new MenuItem { Label = "Tus Instancias", Icon = "bi-stack", Href = "/instances", Active = true },
+            new MenuItem { Label = "Prueba Gratis", Icon = "bi-lightning-fill", Href = "/trial", Badge = "TRIAL" },
+            new MenuItem { Label = "Suscripción", Icon = "bi-credit-card", Href = "/subscription" },
+            new MenuItem { Label = "Documentación", Icon = "bi-book", Href = "/documentation" },
+            new MenuItem { Label = "WaBulk", Icon = "bi-lightning-fill", Href = "/wabulk", Badge = "BETA" },
+        };        bottomMenu = new[]
+        {
+            new MenuItem { Label = "API Token", Icon = "bi-key-fill", Href = "/api-token" },
+            new MenuItem { Label = "Webhook Settings", Icon = "bi-gear-fill", Href = "/webhook-settings" },
+            new MenuItem { Label = "Soporte", Icon = "bi-question-circle-fill", Href = "/support" },
+        };
+    }
+
+    private void NavigateToDashboard()
+    {
+        Navigation.Push("/dashboard");
+    }
+
+    private void NavigateToPage(string href)
+    {
+        Navigation.Push(href);
+        isUserMenuOpen = false; // Cerrar menú al navegar
+    }
+
+    private void ToggleUserMenu()
+    {
+        isUserMenuOpen = !isUserMenuOpen;
+    }
+
+    // Cerrar menú al hacer clic fuera (se podría implementar con JavaScript)
+    private void CloseUserMenu()
+    {
+        isUserMenuOpen = false;
+    }
+
+    private class MenuItem
+    {
+        public string Label { get; set; } = "";
+        public string Icon { get; set; } = "";
+        public string Href { get; set; } = "";
+        public bool Active { get; set; }
+        public string Badge { get; set; } = "";
+    }
+}
