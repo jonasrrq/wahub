@@ -44,10 +44,10 @@ public class PersistAuthStateProvider : RevalidatingServerAuthenticationStatePro
         // Obtenga el administrador de usuarios de un nuevo ámbito para garantizar que obtenga datos nuevos
         await using var scope = _scopeFactory.CreateAsyncScope();
         var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-        return await ValidateAuthenticationStampAsync(userManager, authenticationState.User);
+        return await ValidateSecurityStampAsync(userManager, authenticationState.User);
     }
 
-    private async Task<bool> ValidateAuthenticationStampAsync(UserManager<ApplicationUser> userManager,
+    private async Task<bool> ValidateSecurityStampAsync(UserManager<ApplicationUser> userManager,
         ClaimsPrincipal principal)
     {
         var user = await userManager.GetUserAsync(principal);
@@ -77,8 +77,9 @@ public class PersistAuthStateProvider : RevalidatingServerAuthenticationStatePro
         if (principal.Identity?.IsAuthenticated == true)
         {
             // Obtenga lo que desea mostrar en la interfaz de usuario del cliente
-            var fullName = principal.Claims.First(_ => _.Type == "Fullname").Value;
-            var email = principal.FindFirst(_options.ClaimsIdentity.EmailClaimType)?.Value;
+            //var fullName = principal.Claims.FirstOrDefault(_ => _.Type == "name")?.Value;
+            var fullName = principal.FindFirst(ClaimTypes.Name)?.Value;
+            var email = principal.FindFirst(ClaimTypes.Email)?.Value;
 
             if (fullName != null && email != null)
             {
@@ -96,10 +97,10 @@ public class PersistAuthStateProvider : RevalidatingServerAuthenticationStatePro
         _authenticationStateTask = task;
     }
 
-    protected override void Dispose(bool disposing)
-    {
-        _subscription.Dispose();
-        AuthenticationStateChanged -= OnAuthenticationStateChanged;
-        base.Dispose(disposing);
-    }
+    //protected override void Dispose(bool disposing)
+    //{
+    //    _subscription.Dispose();
+    //    AuthenticationStateChanged -= OnAuthenticationStateChanged;
+    //    base.Dispose(disposing);
+    //}
 }

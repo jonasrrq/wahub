@@ -1,15 +1,9 @@
 ﻿@inherits LayoutComponentBase
+@using WaHub.Components.Layout
 
-@inject NavigationService Navigation
-@inject LocalizationService Localization
-
-@* <InternalLayout>
+<InternalLayout>
     @Body
-</InternalLayout> *@
-
-<HomeNavbar />
-
-@Body
+</InternalLayout>
 
 <NotificationContainer />
 
@@ -18,15 +12,3 @@
     <a href="." class="reload">Reload</a>
     <span class="dismiss">🗙</span>
 </div>
-
-
-
-@code {
-   
-    private async Task OnLanguageChanged(ChangeEventArgs e)
-    {
-        var selectedLanguage = e.Value?.ToString() ?? "es";
-        await Localization.SetLanguageAsync(selectedLanguage);
-        StateHasChanged();
-    }
-}

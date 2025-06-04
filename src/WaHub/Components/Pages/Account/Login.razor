@@ -61,6 +61,10 @@
     private LoginModel inputModel { get; set; } = new(); private bool isLoading = false;
     private string errorMessage = "";
 
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+
     public class LoginModel
     {
         [Required(ErrorMessage = "El email es requerido")]
@@ -68,8 +72,18 @@
         public string Email { get; set; } = "";
 
         [Required(ErrorMessage = "La contraseña es requerida")]
-        [MinLength(6, ErrorMessage = "La contraseña debe tener al menos 6 caracteres")]
+        // [MinLength(6, ErrorMessage = "La contraseña debe tener al menos 6 caracteres")]
+        [DataType(DataType.Password)]
         public string Password { get; set; } = "";
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // if (HttpMethods.IsGet(HttpContext.Request.Method))
+        // {
+        //     // Clear the existing external cookie to ensure a clean login process
+        //     await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+        // }
     }
 
     private async Task HandleLogin()
@@ -85,19 +99,24 @@
 
         try
         {
-            var findUser = await userManager.FindByEmailAsync(inputModel.Email);
-            if (findUser == null)
-            {
-                errorMessage = "Credenciales incorrectas. Usa las credenciales de prueba mostradas arriba.";
-                return;
-            }
-            var result = await singInManager.PasswordSignInAsync(findUser, inputModel.Password, false, false);
+            var result = await singInManager.PasswordSignInAsync(inputModel.Email, inputModel.Password, false, lockoutOnFailure: false);
+            // var findUser = await userManager.FindByEmailAsync(inputModel.Email);
+            // if (findUser == null)
+            // {
+            //     errorMessage = "Credenciales incorrectas. Usa las credenciales de prueba mostradas arriba.";
+            //     return;
+            // }
+            // var result = await singInManager.PasswordSignInAsync(findUser, inputModel.Password, false, false);
 
-            if (!result.Succeeded)
-            {
-                errorMessage = "Credenciales incorrectas. Usa las credenciales de prueba mostradas arriba.";
-                return;
-            }            // Usar redirección HTTP en lugar de navegación del cliente
+            // if (!result.Succeeded)
+            // {
+            //     errorMessage = "Credenciales incorrectas. Usa las credenciales de prueba mostradas arriba.";
+            //     return;
+            // }
+
+            // await singInManager.PasswordSignInAsync(findUser, inputModel.Password, false, false);
+
+            // Usar redirección HTTP en lugar de navegación del cliente
             var httpContext = httpContextAccessor.HttpContext;
             if (httpContext != null)
             {

@@ -1,122 +1,55 @@
-﻿@inherits LayoutComponentBase
+﻿@using WaHub.Services
+@inject NavigationService Navigation
 @inject LocalizationService Localization
-@inject NavigationService NavigationService
-@* @inject AuthenticationStateProvider AuthStateProvider *@
-@inject NavigationManager NavigationManager
 
-
-@{
-    var debug = $"isLoading={isLoading}, isAuthenticated={isAuthenticated}, checkedToken={checkedToken}, authRetryCount={authRetryCount}";
-}
-<div style="color:red;font-size:12px;">DEBUG: @debug</div>
-
-@if (isLoading)
-{
-    <div class="loading-container">
-        <span>Verificando autenticación...</span>
-    </div>
-}
-else if (!isAuthenticated && !isExternalRoute)
-{
-    <div class="loading-container">
-        <span>No autenticado. Redirigiendo...</span>
-    </div>
-}
-else
-{
-    <div class="internal-layout">
-        <div class="sidebar-overlay"></div>
-        <div class="sidebar-container">
-            @*    <WaHubSidebar /> *@
-        </div>
-        <div class="main-content">
-            <div class="language-switcher-container">
-                <div class="language-switcher">
-                    <select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
-                        <option value="es">🇪🇸 Español</option>
-                        <option value="en">🇺🇸 English</option>
-                    </select>
+<CascadingAuthenticationState>
+    <AuthorizeView>
+        <Authorized>
+            @if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
+            {
+                <div class="internal-layout">
+                    @* <MobileNavToggle /> *@
+                    <div class="sidebar-overlay"></div>
+                    <div class="sidebar-container">
+                      @*   <WaHubSidebar /> *@
+                    </div>
+                    <div class="main-content">
+                        <div class="language-switcher-container">
+                            <div class="language-switcher">
+                                <select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
+                                    <option value="es">🇪🇸 Español</option>
+                                    <option value="en">🇺🇸 English</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="content">
+                            @ChildContent
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="content">
+            }
+            else
+            {
+                <HomeNavbar />
                 @ChildContent
-            </div>
-        </div>
-    </div>
-}
-
-<NotificationContainer />
+            }
+        </Authorized>
+        <NotAuthorized>            
+            @if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
+            {
+                <RedirectToLogin />
+            }
+            else
+            {
+                <HomeNavbar />
+                <div>@ChildContent</div>
+            }
+        </NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
 
 @code {
     [Parameter] public RenderFragment? ChildContent { get; set; }
-    private bool isAuthenticated = false;
-    private bool isLoading = true;
-    private bool isExternalRoute = false;
-    private bool hasRedirected = false;
-    private bool checkedToken = false;
-    private bool firstRenderDone = false;
-    private int authRetryCount = 0;
-    private const int MaxAuthRetries = 3;
-    private string? debugToken = null;
-
-    protected override async Task OnInitializedAsync()
-    {
-        isLoading = true;
-        isAuthenticated = false;
-        isExternalRoute = false;
-        hasRedirected = false;
-        checkedToken = false;
-        firstRenderDone = false;
-        authRetryCount = 0;
-
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender && !firstRenderDone)
-        {
-            firstRenderDone = true;
-            var path = NavigationService.GetCurrentPath();
-            isExternalRoute = NavigationService.IsExternalRoute(path);
-            await CheckAuthStateAsync();
-            StateHasChanged();
-        }
-    }
-
-    private async Task CheckAuthStateAsync()
-    {
-        // var authState = await AuthStateProvider.GetAuthenticationStateAsync();
-        // isAuthenticated = authState.User.Identity?.IsAuthenticated == true;
-        isLoading = false;
-        // var tokenResult = await StorageService.GetAsync<string>("token");
-        // debugToken = "";//tokenResult.Value;
-        // StateHasChanged();
-
-        // // Si no autenticado pero hay token en LocalStorage, forzar refresco (máx 3 intentos)
-        // if (!isAuthenticated && !checkedToken && !isExternalRoute && authRetryCount < MaxAuthRetries)
-        // {
-        //     checkedToken = true;
-        //     if (tokenResult.Success && !string.IsNullOrEmpty(tokenResult.Value))
-        //     {
-        //         authRetryCount++;
-        //         if (AuthStateProvider is CustomAuthStateProvider customProvider)
-        //         {
-        //             await customProvider.NotifyAuthenticationStateChangedAsync();
-        //             await Task.Delay(150);
-        //             checkedToken = false;
-        //             await CheckAuthStateAsync();
-        //             return;
-        //         }
-        //     }
-        // }
-
-        // Si después de varios intentos sigue sin autenticarse, redirigir
-        if (!isAuthenticated && !isExternalRoute && !hasRedirected)
-        {
-            hasRedirected = true;
-            NavigationManager.NavigateTo("/Account/login", true);
-        }
-    }
 
     private async Task OnLanguageChanged(ChangeEventArgs e)
     {

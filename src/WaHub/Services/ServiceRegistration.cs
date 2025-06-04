@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 using WaHub.Authentication;
 using WaHub.Data;
@@ -45,7 +46,7 @@ public static class ServiceRegistration
             options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
         }).AddApplicationCookie();
 
-        builder.Services.AddIdentityCore<ApplicationUser>()
+        builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddSignInManager()
             .AddDefaultTokenProviders();
