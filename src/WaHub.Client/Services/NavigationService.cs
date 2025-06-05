@@ -33,7 +33,7 @@ public class NavigationService
 
     public bool IsExternalRoute(string path)
     {
-        var externalRoutes = new[] { "/", "/Account/login", "/Account/register", "/docs", "/privacy", "/contact", "/pricing", "/error/404" };
+        var externalRoutes = new[] { "/", "/Account/login", "/Account/register", "/docs", "/privacy", "/contact", "/pricing", "/404" };
         return externalRoutes.Contains(path, StringComparer.OrdinalIgnoreCase);
     }
 }

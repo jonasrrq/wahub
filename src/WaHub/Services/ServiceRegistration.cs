@@ -106,7 +106,7 @@ public static class ServiceRegistration
 
         app.MapSingOutEndpoint();
 
-        app.UseStatusCodePagesWithRedirects("/error/{0}");
+        app.UseStatusCodePagesWithRedirects("/404");
         //app.UseStatusCodePagesWithReExecute("/error/{0}");
 
     }

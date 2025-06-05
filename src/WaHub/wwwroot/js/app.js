@@ -1,3 +1,10 @@
+// Eliminar clave de hash de recursos Blazor al cargar la app por primera vez
+try {
+    localStorage.removeItem("blazor-resource-hash:WaHub.Client");
+} catch (e) {
+    // Silenciar errores de storage
+}
+
 // WaHub Mobile Navigation and App Functionality
 window.waHubApp = {
     // Mobile Navigation

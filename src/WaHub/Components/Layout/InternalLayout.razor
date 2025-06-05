@@ -1,55 +1,77 @@
-﻿
-@inject NavigationService Navigation
+﻿@inject NavigationService Navigation
 @inject LocalizationService Localization
 
-<CascadingAuthenticationState>
-    <AuthorizeView>
-        <Authorized>
-            @if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
-            {
-                <div class="internal-layout">
-                    <MobileNavToggle />
-                    <div class="sidebar-overlay"></div>
-                    <div class="sidebar-container">
-                        <WaHubSidebar />
-                    </div>
-                    <div class="main-content">
-                        <div class="language-switcher-container">
-                            <div class="language-switcher">
-                                <select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
-                                    <option value="es">🇪🇸 Español</option>
-                                    <option value="en">🇺🇸 English</option>
-                                </select>
+@* 
+<ErrorBoundary @ref="_errorBoundary" Context="ex">
+
+    <ChildContent> *@
+        <CascadingAuthenticationState>
+            <AuthorizeView>
+                <Authorized>
+                    @if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
+                    {
+                        <div class="internal-layout">
+                            <MobileNavToggle />
+                            <div class="sidebar-overlay"></div>
+                            <div class="sidebar-container">
+                                <WaHubSidebar />
+                            </div>
+                            <div class="main-content">
+                                <div class="language-switcher-container">
+                                    <div class="language-switcher">
+                                        <select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
+                                            <option value="es">🇪🇸 Español</option>
+                                            <option value="en">🇺🇸 English</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    @ChildContent
+                                </div>
                             </div>
                         </div>
-                        <div class="content">
-                            @ChildContent
-                        </div>
-                    </div>
-                </div>
-            }
-            else
-            {
-                <HomeNavbar />
-                @ChildContent
-            }
-        </Authorized>
-        <NotAuthorized>
-            @if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
-            {
-                <RedirectToLogin />
-            }
-            else
-            {
-                <HomeNavbar />
-                <div>@ChildContent</div>
-            }
-        </NotAuthorized>
-    </AuthorizeView>
-</CascadingAuthenticationState>
+                    }
+                    else
+                    {
+                        <HomeNavbar />
+                        @ChildContent
+                    }
+                </Authorized>
+                <NotAuthorized>
+                    @if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
+                    {
+                        <RedirectToLogin />
+                    }
+                    else
+                    {
+                        <HomeNavbar />
+                        <div>@ChildContent</div>
+                    }
+                </NotAuthorized>
+            </AuthorizeView>
+        </CascadingAuthenticationState>
+@* 
+    </ChildContent>
+
+    <ErrorContent >
+        <ErrorBoundaryComponent Error="ex" OnHandle="ResetErrorBoundary" />
+    </ErrorContent>
+
+</ErrorBoundary> *@
+
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>
 
 @code {
     [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    private ErrorBoundary? _errorBoundary;
+
+    private void ResetErrorBoundary() => _errorBoundary?.Recover();
 
     private async Task OnLanguageChanged(ChangeEventArgs e)
     {

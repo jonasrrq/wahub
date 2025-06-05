@@ -1,50 +1,46 @@
-﻿@page "/error/{id}"
+﻿@page "/404"
 @using System.Diagnostics
-@inject NavigationService Navigation
-<PageTitle>Error @Id</PageTitle>
+@* @inject NavigationService Navigation *@
+<PageTitle>Error 404</PageTitle>
 
-@if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
-{
-    <div class="internal-layout">
-        <MobileNavToggle />
-        <div class="sidebar-overlay"></div>
-        <div class="sidebar-container">
-            <WaHubSidebar />
-        </div>
-        <div class="main-content">
-            <div class="language-switcher-container">
-                <div class="language-switcher">
-                    
-                </div>
+
+<AuthorizeView>
+    <Authorized>
+        <div class="internal-layout">
+            <MobileNavToggle />
+            <div class="sidebar-overlay"></div>
+            <div class="sidebar-container">
+                <WaHubSidebar />
             </div>
-            <div class="content">
-                <div class="dashboard-container">
-                    <div class="dashboard-header">
-                        <h1>Página no encontrada</h1>
-                        <p>La página que buscas no existe.</p>
-                        <a href="/" style="color: #007bff; text-decoration: none;">← Volver al inicio</a>
+            <div class="main-content">
+                <div class="language-switcher-container">
+                    <div class="language-switcher">
+                    </div>
+                </div>            
+                <div class="content">
+                    <div class="dashboard-container">
+                        <div class="dashboard-header">
+                            <div class="error-number">404</div>
+                            <h1>Página no encontrada</h1>
+                            <p>Lo sentimos, la página que buscas no existe o ha sido movida.</p>
+                            <a href="/admin/dashboard">Volver al inicio</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-}
-else
-{
-    <div class="dashboard-container">
-        <div class="dashboard-header">
-            <h1>Página no encontrada</h1>
-            <p>La página que buscas no existe.</p>
-            <a href="/" style="color: #007bff; text-decoration: none;">← Volver al inicio</a>
+    </Authorized>
+    <NotAuthorized>
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <div class="error-number">404</div>
+                <h1>Página no encontrada</h1>
+                <p>Lo sentimos, la página que buscas no existe o ha sido movida.</p>
+                <a href="/">Volver al inicio</a>
+            </div>
         </div>
-    </div>
-}
-
-
-
-
-
-
+    </NotAuthorized>
+</AuthorizeView>
 
 
 
