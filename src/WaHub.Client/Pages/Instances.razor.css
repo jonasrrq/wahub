@@ -1,0 +1,172 @@
+﻿/* Instances Page Styles */
+.instances-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.instances-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.instances-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2d3748;
+    margin: 0;
+}
+
+.create-instance-btn {
+    background: #3182ce;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+    .create-instance-btn:hover {
+        background: #2c5aa0;
+    }
+
+.instances-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.instance-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .instance-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+.instance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.instance-name {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #2d3748;
+    margin: 0;
+}
+
+.instance-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+    .instance-status.active {
+        background: #c6f6d5;
+        color: #22543d;
+    }
+
+    .instance-status.inactive {
+        background: #fed7d7;
+        color: #742a2a;
+    }
+
+    .instance-status.connecting {
+        background: #feebc8;
+        color: #744210;
+    }
+
+.instance-details {
+    margin-bottom: 1rem;
+}
+
+.instance-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.detail-label {
+    color: #718096;
+    font-weight: 500;
+}
+
+.detail-value {
+    color: #2d3748;
+}
+
+.instance-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.instance-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+    .instance-btn.primary {
+        background: #3182ce;
+        color: white;
+    }
+
+        .instance-btn.primary:hover {
+            background: #2c5aa0;
+        }
+
+    .instance-btn.secondary {
+        background: #e2e8f0;
+        color: #4a5568;
+    }
+
+        .instance-btn.secondary:hover {
+            background: #cbd5e0;
+        }
+
+    .instance-btn.danger {
+        background: #e53e3e;
+        color: white;
+    }
+
+        .instance-btn.danger:hover {
+            background: #c53030;
+        }
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #718096;
+}
+
+.empty-state-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.empty-state-description {
+    margin-bottom: 2rem;
+}
