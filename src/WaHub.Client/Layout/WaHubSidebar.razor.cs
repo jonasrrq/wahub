@@ -8,7 +8,7 @@ namespace WaHub.Client.Layout;
 public partial class WaHubSidebar
 {
     [Inject]
-    public NavigationService Navigation { get; set; } = default!;
+    public NavigationService Navigation { get; set; } 
 
     private MenuItem[] mainMenu = Array.Empty<MenuItem>();
     private MenuItem[] bottomMenu = Array.Empty<MenuItem>();
