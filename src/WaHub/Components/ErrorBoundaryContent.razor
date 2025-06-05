@@ -1,0 +1,41 @@
+﻿
+<div class="error-content d-grid" style="place-content: center">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            <h5 class="card-title">Error Occurred</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Oops, unecpevted error occured!</p>
+            <pre class="bg-secondary p-3">@Error.Message</pre>
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-secondary" @onclick="OnHandle">Ok</button>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    [Parameter, EditorRequired]
+    public Exception Error { get; set; } = new();
+
+    [Parameter, EditorRequired]
+    public EventCallback OnHandle { get; set; }
+
+
+}
+
+
+<style type="text/css">
+    .error-content {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right:0;
+        bottom: 0;
+        background-color: transparent;
+    }
+        
+   
+</style>

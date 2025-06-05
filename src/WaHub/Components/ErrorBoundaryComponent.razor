@@ -1,0 +1,16 @@
+﻿@inject NotificationService notificationService
+
+
+@code {
+    [Parameter, EditorRequired]
+    public Exception Error { get; set; } = new();
+
+    [Parameter, EditorRequired]
+    public EventCallback OnHandle { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        notificationService.ShowError(Error.Message, 1000);
+        await OnHandle.InvokeAsync();
+    }
+}

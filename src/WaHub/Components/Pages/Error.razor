@@ -1,15 +1,52 @@
 ﻿@page "/error/{id}"
 @using System.Diagnostics
-
+@inject NavigationService Navigation
 <PageTitle>Error @Id</PageTitle>
 
-<div class="dashboard-container">
-    <div class="dashboard-header">
-        <h1>Página no encontrada</h1>
-        <p>La página que buscas no existe.</p>
-        <a href="/" style="color: #007bff; text-decoration: none;">← Volver al inicio</a>
+@if (!Navigation.IsExternalRoute(Navigation.GetCurrentPath()))
+{
+    <div class="internal-layout">
+        <MobileNavToggle />
+        <div class="sidebar-overlay"></div>
+        <div class="sidebar-container">
+            <WaHubSidebar />
+        </div>
+        <div class="main-content">
+            <div class="language-switcher-container">
+                <div class="language-switcher">
+                    
+                </div>
+            </div>
+            <div class="content">
+                <div class="dashboard-container">
+                    <div class="dashboard-header">
+                        <h1>Página no encontrada</h1>
+                        <p>La página que buscas no existe.</p>
+                        <a href="/" style="color: #007bff; text-decoration: none;">← Volver al inicio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+}
+else
+{
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Página no encontrada</h1>
+            <p>La página que buscas no existe.</p>
+            <a href="/" style="color: #007bff; text-decoration: none;">← Volver al inicio</a>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+
 
 @code {
     [CascadingParameter]
