@@ -1,7 +1,7 @@
 ﻿using Microsoft.JSInterop;
 
 using WaHub.Shared.Models;
-
+using WaHub.Shared.Models.Instances;
 using WaHub.Shared.Services;
 
 
@@ -9,10 +9,10 @@ namespace WaHub.Client.Pages;
 
 public partial class Instances
 {
-    private readonly ApiService _apiService;
+    private readonly IApiAdminService _apiService;
     private readonly NotificationService _notification;
     private readonly IJSRuntime _jSRuntime;
-    private List<WhatsAppInstanceDto> instances = new();
+    private List<InstanceDto> instances = new();
     private bool isLoading = true;
     private string? errorMessage;
     private bool showCreateModal = false;
@@ -22,7 +22,7 @@ public partial class Instances
     private string? qrCodeImage;
 
 
-    public Instances(ApiService apiService,
+    public Instances(IApiAdminService apiService,
         NotificationService notification,
         IJSRuntime jSRuntime)
     {
@@ -45,8 +45,16 @@ public partial class Instances
         {
             isLoading = true;
             errorMessage = null;
-            var result = await _apiService.GetInstancesAsync();
-            instances = result ?? new List<WhatsAppInstanceDto>();
+            var result = await _apiService.GetUsersAsync();
+
+            if (result == null || !result.Success)
+            {
+                errorMessage = result?.Message ?? "Error al cargar las instancias";
+                _notification.ShowError(errorMessage);
+                return;
+            }
+
+            instances = result.Data ?? new List<InstanceDto>();
         }
         catch (Exception ex)
         {
@@ -76,14 +84,14 @@ public partial class Instances
 
         try
         {
-            var request = new CreateInstanceRequest
+            var request = new InstanceDto
             {
                 Name = createInstanceName,
-                PhoneNumber = createInstancePhone
+                Token = ""
             };
 
             var success = await _apiService.CreateInstanceAsync(request);
-            if (success)
+            if (success.Success)
             {
                 showCreateModal = false;
                 await LoadInstancesAsync();
@@ -105,66 +113,66 @@ public partial class Instances
         showCreateModal = false;
         StateHasChanged();
     }
-    private async Task ToggleInstance(WhatsAppInstanceDto instance)
+    private async Task ToggleInstance(InstanceDto instance)
     {
         try
         {
-            var status = instance.Status == "Conectado" ? "pausada" : "activada";
-            var success = await _apiService.ToggleInstanceAsync(instance.Id);
-            if (success)
-            {
-                await LoadInstancesAsync();
-                _notification.ShowSuccess($"Instancia '{instance.Name}' {status} correctamente");
-            }
-            else
-            {
-                _notification.ShowError("Error al cambiar el estado de la instancia");
-            }
+            var status = instance.Connected ? "pausada" : "activada";
+            //var success = await _apiService.ToggleInstanceAsync(instance.Id);
+            //if (success)
+            //{
+            //    await LoadInstancesAsync();
+            //    _notification.ShowSuccess($"Instancia '{instance.Name}' {status} correctamente");
+            //}
+            //else
+            //{
+            //    _notification.ShowError("Error al cambiar el estado de la instancia");
+            //}
         }
         catch (Exception ex)
         {
             _notification.ShowError($"Error inesperado: {ex.Message}");
         }
     }
-    private async Task DeleteInstance(WhatsAppInstanceDto instance)
+    private async Task DeleteInstance(InstanceDto instance)
     {
         var confirmed = await _jSRuntime.InvokeAsync<bool>("confirm", $"¿Estás seguro de que quieres eliminar la instancia '{instance.Name}'?");
         if (!confirmed) return;
 
         try
         {
-            var success = await _apiService.DeleteInstanceAsync(instance.Id);
-            if (success)
-            {
-                await LoadInstancesAsync();
-                _notification.ShowSuccess($"Instancia '{instance.Name}' eliminada exitosamente");
-            }
-            else
-            {
-                _notification.ShowError("Error al eliminar la instancia");
-            }
+            //var success = await _apiService.DeleteInstanceAsync(instance.Id);
+            //if (success)
+            //{
+            //    await LoadInstancesAsync();
+            //    _notification.ShowSuccess($"Instancia '{instance.Name}' eliminada exitosamente");
+            //}
+            //else
+            //{
+            //    _notification.ShowError("Error al eliminar la instancia");
+            //}
         }
         catch (Exception ex)
         {
             _notification.ShowError($"Error inesperado: {ex.Message}");
         }
     }
-    private async Task ShowQrCode(WhatsAppInstanceDto instance)
+    private async Task ShowQrCode(InstanceDto instance)
     {
         try
         {
-            var qrResponse = await _apiService.GetQrCodeAsync(instance.Id);
-            if (qrResponse != null)
-            {
-                qrCodeImage = qrResponse.QrCode;
-                showQrModal = true;
-                StateHasChanged();
-                _notification.ShowInfo("Escanea el código QR con WhatsApp para conectar la instancia");
-            }
-            else
-            {
-                _notification.ShowError("No se pudo obtener el código QR");
-            }
+            //var qrResponse = await _apiService.GetQrCodeAsync(instance.Id);
+            //if (qrResponse != null)
+            //{
+            //    qrCodeImage = qrResponse.QrCode;
+            //    showQrModal = true;
+            //    StateHasChanged();
+            //    _notification.ShowInfo("Escanea el código QR con WhatsApp para conectar la instancia");
+            //}
+            //else
+            //{
+            //    _notification.ShowError("No se pudo obtener el código QR");
+            //}
         }
         catch (Exception ex)
         {
@@ -178,7 +186,7 @@ public partial class Instances
         qrCodeImage = null;
         StateHasChanged();
     }
-    private void ManageInstance(WhatsAppInstanceDto instance)
+    private void ManageInstance(InstanceDto instance)
     {
         // TODO: Navegar a página de administración de instancia
         _notification.ShowInfo($"Funcionalidad de administración para '{instance.Name}' próximamente disponible");

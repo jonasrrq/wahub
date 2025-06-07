@@ -1,5 +1,5 @@
 ﻿@page "/admin/instances"
-@rendermode InteractiveServer
+@rendermode InteractiveAuto //@(new InteractiveAutoRenderMode(false))
 
 <PageTitle>Instancias - WaHub</PageTitle>
 
@@ -31,15 +31,15 @@
         <div class="instances-grid">
             @foreach (var instance in instances)
             {
-                <div class="instance-card @(instance.IsActive ? "active" : "inactive")">
+                <div class="instance-card @(instance.Connected ? "active" : "inactive")">
                     <div class="instance-header">
                         <div class="instance-status">
-                            <span class="status-indicator @(instance.IsActive ? "online" : "offline")"></span>
-                            <span class="status-text">@instance.Status</span>
+                            <span class="status-indicator @(instance.Connected ? "online" : "offline")"></span>
+                            <span class="status-text">@instance.Connected</span>
                         </div>
                         <div class="instance-actions">
-                            <button class="btn-icon" @onclick="() => ToggleInstance(instance)" title="@(instance.IsActive ? "Pausar" : "Activar")">
-                                @(instance.IsActive ? "⏸️" : "▶️")
+                            <button class="btn-icon" @onclick="() => ToggleInstance(instance)" title="@(instance.Connected ? "Pausar" : "Activar")">
+                                @(instance.Connected ? "⏸️" : "▶️")
                             </button>
                             <button class="btn-icon" @onclick="() => ShowQrCode(instance)" title="Mostrar QR">
                                 📱
@@ -52,23 +52,23 @@
 
                     <div class="instance-info">
                         <h3>@instance.Name</h3>
-                        <p class="instance-number">@instance.PhoneNumber</p>
+                        <p class="instance-number">@instance.Jid</p>
                     </div>
 
                     <div class="instance-stats">
                         <div class="stat">
-                            <span class="stat-value">@instance.MessagesSent</span>
+                            <span class="stat-value">1245</span>
                             <span class="stat-label">Mensajes</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-value">@instance.Contacts</span>
+                            <span class="stat-value">89</span>
                             <span class="stat-label">Contactos</span>
                         </div>
                     </div>
 
                     <div class="instance-footer">
-                        <small>Creado: @instance.CreatedAt.ToString("dd/MM/yyyy")</small>
-                        <small>Último: @instance.LastActivity.ToString("HH:mm")</small>
+                        <small>Creado: "dd/MM/yyyy"</small>
+                        <small>Último: "HH:mm"</small>
                         <button class="btn-secondary" @onclick="() => ManageInstance(instance)">
                             Administrar
                         </button>

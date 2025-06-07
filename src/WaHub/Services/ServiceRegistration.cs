@@ -1,12 +1,13 @@
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 using WaHub.Authentication;
 using WaHub.Client.Services;
 using WaHub.Components;
 using WaHub.Data;
+using WaHub.Handlers;
 using WaHub.Shared.Models;
 using WaHub.Shared.Services;
 
@@ -23,8 +24,11 @@ public static class ServiceRegistration
             .AddInteractiveWebAssemblyComponents()
             .AddAuthenticationStateSerialization();
 
-        builder.Services.AddScoped<AuthService>();
-        builder.Services.AddScoped<ApiService>();
+        //builder.Services.AddControllers();
+
+        //builder.Services.AddScoped<AuthService>();
+        builder.Services.AddScoped<IApiService, ApiService>();
+        builder.Services.AddScoped<IApiAdminService, ApiAdminService>();
         builder.Services.AddScoped<NavigationService>();
         builder.Services.AddScoped<LocalizationService>();
         builder.Services.AddScoped<NotificationService>();
@@ -36,12 +40,18 @@ public static class ServiceRegistration
         builder.Services.AddLocalization();
 
         // Add HTTP client with auth handler
-        //builder.Services.AddScoped<AuthHeaderHandler>();
-        //builder.Services.AddHttpClient("AuthHttpClient")
-        //    .AddHttpMessageHandler<AuthHeaderHandler>();
+        builder.Services.AddScoped<AuthAdminHeaderHandler>();
+        builder.Services.AddHttpClient("ApiAdminHttpClient", client =>
+                {
+                    client.BaseAddress = new Uri(builder.Configuration.GetValue<string>("UriApi") ?? "");
+                })
+                .AddHttpMessageHandler<AuthAdminHeaderHandler>();
+
+        //.AddHttpClient("ApiHttpClient")//
+
 
         // Register a named client without auth for public endpoints if needed
-        builder.Services.AddHttpClient("PublicHttpClient");
+        //builder.Services.AddHttpClient("PublicHttpClient");
 
         // Configuraci�n de autenticaci�n JWT para APIs
         //builder.Services.AddJwtAuthentication(builder.Configuration);
@@ -88,7 +98,9 @@ public static class ServiceRegistration
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
-        
+
+
+        //app.MapControllers();
 
         //app.UseHttpsRedirection();
         app.UseStaticFiles();
@@ -119,7 +131,7 @@ public static class ServiceRegistration
         var configuration = webApp.Services.GetRequiredService<IConfiguration>();
 
         var failOnError = configuration.GetValue<bool>("Database:FailOnMigrationError", false);
-        
+
         try
         {
             logger.LogInformation("Starting database migration process...");
