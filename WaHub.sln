@@ -32,6 +32,11 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_ConfirmAddLanguageFile = True
+		RESX_AutoCreateNewLanguageFiles = True
+		RESX_SortFileContentOnSave = True
+		RESX_PrefixTranslations = True
+		RESX_NeutralResourcesLanguage = es-419
 		SolutionGuid = {97764568-0386-4EFC-B462-CA5CBD1B2083}
 	EndGlobalSection
 EndGlobal

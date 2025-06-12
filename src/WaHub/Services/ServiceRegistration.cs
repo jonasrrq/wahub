@@ -78,14 +78,14 @@ public static class ServiceRegistration
 
     public static void UseConfigurations(WebApplication app)
     {
-        // Configure localization
-        //var supportedCultures = new[] { "es", "en" };
-        //var localizationOptions = new RequestLocalizationOptions()
-        //    .SetDefaultCulture(supportedCultures[0])
-        //    .AddSupportedCultures(supportedCultures)
-        //    .AddSupportedUICultures(supportedCultures);
+       
+        var supportedCultures = new[] { "es", "en","fr","pt-BR" };
+        var localizationOptions = new RequestLocalizationOptions()
+            .SetDefaultCulture(supportedCultures[1])
+            .AddSupportedCultures(supportedCultures)
+            .AddSupportedUICultures(supportedCultures);
 
-        //app.UseRequestLocalization(localizationOptions);
+        app.UseRequestLocalization(localizationOptions);
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())

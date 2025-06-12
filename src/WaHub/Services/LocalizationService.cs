@@ -1,14 +1,16 @@
 using Microsoft.Extensions.Localization;
+
 using WaHub.Services;
+using WaHub.Shared.Resources;
 
 namespace WaHub.Services;
 
 public class LocalizationService
 {
-    private readonly IStringLocalizer<LocalizationService> _localizer;   
+    private readonly IStringLocalizer<Resource> _localizer;   
     private string _currentLanguage = "es";
 
-    public LocalizationService(IStringLocalizer<LocalizationService> localizer)
+    public LocalizationService(IStringLocalizer<Resource> localizer)
     {
         _localizer = localizer;       
         _ = InitializeLanguageAsync();
@@ -63,7 +65,7 @@ public class LocalizationService
     public string Support => T("support", "Soporte");
     public string Profile => T("profile", "Perfil");
     public string Logout => T("logout", "Cerrar Sesión");
-    public string Login => T("login", "Iniciar Sesión");
+    public string Login => T("Auth_Login", "Iniciar Sesión");
     public string HomeTitle => T("home_title", "WhatsApp API");
     public string ForDevelopers => T("for_developers", "para desarrolladores");
     public string HomeDescription => T("home_description", "Envía y recibe mensajes, gestiona chats, grupos y canales fácilmente con nuestra API de nivel empresarial. Paga por cuenta de WhatsApp, sin tarifas por mensaje.");
