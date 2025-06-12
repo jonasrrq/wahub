@@ -63,10 +63,10 @@ namespace WaHub.Shared.Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Iniciar sesión.
         /// </summary>
-        public static string Auth_Login {
-            get {
-                return ResourceManager.GetString("Auth_Login", resourceCulture);
-            }
-        }
+        //public static string Login {
+        //    get {
+        //        return ResourceManager.GetString("Login", resourceCulture);
+        //    }
+        //}
     }
 }

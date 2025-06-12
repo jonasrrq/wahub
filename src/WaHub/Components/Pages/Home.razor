@@ -3,7 +3,7 @@
 @* @attribute [StreamRendering] *@
 
 @inject NavigationService Navigation
-@inject LocalizationService Localization
+@inject ILocalizationService Localization
 
 <PageTitle>WaHub - Plataforma de Gestión de WhatsApp</PageTitle>
 
@@ -18,16 +18,16 @@
             </div>
             
             <h2 class="main-title">
-                @Localization.HomeTitle <span class="highlight">@Localization.ForDevelopers</span>
+                @Localization.ExternalPages.HomeTitle <span class="highlight">@Localization.ExternalPages.ForDevelopers</span>
             </h2>
             
             <p class="description">
-                @Localization.HomeDescription
+                @Localization.ExternalPages.HomeDescription
             </p>
             
             <div class="action-buttons">
-                <a class="btn btn-primary" href="/Account/register" @onclick="@(() => Navigation.Push("/Account/register"))" @onclick:preventDefault="true">@Localization.StartFreeTrial</a>
-                <a class="btn btn-secondary" href="/Account/login" @onclick="@(() => Navigation.Push("/Account/login"))" @onclick:preventDefault="true">@Localization.Login</a>
+                <a class="btn btn-primary" href="/Account/register" @onclick="@(() => Navigation.Push("/Account/register"))" @onclick:preventDefault="true">@Localization.ExternalPages.StartFreeTrial</a>
+                <a class="btn btn-secondary" href="/Account/login" @onclick="@(() => Navigation.Push("/Account/login"))" @onclick:preventDefault="true">@Localization.ExternalPages.Login</a>
 
                @*  <button class="btn btn-primary" @onclick="@(() => Navigation.Push("/Account/register"))">
                     @Localization.StartFreeTrial
@@ -38,7 +38,7 @@
             </div>
             
             <p class="trial-info">
-                @Localization.TrialInfo
+                @Localization.ExternalPages.TrialInfo
             </p>
         </div>
     </div>

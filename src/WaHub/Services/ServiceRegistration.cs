@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 using WaHub.Authentication;
 using WaHub.Client.Services;
@@ -30,14 +30,31 @@ public static class ServiceRegistration
         builder.Services.AddScoped<IApiService, ApiService>();
         builder.Services.AddScoped<IApiAdminService, ApiAdminService>();
         builder.Services.AddScoped<NavigationService>();
-        builder.Services.AddScoped<LocalizationService>();
+        builder.Services.AddScoped<ILocalizationService, LocalizationService>();
         builder.Services.AddScoped<NotificationService>();
         builder.Services.AddHttpContextAccessor(); // Agregar para acceder al HttpContext
-        //builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
-        //builder.Services.AddScoped<ICrossPlatformStorageService, CrossPlatformStorageService>();
+                                                   //builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
+                                                   //builder.Services.AddScoped<ICrossPlatformStorageService, CrossPlatformStorageService>();
 
         // Add localization services
         builder.Services.AddLocalization();
+        
+
+        //builder.Services.Configure<RequestLocalizationOptions>(options =>
+        //{
+        //    var supportedCultures = new[]
+        //    {
+        //        new System.Globalization.CultureInfo("es"),
+        //        new System.Globalization.CultureInfo("en"),
+        //        new System.Globalization.CultureInfo("fr"),
+        //        new System.Globalization.CultureInfo("pt-BR")
+        //    };
+        //    options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("es");
+        //    options.SupportedCultures = supportedCultures;
+        //    options.SupportedUICultures = supportedCultures;
+        //    options.FallBackToParentCultures = true;
+        //    options.FallBackToParentUICultures = true;
+        //});
 
         // Add HTTP client with auth handler
         builder.Services.AddScoped<AuthAdminHeaderHandler>();
@@ -78,14 +95,32 @@ public static class ServiceRegistration
 
     public static void UseConfigurations(WebApplication app)
     {
-       
-        var supportedCultures = new[] { "es", "en","fr","pt-BR" };
-        var localizationOptions = new RequestLocalizationOptions()
-            .SetDefaultCulture(supportedCultures[1])
-            .AddSupportedCultures(supportedCultures)
-            .AddSupportedUICultures(supportedCultures);
+        var supportedCultures = new[]
+         {
+                new System.Globalization.CultureInfo("es"),
+                new System.Globalization.CultureInfo("en"),
+                new System.Globalization.CultureInfo("fr"),
+                new System.Globalization.CultureInfo("pt-BR")
+        };
 
+        var localizationOptions = new RequestLocalizationOptions()
+        {
+            DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("es"),
+            SupportedCultures = supportedCultures,
+            SupportedUICultures = supportedCultures,
+            FallBackToParentCultures = true,
+            FallBackToParentUICultures = true
+        };
         app.UseRequestLocalization(localizationOptions);
+
+
+        //var supportedCultures = new[] { "es", "en", "fr", "pt-BR" };
+        //var localizationOptions = new RequestLocalizationOptions()
+        //    .SetDefaultCulture(supportedCultures[1])
+        //    .AddSupportedCultures(supportedCultures)
+        //    .AddSupportedUICultures(supportedCultures);
+
+        //app.UseRequestLocalization(localizationOptions);
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
