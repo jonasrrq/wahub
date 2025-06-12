@@ -1,5 +1,18 @@
 ## Issues
 - If you find a bug or have a feature request, please open an issue in the repository. Provide as much detail as possible, including steps to reproduce the issue, expected behavior, and any relevant screenshots or logs.
+
+- Al asignarse una issue, seguir estos pasos:
+  1. Actualizar la rama master local:
+     ```bash
+     git checkout master
+     git pull origin master
+     ```
+  2. Crear una nueva rama desde master para la issue:
+     ```bash
+     git checkout -b issue-[number]-[brief-title]
+     ```
+  3. Proceder con el desarrollo siguiendo los pasos a continuación
+
 - For each issue in development, create a markdown file in the `/Issues` folder at the root of the project with the following name format: `Issue-[number]-[brief-title].md` using the following structure:
   ```markdown
   # Issue #[number] - [title]
