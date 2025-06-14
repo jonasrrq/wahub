@@ -1,4 +1,3 @@
-
 @attribute [Authorize]
 @rendermode InteractiveAuto
 
@@ -8,7 +7,7 @@
         <div class="sidebar-header">
             <div class="logo-section" @onclick="NavigateToDashboard">
                 <img src="/logo-wahub.png" alt="WaHub Logo" class="logo-image" />
-                <h2 class="logo-text">WaHub</h2>
+                <h2 class="logo-text">@_localization.GetString(ResourceKeys.WaHubSidebar_WaHub)</h2>
             </div>
             <ThemeToggle />
         </div>
@@ -60,13 +59,13 @@
             <div class="user-dropdown @(isUserMenuOpen ? "open" : "")">
                 <button class="dropdown-item" @onclick="@(() => NavigateToPage("/Account/profile"))">
                     <i class="bi bi-person"></i>
-                    <span>Profile</span>
+                    <span>@_localization.GetString(ResourceKeys.WaHubSidebar_Profile)</span>
                 </button>
                 <form action="/Account/Logount" method="post" style="margin: 0;">
                     <AntiforgeryToken />
                     <button type="submit" class="dropdown-item">
                         <i class="bi bi-box-arrow-left"></i>
-                        <span>Logout</span>
+                        <span>@_localization.GetString(ResourceKeys.WaHubSidebar_Logout)</span>
                     </button>
                 </form>
             </div>

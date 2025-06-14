@@ -120,4 +120,30 @@
   <data name="Login" xml:space="preserve">
     <value>Se connecter</value>
   </data>
+  <!-- Traductions pour src/WaHub/Components/Layout/HomeNavbar.razor -->
+  <data name="HomeNavbar_WaHub" xml:space="preserve">
+    <value>WaHub</value>
+  </data>
+  <data name="HomeNavbar_Prices" xml:space="preserve">
+    <value>Prix</value>
+  </data>
+  <data name="HomeNavbar_API" xml:space="preserve">
+    <value>API</value>
+  </data>
+  <data name="HomeNavbar_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="HomeNavbar_Register" xml:space="preserve">
+    <value>S'inscrire</value>
+  </data>
+  <!-- Traducciones para src/WaHub.Client/Layout/WaHubSidebar.razor -->
+  <data name="WaHubSidebar_WaHub" xml:space="preserve">
+    <value>WaHub</value>
+  </data>
+  <data name="WaHubSidebar_Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="WaHubSidebar_Logout" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
 </root>

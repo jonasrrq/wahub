@@ -73,15 +73,13 @@
 - [ ] "Lo sentimos, la página que buscas no existe o ha sido movida."
 - [ ] "Volver al inicio"
 
-#### src/WaHub/Components/Shared/LanguageSelector.razor
-- [ ] Los nombres de los idiomas mostrados (ej. "Español", "English", "Português") provienen de `culture.NativeName`. Deben considerarse para traducción si la interfaz debe mostrar el nombre del idioma en el idioma de visualización actual.
 
 #### src/WaHub/Components/Layout/HomeNavbar.razor
-- [ ] "WaHub"
-- [ ] "Precios"
-- [ ] "API"
-- [ ] "Contacto"
-- [ ] "Registrarse"
+- [x] "WaHub"
+- [x] "Precios"
+- [x] "API"
+- [x] "Contacto"
+- [x] "Registrarse"
 
 #### src/WaHub/Components/Layout/InternalLayout.razor
 - [ ] "An unhandled error has occurred."
@@ -89,13 +87,10 @@
 - [ ] "🗙" (Icono de cerrar/descartar)
 
 #### src/WaHub.Client/Layout/WaHubSidebar.razor
-- [ ] "WaHub"
-- [ ] "Profile"
-- [ ] "Logout"
+- [x] "WaHub"
+- [x] "Profile"
+- [x] "Logout"
 
-#### src/WaHub.Client/Layout/ThemeToggle.razor
-- [ ] "☀️" (Representa el tema claro)
-- [ ] "🌙" (Representa el tema oscuro)
 
 #### src/WaHub.Client/Layout/NotificationContainer.razor
 - [ ] "✖" (Botón de cerrar en la notificación)

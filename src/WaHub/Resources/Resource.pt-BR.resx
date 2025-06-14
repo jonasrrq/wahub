@@ -120,4 +120,20 @@
   <data name="Login" xml:space="preserve">
     <value>Fazer login</value>
   </data>
+  <!-- Traduções para src/WaHub/Components/Layout/HomeNavbar.razor -->
+  <data name="HomeNavbar_WaHub" xml:space="preserve">
+    <value>WaHub</value>
+  </data>
+  <data name="HomeNavbar_Prices" xml:space="preserve">
+    <value>Preços</value>
+  </data>
+  <data name="HomeNavbar_API" xml:space="preserve">
+    <value>API</value>
+  </data>
+  <data name="HomeNavbar_Contact" xml:space="preserve">
+    <value>Contato</value>
+  </data>
+  <data name="HomeNavbar_Register" xml:space="preserve">
+    <value>Cadastre-se</value>
+  </data>
 </root>

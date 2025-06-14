@@ -193,7 +193,7 @@ Luego, reemplaza el texto estático con la llamada al método `GetString` del se
 </h2>
 ```
 
-**Después:**
+**Ejemplo: Después (en `src/WaHub/Components/Pages/Home.razor`)**
 
 ```html
 @inject ILocalizationService Localization
@@ -215,7 +215,7 @@ Luego, reemplaza el texto estático con la llamada al método `GetString` del se
 Vuelve más tarde o explora otras áreas de la plataforma.</p>
 ```
 
-**Después:**
+**Ejemplo: Después (en `src/WaHub/Components/Pages/EnContruccion.razor`)**
 
 ```html
 @inject ILocalizationService Localization
@@ -236,7 +236,7 @@ Vuelve más tarde o explora otras áreas de la plataforma.</p>
 <p>Lo sentimos, la página que buscas no existe o ha sido movida.</p>
 ```
 
-**Después:**
+**Ejemplo: Después (en `src/WaHub/Components/Pages/Error.razor`)**
 
 ```html
 @inject ILocalizationService Localization
@@ -247,8 +247,163 @@ Vuelve más tarde o explora otras áreas de la plataforma.</p>
 <p>@Localization.GetString(ResourceKeys.PageNotFoundMessage)</p>
 ```
 
+#### Manejo de Archivos de Código C# Separados (`.razor.cs`)
+
+Si tu componente Blazor tiene un archivo de código C# separado (code-behind) con la extensión `.razor.cs`, debes inyectar `ILocalizationService` directamente en el constructor de tu clase parcial o utilizando el atributo `[Inject]`.
+
+**Ejemplo: Inyección en el constructor (`TuComponente.razor.cs`)**
+
+```csharp
+using Microsoft.AspNetCore.Components;
+using WaHub.Shared.Services;
+using WaHub.Shared.Models;
+
+namespace TuProyecto.Componentes;
+
+public partial class TuComponente
+{
+    private readonly ILocalizationService _localization;
+
+    public TuComponente(ILocalizationService localization)
+    {
+        _localization = localization;
+    }
+
+    // ... otros métodos y propiedades
+
+    private string ObtenerTextoTraducido()
+    {
+        return _localization.GetString(ResourceKeys.TuClaveDeRecurso);
+    }
+}
+```
+
+**Ejemplo: Inyección con atributo `[Inject]` (`TuComponente.razor.cs`)**
+
+```csharp
+using Microsoft.AspNetCore.Components;
+using WaHub.Shared.Services;
+using WaHub.Shared.Models;
+
+namespace TuProyecto.Componentes;
+
+public partial class TuComponente
+{
+    [Inject]
+    public ILocalizationService Localization { get; set; }
+
+    // ... otros métodos y propiedades
+
+    private string ObtenerTextoTraducido()
+    {
+        return Localization.GetString(ResourceKeys.TuClaveDeRecurso);
+    }
+}
+```
+
+Una vez inyectado, puedes usar `_localization.GetString(ResourceKeys.TuClave)` o `Localization.GetString(ResourceKeys.TuClave)` (dependiendo de cómo lo hayas inyectado) en tu lógica de C# para obtener las cadenas traducidas.
+
+**Ejemplo práctico: `src/WaHub.Client/Layout/WaHubSidebar.razor.cs`**
+
+**Antes:**
+
+```csharp
+// ... existing code ...
+public partial class WaHubSidebar
+{
+    // ... existing code ...
+    private MenuItem[] mainMenu = Array.Empty<MenuItem>();
+    private MenuItem[] bottomMenu = Array.Empty<MenuItem>();
+    // ... existing code ...
+
+    protected override void OnInitialized()
+    {
+        mainMenu = new[]
+        {
+        new MenuItem { Label = "Tus Instancias", Icon = "bi-stack", Href = "/admin/instances", Active = true },
+        new MenuItem { Label = "Prueba Gratis", Icon = "bi-lightning-fill", Href = "/admin/trial", Badge = "TRIAL" },
+        new MenuItem { Label = "Suscripción", Icon = "bi-credit-card", Href = "/admin/subscription" },
+        new MenuItem { Label = "Documentación", Icon = "bi-book", Href = "/admin/documentation" },
+        new MenuItem { Label = "WaBulk", Icon = "bi-lightning-fill", Href = "/admin/wabulk", Badge = "BETA" },
+    };
+
+        bottomMenu = new[]
+        {
+        new MenuItem { Label = "API Token", Icon = "bi-key-fill", Href = "/admin/api-token" },
+        new MenuItem { Label = "Webhook Settings", Icon = "bi-gear-fill", Href = "/admin/webhook-settings" },
+        new MenuItem { Label = "Soporte", Icon = "bi-question-circle-fill", Href = "/admin/support" },
+    };
+    }
+    // ... existing code ...
+}
+```
+
+**Después:**
+
+```csharp
+// ... existing code ...
+public partial class WaHubSidebar
+{
+    private readonly NavigationService _navigation;
+    public readonly ILocalizationService _localization;
+    private MenuItem[] mainMenu = Array.Empty<MenuItem>();
+    private MenuItem[] bottomMenu = Array.Empty<MenuItem>();
+
+    public WaHubSidebar(NavigationService Navigation,
+        ILocalizationService Localization)
+    {
+        _navigation = Navigation;
+        _localization = Localization;
+        // Constructor vacío, la inicialización se realiza en OnInitialized
+    }
+
+
+    protected override void OnInitialized()
+    {
+        mainMenu = new[]
+        {
+        new MenuItem { Label = _localization.GetString(ResourceKeys.WaHubSidebar_YourInstances), Icon = "bi-stack", Href = "/admin/instances", Active = true },
+        new MenuItem { Label = _localization.GetString(ResourceKeys.WaHubSidebar_FreeTrial), Icon = "bi-lightning-fill", Href = "/admin/trial", Badge = "TRIAL" },
+        new MenuItem { Label = _localization.GetString(ResourceKeys.WaHubSidebar_Subscription), Icon = "bi-credit-card", Href = "/admin/subscription" },
+        new MenuItem { Label = _localization.GetString(ResourceKeys.WaHubSidebar_Documentation), Icon = "bi-book", Href = "/admin/documentation" },
+        new MenuItem { Label = _localization.GetString(ResourceKeys.WaHubSidebar_WaBulk), Icon = "bi-lightning-fill", Href = "/admin/wabulk", Badge = "BETA" },
+    };
+
+        bottomMenu = new[]
+        {
+        new MenuItem { Label = _localization.GetString(ResourceKeys.WaHubSidebar_APIToken), Icon = "bi-key-fill", Href = "/admin/api-token" },
+        new MenuItem { Label = _localization.GetString(ResourceKeys.WaHubSidebar_WebhookSettings), Icon = "bi-gear-fill", Href = "/admin/webhook-settings" },
+        new MenuItem { Label = _localization.GetString(ResourceKeys.WaHubSidebar_Support), Icon = "bi-question-circle-fill", Href = "/admin/support" },
+    };
+    }
+
+    private void NavigateToDashboard()
+    {
+        _navigation.Push("/admin/dashboard");
+    }
+
+    private void NavigateToPage(string href)
+    {
+        _navigation.Push(href);
+        isUserMenuOpen = false; // Cerrar menú al navegar
+    }
+
+    private void ToggleUserMenu()
+    {
+        isUserMenuOpen = !isUserMenuOpen;
+    }
+
+    // Cerrar menú al hacer clic fuera (se podría implementar con JavaScript)
+    private void CloseUserMenu()
+    {
+        isUserMenuOpen = false;
+    }
+}
+```
+
 ---
 
 Recuerda que cada vez que añadas una nueva constante a `ResourceKeys.cs`, deberás asegurarte de añadir la entrada `data` correspondiente en *todos* los archivos `.resx` para cada idioma que soportes. Si un idioma no tiene una traducción para una clave, el `LocalizationService` debería devolver la cadena por defecto (del `Resource.resx`).
 
-Espero que esta guía te sea de gran ayuda para internacionalizar tu aplicación. Si tienes alguna pregunta durante el proceso, no dudes en consultarme. 
+### Paso 5: Actualizar (TODO-Traductions.md)
+Actualiza el archivo `TODO-Traductions.md` con los componentes procesados.
