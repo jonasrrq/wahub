@@ -39,16 +39,6 @@ public class LocalizationService : ILocalizationService
     {
         _currentLanguage = language;
 
-        if (_httpContextAccessor.HttpContext != null)
-        {
-            var culture = new RequestCulture(language);
-            _httpContextAccessor.HttpContext.Response.Cookies.Append(
-                CookieRequestCultureProvider.DefaultCookieName,
-                CookieRequestCultureProvider.MakeCookieValue(culture),
-                new CookieOptions { IsEssential = true, Expires = DateTimeOffset.UtcNow.AddYears(1) }
-            );
-        }
-
         var newCulture = new CultureInfo(language);
         CultureInfo.DefaultThreadCurrentUICulture = newCulture;
         CultureInfo.DefaultThreadCurrentCulture = newCulture;
@@ -58,6 +48,7 @@ public class LocalizationService : ILocalizationService
 
     private async Task InitializeLanguageAsync()
     {
+        // Console.WriteLine("InitializeLanguageAsync: Started");
         try
         {
             string? preferredLanguage = null;
@@ -66,32 +57,43 @@ public class LocalizationService : ILocalizationService
             {
                 var requestCulture = CookieRequestCultureProvider.ParseCookieValue(cookieValue);
                 preferredLanguage = requestCulture?.UICultures[0].Value;
-                //preferredLanguage = requestCulture?.UICulture?.TwoLetterISOLanguageName;
+                // Console.WriteLine($"InitializeLanguageAsync: Preferred Language from cookie: {preferredLanguage}");
             }
 
-            if (!string.IsNullOrEmpty(preferredLanguage) && SupportedCultures.All.Any(x => x.TwoLetterISOLanguageName.Equals(preferredLanguage, StringComparison.OrdinalIgnoreCase)))
+            if (!string.IsNullOrEmpty(preferredLanguage) && 
+                SupportedCultures.All.Any(x => 
+                    x.Name.Equals(preferredLanguage, StringComparison.OrdinalIgnoreCase) || 
+                    x.TwoLetterISOLanguageName.Equals(preferredLanguage, StringComparison.OrdinalIgnoreCase)
+                ))
             {
                 _currentLanguage = preferredLanguage;
+                // Console.WriteLine($"InitializeLanguageAsync: Setting current language from preferred: {_currentLanguage}");
             }
             else
             {
                 var browserLang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+                // Console.WriteLine($"InitializeLanguageAsync: Browser Language: {browserLang}");
                 if (SupportedCultures.All.Any(x => x.TwoLetterISOLanguageName.Equals(browserLang, StringComparison.OrdinalIgnoreCase)))
                 {
                     _currentLanguage = browserLang;
+                    // Console.WriteLine($"InitializeLanguageAsync: Setting current language from browser: {_currentLanguage}");
                 }
                 else
                 {
                     _currentLanguage = "es";
+                    // Console.WriteLine($"InitializeLanguageAsync: Setting current language to default 'es': {_currentLanguage}");
                 }
             }
 
+            // Console.WriteLine($"InitializeLanguageAsync: Calling SetLanguageAsync with: {_currentLanguage}");
             await SetLanguageAsync(_currentLanguage);
         }
-        catch
+        catch (Exception ex)
         {
+            // Console.WriteLine($"InitializeLanguageAsync: Error - {ex.Message}");
             _currentLanguage = "es";
             await SetLanguageAsync(_currentLanguage);
         }
+        // Console.WriteLine("InitializeLanguageAsync: Completed");
     }   
 }
