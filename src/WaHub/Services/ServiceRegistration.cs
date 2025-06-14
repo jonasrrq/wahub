@@ -30,7 +30,7 @@ public static class ServiceRegistration
         builder.Services.AddScoped<IApiService, ApiService>();
         builder.Services.AddScoped<IApiAdminService, ApiAdminService>();
         builder.Services.AddScoped<NavigationService>();
-        builder.Services.AddScoped<LocalizationService>();
+        builder.Services.AddScoped<ILocalizationService, LocalizationService>();
         builder.Services.AddScoped<NotificationService>();
         builder.Services.AddHttpContextAccessor(); // Agregar para acceder al HttpContext
         //builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();

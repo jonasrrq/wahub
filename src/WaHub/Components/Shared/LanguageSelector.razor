@@ -1,0 +1,19 @@
+@inject ILocalizationService Localization
+
+
+<select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
+    @foreach (var culture in SupportedCultures.All)
+    {
+        <option value="@culture.TwoLetterISOLanguageName">@(char.ToUpper(culture.NativeName[0]) + culture.NativeName.Substring(1))</option>
+    }
+</select>
+
+@code {
+    private async Task OnLanguageChanged(ChangeEventArgs e)
+    {
+        if (e.Value is string selectedLanguage)
+        {
+            await Localization.SetLanguageAsync(selectedLanguage);
+        }
+    }
+} 

@@ -1,5 +1,4 @@
 ﻿@inject NavigationService Navigation
-@inject LocalizationService Localization
 
 @* 
 <ErrorBoundary @ref="_errorBoundary" Context="ex">
@@ -19,10 +18,7 @@
                             <div class="main-content">
                                 <div class="language-switcher-container">
                                     <div class="language-switcher">
-                                        <select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
-                                            <option value="es">🇪🇸 Español</option>
-                                            <option value="en">🇺🇸 English</option>
-                                        </select>
+                                        <LanguageSelector />
                                     </div>
                                 </div>
                                 <div class="content">
@@ -74,11 +70,4 @@
     private ErrorBoundary? _errorBoundary;
 
     private void ResetErrorBoundary() => _errorBoundary?.Recover();
-
-    private async Task OnLanguageChanged(ChangeEventArgs e)
-    {
-        var selectedLanguage = e.Value?.ToString() ?? "es";
-        await Localization.SetLanguageAsync(selectedLanguage);
-        StateHasChanged();
-    }
 }

@@ -9,6 +9,7 @@ public static class SupportedCultures
         new CultureInfo("es"),
         new CultureInfo("en"),
         new CultureInfo("fr"),
+        new CultureInfo("pt"),
         new CultureInfo("pt-BR")
     };
 

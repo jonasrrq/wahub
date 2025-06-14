@@ -1,6 +1,7 @@
 
+
 @inject NavigationService Navigation
-@inject LocalizationService Localization
+@inject ILocalizationService Localization
 
 <nav class="home-navbar">
     <div class="navbar-content">
@@ -17,10 +18,7 @@
                 <a href="/contact" @onclick="@(() => Navigation.Push("/contact"))" @onclick:preventDefault="true">Contacto</a>
             </nav>
             <div class="language-switcher">
-                <select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
-                    <option value="es">🇪🇸 ES</option>
-                    <option value="en">🇺🇸 EN</option>
-                </select>
+                <LanguageSelector />
             </div>
 
             <a class="nav-btn nav-btn-primary" href="/Account/login" @onclick="@(() => Navigation.Push("/account/login"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.Login)</a>
@@ -47,12 +45,5 @@
     private void GoToRegister()
     {
         Navigation.Push("/account/register");
-    }
-
-    private async Task OnLanguageChanged(ChangeEventArgs e)
-    {
-        var selectedLanguage = e.Value?.ToString() ?? "es";
-        await Localization.SetLanguageAsync(selectedLanguage);
-        StateHasChanged();
     }
 }
