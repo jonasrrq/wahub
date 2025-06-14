@@ -18,27 +18,27 @@
             </div>
             
             <h2 class="main-title">
-                @Localization.HomeTitle <span class="highlight">@Localization.ForDevelopers</span>
+                WaHub <span class="highlight">para desarrolladores</span>
             </h2>
             
             <p class="description">
-                @Localization.HomeDescription
+                Envía y recibe mensajes, gestiona chats, grupos y canales fácilmente con nuestra API de nivel empresarial. Paga por cuenta de WhatsApp, sin tarifas por mensaje.
             </p>
             
             <div class="action-buttons">
-                <a class="btn btn-primary" href="/Account/register" @onclick="@(() => Navigation.Push("/Account/register"))" @onclick:preventDefault="true">@Localization.StartFreeTrial</a>
-                <a class="btn btn-secondary" href="/Account/login" @onclick="@(() => Navigation.Push("/Account/login"))" @onclick:preventDefault="true">@Localization.Login</a>
+                <a class="btn btn-primary" href="/Account/register" @onclick="@(() => Navigation.Push("/Account/register"))" @onclick:preventDefault="true">Comenzar prueba gratis</a>
+                <a class="btn btn-secondary" href="/Account/login" @onclick="@(() => Navigation.Push("/Account/login"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.Login)</a>
 
                @*  <button class="btn btn-primary" @onclick="@(() => Navigation.Push("/Account/register"))">
-                    @Localization.StartFreeTrial
+                    Comenzar prueba gratis
                 </button>
                 <button class="btn btn-secondary" @onclick="@(() => Navigation.Push("/Account/login"))">
-                    @Localization.Login
+                    @Localization.GetString(ResourceKeys.Login)
                 </button> *@
             </div>
             
             <p class="trial-info">
-                @Localization.TrialInfo
+                3 días de prueba gratis • Sin tarjeta de crédito • Cancela cuando quieras
             </p>
         </div>
     </div>

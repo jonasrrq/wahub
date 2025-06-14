@@ -23,12 +23,12 @@
                 </select>
             </div>
 
-            <a class="nav-btn nav-btn-primary" href="/Account/login" @onclick="@(() => Navigation.Push("/account/login"))" @onclick:preventDefault="true">@Localization.Login</a>
+            <a class="nav-btn nav-btn-primary" href="/Account/login" @onclick="@(() => Navigation.Push("/account/login"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.Login)</a>
             <a class="nav-btn nav-btn-primary" href="/Account/register" @onclick="@(() => Navigation.Push("/account/register"))" @onclick:preventDefault="true">Registrarse</a>
             
 
             @* <button class="nav-btn nav-btn-primary" @onclick="GoToLogin">
-                @Localization.Login
+                @Localization.GetString(ResourceKeys.Login)
             </button>
             <button class="nav-btn nav-btn-primary" @onclick="GoToRegister">
                 Registrarse

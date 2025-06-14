@@ -10,11 +10,11 @@
 @inject NavigationService navigation
 @inject IHttpContextAccessor httpContextAccessor
 
-<PageTitle>@Localization.Login - WaHub</PageTitle>
+<PageTitle>@Localization.GetString(ResourceKeys.Login) - WaHub</PageTitle>
 
 <div class="login-container">
     <div class="login-form">
-        <h1>@Localization.Login</h1>
+        <h1>@Localization.GetString(ResourceKeys.Login)</h1>
         @if (!string.IsNullOrEmpty(errorMessage))
         {
             <div class="error-message">
@@ -47,7 +47,7 @@
                 }
                 else
                 {
-                    <span>@Localization.Login</span>
+                    <span>@Localization.GetString(ResourceKeys.Login)</span>
                 }
             </button>
         </EditForm>

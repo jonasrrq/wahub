@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 
 using WaHub.Authentication;
@@ -35,6 +35,7 @@ public static class ServiceRegistration
         builder.Services.AddHttpContextAccessor(); // Agregar para acceder al HttpContext
         //builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
         //builder.Services.AddScoped<ICrossPlatformStorageService, CrossPlatformStorageService>();
+        builder.Services.AddScoped<AuthenticationStateProvider, PersistAuthStateProvider>();
 
         // Add localization services
         builder.Services.AddLocalization();
@@ -48,13 +49,6 @@ public static class ServiceRegistration
                 .AddHttpMessageHandler<AuthAdminHeaderHandler>();
 
         //.AddHttpClient("ApiHttpClient")//
-
-
-        // Register a named client without auth for public endpoints if needed
-        //builder.Services.AddHttpClient("PublicHttpClient");
-
-        // Configuraci�n de autenticaci�n JWT para APIs
-        //builder.Services.AddJwtAuthentication(builder.Configuration);
 
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -73,19 +67,29 @@ public static class ServiceRegistration
             .AddDefaultTokenProviders();
 
         builder.Services.AddCascadingAuthenticationState();
-        builder.Services.AddScoped<AuthenticationStateProvider, PersistAuthStateProvider>();
+
     }
 
     public static void UseConfigurations(WebApplication app)
     {
-        // Configure localization
-        //var supportedCultures = new[] { "es", "en" };
-        //var localizationOptions = new RequestLocalizationOptions()
-        //    .SetDefaultCulture(supportedCultures[0])
-        //    .AddSupportedCultures(supportedCultures)
-        //    .AddSupportedUICultures(supportedCultures);
+        var supportedCultures = SupportedCultures.All;
 
-        //app.UseRequestLocalization(localizationOptions);
+        var localizationOptions = new RequestLocalizationOptions()
+        {
+            DefaultRequestCulture = new RequestCulture(SupportedCultures.Default),
+            SupportedCultures = supportedCultures,
+            SupportedUICultures = supportedCultures,
+            FallBackToParentCultures = true,
+            FallBackToParentUICultures = true,
+            RequestCultureProviders = new List<IRequestCultureProvider>
+            {
+                new AcceptLanguageHeaderRequestCultureProvider(),
+                new QueryStringRequestCultureProvider(),
+                new CookieRequestCultureProvider()
+            }
+        };
+        app.UseRequestLocalization(localizationOptions);
+     
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
