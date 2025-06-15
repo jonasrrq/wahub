@@ -1,4 +1,8 @@
-﻿<button @onclick="OnClick">Cliqueame</button>
+﻿@page "/mybutton"
+
+@inject ILocalizationService Localization
+
+<button @onclick="OnClick">@Localization.GetString(ResourceKeys.MyButton_ClickMe)</button>
 
 <span>@text</span>
 
@@ -7,7 +11,7 @@
 
     void OnClick()
     {
-        text = "Hola Mundo desde el botón";
+        text = Localization.GetString(ResourceKeys.MyButton_HelloWorld);
         Console.WriteLine("El botón ha sido clickeado");
     }
 }

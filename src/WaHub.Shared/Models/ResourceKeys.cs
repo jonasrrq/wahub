@@ -140,4 +140,8 @@ public static class ResourceKeys
     public const string Notification_ErrorIcon = "Notification_ErrorIcon";
     public const string Notification_WarningIcon = "Notification_WarningIcon";
     public const string Notification_InfoIcon = "Notification_InfoIcon";
+
+    // --- Componentes de WaHub.Client/Shared/MyButton.razor ---
+    public const string MyButton_ClickMe = "MyButton_ClickMe";
+    public const string MyButton_HelloWorld = "MyButton_HelloWorld";
 }

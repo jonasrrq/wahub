@@ -101,8 +101,8 @@
 - [x] Nota: `notification.Message` es un texto dinámico que provendrá de la lógica de negocio y deberá ser traducido en su origen. 
 
 #### src/WaHub.Client/Shared/MyButton.razor
-- [ ] "Cliqueame"
-- [ ] "Hola Mundo desde el botón" 
+- [x] "Cliqueame"
+- [x] "Hola Mundo desde el botón" 
 
 #### src/WaHub/Components/App.razor
 - [ ] "es" (Atributo lang del html)

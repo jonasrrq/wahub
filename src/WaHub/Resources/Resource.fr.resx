@@ -435,4 +435,12 @@
     <value>ℹ</value>
   </data>
 
+  <!-- Traductions pour src/WaHub.Client/Shared/MyButton.razor -->
+  <data name="MyButton_ClickMe" xml:space="preserve">
+    <value>Cliquez-moi</value>
+  </data>
+  <data name="MyButton_HelloWorld" xml:space="preserve">
+    <value>Bonjour le monde depuis le bouton</value>
+  </data>
+
 </root>
