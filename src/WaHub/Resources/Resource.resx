@@ -549,20 +549,53 @@
   <data name="Privacy_ServiceUsage_Preferences" xml:space="preserve">
     <value>Configuraciones de cuenta y preferencias</value>
   </data>
+  <data name="Privacy_ServiceUsage_History" xml:space="preserve">
+    <value>Historial de uso de funciones</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Metrics" xml:space="preserve">
+    <value>Métricas de rendimiento y analíticas</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Logs" xml:space="preserve">
+    <value>Registros de errores y problemas técnicos</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Integrations" xml:space="preserve">
+    <value>Información de integración con servicios de terceros</value>
+  </data>
   <data name="Privacy_Section3" xml:space="preserve">
     <value>3. Cómo Usamos la Información</value>
   </data>
   <data name="Privacy_Section3_1" xml:space="preserve">
     <value>3.1 Proporcionar el Servicio</value>
   </data>
+  <data name="Privacy_ProvideAccount" xml:space="preserve">
+    <value>Crear y gestionar su cuenta</value>
+  </data>
+  <data name="Privacy_ProvideAutomations" xml:space="preserve">
+    <value>Procesar y ejecutar automatizaciones de WhatsApp</value>
+  </data>
+  <data name="Privacy_ProvideSupport" xml:space="preserve">
+    <value>Proporcionar soporte técnico y atención al cliente</value>
+  </data>
+  <data name="Privacy_ProvidePayments" xml:space="preserve">
+    <value>Procesar pagos y gestionar facturación</value>
+  </data>
+  <data name="Privacy_ProvideNotifications" xml:space="preserve">
+    <value>Enviar notificaciones importantes del servicio</value>
+  </data>
   <data name="Privacy_Section3_2" xml:space="preserve">
     <value>3.2 Mejorar el Servicio</value>
   </data>
-  <data name="Privacy_Section3_3" xml:space="preserve">
-    <value>3.3 Comunicación</value>
+  <data name="Privacy_ImproveUsage" xml:space="preserve">
+    <value>Analizar patrones de uso para optimizar funcionalidades</value>
   </data>
-  <data name="Privacy_Section3_4" xml:space="preserve">
-    <value>3.4 Seguridad y Cumplimiento</value>
+  <data name="Privacy_ImproveFeatures" xml:space="preserve">
+    <value>Desarrollar nuevas características y servicios</value>
+  </data>
+  <data name="Privacy_ImproveResearch" xml:space="preserve">
+    <value>Realizar investigación y análisis de mercado</value>
+  </data>
+  <data name="Privacy_ImproveFixes" xml:space="preserve">
+    <value>Identificar y corregir errores o problemas de rendimiento</value>
   </data>
   <data name="Privacy_Section4" xml:space="preserve">
     <value>4. Compartir Información</value>
@@ -602,5 +635,47 @@
   </data>
   <data name="Privacy_Section3_1" xml:space="preserve">
     <value>3.1 Proporcionar el Servicio</value>
+  </data>
+  <data name="Privacy_Section7" xml:space="preserve">
+    <value>7. Sus Derechos</value>
+  </data>
+  <data name="Privacy_Section8" xml:space="preserve">
+    <value>8. Cookies y Tecnologías Similares</value>
+  </data>
+  <data name="Privacy_Section9" xml:space="preserve">
+    <value>9. Transferencias Internacionales</value>
+  </data>
+  <data name="Privacy_Section10" xml:space="preserve">
+    <value>10. Privacidad de Menores</value>
+  </data>
+  <data name="Privacy_Section11" xml:space="preserve">
+    <value>11. Cambios a esta Política</value>
+  </data>
+  <data name="Privacy_Section12" xml:space="preserve">
+    <value>12. Contacto</value>
+  </data>
+  <data name="Privacy_Intro1" xml:space="preserve">
+    <value>En WaHub, valoramos profundamente su privacidad y nos comprometemos a proteger sus datos personales. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos su información cuando utiliza nuestro servicio de automatización de WhatsApp.</value>
+  </data>
+  <data name="Privacy_Intro2" xml:space="preserve">
+    <value>Al utilizar WaHub, usted acepta las prácticas descritas en esta política. Si no está de acuerdo con nuestras prácticas de privacidad, no debe utilizar nuestro servicio.</value>
+  </data>
+  <data name="Privacy_QuickSummary" xml:space="preserve">
+    <value>Resumen Rápido</value>
+  </data>
+  <data name="Privacy_QuickSummary1" xml:space="preserve">
+    <value>✅ Solo recopilamos datos necesarios para el servicio</value>
+  </data>
+  <data name="Privacy_QuickSummary2" xml:space="preserve">
+    <value>✅ No vendemos sus datos personales</value>
+  </data>
+  <data name="Privacy_QuickSummary3" xml:space="preserve">
+    <value>✅ Puede eliminar sus datos en cualquier momento</value>
+  </data>
+  <data name="Privacy_QuickSummary4" xml:space="preserve">
+    <value>✅ Cumplimos con GDPR y otras regulaciones de privacidad</value>
+  </data>
+  <data name="Privacy_QuickSummary5" xml:space="preserve">
+    <value>✅ Implementamos seguridad de nivel empresarial</value>
   </data>
 </root>

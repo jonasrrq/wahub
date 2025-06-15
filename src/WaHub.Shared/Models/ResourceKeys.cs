@@ -36,7 +36,7 @@ public static class ResourceKeys
     public const string HomeHeroButton = "HomeHeroButton";
     public const string HomeTrialInfo = "HomeTrialInfo";
     public const string HomeWhyChoose = "HomeWhyChoose";
-    
+
     // Características
     public const string FeatureFastApiTitle = "FeatureFastApiTitle";
     public const string FeatureFastApiDesc = "FeatureFastApiDesc";
@@ -50,7 +50,7 @@ public static class ResourceKeys
     public const string FeatureInstancesDesc = "FeatureInstancesDesc";
     public const string FeatureMediaTitle = "FeatureMediaTitle";
     public const string FeatureMediaDesc = "FeatureMediaDesc";
-    
+
     // Sección de código
     public const string HomeCodeSectionTitle = "HomeCodeSectionTitle";
     public const string HomeCodeLanguage = "HomeCodeLanguage";
@@ -66,7 +66,7 @@ public static class ResourceKeys
     // Precios
     public const string HomePricingTitle = "HomePricingTitle";
     public const string HomePricingPerMonth = "HomePricingPerMonth";
-    
+
     // Planes de precios
     public const string PlanDeveloper = "PlanDeveloper";
     public const string PlanDeveloperMessages = "PlanDeveloperMessages";
@@ -74,7 +74,7 @@ public static class ResourceKeys
     public const string PlanDeveloperApi = "PlanDeveloperApi";
     public const string PlanDeveloperSupport = "PlanDeveloperSupport";
     public const string PlanDeveloperButton = "PlanDeveloperButton";
-    
+
     public const string PlanStartupBadge = "PlanStartupBadge";
     public const string PlanStartup = "PlanStartup";
     public const string PlanStartupMessages = "PlanStartupMessages";
@@ -83,7 +83,7 @@ public static class ResourceKeys
     public const string PlanStartupWebhooks = "PlanStartupWebhooks";
     public const string PlanStartupSupport = "PlanStartupSupport";
     public const string PlanStartupButton = "PlanStartupButton";
-    
+
     public const string PlanEnterprise = "PlanEnterprise";
     public const string PlanEnterpriseMessages = "PlanEnterpriseMessages";
     public const string PlanEnterpriseInstances = "PlanEnterpriseInstances";
@@ -91,7 +91,7 @@ public static class ResourceKeys
     public const string PlanEnterpriseSupport = "PlanEnterpriseSupport";
     public const string PlanEnterpriseIntegrations = "PlanEnterpriseIntegrations";
     public const string PlanEnterpriseButton = "PlanEnterpriseButton";
-    
+
     // Testimonios
     public const string HomeTestimonialsTitle = "HomeTestimonialsTitle";
     public const string Testimonial1Text = "Testimonial1Text";
@@ -103,13 +103,13 @@ public static class ResourceKeys
     public const string Testimonial3Text = "Testimonial3Text";
     public const string Testimonial3Author = "Testimonial3Author";
     public const string Testimonial3Role = "Testimonial3Role";
-    
+
     // CTA
     public const string HomeCtaTitle = "HomeCtaTitle";
     public const string HomeCtaSubtitle = "HomeCtaSubtitle";
     public const string HomeCtaButton1 = "HomeCtaButton1";
     public const string HomeCtaButton2 = "HomeCtaButton2";
-    
+
     // Footer
     public const string AppName = "AppName";
     public const string FooterTagline = "FooterTagline";
@@ -117,7 +117,7 @@ public static class ResourceKeys
     public const string FooterSupport = "FooterSupport";
     public const string FooterLegal = "FooterLegal";
     public const string FooterCopyright = "FooterCopyright";
-    
+
     // Enlaces del footer
     public const string APIDocs = "APIDocs";
     public const string Pricing = "Pricing";
@@ -170,6 +170,12 @@ public static class ResourceKeys
     public const string Privacy_Section4 = "Privacy_Section4";
     public const string Privacy_Section5 = "Privacy_Section5";
     public const string Privacy_Section6 = "Privacy_Section6";
+    public const string Privacy_Section7 = "Privacy_Section7";
+    public const string Privacy_Section8 = "Privacy_Section8";
+    public const string Privacy_Section9 = "Privacy_Section9";
+    public const string Privacy_Section10 = "Privacy_Section10";
+    public const string Privacy_Section11 = "Privacy_Section11";
+    public const string Privacy_Section12 = "Privacy_Section12";
     public const string Privacy_AccountInfo_Intro = "Privacy_AccountInfo_Intro";
     public const string Privacy_AccountInfo_Name = "Privacy_AccountInfo_Name";
     public const string Privacy_AccountInfo_Email = "Privacy_AccountInfo_Email";
@@ -177,6 +183,7 @@ public static class ResourceKeys
     public const string Privacy_AccountInfo_Phone = "Privacy_AccountInfo_Phone";
     public const string Privacy_AccountInfo_Company = "Privacy_AccountInfo_Company";
     public const string Privacy_AccountInfo_Photo = "Privacy_AccountInfo_Photo";
+    public const string Privacy_Section2_1 = "Privacy_Section2_1";
     public const string Privacy_Section2_2 = "Privacy_Section2_2";
     public const string Privacy_ServiceUsage_Intro = "Privacy_ServiceUsage_Intro";
     public const string Privacy_ServiceUsage_Preferences = "Privacy_ServiceUsage_Preferences";
@@ -192,4 +199,25 @@ public static class ResourceKeys
     public const string Privacy_Section3_2 = "Privacy_Section3_2";
     public const string Privacy_Section3_3 = "Privacy_Section3_3";
     public const string Privacy_Section3_4 = "Privacy_Section3_4";
+    public const string Privacy_ProvideAccount = "Privacy_ProvideAccount";
+    public const string Privacy_ProvideAutomations = "Privacy_ProvideAutomations";
+    public const string Privacy_ProvideSupport = "Privacy_ProvideSupport";
+    public const string Privacy_ProvidePayments = "Privacy_ProvidePayments";
+    public const string Privacy_ProvideNotifications = "Privacy_ProvideNotifications";
+    public const string Privacy_ImproveUsage = "Privacy_ImproveUsage";
+    public const string Privacy_ImproveFeatures = "Privacy_ImproveFeatures";
+    public const string Privacy_ImproveResearch = "Privacy_ImproveResearch";
+    public const string Privacy_ImproveFixes = "Privacy_ImproveFixes";
+    public const string Privacy_Intro1 = "Privacy_Intro1";
+    public const string Privacy_Intro2 = "Privacy_Intro2";
+    public const string Privacy_QuickSummary = "Privacy_QuickSummary";
+    public const string Privacy_QuickSummary1 = "Privacy_QuickSummary1";
+    public const string Privacy_QuickSummary2 = "Privacy_QuickSummary2";
+    public const string Privacy_QuickSummary3 = "Privacy_QuickSummary3";
+    public const string Privacy_QuickSummary4 = "Privacy_QuickSummary4";
+    public const string Privacy_QuickSummary5 = "Privacy_QuickSummary5";
+    public const string Privacy_ServiceUsage_History = "Privacy_ServiceUsage_History";
+    public const string Privacy_ServiceUsage_Metrics = "Privacy_ServiceUsage_Metrics";
+    public const string Privacy_ServiceUsage_Logs = "Privacy_ServiceUsage_Logs";
+    public const string Privacy_ServiceUsage_Integrations = "Privacy_ServiceUsage_Integrations";
 }

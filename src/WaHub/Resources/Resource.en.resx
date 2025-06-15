@@ -528,8 +528,35 @@
   <data name="Privacy_Section3_1" xml:space="preserve">
     <value>3.1 Provide the Service</value>
   </data>
+  <data name="Privacy_ProvideAccount" xml:space="preserve">
+    <value>Create and manage your account</value>
+  </data>
+  <data name="Privacy_ProvideAutomations" xml:space="preserve">
+    <value>Process and execute WhatsApp automations</value>
+  </data>
+  <data name="Privacy_ProvideSupport" xml:space="preserve">
+    <value>Provide technical support and customer service</value>
+  </data>
+  <data name="Privacy_ProvidePayments" xml:space="preserve">
+    <value>Process payments and manage billing</value>
+  </data>
+  <data name="Privacy_ProvideNotifications" xml:space="preserve">
+    <value>Send important service notifications</value>
+  </data>
   <data name="Privacy_Section3_2" xml:space="preserve">
     <value>3.2 Improve the Service</value>
+  </data>
+  <data name="Privacy_ImproveUsage" xml:space="preserve">
+    <value>Analyze usage patterns to optimize features</value>
+  </data>
+  <data name="Privacy_ImproveFeatures" xml:space="preserve">
+    <value>Develop new features and services</value>
+  </data>
+  <data name="Privacy_ImproveResearch" xml:space="preserve">
+    <value>Conduct research and market analysis</value>
+  </data>
+  <data name="Privacy_ImproveFixes" xml:space="preserve">
+    <value>Identify and fix errors or performance issues</value>
   </data>
   <data name="Privacy_Section3_3" xml:space="preserve">
     <value>3.3 Communication</value>
@@ -550,13 +577,19 @@
     <value>7. Your Rights</value>
   </data>
   <data name="Privacy_Section8" xml:space="preserve">
-    <value>8. Changes to This Policy</value>
+    <value>8. Cookies and Similar Technologies</value>
   </data>
   <data name="Privacy_Section9" xml:space="preserve">
-    <value>9. Contact Us</value>
+    <value>9. International Transfers</value>
   </data>
   <data name="Privacy_Section10" xml:space="preserve">
-    <value>10. Cookies</value>
+    <value>10. Children's Privacy</value>
+  </data>
+  <data name="Privacy_Section11" xml:space="preserve">
+    <value>11. Changes to this Policy</value>
+  </data>
+  <data name="Privacy_Section12" xml:space="preserve">
+    <value>12. Contact</value>
   </data>
   <data name="Privacy_DeviceIdentifiers" xml:space="preserve">
     <value>Unique device identifiers</value>
@@ -587,6 +620,42 @@
   </data>
   <data name="Privacy_Section3_1" xml:space="preserve">
     <value>3.1 Provide the Service</value>
+  </data>
+  <data name="Privacy_Intro1" xml:space="preserve">
+    <value>At WaHub, we deeply value your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our WhatsApp automation service.</value>
+  </data>
+  <data name="Privacy_Intro2" xml:space="preserve">
+    <value>By using WaHub, you agree to the practices described in this policy. If you do not agree with our privacy practices, you should not use our service.</value>
+  </data>
+  <data name="Privacy_QuickSummary" xml:space="preserve">
+    <value>Quick Summary</value>
+  </data>
+  <data name="Privacy_QuickSummary1" xml:space="preserve">
+    <value>✅ We only collect data necessary for the service</value>
+  </data>
+  <data name="Privacy_QuickSummary2" xml:space="preserve">
+    <value>✅ We do not sell your personal data</value>
+  </data>
+  <data name="Privacy_QuickSummary3" xml:space="preserve">
+    <value>✅ You can delete your data at any time</value>
+  </data>
+  <data name="Privacy_QuickSummary4" xml:space="preserve">
+    <value>✅ We comply with GDPR and other privacy regulations</value>
+  </data>
+  <data name="Privacy_QuickSummary5" xml:space="preserve">
+    <value>✅ We implement enterprise-level security</value>
+  </data>
+  <data name="Privacy_ServiceUsage_History" xml:space="preserve">
+    <value>Feature usage history</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Metrics" xml:space="preserve">
+    <value>Performance metrics and analytics</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Logs" xml:space="preserve">
+    <value>Error and technical issue logs</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Integrations" xml:space="preserve">
+    <value>Integration information with third-party services</value>
   </data>
 
 </root>
