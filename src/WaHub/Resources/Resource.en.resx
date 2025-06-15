@@ -117,9 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
+
   <!-- Translations for src/WaHub/Components/Layout/HomeNavbar.razor -->
   <data name="HomeNavbar_WaHub" xml:space="preserve">
     <value>WaHub</value>
@@ -136,6 +138,7 @@
   <data name="HomeNavbar_Register" xml:space="preserve">
     <value>Register</value>
   </data>
+
   <!-- Translations for src/WaHub.Client/Layout/WaHubSidebar.razor -->
   <data name="WaHubSidebar_WaHub" xml:space="preserve">
     <value>WaHub</value>
@@ -145,6 +148,23 @@
   </data>
   <data name="WaHubSidebar_Logout" xml:space="preserve">
     <value>Logout</value>
+  </data>
+  
+  <!-- Translations for WaHub/Components/Pages/Error.razor -->
+  <data name="Error404Title" xml:space="preserve">
+    <value>Error 404</value>
+  </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>Page Not Found</value>
+  </data>
+  <data name="PageNotFoundMessage" xml:space="preserve">
+    <value>Sorry, the page you are looking for does not exist or has been moved.</value>
+  </data>
+  <data name="BackToHome" xml:space="preserve">
+    <value>Back to Home</value>
+  </data>
+  <data name="BackToDashboard" xml:space="preserve">
+    <value>Back to Dashboard</value>
   </data>
   
  </root>

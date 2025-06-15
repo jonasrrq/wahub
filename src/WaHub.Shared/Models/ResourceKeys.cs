@@ -1,4 +1,4 @@
-﻿namespace WaHub.Shared.Models;
+namespace WaHub.Shared.Models;
 
 public static class ResourceKeys
 {
@@ -16,4 +16,10 @@ public static class ResourceKeys
     public const string WaHubSidebar_Profile = "WaHubSidebar_Profile";
     public const string WaHubSidebar_Logout = "WaHubSidebar_Logout";
 
+    // --- Componentes de WaHub/Components/Pages/Error.razor ---
+    public const string Error404Title = "Error404Title";
+    public const string PageNotFound = "PageNotFound";
+    public const string PageNotFoundMessage = "PageNotFoundMessage";
+    public const string BackToHome = "BackToHome";
+    public const string BackToDashboard = "BackToDashboard";
 }
