@@ -561,11 +561,104 @@
   <data name="Privacy_Section3_3" xml:space="preserve">
     <value>3.3 Communication</value>
   </data>
+  <data name="Privacy_SendUpdates" xml:space="preserve">
+    <value>Send service updates</value>
+  </data>
+  <data name="Privacy_AnswerSupport" xml:space="preserve">
+    <value>Respond to inquiries and support requests</value>
+  </data>
+  <data name="Privacy_SendNewsletters" xml:space="preserve">
+    <value>Send newsletters (with your consent)</value>
+  </data>
+  <data name="Privacy_CommunicateChanges" xml:space="preserve">
+    <value>Communicate policy or terms changes</value>
+  </data>
+  <data name="Privacy_ProvidePromotions" xml:space="preserve">
+    <value>Provide relevant promotional information (optional)</value>
+  </data>
   <data name="Privacy_Section3_4" xml:space="preserve">
     <value>3.4 Security and Compliance</value>
   </data>
+  <data name="Privacy_DetectFraud" xml:space="preserve">
+    <value>Detect and prevent fraud or misuse</value>
+  </data>
+  <data name="Privacy_VerifyIdentity" xml:space="preserve">
+    <value>Verify identity and authenticate users</value>
+  </data>
+  <data name="Privacy_ComplyLegal" xml:space="preserve">
+    <value>Comply with legal and regulatory obligations</value>
+  </data>
+  <data name="Privacy_ProtectRights" xml:space="preserve">
+    <value>Protect users' rights and security</value>
+  </data>
+  <data name="Privacy_InvestigateSuspicious" xml:space="preserve">
+    <value>Investigate suspicious activities</value>
+  </data>
   <data name="Privacy_Section4" xml:space="preserve">
     <value>4. Information Sharing</value>
+  </data>
+  <data name="Privacy_Section4_1" xml:space="preserve">
+    <value>4.1 We Do Not Sell Personal Data</value>
+  </data>
+  <data name="Privacy_NoSellData" xml:space="preserve">
+    <value>We do not sell, rent, or trade your personal information to third parties for marketing purposes.</value>
+  </data>
+  <data name="Privacy_Section4_2" xml:space="preserve">
+    <value>4.2 When We Share Information</value>
+  </data>
+  <data name="Privacy_ShareCircumstances" xml:space="preserve">
+    <value>We may share your information only in the following circumstances:</value>
+  </data>
+  <data name="Privacy_WithServiceProviders" xml:space="preserve">
+    <value>With Service Providers</value>
+  </data>
+  <data name="Privacy_PaymentProcessors" xml:space="preserve">
+    <value>Payment processors (Stripe, PayPal)</value>
+  </data>
+  <data name="Privacy_CloudServices" xml:space="preserve">
+    <value>Cloud infrastructure services (AWS, Google Cloud)</value>
+  </data>
+  <data name="Privacy_AnalyticsTools" xml:space="preserve">
+    <value>Analytics and monitoring tools</value>
+  </data>
+  <data name="Privacy_CustomerSupport" xml:space="preserve">
+    <value>Customer support services</value>
+  </data>
+  <data name="Privacy_SecurityProviders" xml:space="preserve">
+    <value>Security and fraud prevention providers</value>
+  </data>
+  <data name="Privacy_WithConsent" xml:space="preserve">
+    <value>With Your Consent</value>
+  </data>
+  <data name="Privacy_ExplicitAuthorization" xml:space="preserve">
+    <value>When you explicitly authorize sharing</value>
+  </data>
+  <data name="Privacy_ThirdPartyIntegrations" xml:space="preserve">
+    <value>For integrations with third-party services you configure</value>
+  </data>
+  <data name="Privacy_SpecificFeatures" xml:space="preserve">
+    <value>For specific features that require data sharing</value>
+  </data>
+  <data name="Privacy_LegalRequirements" xml:space="preserve">
+    <value>For Legal Requirements</value>
+  </data>
+  <data name="Privacy_CourtOrders" xml:space="preserve">
+    <value>To comply with court orders or subpoenas</value>
+  </data>
+  <data name="Privacy_LawsRegulations" xml:space="preserve">
+    <value>To comply with applicable laws and regulations</value>
+  </data>
+  <data name="Privacy_ProtectLegalRights" xml:space="preserve">
+    <value>To protect our legal rights</value>
+  </data>
+  <data name="Privacy_InvestigateViolations" xml:space="preserve">
+    <value>To investigate possible violations of our terms</value>
+  </data>
+  <data name="Privacy_CorporateTransactions" xml:space="preserve">
+    <value>In Corporate Transactions</value>
+  </data>
+  <data name="Privacy_TransactionNote" xml:space="preserve">
+    <value>In the event of a merger, acquisition, or asset sale, your information may be transferred as part of that transaction, with the same privacy protections.</value>
   </data>
   <data name="Privacy_Section5" xml:space="preserve">
     <value>5. Data Security</value>
@@ -656,6 +749,54 @@
   </data>
   <data name="Privacy_ServiceUsage_Integrations" xml:space="preserve">
     <value>Integration information with third-party services</value>
+  </data>
+  <data name="Privacy_Section2_3" xml:space="preserve">
+    <value>2.3 WhatsApp Data</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Intro" xml:space="preserve">
+    <value>Regarding WhatsApp automation, we may process:</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Contacts" xml:space="preserve">
+    <value>Contact phone numbers</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Messages" xml:space="preserve">
+    <value>Messages sent and received (as configured)</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Metadata" xml:space="preserve">
+    <value>Conversation metadata (dates, message types)</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Status" xml:space="preserve">
+    <value>Message delivery statuses</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Groups" xml:space="preserve">
+    <value>Group and broadcast list information</value>
+  </data>
+  <data name="Privacy_Important" xml:space="preserve">
+    <value>Important:</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Note" xml:space="preserve">
+    <value>WhatsApp messages are processed only to provide the requested service and are not permanently stored on our servers unless you specifically configure it.</value>
+  </data>
+  <data name="Privacy_Section2_4" xml:space="preserve">
+    <value>2.4 Technical Information</value>
+  </data>
+  <data name="Privacy_TechInfo_Intro" xml:space="preserve">
+    <value>We automatically collect certain technical information:</value>
+  </data>
+  <data name="Privacy_TechInfo_IP" xml:space="preserve">
+    <value>IP address and approximate geographic location</value>
+  </data>
+  <data name="Privacy_TechInfo_Browser" xml:space="preserve">
+    <value>Browser and device type</value>
+  </data>
+  <data name="Privacy_TechInfo_OS" xml:space="preserve">
+    <value>Operating system</value>
+  </data>
+  <data name="Privacy_TechInfo_Pages" xml:space="preserve">
+    <value>Pages visited and time spent</value>
+  </data>
+  <data name="Privacy_TechInfo_Referrer" xml:space="preserve">
+    <value>Referrer source</value>
   </data>
 
 </root>

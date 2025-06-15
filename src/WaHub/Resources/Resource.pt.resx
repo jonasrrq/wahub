@@ -573,6 +573,69 @@
   <data name="Privacy_Section4" xml:space="preserve">
     <value>4. Compartilhamento de Informações</value>
   </data>
+  <data name="Privacy_Section4_1" xml:space="preserve">
+    <value>4.1 Não Vendemos Dados Pessoais</value>
+  </data>
+  <data name="Privacy_NoSellData" xml:space="preserve">
+    <value>Não vendemos, alugamos ou comercializamos suas informações pessoais para terceiros para fins de marketing.</value>
+  </data>
+  <data name="Privacy_Section4_2" xml:space="preserve">
+    <value>4.2 Quando Compartilhamos Informações</value>
+  </data>
+  <data name="Privacy_ShareCircumstances" xml:space="preserve">
+    <value>Podemos compartilhar suas informações apenas nas seguintes circunstâncias:</value>
+  </data>
+  <data name="Privacy_WithServiceProviders" xml:space="preserve">
+    <value>Com Fornecedores de Serviços</value>
+  </data>
+  <data name="Privacy_PaymentProcessors" xml:space="preserve">
+    <value>Processadores de pagamento (Stripe, PayPal)</value>
+  </data>
+  <data name="Privacy_CloudServices" xml:space="preserve">
+    <value>Serviços de infraestrutura em nuvem (AWS, Google Cloud)</value>
+  </data>
+  <data name="Privacy_AnalyticsTools" xml:space="preserve">
+    <value>Ferramentas de análise e monitoramento</value>
+  </data>
+  <data name="Privacy_CustomerSupport" xml:space="preserve">
+    <value>Serviços de atendimento ao cliente</value>
+  </data>
+  <data name="Privacy_SecurityProviders" xml:space="preserve">
+    <value>Fornecedores de segurança e prevenção de fraude</value>
+  </data>
+  <data name="Privacy_WithConsent" xml:space="preserve">
+    <value>Com Seu Consentimento</value>
+  </data>
+  <data name="Privacy_ExplicitAuthorization" xml:space="preserve">
+    <value>Quando você autoriza explicitamente o compartilhamento</value>
+  </data>
+  <data name="Privacy_ThirdPartyIntegrations" xml:space="preserve">
+    <value>Para integrações com serviços de terceiros que você configurar</value>
+  </data>
+  <data name="Privacy_SpecificFeatures" xml:space="preserve">
+    <value>Para funcionalidades específicas que exigem compartilhamento de dados</value>
+  </data>
+  <data name="Privacy_LegalRequirements" xml:space="preserve">
+    <value>Por Requisitos Legais</value>
+  </data>
+  <data name="Privacy_CourtOrders" xml:space="preserve">
+    <value>Para cumprir ordens judiciais ou intimações</value>
+  </data>
+  <data name="Privacy_LawsRegulations" xml:space="preserve">
+    <value>Para cumprir leis e regulamentos aplicáveis</value>
+  </data>
+  <data name="Privacy_ProtectLegalRights" xml:space="preserve">
+    <value>Para proteger nossos direitos legais</value>
+  </data>
+  <data name="Privacy_InvestigateViolations" xml:space="preserve">
+    <value>Para investigar possíveis violações de nossos termos</value>
+  </data>
+  <data name="Privacy_CorporateTransactions" xml:space="preserve">
+    <value>Em Transações Corporativas</value>
+  </data>
+  <data name="Privacy_TransactionNote" xml:space="preserve">
+    <value>No caso de fusão, aquisição ou venda de ativos, suas informações podem ser transferidas como parte dessa transação, com as mesmas proteções de privacidade.</value>
+  </data>
   <data name="Privacy_Section5" xml:space="preserve">
     <value>5. Segurança de Dados</value>
   </data>
@@ -650,5 +713,83 @@
   </data>
   <data name="Privacy_QuickSummary5" xml:space="preserve">
     <value>✅ Implementamos segurança de nível empresarial</value>
+  </data>
+  <data name="Privacy_Section2_3" xml:space="preserve">
+    <value>2.3 Dados do WhatsApp</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Intro" xml:space="preserve">
+    <value>Em relação à automação do WhatsApp, podemos processar:</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Contacts" xml:space="preserve">
+    <value>Números de telefone de contatos</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Messages" xml:space="preserve">
+    <value>Mensagens enviadas e recebidas (conforme configuração)</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Metadata" xml:space="preserve">
+    <value>Metadados de conversas (datas, tipos de mensagem)</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Status" xml:space="preserve">
+    <value>Status de entrega de mensagens</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Groups" xml:space="preserve">
+    <value>Informações de grupos e listas de transmissão</value>
+  </data>
+  <data name="Privacy_Important" xml:space="preserve">
+    <value>Importante:</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Note" xml:space="preserve">
+    <value>As mensagens do WhatsApp são processadas apenas para fornecer o serviço solicitado e não são armazenadas permanentemente em nossos servidores, a menos que você configure especificamente.</value>
+  </data>
+  <data name="Privacy_Section2_4" xml:space="preserve">
+    <value>2.4 Informações Técnicas</value>
+  </data>
+  <data name="Privacy_TechInfo_Intro" xml:space="preserve">
+    <value>Coletamos automaticamente certas informações técnicas:</value>
+  </data>
+  <data name="Privacy_TechInfo_IP" xml:space="preserve">
+    <value>Endereço IP e localização geográfica aproximada</value>
+  </data>
+  <data name="Privacy_TechInfo_Browser" xml:space="preserve">
+    <value>Tipo de navegador e dispositivo</value>
+  </data>
+  <data name="Privacy_TechInfo_OS" xml:space="preserve">
+    <value>Sistema operacional</value>
+  </data>
+  <data name="Privacy_TechInfo_Pages" xml:space="preserve">
+    <value>Páginas visitadas e tempo de permanência</value>
+  </data>
+  <data name="Privacy_TechInfo_Referrer" xml:space="preserve">
+    <value>Fonte de referência</value>
+  </data>
+  <data name="Privacy_SendUpdates" xml:space="preserve">
+    <value>Enviar atualizações sobre o serviço</value>
+  </data>
+  <data name="Privacy_AnswerSupport" xml:space="preserve">
+    <value>Responder a consultas e solicitações de suporte</value>
+  </data>
+  <data name="Privacy_SendNewsletters" xml:space="preserve">
+    <value>Enviar boletins informativos (com seu consentimento)</value>
+  </data>
+  <data name="Privacy_CommunicateChanges" xml:space="preserve">
+    <value>Comunicar alterações em políticas ou termos</value>
+  </data>
+  <data name="Privacy_ProvidePromotions" xml:space="preserve">
+    <value>Fornecer informações promocionais relevantes (opcional)</value>
+  </data>
+  <data name="Privacy_DetectFraud" xml:space="preserve">
+    <value>Detectar e prevenir fraude ou uso indevido</value>
+  </data>
+  <data name="Privacy_VerifyIdentity" xml:space="preserve">
+    <value>Verificar identidade e autenticar usuários</value>
+  </data>
+  <data name="Privacy_ComplyLegal" xml:space="preserve">
+    <value>Cumprir obrigações legais e regulatórias</value>
+  </data>
+  <data name="Privacy_ProtectRights" xml:space="preserve">
+    <value>Proteger direitos e segurança dos usuários</value>
+  </data>
+  <data name="Privacy_InvestigateSuspicious" xml:space="preserve">
+    <value>Investigar atividades suspeitas</value>
   </data>
 </root>
