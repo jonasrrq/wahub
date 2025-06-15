@@ -128,4 +128,9 @@ public static class ResourceKeys
     public const string Privacy = "Privacy";
     public const string Terms = "Terms";
     public const string GDPR = "GDPR";
+
+    // --- Componentes de WaHub/Components/Layout/InternalLayout.razor ---
+    public const string InternalLayout_ErrorOccurred = "InternalLayout_ErrorOccurred";
+    public const string InternalLayout_Reload = "InternalLayout_Reload";
+    public const string InternalLayout_CloseIcon = "InternalLayout_CloseIcon";
 }

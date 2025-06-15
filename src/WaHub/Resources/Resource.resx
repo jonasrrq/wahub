@@ -434,4 +434,15 @@
     <value>Mensaje enviado:</value>
   </data>
 
+  <!-- Traducciones para src/WaHub/Components/Layout/InternalLayout.razor -->
+  <data name="InternalLayout_ErrorOccurred" xml:space="preserve">
+    <value>Ha ocurrido un error no controlado.</value>
+  </data>
+  <data name="InternalLayout_Reload" xml:space="preserve">
+    <value>Recargar</value>
+  </data>
+  <data name="InternalLayout_CloseIcon" xml:space="preserve">
+    <value>🗙</value>
+  </data>
+
 </root>

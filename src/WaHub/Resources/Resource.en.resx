@@ -407,4 +407,15 @@
     <value>Message sent:</value>
   </data>
 
+  <!-- Translations for src/WaHub/Components/Layout/InternalLayout.razor -->
+  <data name="InternalLayout_ErrorOccurred" xml:space="preserve">
+    <value>An unhandled error has occurred.</value>
+  </data>
+  <data name="InternalLayout_Reload" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="InternalLayout_CloseIcon" xml:space="preserve">
+    <value>🗙</value>
+  </data>
+
 </root>

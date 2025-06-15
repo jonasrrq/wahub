@@ -408,4 +408,15 @@
     <value>Mensagem enviada:</value>
   </data>
 
+  <!-- Traduções para src/WaHub/Components/Layout/InternalLayout.razor -->
+  <data name="InternalLayout_ErrorOccurred" xml:space="preserve">
+    <value>Ocorreu um erro não tratado.</value>
+  </data>
+  <data name="InternalLayout_Reload" xml:space="preserve">
+    <value>Recarregar</value>
+  </data>
+  <data name="InternalLayout_CloseIcon" xml:space="preserve">
+    <value>🗙</value>
+  </data>
+
 </root>

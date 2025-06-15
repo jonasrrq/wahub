@@ -1,4 +1,5 @@
 ﻿@inject NavigationService Navigation
+@inject ILocalizationService Localization
 
 @* 
 <ErrorBoundary @ref="_errorBoundary" Context="ex">
@@ -59,9 +60,9 @@
 
 
 @* <div id="blazor-error-ui" data-nosnippet>
-    An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
+    @Localization.GetString(ResourceKeys.InternalLayout_ErrorOccurred)
+    <a href="." class="reload">@Localization.GetString(ResourceKeys.InternalLayout_Reload)</a>
+    <span class="dismiss">@Localization.GetString(ResourceKeys.InternalLayout_CloseIcon)</span>
 </div> *@
 
 @code {

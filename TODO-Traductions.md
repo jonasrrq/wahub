@@ -82,9 +82,9 @@
 - [x] "Registrarse"
 
 #### src/WaHub/Components/Layout/InternalLayout.razor
-- [ ] "An unhandled error has occurred."
-- [ ] "Reload"
-- [ ] "🗙" (Icono de cerrar/descartar)
+- [x] "An unhandled error has occurred."
+- [x] "Reload"
+- [x] "🗙" (Icono de cerrar/descartar)
 
 #### src/WaHub.Client/Layout/WaHubSidebar.razor
 - [x] "WaHub"
