@@ -158,4 +158,38 @@ public static class ResourceKeys
     public const string ErrorBoundaryContent_ErrorOccurred = "ErrorBoundaryContent_ErrorOccurred";
     public const string ErrorBoundaryContent_Unexpected = "ErrorBoundaryContent_Unexpected";
     public const string ErrorBoundaryContent_Ok = "ErrorBoundaryContent_Ok";
+
+    // --- Componentes de WaHub/Components/Pages/Privacy.razor ---
+    public const string Privacy_Title = "Privacy_Title";
+    public const string Privacy_Header = "Privacy_Header";
+    public const string Privacy_LastUpdate = "Privacy_LastUpdate";
+    public const string Privacy_Index = "Privacy_Index";
+    public const string Privacy_Section1 = "Privacy_Section1";
+    public const string Privacy_Section2 = "Privacy_Section2";
+    public const string Privacy_Section3 = "Privacy_Section3";
+    public const string Privacy_Section4 = "Privacy_Section4";
+    public const string Privacy_Section5 = "Privacy_Section5";
+    public const string Privacy_Section6 = "Privacy_Section6";
+    public const string Privacy_AccountInfo_Intro = "Privacy_AccountInfo_Intro";
+    public const string Privacy_AccountInfo_Name = "Privacy_AccountInfo_Name";
+    public const string Privacy_AccountInfo_Email = "Privacy_AccountInfo_Email";
+    public const string Privacy_AccountInfo_Password = "Privacy_AccountInfo_Password";
+    public const string Privacy_AccountInfo_Phone = "Privacy_AccountInfo_Phone";
+    public const string Privacy_AccountInfo_Company = "Privacy_AccountInfo_Company";
+    public const string Privacy_AccountInfo_Photo = "Privacy_AccountInfo_Photo";
+    public const string Privacy_Section2_2 = "Privacy_Section2_2";
+    public const string Privacy_ServiceUsage_Intro = "Privacy_ServiceUsage_Intro";
+    public const string Privacy_ServiceUsage_Preferences = "Privacy_ServiceUsage_Preferences";
+    public const string Privacy_DeviceIdentifiers = "Privacy_DeviceIdentifiers";
+    public const string Privacy_PaymentInfo_Intro = "Privacy_PaymentInfo_Intro";
+    public const string Privacy_PaymentInfo_Billing = "Privacy_PaymentInfo_Billing";
+    public const string Privacy_PaymentInfo_Last4 = "Privacy_PaymentInfo_Last4";
+    public const string Privacy_PaymentInfo_History = "Privacy_PaymentInfo_History";
+    public const string Privacy_Note = "Privacy_Note";
+    public const string Privacy_PaymentInfo_Processors = "Privacy_PaymentInfo_Processors";
+    public const string Privacy_HowWeUse = "Privacy_HowWeUse";
+    public const string Privacy_Section3_1 = "Privacy_Section3_1";
+    public const string Privacy_Section3_2 = "Privacy_Section3_2";
+    public const string Privacy_Section3_3 = "Privacy_Section3_3";
+    public const string Privacy_Section3_4 = "Privacy_Section3_4";
 }

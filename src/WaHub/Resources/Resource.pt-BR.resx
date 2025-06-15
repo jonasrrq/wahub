@@ -473,4 +473,105 @@
   <data name="ErrorBoundaryContent_Ok" xml:space="preserve">
     <value>Ok</value>
   </data>
+
+  <!-- Traduções para src/WaHub/Components/Pages/Privacy.razor -->
+  <data name="Privacy_Title" xml:space="preserve">
+    <value>Política de Privacidade - WaHub</value>
+  </data>
+  <data name="Privacy_Header" xml:space="preserve">
+    <value>Política de Privacidade</value>
+  </data>
+  <data name="Privacy_LastUpdate" xml:space="preserve">
+    <value>Última atualização: 15 de dezembro de 2023</value>
+  </data>
+  <data name="Privacy_Index" xml:space="preserve">
+    <value>Índice</value>
+  </data>
+  <data name="Privacy_Section1" xml:space="preserve">
+    <value>1. Introdução</value>
+  </data>
+  <data name="Privacy_Section2" xml:space="preserve">
+    <value>2. Informações que Coletamos</value>
+  </data>
+  <data name="Privacy_AccountInfo_Intro" xml:space="preserve">
+    <value>Quando você cria uma conta conosco, coletamos:</value>
+  </data>
+  <data name="Privacy_AccountInfo_Name" xml:space="preserve">
+    <value>Nome e sobrenome</value>
+  </data>
+  <data name="Privacy_AccountInfo_Email" xml:space="preserve">
+    <value>Endereço de e-mail</value>
+  </data>
+  <data name="Privacy_AccountInfo_Password" xml:space="preserve">
+    <value>Senha (criptografada)</value>
+  </data>
+  <data name="Privacy_AccountInfo_Phone" xml:space="preserve">
+    <value>Número de telefone (opcional)</value>
+  </data>
+  <data name="Privacy_AccountInfo_Company" xml:space="preserve">
+    <value>Informações da empresa (opcional)</value>
+  </data>
+  <data name="Privacy_AccountInfo_Photo" xml:space="preserve">
+    <value>Foto de perfil (opcional)</value>
+  </data>
+  <data name="Privacy_Section2_2" xml:space="preserve">
+    <value>2.2 Informações de Uso do Serviço</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Intro" xml:space="preserve">
+    <value>Para fornecer e melhorar nosso serviço, coletamos:</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Preferences" xml:space="preserve">
+    <value>Configurações de conta e preferências</value>
+  </data>
+  <data name="Privacy_Section3" xml:space="preserve">
+    <value>3. Como Usamos as Informações</value>
+  </data>
+  <data name="Privacy_Section3_1" xml:space="preserve">
+    <value>3.1 Fornecer o Serviço</value>
+  </data>
+  <data name="Privacy_Section3_2" xml:space="preserve">
+    <value>3.2 Melhorar o Serviço</value>
+  </data>
+  <data name="Privacy_Section3_3" xml:space="preserve">
+    <value>3.3 Comunicação</value>
+  </data>
+  <data name="Privacy_Section3_4" xml:space="preserve">
+    <value>3.4 Segurança e Conformidade</value>
+  </data>
+  <data name="Privacy_Section4" xml:space="preserve">
+    <value>4. Compartilhamento de Informações</value>
+  </data>
+  <data name="Privacy_Section5" xml:space="preserve">
+    <value>5. Segurança de Dados</value>
+  </data>
+  <data name="Privacy_Section6" xml:space="preserve">
+    <value>6. Retenção de Dados</value>
+  </data>
+  <data name="Privacy_DeviceIdentifiers" xml:space="preserve">
+    <value>Identificadores únicos de dispositivo</value>
+  </data>
+  <data name="Privacy_Section2_5" xml:space="preserve">
+    <value>2.5 Informações de Pagamento</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Intro" xml:space="preserve">
+    <value>Para processar pagamentos, coletamos:</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Billing" xml:space="preserve">
+    <value>Informações de faturamento (nome, endereço)</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Last4" xml:space="preserve">
+    <value>Últimos 4 dígitos dos cartões de crédito</value>
+  </data>
+  <data name="Privacy_PaymentInfo_History" xml:space="preserve">
+    <value>Histórico de transações</value>
+  </data>
+  <data name="Privacy_Note" xml:space="preserve">
+    <value>Nota:</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Processors" xml:space="preserve">
+    <value>Os detalhes completos dos cartões de crédito são processados diretamente por nossos processadores de pagamento seguros (Stripe, PayPal) e nunca são armazenados em nossos servidores.</value>
+  </data>
+  <data name="Privacy_HowWeUse" xml:space="preserve">
+    <value>Como Usamos as Informações</value>
+  </data>
 </root>

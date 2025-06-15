@@ -3,15 +3,13 @@
 @inject NavigationService Navigation
 @inject ILocalizationService Localization
 
-<PageTitle>Política de Privacidad - WaHub</PageTitle>
-
-
+<PageTitle>@Localization.GetString(ResourceKeys.Privacy_Title)</PageTitle>
 
 <div class="legal-page">
     <div class="legal-header">
         <div class="container">
-            <h1>Política de Privacidad</h1>
-            <p class="legal-date">Última actualización: 15 de Diciembre, 2023</p>
+            <h1>@Localization.GetString(ResourceKeys.Privacy_Header)</h1>
+            <p class="legal-date">@Localization.GetString(ResourceKeys.Privacy_LastUpdate)</p>
         </div>
     </div>
 
@@ -20,14 +18,14 @@
             <div class="legal-grid">
                 <div class="legal-sidebar">
                     <div class="legal-nav">
-                        <h3>Índice</h3>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Index)</h3>
                         <ul class="legal-nav-list">
-                            <li><a href="#introduction">1. Introducción</a></li>
-                            <li><a href="#information-collect">2. Información que Recopilamos</a></li>
-                            <li><a href="#how-we-use">3. Cómo Usamos la Información</a></li>
-                            <li><a href="#information-sharing">4. Compartir Información</a></li>
-                            <li><a href="#data-security">5. Seguridad de Datos</a></li>
-                            <li><a href="#data-retention">6. Retención de Datos</a></li>
+                            <li><a href="#introduction">@Localization.GetString(ResourceKeys.Privacy_Section1)</a></li>
+                            <li><a href="#information-collect">@Localization.GetString(ResourceKeys.Privacy_Section2)</a></li>
+                            <li><a href="#how-we-use">@Localization.GetString(ResourceKeys.Privacy_Section3)</a></li>
+                            <li><a href="#information-sharing">@Localization.GetString(ResourceKeys.Privacy_Section4)</a></li>
+                            <li><a href="#data-security">@Localization.GetString(ResourceKeys.Privacy_Section5)</a></li>
+                            <li><a href="#data-retention">@Localization.GetString(ResourceKeys.Privacy_Section6)</a></li>
                             <li><a href="#your-rights">7. Sus Derechos</a></li>
                             <li><a href="#cookies">8. Cookies y Tecnologías Similares</a></li>
                             <li><a href="#international">9. Transferencias Internacionales</a></li>
@@ -40,7 +38,7 @@
 
                 <div class="legal-main">
                     <div class="legal-section" id="introduction">
-                        <h2>1. Introducción</h2>
+                        <h2>@Localization.GetString(ResourceKeys.Privacy_Section1)</h2>
                         <p>En WaHub, valoramos profundamente su privacidad y nos comprometemos a proteger sus datos personales. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos su información cuando utiliza nuestro servicio de automatización de WhatsApp.</p>
                         <p>Al utilizar WaHub, usted acepta las prácticas descritas en esta política. Si no está de acuerdo con nuestras prácticas de privacidad, no debe utilizar nuestro servicio.</p>
                         
@@ -57,23 +55,23 @@
                     </div>
 
                     <div class="legal-section" id="information-collect">
-                        <h2>2. Información que Recopilamos</h2>
+                        <h2>@Localization.GetString(ResourceKeys.Privacy_Section2)</h2>
                         
                         <h3>2.1 Información de Cuenta</h3>
-                        <p>Cuando crea una cuenta con nosotros, recopilamos:</p>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_AccountInfo_Intro)</p>
                         <ul>
-                            <li>Nombre y apellido</li>
-                            <li>Dirección de correo electrónico</li>
-                            <li>Contraseña (encriptada)</li>
-                            <li>Número de teléfono (opcional)</li>
-                            <li>Información de empresa (opcional)</li>
-                            <li>Fotografía de perfil (opcional)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_AccountInfo_Name)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_AccountInfo_Email)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_AccountInfo_Password)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_AccountInfo_Phone)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_AccountInfo_Company)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_AccountInfo_Photo)</li>
                         </ul>
 
                         <h3>2.2 Información de Uso del Servicio</h3>
-                        <p>Para proporcionar y mejorar nuestro servicio, recopilamos:</p>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_ServiceUsage_Intro)</p>
                         <ul>
-                            <li>Configuraciones de cuenta y preferencias</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_ServiceUsage_Preferences)</li>
                             <li>Historial de uso de funciones</li>
                             <li>Métricas de rendimiento y analíticas</li>
                             <li>Registros de errores y problemas técnicos</li>
@@ -112,14 +110,13 @@
                             <li>Historial de transacciones</li>
                         </ul>
                         <div class="privacy-note">
-                            <strong>Nota:</strong> Los detalles completos de tarjetas de crédito son procesados directamente por nuestros procesadores de pago seguros (Stripe, PayPal) y nunca se almacenan en nuestros servidores.
+                            <strong>@Localization.GetString(ResourceKeys.Privacy_Note)</strong> @Localization.GetString(ResourceKeys.Privacy_PaymentInfo_Processors)
                         </div>
                     </div>
 
                     <div class="legal-section" id="how-we-use">
-                        <h2>3. Cómo Usamos la Información</h2>
-                        
-                        <h3>3.1 Proporcionar el Servicio</h3>
+                        <h2>@Localization.GetString(ResourceKeys.Privacy_Section3)</h2>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section3_1)</h3>
                         <ul>
                             <li>Crear y gestionar su cuenta</li>
                             <li>Procesar y ejecutar automatizaciones de WhatsApp</li>
@@ -128,7 +125,7 @@
                             <li>Enviar notificaciones importantes del servicio</li>
                         </ul>
 
-                        <h3>3.2 Mejorar el Servicio</h3>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section3_2)</h3>
                         <ul>
                             <li>Analizar patrones de uso para optimizar funcionalidades</li>
                             <li>Desarrollar nuevas características y servicios</li>
@@ -137,7 +134,7 @@
                             <li>Personalizar la experiencia del usuario</li>
                         </ul>
 
-                        <h3>3.3 Comunicación</h3>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section3_3)</h3>
                         <ul>
                             <li>Enviar actualizaciones sobre el servicio</li>
                             <li>Responder a consultas y solicitudes de soporte</li>
@@ -146,7 +143,7 @@
                             <li>Proporcionar información promocional relevante (opcional)</li>
                         </ul>
 
-                        <h3>3.4 Seguridad y Cumplimiento</h3>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section3_4)</h3>
                         <ul>
                             <li>Detectar y prevenir fraude o uso indebido</li>
                             <li>Verificar identidad y autenticar usuarios</li>
@@ -157,7 +154,7 @@
                     </div>
 
                     <div class="legal-section" id="information-sharing">
-                        <h2>4. Compartir Información</h2>
+                        <h2>@Localization.GetString(ResourceKeys.Privacy_Section4)</h2>
                         
                         <h3>4.1 No Vendemos Datos Personales</h3>
                         <p>No vendemos, alquilamos ni comercializamos su información personal a terceros para fines de marketing.</p>
@@ -194,7 +191,7 @@
                     </div>
 
                     <div class="legal-section" id="data-security">
-                        <h2>5. Seguridad de Datos</h2>
+                        <h2>@Localization.GetString(ResourceKeys.Privacy_Section5)</h2>
                         
                         <h3>5.1 Medidas de Seguridad</h3>
                         <p>Implementamos múltiples capas de seguridad para proteger su información:</p>
@@ -230,7 +227,7 @@
                     </div>
 
                     <div class="legal-section" id="data-retention">
-                        <h2>6. Retención de Datos</h2>
+                        <h2>@Localization.GetString(ResourceKeys.Privacy_Section6)</h2>
                         
                         <h3>6.1 Períodos de Retención</h3>
                         <table class="retention-table">
