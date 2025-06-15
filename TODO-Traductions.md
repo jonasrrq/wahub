@@ -114,9 +114,9 @@
 - [x] "← Volver al inicio" 
 
 #### src/WaHub/Components/ErrorBoundaryContent.razor
-- [ ] "Error Occurred"
-- [ ] "Oops, unecpevted error occured!"
-- [ ] "Ok" 
+- [x] "Error Occurred"
+- [x] "Oops, unecpevted error occured!"
+- [x] "Ok" 
 
 #### src/WaHub/Components/ErrorBoundaryComponent.razor
 - [ ] Nota: `Error.Message` es un texto dinámico que proviene de las excepciones y se muestra a través del `NotificationService`. Debe ser manejado para traducción en su origen. 

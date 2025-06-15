@@ -462,4 +462,15 @@
   <data name="Routes_BackToHome" xml:space="preserve">
     <value>← Voltar para o início</value>
   </data>
+
+  <!-- Traduções para src/WaHub/Components/ErrorBoundaryContent.razor -->
+  <data name="ErrorBoundaryContent_ErrorOccurred" xml:space="preserve">
+    <value>Ocorreu um erro</value>
+  </data>
+  <data name="ErrorBoundaryContent_Unexpected" xml:space="preserve">
+    <value>Ops, ocorreu um erro inesperado!</value>
+  </data>
+  <data name="ErrorBoundaryContent_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
 </root>

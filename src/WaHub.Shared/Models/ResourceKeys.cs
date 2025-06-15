@@ -153,4 +153,9 @@ public static class ResourceKeys
     public const string Routes_PageNotFound = "Routes_PageNotFound";
     public const string Routes_PageNotFoundMessage = "Routes_PageNotFoundMessage";
     public const string Routes_BackToHome = "Routes_BackToHome";
+
+    // --- Componentes de WaHub/Components/ErrorBoundaryContent.razor ---
+    public const string ErrorBoundaryContent_ErrorOccurred = "ErrorBoundaryContent_ErrorOccurred";
+    public const string ErrorBoundaryContent_Unexpected = "ErrorBoundaryContent_Unexpected";
+    public const string ErrorBoundaryContent_Ok = "ErrorBoundaryContent_Ok";
 }
