@@ -452,4 +452,14 @@
     <value>WaHub - Plataforma de Gestão do WhatsApp</value>
   </data>
 
+  <!-- Traduções para src/WaHub/Components/Routes.razor -->
+  <data name="Routes_PageNotFound" xml:space="preserve">
+    <value>Página não encontrada</value>
+  </data>
+  <data name="Routes_PageNotFoundMessage" xml:space="preserve">
+    <value>A página que você procura não existe.</value>
+  </data>
+  <data name="Routes_BackToHome" xml:space="preserve">
+    <value>← Voltar para o início</value>
+  </data>
 </root>

@@ -148,4 +148,9 @@ public static class ResourceKeys
     // --- Componentes de WaHub/Components/App.razor ---
     public const string App_Lang = "App_Lang";
     public const string App_Title = "App_Title";
+
+    // --- Componentes de WaHub/Components/Routes.razor ---
+    public const string Routes_PageNotFound = "Routes_PageNotFound";
+    public const string Routes_PageNotFoundMessage = "Routes_PageNotFoundMessage";
+    public const string Routes_BackToHome = "Routes_BackToHome";
 }

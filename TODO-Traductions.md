@@ -109,9 +109,9 @@
 - [x] "WaHub - Plataforma de Gestión de WhatsApp" 
 
 #### src/WaHub/Components/Routes.razor
-- [ ] "Página no encontrada"
-- [ ] "La página que buscas no existe."
-- [ ] "← Volver al inicio" 
+- [x] "Página no encontrada"
+- [x] "La página que buscas no existe."
+- [x] "← Volver al inicio" 
 
 #### src/WaHub/Components/ErrorBoundaryContent.razor
 - [ ] "Error Occurred"
