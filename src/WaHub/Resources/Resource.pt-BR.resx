@@ -444,4 +444,12 @@
     <value>Olá Mundo do botão</value>
   </data>
 
+  <!-- Traduções para src/WaHub/Components/App.razor -->
+  <data name="App_Lang" xml:space="preserve">
+    <value>pt-BR</value>
+  </data>
+  <data name="App_Title" xml:space="preserve">
+    <value>WaHub - Plataforma de Gestão do WhatsApp</value>
+  </data>
+
 </root>

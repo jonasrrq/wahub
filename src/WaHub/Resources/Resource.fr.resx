@@ -443,4 +443,12 @@
     <value>Bonjour le monde depuis le bouton</value>
   </data>
 
+  <!-- Traductions pour src/WaHub/Components/App.razor -->
+  <data name="App_Lang" xml:space="preserve">
+    <value>fr</value>
+  </data>
+  <data name="App_Title" xml:space="preserve">
+    <value>WaHub - Plateforme de gestion WhatsApp</value>
+  </data>
+
 </root>

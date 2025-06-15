@@ -105,8 +105,8 @@
 - [x] "Hola Mundo desde el botón" 
 
 #### src/WaHub/Components/App.razor
-- [ ] "es" (Atributo lang del html)
-- [ ] "WaHub - Plataforma de Gestión de WhatsApp" 
+- [x] "es" (Atributo lang del html)
+- [x] "WaHub - Plataforma de Gestión de WhatsApp" 
 
 #### src/WaHub/Components/Routes.razor
 - [ ] "Página no encontrada"

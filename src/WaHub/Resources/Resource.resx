@@ -469,4 +469,12 @@
   <data name="MyButton_HelloWorld" xml:space="preserve">
     <value>Hola Mundo desde el botón</value>
   </data>
+
+  <!-- Traducciones para src/WaHub/Components/App.razor -->
+  <data name="App_Lang" xml:space="preserve">
+    <value>es</value>
+  </data>
+  <data name="App_Title" xml:space="preserve">
+    <value>WaHub - Plataforma de Gestión de WhatsApp</value>
+  </data>
 </root>

@@ -144,4 +144,8 @@ public static class ResourceKeys
     // --- Componentes de WaHub.Client/Shared/MyButton.razor ---
     public const string MyButton_ClickMe = "MyButton_ClickMe";
     public const string MyButton_HelloWorld = "MyButton_HelloWorld";
+
+    // --- Componentes de WaHub/Components/App.razor ---
+    public const string App_Lang = "App_Lang";
+    public const string App_Title = "App_Title";
 }
