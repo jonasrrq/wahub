@@ -419,4 +419,21 @@
     <value>🗙</value>
   </data>
 
+  <!-- Traduções para src/WaHub.Client/Layout/NotificationContainer.razor -->
+  <data name="Notification_Close" xml:space="preserve">
+    <value>✖</value>
+  </data>
+  <data name="Notification_SuccessIcon" xml:space="preserve">
+    <value>✓</value>
+  </data>
+  <data name="Notification_ErrorIcon" xml:space="preserve">
+    <value>✗</value>
+  </data>
+  <data name="Notification_WarningIcon" xml:space="preserve">
+    <value>⚠</value>
+  </data>
+  <data name="Notification_InfoIcon" xml:space="preserve">
+    <value>ℹ</value>
+  </data>
+
 </root>

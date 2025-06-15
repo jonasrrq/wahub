@@ -1,5 +1,5 @@
-
 @inject NotificationService NotificationService
+@inject ILocalizationService Localization
 @implements IDisposable
 
 <div class="notifications-container">
@@ -15,7 +15,7 @@
                     @notification.Message
                 </div>
                 <button class="notification-close" @onclick="() => RemoveNotification(notification.Id)">
-                    ✖
+                    @Localization.GetString(ResourceKeys.Notification_Close)
                 </button>
             </div>
         </div>
@@ -90,15 +90,15 @@
         }
     }
 
-    private static string GetIcon(NotificationType type)
+    private string GetIcon(NotificationType type)
     {
         return type switch
         {
-            NotificationType.Success => "✓",
-            NotificationType.Error => "✗",
-            NotificationType.Warning => "⚠",
-            NotificationType.Info => "ℹ",
-            _ => "ℹ"
+            NotificationType.Success => Localization.GetString(ResourceKeys.Notification_SuccessIcon),
+            NotificationType.Error => Localization.GetString(ResourceKeys.Notification_ErrorIcon),
+            NotificationType.Warning => Localization.GetString(ResourceKeys.Notification_WarningIcon),
+            NotificationType.Info => Localization.GetString(ResourceKeys.Notification_InfoIcon),
+            _ => Localization.GetString(ResourceKeys.Notification_InfoIcon)
         };
     }
 

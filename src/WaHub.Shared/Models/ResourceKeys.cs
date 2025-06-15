@@ -133,4 +133,11 @@ public static class ResourceKeys
     public const string InternalLayout_ErrorOccurred = "InternalLayout_ErrorOccurred";
     public const string InternalLayout_Reload = "InternalLayout_Reload";
     public const string InternalLayout_CloseIcon = "InternalLayout_CloseIcon";
+
+    // --- Componentes de WaHub.Client/Layout/NotificationContainer.razor ---
+    public const string Notification_Close = "Notification_Close";
+    public const string Notification_SuccessIcon = "Notification_SuccessIcon";
+    public const string Notification_ErrorIcon = "Notification_ErrorIcon";
+    public const string Notification_WarningIcon = "Notification_WarningIcon";
+    public const string Notification_InfoIcon = "Notification_InfoIcon";
 }

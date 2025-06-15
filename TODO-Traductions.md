@@ -93,12 +93,12 @@
 
 
 #### src/WaHub.Client/Layout/NotificationContainer.razor
-- [ ] "✖" (Botón de cerrar en la notificación)
-- [ ] "✓" (Icono de éxito)
-- [ ] "✗" (Icono de error)
-- [ ] "⚠" (Icono de advertencia)
-- [ ] "ℹ" (Icono de información y predeterminado)
-- [ ] Nota: `notification.Message` es un texto dinámico que provendrá de la lógica de negocio y deberá ser traducido en su origen. 
+- [x] "✖" (Botón de cerrar en la notificación)
+- [x] "✓" (Icono de éxito)
+- [x] "✗" (Icono de error)
+- [x] "⚠" (Icono de advertencia)
+- [x] "ℹ" (Icono de información y predeterminado)
+- [x] Nota: `notification.Message` es un texto dinámico que provendrá de la lógica de negocio y deberá ser traducido en su origen. 
 
 #### src/WaHub.Client/Shared/MyButton.razor
 - [ ] "Cliqueame"
