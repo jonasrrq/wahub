@@ -167,4 +167,18 @@
     <value>Retour au tableau de bord</value>
   </data>
   
+  <!-- Traductions pour WaHub/Components/Pages/EnConstruccion.razor -->
+  <data name="UnderConstructionTitle" xml:space="preserve">
+    <value>Page en construction !</value>
+  </data>
+  <data name="UnderConstructionMessage1" xml:space="preserve">
+    <value>Nous travaillons dur pour vous apporter cette section très bientôt.</value>
+  </data>
+  <data name="UnderConstructionMessage2" xml:space="preserve">
+    <value>Veuillez revenir plus tard ou explorer d'autres parties de la plateforme.</value>
+  </data>
+  <data name="BackToDashboardButton" xml:space="preserve">
+    <value>Retour au tableau de bord</value>
+  </data>
+  
 </root>

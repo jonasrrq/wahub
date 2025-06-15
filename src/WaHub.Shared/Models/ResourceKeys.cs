@@ -22,4 +22,10 @@ public static class ResourceKeys
     public const string PageNotFoundMessage = "PageNotFoundMessage";
     public const string BackToHome = "BackToHome";
     public const string BackToDashboard = "BackToDashboard";
+
+    // --- Componentes de WaHub/Components/Pages/EnConstruccion.razor ---
+    public const string UnderConstructionTitle = "UnderConstructionTitle";
+    public const string UnderConstructionMessage1 = "UnderConstructionMessage1";
+    public const string UnderConstructionMessage2 = "UnderConstructionMessage2";
+    public const string BackToDashboardButton = "BackToDashboardButton";
 }

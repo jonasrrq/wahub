@@ -62,16 +62,16 @@
 - [ ] "Estado del servicio"
 
 #### src/WaHub/Components/Pages/EnContruccion.razor
-- [ ] "¡Página en construcción!"
-- [ ] "Estamos trabajando para traerte esta sección muy pronto."
-- [ ] "Vuelve más tarde o explora otras áreas de la plataforma."
-- [ ] "Volver al Dashboard"
+- [x] "¡Página en construcción!"
+- [x] "Estamos trabajando para traerte esta sección muy pronto."
+- [x] "Vuelve más tarde o explora otras áreas de la plataforma."
+- [x] "Volver al Dashboard" (Traducido como "Volver al Panel" en algunos contextos)
 
 #### src/WaHub/Components/Pages/Error.razor
-- [ ] "Error 404"
-- [ ] "Página no encontrada"
-- [ ] "Lo sentimos, la página que buscas no existe o ha sido movida."
-- [ ] "Volver al inicio"
+- [x] "Error 404"
+- [x] "Página no encontrada"
+- [x] "Lo sentimos, la página que buscas no existe o ha sido movida."
+- [x] "Volver al inicio"
 
 
 #### src/WaHub/Components/Layout/HomeNavbar.razor
