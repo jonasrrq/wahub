@@ -181,4 +181,230 @@
     <value>Retour au tableau de bord</value>
   </data>
   
+  <!-- Traductions pour WaHub/Components/Pages/Home.razor -->
+  <data name="HomePageTitle" xml:space="preserve">
+    <value>WaHub - Plateforme de Gestion WhatsApp</value>
+  </data>
+  <data name="HomeHeroTitle" xml:space="preserve">
+    <value>WaHub &lt;span class="highlight"&gt;pour les développeurs&lt;/span&gt;</value>
+  </data>
+  <data name="HomeHeroDescription" xml:space="preserve">
+    <value>Envoyez et recevez des messages, gérez les chats, groupes et canaux facilement avec notre API de niveau entreprise. Payez par compte WhatsApp, sans frais par message.</value>
+  </data>
+  <data name="HomeHeroButton" xml:space="preserve">
+    <value>Commencer l'essai gratuit</value>
+  </data>
+  <data name="HomeTrialInfo" xml:space="preserve">
+    <value>3 jours d'essai gratuit • Sans carte de crédit • Annulez à tout moment</value>
+  </data>
+  <data name="HomeWhyChoose" xml:space="preserve">
+    <value>Pourquoi choisir WaHub ?</value>
+  </data>
+  
+  <!-- Caractéristiques -->
+  <data name="FeatureFastApiTitle" xml:space="preserve">
+    <value>API Ultra Rapide</value>
+  </data>
+  <data name="FeatureFastApiDesc" xml:space="preserve">
+    <value>Intégrez WhatsApp en quelques secondes avec notre API REST simple et puissante. Temps de réponse moyen &amp;lt; 100ms.</value>
+  </data>
+  <data name="FeatureSecurityTitle" xml:space="preserve">
+    <value>Sécurité Avancée</value>
+  </data>
+  <data name="FeatureSecurityDesc" xml:space="preserve">
+    <value>Authentification JWT, chiffrement de bout en bout et conformité RGPD. Vos données sont protégées.</value>
+  </data>
+  <data name="FeatureAnalyticsTitle" xml:space="preserve">
+    <value>Analyses en Temps Réel</value>
+  </data>
+  <data name="FeatureAnalyticsDesc" xml:space="preserve">
+    <value>Surveillez les métriques de livraison, de réponse et d'engagement avec des tableaux de bord interactifs.</value>
+  </data>
+  <data name="FeatureWebhooksTitle" xml:space="preserve">
+    <value>Webhooks Intelligents</value>
+  </data>
+  <data name="FeatureWebhooksDesc" xml:space="preserve">
+    <value>Recevez des notifications instantanées pour les messages entrants et les statuts de livraison.</value>
+  </data>
+  <data name="FeatureInstancesTitle" xml:space="preserve">
+    <value>Multiples Instances</value>
+  </data>
+  <data name="FeatureInstancesDesc" xml:space="preserve">
+    <value>Gérez plusieurs numéros WhatsApp à partir d'une seule plateforme. Idéal pour les équipes.</value>
+  </data>
+  <data name="FeatureMediaTitle" xml:space="preserve">
+    <value>Support Multimédia Complet</value>
+  </data>
+  <data name="FeatureMediaDesc" xml:space="preserve">
+    <value>Envoyez des images, vidéos, audios, documents et localisations sans limites.</value>
+  </data>
+  
+  <!-- Section Code -->
+  <data name="HomeCodeSectionTitle" xml:space="preserve">
+    <value>Intégration en Quelques Minutes</value>
+  </data>
+  <data name="HomeCodeLanguage" xml:space="preserve">
+    <value>JavaScript</value>
+  </data>
+  <data name="HomeCodeCopy" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="HomeCodeMessage" xml:space="preserve">
+    <value>Bonjour ! Message envoyé depuis WaHub 🚀</value>
+  </data>
+  <data name="HomeCodeLog" xml:space="preserve">
+    <value>Message envoyé :</value>
+  </data>
+  
+  <!-- Tarification -->
+  <data name="HomePricingTitle" xml:space="preserve">
+    <value>Tarification Transparente</value>
+  </data>
+  <data name="HomePricingPerMonth" xml:space="preserve">
+    <value>/mois</value>
+  </data>
+  
+  <!-- Forfaits -->
+  <data name="PlanDeveloper" xml:space="preserve">
+    <value>Développeur</value>
+  </data>
+  <data name="PlanDeveloperMessages" xml:space="preserve">
+    <value>1 000 messages/mois</value>
+  </data>
+  <data name="PlanDeveloperInstances" xml:space="preserve">
+    <value>1 instance</value>
+  </data>
+  <data name="PlanDeveloperApi" xml:space="preserve">
+    <value>API complète</value>
+  </data>
+  <data name="PlanDeveloperSupport" xml:space="preserve">
+    <value>Support par email</value>
+  </data>
+  <data name="PlanDeveloperButton" xml:space="preserve">
+    <value>Commencer gratuitement</value>
+  </data>
+  
+  <data name="PlanStartupBadge" xml:space="preserve">
+    <value>Le Plus Populaire</value>
+  </data>
+  <data name="PlanStartup" xml:space="preserve">
+    <value>Startup</value>
+  </data>
+  <data name="PlanStartupMessages" xml:space="preserve">
+    <value>50 000 messages/mois</value>
+  </data>
+  <data name="PlanStartupInstances" xml:space="preserve">
+    <value>5 instances</value>
+  </data>
+  <data name="PlanStartupAnalytics" xml:space="preserve">
+    <value>Analyses avancées</value>
+  </data>
+  <data name="PlanStartupWebhooks" xml:space="preserve">
+    <value>Webhooks</value>
+  </data>
+  <data name="PlanStartupSupport" xml:space="preserve">
+    <value>Support prioritaire</value>
+  </data>
+  <data name="PlanStartupButton" xml:space="preserve">
+    <value>Commencer l'essai</value>
+  </data>
+  
+  <data name="PlanEnterprise" xml:space="preserve">
+    <value>Entreprise</value>
+  </data>
+  <data name="PlanEnterpriseMessages" xml:space="preserve">
+    <value>500 000 messages/mois</value>
+  </data>
+  <data name="PlanEnterpriseInstances" xml:space="preserve">
+    <value>Instances illimitées</value>
+  </data>
+  <data name="PlanEnterpriseSla" xml:space="preserve">
+    <value>SLA 99,9%</value>
+  </data>
+  <data name="PlanEnterpriseSupport" xml:space="preserve">
+    <value>Support 24/7</value>
+  </data>
+  <data name="PlanEnterpriseIntegrations" xml:space="preserve">
+    <value>Intégrations personnalisées</value>
+  </data>
+  <data name="PlanEnterpriseButton" xml:space="preserve">
+    <value>Contacter les ventes</value>
+  </data>
+  
+  <!-- Témoignages -->
+  <data name="HomeTestimonialsTitle" xml:space="preserve">
+    <value>Ce que disent nos utilisateurs</value>
+  </data>
+  
+  <!-- CTA -->
+  <data name="HomeCtaTitle" xml:space="preserve">
+    <value>Prêt à commencer ?</value>
+  </data>
+  <data name="HomeCtaSubtitle" xml:space="preserve">
+    <value>Rejoignez plus de 1 000 développeurs qui font déjà confiance à WaHub</value>
+  </data>
+  <data name="HomeCtaButton1" xml:space="preserve">
+    <value>Commencer gratuitement</value>
+  </data>
+  <data name="HomeCtaButton2" xml:space="preserve">
+    <value>Contacter les ventes</value>
+  </data>
+  
+  <!-- Pied de page -->
+  <data name="FooterTagline" xml:space="preserve">
+    <value>La plateforme d'API WhatsApp la plus fiable pour les développeurs.</value>
+  </data>
+  <data name="FooterProduct" xml:space="preserve">
+    <value>Produit</value>
+  </data>
+  <data name="FooterSupport" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="FooterLegal" xml:space="preserve">
+    <value>Légal</value>
+  </data>
+  <data name="FooterCopyright" xml:space="preserve">
+    <value>© 2024 WaHub. Tous droits réservés.</value>
+  </data>
+  
+  <!-- Liens du Pied de page -->
+  <data name="APIDocs" xml:space="preserve">
+    <value>Documentation API</value>
+  </data>
+  <data name="Pricing" xml:space="preserve">
+    <value>Tarification</value>
+  </data>
+  <data name="ServiceStatus" xml:space="preserve">
+    <value>État des services</value>
+  </data>
+  <data name="HelpCenter" xml:space="preserve">
+    <value>Centre d'aide</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Community" xml:space="preserve">
+    <value>Communauté</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Confidentialité</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Conditions</value>
+  </data>
+  <data name="GDPR" xml:space="preserve">
+    <value>RGPD</value>
+  </data>
+  
+  <!-- Exemple de Code -->
+  <data name="CodeExampleTitle" xml:space="preserve">
+    <value>Envoyer un message avec l'API WaHub</value>
+  </data>
+  <data name="CodeExampleMessage" xml:space="preserve">
+    <value>Bonjour ! Message envoyé depuis WaHub 🚀</value>
+  </data>
+  <data name="CodeExampleLog" xml:space="preserve">
+    <value>Message envoyé :</value>
+  </data>
+
 </root>
