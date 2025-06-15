@@ -1,7 +1,5 @@
 @page "/privacy"
 
-@using WaHub.Shared.Models.Resouces
-
 @inject NavigationService Navigation
 @inject ILocalizationService Localization
 
@@ -28,12 +26,12 @@
                             <li><a href="#information-sharing">@Localization.GetString(ResourceKeys.Privacy_Section4)</a></li>
                             <li><a href="#data-security">@Localization.GetString(ResourceKeys.Privacy_Section5)</a></li>
                             <li><a href="#data-retention">@Localization.GetString(ResourceKeys.Privacy_Section6)</a></li>
-                            <li><a href="#your-rights">@Localization.GetString(ResourceKeys.Privacy_Section7)</a></li>
-                            <li><a href="#cookies">@Localization.GetString(ResourceKeys.Privacy_Section8)</a></li>
-                            <li><a href="#international">@Localization.GetString(ResourceKeys.Privacy_Section9)</a></li>
-                            <li><a href="#children">@Localization.GetString(ResourceKeys.Privacy_Section10)</a></li>
-                            <li><a href="#changes">@Localization.GetString(ResourceKeys.Privacy_Section11)</a></li>
-                            <li><a href="#contact">@Localization.GetString(ResourceKeys.Privacy_Section12)</a></li>
+                            <li><a href="#your-rights">@Localization.GetString(ResourceKeys.Privacy_Section7_Title)</a></li>
+                            <li><a href="#cookies">@Localization.GetString(ResourceKeys.Privacy_Section8_Title)</a></li>
+                            <li><a href="#international">@Localization.GetString(ResourceKeys.Privacy_Section9_Title)</a></li>
+                      @*       <li><a href="#children">@Localization.GetString(ResourceKeys.Privacy_Section10_Title)</a></li>
+                            <li><a href="#changes">@Localization.GetString(ResourceKeys.Privacy_Section11_Title)</a></li>
+                            <li><a href="#contact">@Localization.GetString(ResourceKeys.Privacy_Section12_Title)</a></li> *@
                         </ul>
                     </div>
                 </div>
@@ -194,170 +192,158 @@
                     <div class="legal-section" id="data-security">
                         <h2>@Localization.GetString(ResourceKeys.Privacy_Section5)</h2>
                         
-                        <h3>5.1 Medidas de Seguridad</h3>
-                        <p>Implementamos múltiples capas de seguridad para proteger su información:</p>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section5_1)</h3>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_SecurityMeasures_Intro)</p>
 
-                        <h4>Seguridad Técnica</h4>
+                        <h4>@Localization.GetString(ResourceKeys.Privacy_TechnicalSecurity)</h4>
                         <ul>
-                            <li>Encriptación TLS/SSL para datos en tránsito</li>
-                            <li>Encriptación AES-256 para datos en reposo</li>
-                            <li>Autenticación de dos factores (2FA)</li>
-                            <li>Controles de acceso basados en roles</li>
-                            <li>Monitoreo de seguridad 24/7</li>
-                            <li>Auditorías regulares de seguridad</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_TLS)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_AES256)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_2FA)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_RBAC)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_SecurityMonitoring)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_SecurityAudits)</li>
                         </ul>
 
-                        <h4>Seguridad Física</h4>
+                        <h4>@Localization.GetString(ResourceKeys.Privacy_PhysicalSecurity)</h4>
                         <ul>
-                            <li>Centros de datos certificados SOC 2</li>
-                            <li>Acceso físico controlado y monitoreado</li>
-                            <li>Sistemas de respaldo y recuperación</li>
-                            <li>Redundancia geográfica</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_SOC2)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_PhysicalAccess)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_BackupSystems)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_GeoRedundancy)</li>
                         </ul>
 
-                        <h4>Seguridad Administrativa</h4>
+                        <h4>@Localization.GetString(ResourceKeys.Privacy_AdminSecurity)</h4>
                         <ul>
-                            <li>Capacitación regular en seguridad para empleados</li>
-                            <li>Políticas estrictas de acceso a datos</li>
-                            <li>Acuerdos de confidencialidad con todo el personal</li>
-                            <li>Procesos de respuesta a incidentes</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_SecurityTraining)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_DataAccessPolicies)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_NDA)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_IncidentResponse)</li>
                         </ul>
 
-                        <h3>5.2 Notificación de Brechas</h3>
-                        <p>En el improbable caso de una brecha de seguridad que afecte sus datos personales, le notificaremos dentro de 72 horas de tomar conocimiento del incidente, según lo requerido por las regulaciones aplicables.</p>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section5_2)</h3>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_BreachNotification)</p>
                     </div>
 
                     <div class="legal-section" id="data-retention">
                         <h2>@Localization.GetString(ResourceKeys.Privacy_Section6)</h2>
                         
-                        <h3>6.1 Períodos de Retención</h3>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section6_1)</h3>
                         <table class="retention-table">
                             <thead>
                                 <tr>
-                                    <th>Tipo de Dato</th>
-                                    <th>Período de Retención</th>
-                                    <th>Propósito</th>
+                                    <th>@Localization.GetString(ResourceKeys.Privacy_RetentionTable_Type)</th>
+                                    <th>@Localization.GetString(ResourceKeys.Privacy_RetentionTable_Period)</th>
+                                    <th>@Localization.GetString(ResourceKeys.Privacy_RetentionTable_Purpose)</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Información de cuenta</td>
-                                    <td>Mientras la cuenta esté activa + 30 días</td>
-                                    <td>Proporcionar el servicio</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_AccountInfo)</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_AccountInfo_Period)</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_AccountInfo_Purpose)</td>
                                 </tr>
                                 <tr>
-                                    <td>Mensajes de WhatsApp</td>
-                                    <td>7-30 días (configurable)</td>
-                                    <td>Funcionalidad de automatización</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_WhatsAppMessages)</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_WhatsAppMessages_Period)</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_WhatsAppMessages_Purpose)</td>
                                 </tr>
                                 <tr>
-                                    <td>Registros de uso</td>
-                                    <td>12 meses</td>
-                                    <td>Análisis y mejora del servicio</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_UsageLogs)</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_UsageLogs_Period)</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_UsageLogs_Purpose)</td>
                                 </tr>
                                 <tr>
-                                    <td>Información de facturación</td>
-                                    <td>7 años</td>
-                                    <td>Requisitos contables y fiscales</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_BillingInfo)</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_BillingInfo_Period)</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_BillingInfo_Purpose)</td>
                                 </tr>
                                 <tr>
-                                    <td>Logs de seguridad</td>
-                                    <td>24 meses</td>
-                                    <td>Seguridad y detección de fraude</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_SecurityLogs)</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_SecurityLogs_Period)</td>
+                                    <td>@Localization.GetString(ResourceKeys.Privacy_Retention_SecurityLogs_Purpose)</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <h3>6.2 Eliminación de Datos</h3>
-                        <p>Cuando los datos ya no sean necesarios para los propósitos para los que fueron recopilados, los eliminaremos de forma segura utilizando métodos que hacen imposible la recuperación.</p>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section6_2)</h3>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_DataDeletion)</p>
                     </div>
 
                     <div class="legal-section" id="your-rights">
-                        <h2>7. Sus Derechos</h2>
-                        
-                        <h3>7.1 Derechos bajo GDPR (Para residentes de la UE)</h3>
+                        <h2>@Localization.GetString(ResourceKeys.Privacy_Section7_Title)</h2>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Title)</h3>
                         <ul>
-                            <li><strong>Acceso:</strong> Solicitar copias de sus datos personales</li>
-                            <li><strong>Rectificación:</strong> Corregir información inexacta o incompleta</li>
-                            <li><strong>Eliminación:</strong> Solicitar la eliminación de sus datos personales</li>
-                            <li><strong>Restricción:</strong> Limitar el procesamiento de sus datos</li>
-                            <li><strong>Portabilidad:</strong> Recibir sus datos en formato estructurado</li>
-                            <li><strong>Oposición:</strong> Oponerse al procesamiento de sus datos</li>
-                            <li><strong>Consentimiento:</strong> Retirar el consentimiento en cualquier momento</li>
+                            <li><strong>@Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Access_Title):</strong> @Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Access_Desc)</li>
+                            <li><strong>@Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Rectification_Title):</strong> @Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Rectification_Desc)</li>
+                            <li><strong>@Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Erasure_Title):</strong> @Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Erasure_Desc)</li>
+                            <li><strong>@Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Restriction_Title):</strong> @Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Restriction_Desc)</li>
+                            <li><strong>@Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Portability_Title):</strong> @Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Portability_Desc)</li>
+                            <li><strong>@Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Objection_Title):</strong> @Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Objection_Desc)</li>
+                            <li><strong>@Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Consent_Title):</strong> @Localization.GetString(ResourceKeys.Privacy_Section7_GDPR_Consent_Desc)</li>
                         </ul>
-
-                        <h3>7.2 Derechos bajo CCPA (Para residentes de California)</h3>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section7_CCPA_Title)</h3>
                         <ul>
-                            <li>Saber qué información personal se recopila</li>
-                            <li>Saber si la información personal se vende o divulga</li>
-                            <li>Decir no a la venta de información personal</li>
-                            <li>Acceder a la información personal</li>
-                            <li>Solicitar la eliminación de información personal</li>
-                            <li>No ser discriminado por ejercer sus derechos</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section7_CCPA_KnowCollected)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section7_CCPA_KnowSold)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section7_CCPA_OptOut)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section7_CCPA_Access)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section7_CCPA_Delete)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section7_CCPA_NonDiscrimination)</li>
                         </ul>
-
-                        <h3>7.3 Cómo Ejercer Sus Derechos</h3>
-                        <p>Para ejercer cualquiera de estos derechos, puede:</p>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section7_Exercise_Title)</h3>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section7_Exercise_Intro)</p>
                         <ul>
-                            <li>Usar las configuraciones de privacidad en su cuenta</li>
-                            <li>Contactarnos en <a href="mailto:privacy@wahub.com">privacy@wahub.com</a></li>
-                            <li>Usar nuestro formulario de solicitud de datos en línea</li>
-                            <li>Llamarnos al +1 (555) 123-4567</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section7_Exercise_Settings)</li>
+                            <li>@((MarkupString)Localization.GetString(ResourceKeys.Privacy_Section7_Exercise_Contact))</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section7_Exercise_Form)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section7_Exercise_Phone)</li>
                         </ul>
-                        <p>Responderemos a su solicitud dentro de 30 días calendario.</p>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section7_Exercise_Response)</p>
                     </div>
 
                     <div class="legal-section" id="cookies">
-                        <h2>8. Cookies y Tecnologías Similares</h2>
-                        
-                        <h3>8.1 Qué Son las Cookies</h3>
-                        <p>Las cookies son pequeños archivos de texto almacenados en su dispositivo cuando visita nuestro sitio web. Nos ayudan a mejorar su experiencia y proporcionar funcionalidades personalizadas.</p>
-
-                        <h3>8.2 Tipos de Cookies que Usamos</h3>
-                        
-                        <h4>Cookies Esenciales</h4>
-                        <p>Necesarias para el funcionamiento básico del sitio:</p>
+                        <h2>@Localization.GetString(ResourceKeys.Privacy_Section8_Title)</h2>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section8_1_Title)</h3>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section8_1_Desc)</p>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section8_2_Title)</h3>
+                        <h4>@Localization.GetString(ResourceKeys.Privacy_Section8_Essential_Title)</h4>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section8_Essential_Desc)</p>
                         <ul>
-                            <li>Gestión de sesión de usuario</li>
-                            <li>Preferencias de seguridad</li>
-                            <li>Funcionalidad de carrito de compras</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section8_Essential_Session)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section8_Essential_Security)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section8_Essential_Cart)</li>
                         </ul>
-
-                        <h4>Cookies de Rendimiento</h4>
-                        <p>Para entender cómo los usuarios interactúan con nuestro sitio:</p>
+                        <h4>@Localization.GetString(ResourceKeys.Privacy_Section8_Performance_Title)</h4>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section8_Performance_Desc)</p>
                         <ul>
-                            <li>Google Analytics</li>
-                            <li>Métricas de rendimiento</li>
-                            <li>Análisis de uso</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section8_Performance_Analytics)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section8_Performance_Metrics)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section8_Performance_Usage)</li>
                         </ul>
-
-                        <h4>Cookies de Funcionalidad</h4>
-                        <p>Para recordar sus preferencias:</p>
+                        <h4>@Localization.GetString(ResourceKeys.Privacy_Section8_Functionality_Title)</h4>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section8_Functionality_Desc)</p>
                         <ul>
-                            <li>Configuraciones de idioma</li>
-                            <li>Tema de la interfaz</li>
-                            <li>Preferencias de visualización</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section8_Functionality_Language)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section8_Functionality_Theme)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section8_Functionality_Display)</li>
                         </ul>
-
-                        <h3>8.3 Gestión de Cookies</h3>
-                        <p>Puede controlar las cookies a través de:</p>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section8_3_Title)</h3>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section8_3_Desc)</p>
                         <ul>
-                            <li>Configuraciones de su navegador</li>
-                            <li>Nuestro centro de preferencias de cookies</li>
-                            <li>Herramientas de opt-out de terceros</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section8_3_Browser)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section8_3_Center)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section8_3_ThirdParty)</li>
                         </ul>
                     </div>
 
                     <div class="legal-section" id="international">
-                        <h2>9. Transferencias Internacionales</h2>
-                        <p>Sus datos pueden ser transferidos y procesados en países distintos al suyo, incluyendo Estados Unidos donde se encuentran nuestros servidores principales.</p>
-                        
-                        <h3>9.1 Protecciones para Transferencias</h3>
+                        <h2>@Localization.GetString(ResourceKeys.Privacy_Section9_Title)</h2>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section9_Desc)</p>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section9_Measures_Title)</h3>
                         <ul>
-                            <li>Cláusulas contractuales estándar aprobadas por la UE</li>
-                            <li>Certificaciones de adequación de datos</li>
-                            <li>Acuerdos de procesamiento de datos con proveedores</li>
-                            <li>Medidas técnicas y organizativas apropiadas</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section9_Measures_Processor)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section9_Measures_Technical)</li>
                         </ul>
                     </div>
 

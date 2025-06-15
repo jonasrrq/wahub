@@ -663,140 +663,314 @@
   <data name="Privacy_Section5" xml:space="preserve">
     <value>5. Data Security</value>
   </data>
+  <data name="Privacy_Section5_1" xml:space="preserve">
+    <value>5.1 Security Measures</value>
+  </data>
+  <data name="Privacy_SecurityMeasures_Intro" xml:space="preserve">
+    <value>We implement multiple layers of security to protect your information:</value>
+  </data>
+  <data name="Privacy_TechnicalSecurity" xml:space="preserve">
+    <value>Technical Security</value>
+  </data>
+  <data name="Privacy_TLS" xml:space="preserve">
+    <value>TLS/SSL encryption for data in transit</value>
+  </data>
+  <data name="Privacy_AES256" xml:space="preserve">
+    <value>AES-256 encryption for data at rest</value>
+  </data>
+  <data name="Privacy_2FA" xml:space="preserve">
+    <value>Two-factor authentication (2FA)</value>
+  </data>
+  <data name="Privacy_RBAC" xml:space="preserve">
+    <value>Role-based access controls</value>
+  </data>
+  <data name="Privacy_SecurityMonitoring" xml:space="preserve">
+    <value>24/7 security monitoring</value>
+  </data>
+  <data name="Privacy_SecurityAudits" xml:space="preserve">
+    <value>Regular security audits</value>
+  </data>
+  <data name="Privacy_PhysicalSecurity" xml:space="preserve">
+    <value>Physical Security</value>
+  </data>
+  <data name="Privacy_SOC2" xml:space="preserve">
+    <value>SOC 2 certified data centers</value>
+  </data>
+  <data name="Privacy_PhysicalAccess" xml:space="preserve">
+    <value>Controlled and monitored physical access</value>
+  </data>
+  <data name="Privacy_BackupSystems" xml:space="preserve">
+    <value>Backup and recovery systems</value>
+  </data>
+  <data name="Privacy_GeoRedundancy" xml:space="preserve">
+    <value>Geographic redundancy</value>
+  </data>
+  <data name="Privacy_AdminSecurity" xml:space="preserve">
+    <value>Administrative Security</value>
+  </data>
+  <data name="Privacy_SecurityTraining" xml:space="preserve">
+    <value>Regular security training for employees</value>
+  </data>
+  <data name="Privacy_DataAccessPolicies" xml:space="preserve">
+    <value>Strict data access policies</value>
+  </data>
+  <data name="Privacy_NDA" xml:space="preserve">
+    <value>Non-disclosure agreements with all staff</value>
+  </data>
+  <data name="Privacy_IncidentResponse" xml:space="preserve">
+    <value>Incident response processes</value>
+  </data>
+  <data name="Privacy_Section5_2" xml:space="preserve">
+    <value>5.2 Breach Notification</value>
+  </data>
+  <data name="Privacy_BreachNotification" xml:space="preserve">
+    <value>In the unlikely event of a security breach affecting your personal data, we will notify you within 72 hours of becoming aware of the incident, as required by applicable regulations.</value>
+  </data>
   <data name="Privacy_Section6" xml:space="preserve">
     <value>6. Data Retention</value>
   </data>
-  <data name="Privacy_Section7" xml:space="preserve">
+  <data name="Privacy_Section6_1" xml:space="preserve">
+    <value>6.1 Retention Periods</value>
+  </data>
+  <data name="Privacy_RetentionTable_Type" xml:space="preserve">
+    <value>Data Type</value>
+  </data>
+  <data name="Privacy_RetentionTable_Period" xml:space="preserve">
+    <value>Retention Period</value>
+  </data>
+  <data name="Privacy_RetentionTable_Purpose" xml:space="preserve">
+    <value>Purpose</value>
+  </data>
+  <data name="Privacy_Retention_AccountInfo" xml:space="preserve">
+    <value>Account information</value>
+  </data>
+  <data name="Privacy_Retention_AccountInfo_Period" xml:space="preserve">
+    <value>While the account is active + 30 days</value>
+  </data>
+  <data name="Privacy_Retention_AccountInfo_Purpose" xml:space="preserve">
+    <value>Provide the service</value>
+  </data>
+  <data name="Privacy_Retention_WhatsAppMessages" xml:space="preserve">
+    <value>WhatsApp messages</value>
+  </data>
+  <data name="Privacy_Retention_WhatsAppMessages_Period" xml:space="preserve">
+    <value>7-30 days (configurable)</value>
+  </data>
+  <data name="Privacy_Retention_WhatsAppMessages_Purpose" xml:space="preserve">
+    <value>Automation functionality</value>
+  </data>
+  <data name="Privacy_Retention_UsageLogs" xml:space="preserve">
+    <value>Usage logs</value>
+  </data>
+  <data name="Privacy_Retention_UsageLogs_Period" xml:space="preserve">
+    <value>12 months</value>
+  </data>
+  <data name="Privacy_Retention_UsageLogs_Purpose" xml:space="preserve">
+    <value>Service analysis and improvement</value>
+  </data>
+  <data name="Privacy_Retention_BillingInfo" xml:space="preserve">
+    <value>Billing information</value>
+  </data>
+  <data name="Privacy_Retention_BillingInfo_Period" xml:space="preserve">
+    <value>7 years</value>
+  </data>
+  <data name="Privacy_Retention_BillingInfo_Purpose" xml:space="preserve">
+    <value>Accounting and tax requirements</value>
+  </data>
+  <data name="Privacy_Retention_SecurityLogs" xml:space="preserve">
+    <value>Security logs</value>
+  </data>
+  <data name="Privacy_Retention_SecurityLogs_Period" xml:space="preserve">
+    <value>24 months</value>
+  </data>
+  <data name="Privacy_Retention_SecurityLogs_Purpose" xml:space="preserve">
+    <value>Security and fraud detection</value>
+  </data>
+  <data name="Privacy_Section6_2" xml:space="preserve">
+    <value>6.2 Data Deletion</value>
+  </data>
+  <data name="Privacy_DataDeletion" xml:space="preserve">
+    <value>When data is no longer needed for the purposes for which it was collected, we will securely delete it using methods that make recovery impossible.</value>
+  </data>
+  <data name="Privacy_Section7_Title" xml:space="preserve">
     <value>7. Your Rights</value>
   </data>
-  <data name="Privacy_Section8" xml:space="preserve">
-    <value>8. Cookies and Similar Technologies</value>
+  <data name="Privacy_Section7_GDPR_Title" xml:space="preserve">
+    <value>7.1 Rights under GDPR (For EU residents)</value>
   </data>
-  <data name="Privacy_Section9" xml:space="preserve">
-    <value>9. International Transfers</value>
+  <data name="Privacy_Section7_GDPR_Access_Title" xml:space="preserve">
+    <value>Access</value>
   </data>
-  <data name="Privacy_Section10" xml:space="preserve">
-    <value>10. Children's Privacy</value>
+  <data name="Privacy_Section7_GDPR_Access_Desc" xml:space="preserve">
+    <value>Request copies of your personal data</value>
   </data>
-  <data name="Privacy_Section11" xml:space="preserve">
-    <value>11. Changes to this Policy</value>
+  <data name="Privacy_Section7_GDPR_Rectification_Title" xml:space="preserve">
+    <value>Rectification</value>
   </data>
-  <data name="Privacy_Section12" xml:space="preserve">
-    <value>12. Contact</value>
+  <data name="Privacy_Section7_GDPR_Rectification_Desc" xml:space="preserve">
+    <value>Correct inaccurate or incomplete information</value>
   </data>
-  <data name="Privacy_DeviceIdentifiers" xml:space="preserve">
-    <value>Unique device identifiers</value>
+  <data name="Privacy_Section7_GDPR_Erasure_Title" xml:space="preserve">
+    <value>Erasure</value>
   </data>
-  <data name="Privacy_Section2_5" xml:space="preserve">
-    <value>2.5 Payment Information</value>
+  <data name="Privacy_Section7_GDPR_Erasure_Desc" xml:space="preserve">
+    <value>Request deletion of your personal data</value>
   </data>
-  <data name="Privacy_PaymentInfo_Intro" xml:space="preserve">
-    <value>To process payments, we collect:</value>
+  <data name="Privacy_Section7_GDPR_Restriction_Title" xml:space="preserve">
+    <value>Restriction</value>
   </data>
-  <data name="Privacy_PaymentInfo_Billing" xml:space="preserve">
-    <value>Billing information (name, address)</value>
+  <data name="Privacy_Section7_GDPR_Restriction_Desc" xml:space="preserve">
+    <value>Limit the processing of your data</value>
   </data>
-  <data name="Privacy_PaymentInfo_Last4" xml:space="preserve">
-    <value>Last 4 digits of credit cards</value>
+  <data name="Privacy_Section7_GDPR_Portability_Title" xml:space="preserve">
+    <value>Portability</value>
   </data>
-  <data name="Privacy_PaymentInfo_History" xml:space="preserve">
-    <value>Transaction history</value>
+  <data name="Privacy_Section7_GDPR_Portability_Desc" xml:space="preserve">
+    <value>Receive your data in a structured format</value>
   </data>
-  <data name="Privacy_Note" xml:space="preserve">
-    <value>Note:</value>
+  <data name="Privacy_Section7_GDPR_Objection_Title" xml:space="preserve">
+    <value>Objection</value>
   </data>
-  <data name="Privacy_PaymentInfo_Processors" xml:space="preserve">
-    <value>Full credit card details are processed directly by our secure payment processors (Stripe, PayPal) and are never stored on our servers.</value>
+  <data name="Privacy_Section7_GDPR_Objection_Desc" xml:space="preserve">
+    <value>Object to the processing of your data</value>
   </data>
-  <data name="Privacy_HowWeUse" xml:space="preserve">
-    <value>How We Use Information</value>
+  <data name="Privacy_Section7_GDPR_Consent_Title" xml:space="preserve">
+    <value>Consent</value>
   </data>
-  <data name="Privacy_Section3_1" xml:space="preserve">
-    <value>3.1 Provide the Service</value>
+  <data name="Privacy_Section7_GDPR_Consent_Desc" xml:space="preserve">
+    <value>Withdraw consent at any time</value>
   </data>
-  <data name="Privacy_Intro1" xml:space="preserve">
-    <value>At WaHub, we deeply value your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our WhatsApp automation service.</value>
+  <data name="Privacy_Section7_CCPA_Title" xml:space="preserve">
+    <value>7.2 Rights under CCPA (For California residents)</value>
   </data>
-  <data name="Privacy_Intro2" xml:space="preserve">
-    <value>By using WaHub, you agree to the practices described in this policy. If you do not agree with our privacy practices, you should not use our service.</value>
+  <data name="Privacy_Section7_CCPA_KnowCollected" xml:space="preserve">
+    <value>Know what personal information is collected</value>
   </data>
-  <data name="Privacy_QuickSummary" xml:space="preserve">
-    <value>Quick Summary</value>
+  <data name="Privacy_Section7_CCPA_KnowSold" xml:space="preserve">
+    <value>Know if personal information is sold or disclosed</value>
   </data>
-  <data name="Privacy_QuickSummary1" xml:space="preserve">
-    <value>✅ We only collect data necessary for the service</value>
+  <data name="Privacy_Section7_CCPA_OptOut" xml:space="preserve">
+    <value>Say no to the sale of personal information</value>
   </data>
-  <data name="Privacy_QuickSummary2" xml:space="preserve">
-    <value>✅ We do not sell your personal data</value>
+  <data name="Privacy_Section7_CCPA_Access" xml:space="preserve">
+    <value>Access personal information</value>
   </data>
-  <data name="Privacy_QuickSummary3" xml:space="preserve">
-    <value>✅ You can delete your data at any time</value>
+  <data name="Privacy_Section7_CCPA_Delete" xml:space="preserve">
+    <value>Request deletion of personal information</value>
   </data>
-  <data name="Privacy_QuickSummary4" xml:space="preserve">
-    <value>✅ We comply with GDPR and other privacy regulations</value>
+  <data name="Privacy_Section7_CCPA_NonDiscrimination" xml:space="preserve">
+    <value>Not be discriminated against for exercising your rights</value>
   </data>
-  <data name="Privacy_QuickSummary5" xml:space="preserve">
-    <value>✅ We implement enterprise-level security</value>
+  <data name="Privacy_Section7_Exercise_Title" xml:space="preserve">
+    <value>7.3 How to Exercise Your Rights</value>
   </data>
-  <data name="Privacy_ServiceUsage_History" xml:space="preserve">
-    <value>Feature usage history</value>
+  <data name="Privacy_Section7_Exercise_Intro" xml:space="preserve">
+    <value>To exercise any of these rights, you may:</value>
   </data>
-  <data name="Privacy_ServiceUsage_Metrics" xml:space="preserve">
-    <value>Performance metrics and analytics</value>
+  <data name="Privacy_Section7_Exercise_Settings" xml:space="preserve">
+    <value>Use the privacy settings in your account</value>
   </data>
-  <data name="Privacy_ServiceUsage_Logs" xml:space="preserve">
-    <value>Error and technical issue logs</value>
+  <data name="Privacy_Section7_Exercise_Contact" xml:space="preserve">
+    <value>Contact us at &lt;a href=&quot;mailto:privacy@wahub.com&quot;&gt;privacy@wahub.com&lt;/a&gt;</value>
   </data>
-  <data name="Privacy_ServiceUsage_Integrations" xml:space="preserve">
-    <value>Integration information with third-party services</value>
+  <data name="Privacy_Section7_Exercise_Form" xml:space="preserve">
+    <value>Use our online data request form</value>
   </data>
-  <data name="Privacy_Section2_3" xml:space="preserve">
-    <value>2.3 WhatsApp Data</value>
+  <data name="Privacy_Section7_Exercise_Phone" xml:space="preserve">
+    <value>Call us at +1 (555) 123-4567</value>
   </data>
-  <data name="Privacy_WhatsAppData_Intro" xml:space="preserve">
-    <value>Regarding WhatsApp automation, we may process:</value>
-  </data>
-  <data name="Privacy_WhatsAppData_Contacts" xml:space="preserve">
-    <value>Contact phone numbers</value>
-  </data>
-  <data name="Privacy_WhatsAppData_Messages" xml:space="preserve">
-    <value>Messages sent and received (as configured)</value>
-  </data>
-  <data name="Privacy_WhatsAppData_Metadata" xml:space="preserve">
-    <value>Conversation metadata (dates, message types)</value>
-  </data>
-  <data name="Privacy_WhatsAppData_Status" xml:space="preserve">
-    <value>Message delivery statuses</value>
-  </data>
-  <data name="Privacy_WhatsAppData_Groups" xml:space="preserve">
-    <value>Group and broadcast list information</value>
-  </data>
-  <data name="Privacy_Important" xml:space="preserve">
-    <value>Important:</value>
-  </data>
-  <data name="Privacy_WhatsAppData_Note" xml:space="preserve">
-    <value>WhatsApp messages are processed only to provide the requested service and are not permanently stored on our servers unless you specifically configure it.</value>
-  </data>
-  <data name="Privacy_Section2_4" xml:space="preserve">
-    <value>2.4 Technical Information</value>
-  </data>
-  <data name="Privacy_TechInfo_Intro" xml:space="preserve">
-    <value>We automatically collect certain technical information:</value>
-  </data>
-  <data name="Privacy_TechInfo_IP" xml:space="preserve">
-    <value>IP address and approximate geographic location</value>
-  </data>
-  <data name="Privacy_TechInfo_Browser" xml:space="preserve">
-    <value>Browser and device type</value>
-  </data>
-  <data name="Privacy_TechInfo_OS" xml:space="preserve">
-    <value>Operating system</value>
-  </data>
-  <data name="Privacy_TechInfo_Pages" xml:space="preserve">
-    <value>Pages visited and time spent</value>
-  </data>
-  <data name="Privacy_TechInfo_Referrer" xml:space="preserve">
-    <value>Referrer source</value>
+  <data name="Privacy_Section7_Exercise_Response" xml:space="preserve">
+    <value>We will respond to your request within 30 calendar days.</value>
   </data>
 
+  <!-- Sección 8: Uso de Cookies -->
+  <data name="Privacy_Section8_Title" xml:space="preserve">
+    <value>8. Use of Cookies</value>
+  </data>
+  <data name="Privacy_Section8_1_Title" xml:space="preserve">
+    <value>8.1 What Are Cookies</value>
+  </data>
+  <data name="Privacy_Section8_1_Desc" xml:space="preserve">
+    <value>Cookies are small text files stored on your device when you visit our website. They help us improve your experience and provide personalized features.</value>
+  </data>
+  <data name="Privacy_Section8_2_Title" xml:space="preserve">
+    <value>8.2 Types of Cookies We Use</value>
+  </data>
+  <data name="Privacy_Section8_Essential_Title" xml:space="preserve">
+    <value>Essential Cookies</value>
+  </data>
+  <data name="Privacy_Section8_Essential_Desc" xml:space="preserve">
+    <value>Necessary for the basic functioning of the site:</value>
+  </data>
+  <data name="Privacy_Section8_Essential_Session" xml:space="preserve">
+    <value>User session management</value>
+  </data>
+  <data name="Privacy_Section8_Essential_Security" xml:space="preserve">
+    <value>Security preferences</value>
+  </data>
+  <data name="Privacy_Section8_Essential_Cart" xml:space="preserve">
+    <value>Shopping cart functionality</value>
+  </data>
+  <data name="Privacy_Section8_Performance_Title" xml:space="preserve">
+    <value>Performance Cookies</value>
+  </data>
+  <data name="Privacy_Section8_Performance_Desc" xml:space="preserve">
+    <value>To understand how users interact with our site:</value>
+  </data>
+  <data name="Privacy_Section8_Performance_Analytics" xml:space="preserve">
+    <value>Google Analytics</value>
+  </data>
+  <data name="Privacy_Section8_Performance_Metrics" xml:space="preserve">
+    <value>Performance metrics</value>
+  </data>
+  <data name="Privacy_Section8_Performance_Usage" xml:space="preserve">
+    <value>Usage analysis</value>
+  </data>
+  <data name="Privacy_Section8_Functionality_Title" xml:space="preserve">
+    <value>Functionality Cookies</value>
+  </data>
+  <data name="Privacy_Section8_Functionality_Desc" xml:space="preserve">
+    <value>To remember your preferences:</value>
+  </data>
+  <data name="Privacy_Section8_Functionality_Language" xml:space="preserve">
+    <value>Language settings</value>
+  </data>
+  <data name="Privacy_Section8_Functionality_Theme" xml:space="preserve">
+    <value>Interface theme</value>
+  </data>
+  <data name="Privacy_Section8_Functionality_Display" xml:space="preserve">
+    <value>Display preferences</value>
+  </data>
+  <data name="Privacy_Section8_3_Title" xml:space="preserve">
+    <value>8.3 Cookie Management</value>
+  </data>
+  <data name="Privacy_Section8_3_Desc" xml:space="preserve">
+    <value>You can control cookies through:</value>
+  </data>
+  <data name="Privacy_Section8_3_Browser" xml:space="preserve">
+    <value>Your browser settings</value>
+  </data>
+  <data name="Privacy_Section8_3_Center" xml:space="preserve">
+    <value>Our cookie preferences center</value>
+  </data>
+  <data name="Privacy_Section8_3_ThirdParty" xml:space="preserve">
+    <value>Third-party opt-out tools</value>
+  </data>
+  
+  <!-- Sección 9: Transferencias Internacionales -->
+  <data name="Privacy_Section9_Title" xml:space="preserve">
+    <value>9. International Transfers</value>
+  </data>
+  <data name="Privacy_Section9_Desc" xml:space="preserve">
+    <value>We may transfer your personal information to countries outside your jurisdiction to provide our services. We ensure that such transfers comply with applicable data protection laws.</value>
+  </data>
+  <data name="Privacy_Section9_Measures_Title" xml:space="preserve">
+    <value>Protection Measures</value>
+  </data>
+  <data name="Privacy_Section9_Measures_Processor" xml:space="preserve">
+    <value>Data processing agreements with providers</value>
+  </data>
+  <data name="Privacy_Section9_Measures_Technical" xml:space="preserve">
+    <value>Appropriate technical and organizational measures</value>
+  </data>
 </root>
