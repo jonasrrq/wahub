@@ -128,6 +128,7 @@ public partial class Instances
             //{
             //    _notification.ShowError("Error al cambiar el estado de la instancia");
             //}
+            await Task.CompletedTask;
         }
         catch (Exception ex)
         {
@@ -151,6 +152,7 @@ public partial class Instances
             //{
             //    _notification.ShowError("Error al eliminar la instancia");
             //}
+            await Task.CompletedTask;
         }
         catch (Exception ex)
         {
@@ -173,6 +175,7 @@ public partial class Instances
             //{
             //    _notification.ShowError("No se pudo obtener el código QR");
             //}
+            await Task.CompletedTask;
         }
         catch (Exception ex)
         {

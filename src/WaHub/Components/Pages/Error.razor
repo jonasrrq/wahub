@@ -50,8 +50,8 @@
     [CascadingParameter]
     private HttpContext? HttpContext { get; set; }
 
-    [Parameter]
-    public string Id { get; set; }
+    // [Parameter]
+    // public string Id { get; set; }
 
     private string? RequestId { get; set; }
     private bool ShowRequestId => !string.IsNullOrEmpty(RequestId);

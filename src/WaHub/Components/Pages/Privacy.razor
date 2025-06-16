@@ -29,9 +29,9 @@
                             <li><a href="#your-rights">@Localization.GetString(ResourceKeys.Privacy_Section7_Title)</a></li>
                             <li><a href="#cookies">@Localization.GetString(ResourceKeys.Privacy_Section8_Title)</a></li>
                             <li><a href="#international">@Localization.GetString(ResourceKeys.Privacy_Section9_Title)</a></li>
-                      @*       <li><a href="#children">@Localization.GetString(ResourceKeys.Privacy_Section10_Title)</a></li>
+                            <li><a href="#children">@Localization.GetString(ResourceKeys.Privacy_Section10_Title)</a></li>
                             <li><a href="#changes">@Localization.GetString(ResourceKeys.Privacy_Section11_Title)</a></li>
-                            <li><a href="#contact">@Localization.GetString(ResourceKeys.Privacy_Section12_Title)</a></li> *@
+                            <li><a href="#contact">@Localization.GetString(ResourceKeys.Privacy_Section12_Title)</a></li>
                         </ul>
                     </div>
                 </div>
@@ -348,58 +348,54 @@
                     </div>
 
                     <div class="legal-section" id="children">
-                        <h2>10. Privacidad de Menores</h2>
-                        <p>Nuestro servicio no está dirigido a menores de 18 años. No recopilamos conscientemente información personal de menores de 18 años.</p>
-                        <p>Si descubrimos que hemos recopilado información de un menor de 18 años sin consentimiento parental verificable, tomaremos medidas para eliminar esa información de nuestros servidores.</p>
-                        <p>Si cree que podemos tener información de un menor de 18 años, contáctenos inmediatamente en <a href="mailto:privacy@wahub.com">privacy@wahub.com</a>.</p>
+                        <h2>@Localization.GetString(ResourceKeys.Privacy_Section10_Title)</h2>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section10_Desc1)</p>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section10_Desc2)</p>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section10_Desc3)</p>
                     </div>
 
                     <div class="legal-section" id="changes">
-                        <h2>11. Cambios a esta Política</h2>
-                        <p>Podemos actualizar esta Política de Privacidad ocasionalmente para reflejar cambios en nuestras prácticas o por otros motivos operativos, legales o regulatorios.</p>
-                        
-                        <h3>11.1 Notificación de Cambios</h3>
+                        <h2>@Localization.GetString(ResourceKeys.Privacy_Section11_Title)</h2>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section11_Desc1)</p>
+
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section11_1_Title)</h3>
                         <ul>
-                            <li>Publicaremos la política actualizada en esta página</li>
-                            <li>Cambiaremos la fecha de "última actualización"</li>
-                            <li>Para cambios importantes, enviaremos notificación por email</li>
-                            <li>Para cambios significativos, solicitaremos su consentimiento renovado</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section11_1_Change1)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section11_1_Change2)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section11_1_Change3)</li>
+                            <li>@Localization.GetString(ResourceKeys.Privacy_Section11_1_Change4)</li>
                         </ul>
 
-                        <h3>11.2 Revisión Regular</h3>
-                        <p>Le recomendamos revisar esta política periódicamente para mantenerse informado sobre cómo protegemos su información.</p>
+                        <h3>@Localization.GetString(ResourceKeys.Privacy_Section11_2_Title)</h3>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section11_2_Desc1)</p>
                     </div>
 
                     <div class="legal-section" id="contact">
-                        <h2>12. Contacto</h2>
-                        <p>Si tiene preguntas sobre esta Política de Privacidad o nuestras prácticas de datos, puede contactarnos:</p>
-                        
+                        <h2>@Localization.GetString(ResourceKeys.Privacy_Section12_Title)</h2>
+                        <p>@Localization.GetString(ResourceKeys.Privacy_Section12_Desc1)</p>
                         <div class="contact-info">
-                            <h3>Oficial de Protección de Datos</h3>
-                            <p>Email: <a href="mailto:privacy@wahub.com">privacy@wahub.com</a></p>
-                            <p>Teléfono: +1 (555) 123-4567</p>
-                            
-                            <h3>Dirección Postal</h3>
-                            <p><strong>WaHub Inc.</strong><br>
-                            Attn: Privacy Officer<br>
-                            123 Tech Street<br>
-                            Innovation City, IC 12345<br>
-                            Estados Unidos</p>
-
-                            <h3>Representante en la UE</h3>
-                            <p>Para residentes de la UE, nuestro representante es:<br>
-                            Email: <a href="mailto:eu-privacy@wahub.com">eu-privacy@wahub.com</a></p>
+                            <h3>@Localization.GetString(ResourceKeys.Privacy_Section12_DPO_Title)</h3>
+                            <p>@Localization.GetString(ResourceKeys.Privacy_Section12_DPO_Email)</p>
+                            <p>@Localization.GetString(ResourceKeys.Privacy_Section12_DPO_Phone)</p>
+                            <h3>@Localization.GetString(ResourceKeys.Privacy_Section12_Address_Title)</h3>
+                            <p><strong>@Localization.GetString(ResourceKeys.Privacy_Section12_Address_Company)</strong><br>
+                            @Localization.GetString(ResourceKeys.Privacy_Section12_Address_Attn)<br>
+                            @Localization.GetString(ResourceKeys.Privacy_Section12_Address_Street)<br>
+                            @Localization.GetString(ResourceKeys.Privacy_Section12_Address_City)<br>
+                            @Localization.GetString(ResourceKeys.Privacy_Section12_Address_Country)</p>
+                            <h3>@Localization.GetString(ResourceKeys.Privacy_Section12_EURep_Title)</h3>
+                            <p>@Localization.GetString(ResourceKeys.Privacy_Section12_EURep_Desc)<br>
+                            @Localization.GetString(ResourceKeys.Privacy_Section12_EURep_Email)</p>
                         </div>
-
                         <div class="privacy-commitment">
-                            <h3>Nuestro Compromiso</h3>
-                            <p>En WaHub, la privacidad no es solo una obligación legal, sino un valor fundamental. Nos comprometemos a:</p>
+                            <h3>@Localization.GetString(ResourceKeys.Privacy_Section12_Commitment_Title)</h3>
+                            <p>@Localization.GetString(ResourceKeys.Privacy_Section12_Commitment_Desc)</p>
                             <ul>
-                                <li>Ser transparentes sobre nuestras prácticas de datos</li>
-                                <li>Darle control sobre su información personal</li>
-                                <li>Proteger sus datos con las mejores medidas de seguridad</li>
-                                <li>Responder rápidamente a sus preguntas y solicitudes</li>
-                                <li>Mantener altos estándares de privacidad en todo lo que hacemos</li>
+                                <li>@Localization.GetString(ResourceKeys.Privacy_Section12_Commitment_1)</li>
+                                <li>@Localization.GetString(ResourceKeys.Privacy_Section12_Commitment_2)</li>
+                                <li>@Localization.GetString(ResourceKeys.Privacy_Section12_Commitment_3)</li>
+                                <li>@Localization.GetString(ResourceKeys.Privacy_Section12_Commitment_4)</li>
+                                <li>@Localization.GetString(ResourceKeys.Privacy_Section12_Commitment_5)</li>
                             </ul>
                         </div>
                     </div>

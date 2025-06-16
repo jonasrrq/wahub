@@ -243,4 +243,44 @@ public static partial class ResourceKeys
     public const string Privacy_Section7_GDPR_Objection_Desc = "Privacy_Section7_GDPR_Objection_Desc";
     public const string Privacy_Section7_GDPR_Consent_Title = "Privacy_Section7_GDPR_Consent_Title";
     public const string Privacy_Section7_GDPR_Consent_Desc = "Privacy_Section7_GDPR_Consent_Desc";
+
+    // Sección 10 - Información Adicional
+    public const string Privacy_Section10_Title = "Privacy_Section10_Title";
+    public const string Privacy_Section10_Desc1 = "Privacy_Section10_Desc1";
+    public const string Privacy_Section10_Desc2 = "Privacy_Section10_Desc2";
+    public const string Privacy_Section10_Desc3 = "Privacy_Section10_Desc3";
+
+    // Sección 11 - Cambios y Actualizaciones
+    public const string Privacy_Section11_Title = "Privacy_Section11_Title";
+    public const string Privacy_Section11_Desc1 = "Privacy_Section11_Desc1";
+    public const string Privacy_Section11_1_Title = "Privacy_Section11_1_Title";
+    public const string Privacy_Section11_1_Change1 = "Privacy_Section11_1_Change1";
+    public const string Privacy_Section11_1_Change2 = "Privacy_Section11_1_Change2";
+    public const string Privacy_Section11_1_Change3 = "Privacy_Section11_1_Change3";
+    public const string Privacy_Section11_1_Change4 = "Privacy_Section11_1_Change4";
+    public const string Privacy_Section11_2_Title = "Privacy_Section11_2_Title";
+    public const string Privacy_Section11_2_Desc1 = "Privacy_Section11_2_Desc1";
+
+    // Sección 12 - Contacto y Compromiso
+    public const string Privacy_Section12_Title = "Privacy_Section12_Title";
+    public const string Privacy_Section12_Desc1 = "Privacy_Section12_Desc1";
+    public const string Privacy_Section12_DPO_Title = "Privacy_Section12_DPO_Title";
+    public const string Privacy_Section12_DPO_Email = "Privacy_Section12_DPO_Email";
+    public const string Privacy_Section12_DPO_Phone = "Privacy_Section12_DPO_Phone";
+    public const string Privacy_Section12_Address_Title = "Privacy_Section12_Address_Title";
+    public const string Privacy_Section12_Address_Company = "Privacy_Section12_Address_Company";
+    public const string Privacy_Section12_Address_Attn = "Privacy_Section12_Address_Attn";
+    public const string Privacy_Section12_Address_Street = "Privacy_Section12_Address_Street";
+    public const string Privacy_Section12_Address_City = "Privacy_Section12_Address_City";
+    public const string Privacy_Section12_Address_Country = "Privacy_Section12_Address_Country";
+    public const string Privacy_Section12_EURep_Title = "Privacy_Section12_EURep_Title";
+    public const string Privacy_Section12_EURep_Desc = "Privacy_Section12_EURep_Desc";
+    public const string Privacy_Section12_EURep_Email = "Privacy_Section12_EURep_Email";
+    public const string Privacy_Section12_Commitment_Title = "Privacy_Section12_Commitment_Title";
+    public const string Privacy_Section12_Commitment_Desc = "Privacy_Section12_Commitment_Desc";
+    public const string Privacy_Section12_Commitment_1 = "Privacy_Section12_Commitment_1";
+    public const string Privacy_Section12_Commitment_2 = "Privacy_Section12_Commitment_2";
+    public const string Privacy_Section12_Commitment_3 = "Privacy_Section12_Commitment_3";
+    public const string Privacy_Section12_Commitment_4 = "Privacy_Section12_Commitment_4";
+    public const string Privacy_Section12_Commitment_5 = "Privacy_Section12_Commitment_5";
 }

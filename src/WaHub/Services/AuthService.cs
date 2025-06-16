@@ -54,6 +54,7 @@ public class AuthService
         //{
         //    await customProvider.NotifyAuthenticationStateChangedAsync();
         //}
+        await Task.CompletedTask;
     }
 
     public async Task<UserInfo?> GetUserInfoAsync()

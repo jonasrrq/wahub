@@ -719,10 +719,7 @@
   </data>
   <data name="Privacy_HowWeUse" xml:space="preserve">
     <value>Comment nous utilisons les informations</value>
-  </data>
-  <data name="Privacy_Section3_1" xml:space="preserve">
-    <value>3.1 Fournir le service</value>
-  </data>
+  </data>  
   <data name="Privacy_Section7_Title" xml:space="preserve">
     <value>7. Vos droits</value>
   </data>
@@ -903,5 +900,109 @@
   </data>
   <data name="Privacy_Section9_Measures_Technical" xml:space="preserve">
     <value>Mesures techniques et organisationnelles appropriées</value>
+  </data>
+  <data name="Privacy_Section10_Title" xml:space="preserve">
+    <value>10. Confidentialité des mineurs</value>
+  </data>
+  <data name="Privacy_Section10_Desc1" xml:space="preserve">
+    <value>Notre service ne s'adresse pas aux mineurs de moins de 18 ans. Nous ne collectons pas sciemment d'informations personnelles auprès de mineurs de moins de 18 ans.</value>
+  </data>
+  <data name="Privacy_Section10_Desc2" xml:space="preserve">
+    <value>Si nous découvrons que nous avons collecté des informations auprès d'un mineur de moins de 18 ans sans consentement parental vérifiable, nous prendrons des mesures pour supprimer ces informations de nos serveurs.</value>
+  </data>
+  <data name="Privacy_Section10_Desc3" xml:space="preserve">
+    <value>Si vous pensez que nous pouvons avoir des informations sur un mineur de moins de 18 ans, veuillez nous contacter immédiatement à privacy@wahub.com.</value>
+  </data>
+  <data name="Privacy_Section11_Title" xml:space="preserve">
+    <value>11. Modifications de cette politique</value>
+  </data>
+  <data name="Privacy_Section11_Desc1" xml:space="preserve">
+    <value>Nous pouvons mettre à jour cette politique de confidentialité de temps à autre pour refléter les changements dans nos pratiques ou pour d'autres raisons opérationnelles, juridiques ou réglementaires.</value>
+  </data>
+  <data name="Privacy_Section11_1_Title" xml:space="preserve">
+    <value>11.1 Notification des modifications</value>
+  </data>
+  <data name="Privacy_Section11_1_Change1" xml:space="preserve">
+    <value>Nous publierons la politique mise à jour sur cette page</value>
+  </data>
+  <data name="Privacy_Section11_1_Change2" xml:space="preserve">
+    <value>Nous modifierons la date de "dernière mise à jour"</value>
+  </data>
+  <data name="Privacy_Section11_1_Change3" xml:space="preserve">
+    <value>Pour les modifications importantes, nous enverrons une notification par e-mail</value>
+  </data>
+  <data name="Privacy_Section11_1_Change4" xml:space="preserve">
+    <value>Pour les modifications significatives, nous solliciterons votre consentement renouvelé</value>
+  </data>
+  <data name="Privacy_Section11_2_Title" xml:space="preserve">
+    <value>11.2 Révision régulière</value>
+  </data>
+  <data name="Privacy_Section11_2_Desc1" xml:space="preserve">
+    <value>Nous vous recommandons de consulter régulièrement cette politique afin de rester informé sur la façon dont nous protégeons vos informations.</value>
+  </data>
+  
+  <!-- Traductions pour la section 12 de Privacy -->
+  <data name="Privacy_Section12_Title" xml:space="preserve">
+    <value>12. Contact</value>
+  </data>
+  <data name="Privacy_Section12_Desc1" xml:space="preserve">
+    <value>Si vous avez des questions concernant cette politique de confidentialité ou nos pratiques en matière de données, vous pouvez nous contacter :</value>
+  </data>
+  <data name="Privacy_Section12_DPO_Title" xml:space="preserve">
+    <value>Délégué à la protection des données</value>
+  </data>
+  <data name="Privacy_Section12_DPO_Email" xml:space="preserve">
+    <value>Email : privacy@wahub.com</value>
+  </data>
+  <data name="Privacy_Section12_DPO_Phone" xml:space="preserve">
+    <value>Téléphone : +1 (555) 123-4567</value>
+  </data>
+  <data name="Privacy_Section12_Address_Title" xml:space="preserve">
+    <value>Adresse postale</value>
+  </data>
+  <data name="Privacy_Section12_Address_Company" xml:space="preserve">
+    <value>WaHub Inc.</value>
+  </data>
+  <data name="Privacy_Section12_Address_Attn" xml:space="preserve">
+    <value>Attn : Privacy Officer</value>
+  </data>
+  <data name="Privacy_Section12_Address_Street" xml:space="preserve">
+    <value>123 Tech Street</value>
+  </data>
+  <data name="Privacy_Section12_Address_City" xml:space="preserve">
+    <value>Innovation City, IC 12345</value>
+  </data>
+  <data name="Privacy_Section12_Address_Country" xml:space="preserve">
+    <value>États-Unis</value>
+  </data>
+  <data name="Privacy_Section12_EURep_Title" xml:space="preserve">
+    <value>Représentant dans l'UE</value>
+  </data>
+  <data name="Privacy_Section12_EURep_Desc" xml:space="preserve">
+    <value>Pour les résidents de l'UE, notre représentant est :</value>
+  </data>
+  <data name="Privacy_Section12_EURep_Email" xml:space="preserve">
+    <value>Email : eu-privacy@wahub.com</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_Title" xml:space="preserve">
+    <value>Notre engagement</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_Desc" xml:space="preserve">
+    <value>Chez WaHub, la confidentialité n'est pas seulement une obligation légale, mais une valeur fondamentale. Nous nous engageons à :</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_1" xml:space="preserve">
+    <value>Être transparents sur nos pratiques en matière de données</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_2" xml:space="preserve">
+    <value>Vous donner le contrôle sur vos informations personnelles</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_3" xml:space="preserve">
+    <value>Protéger vos données avec les meilleures mesures de sécurité</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_4" xml:space="preserve">
+    <value>Répondre rapidement à vos questions et demandes</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_5" xml:space="preserve">
+    <value>Maintenir des normes élevées de confidentialité dans tout ce que nous faisons</value>
   </data>
 </root>

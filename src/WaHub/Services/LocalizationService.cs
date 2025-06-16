@@ -90,7 +90,7 @@ public class LocalizationService : ILocalizationService
         }
         catch (Exception ex)
         {
-            // Console.WriteLine($"InitializeLanguageAsync: Error - {ex.Message}");
+            Console.WriteLine($"InitializeLanguageAsync: Error - {ex.Message}");
             _currentLanguage = "es";
             await SetLanguageAsync(_currentLanguage);
         }
