@@ -117,11 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
-
   <!-- Translations for src/WaHub/Components/Layout/HomeNavbar.razor -->
   <data name="HomeNavbar_WaHub" xml:space="preserve">
     <value>WaHub</value>
@@ -138,7 +136,6 @@
   <data name="HomeNavbar_Register" xml:space="preserve">
     <value>Register</value>
   </data>
-
   <!-- Translations for src/WaHub.Client/Layout/WaHubSidebar.razor -->
   <data name="WaHubSidebar_WaHub" xml:space="preserve">
     <value>WaHub</value>
@@ -149,7 +146,6 @@
   <data name="WaHubSidebar_Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
-  
   <!-- Translations for WaHub/Components/Pages/Error.razor -->
   <data name="Error404Title" xml:space="preserve">
     <value>Error 404</value>
@@ -166,7 +162,6 @@
   <data name="BackToDashboard" xml:space="preserve">
     <value>Back to Dashboard</value>
   </data>
-  
   <!-- Translations for WaHub/Components/Pages/EnConstruccion.razor -->
   <data name="UnderConstructionTitle" xml:space="preserve">
     <value>Page Under Construction!</value>
@@ -180,7 +175,6 @@
   <data name="BackToDashboardButton" xml:space="preserve">
     <value>Back to Dashboard</value>
   </data>
-  
   <!-- Translations for WaHub/Components/Pages/Home.razor -->
   <data name="HomePageTitle" xml:space="preserve">
     <value>WaHub - WhatsApp Management Platform</value>
@@ -200,7 +194,6 @@
   <data name="HomeWhyChoose" xml:space="preserve">
     <value>Why choose WaHub?</value>
   </data>
-  
   <!-- Features -->
   <data name="FeatureFastApiTitle" xml:space="preserve">
     <value>Lightning-Fast API</value>
@@ -238,7 +231,6 @@
   <data name="FeatureMediaDesc" xml:space="preserve">
     <value>Send images, videos, audio, documents, and locations without limitations.</value>
   </data>
-  
   <!-- Code Section -->
   <data name="HomeCodeSectionTitle" xml:space="preserve">
     <value>Integration in Minutes</value>
@@ -255,7 +247,6 @@
   <data name="HomeCodeLog" xml:space="preserve">
     <value>Message sent:</value>
   </data>
-  
   <!-- Pricing -->
   <data name="HomePricingTitle" xml:space="preserve">
     <value>Transparent Pricing</value>
@@ -263,7 +254,6 @@
   <data name="HomePricingPerMonth" xml:space="preserve">
     <value>/month</value>
   </data>
-  
   <!-- Pricing Plans -->
   <data name="PlanDeveloper" xml:space="preserve">
     <value>Developer</value>
@@ -283,7 +273,6 @@
   <data name="PlanDeveloperButton" xml:space="preserve">
     <value>Get started free</value>
   </data>
-  
   <data name="PlanStartupBadge" xml:space="preserve">
     <value>Most Popular</value>
   </data>
@@ -308,7 +297,6 @@
   <data name="PlanStartupButton" xml:space="preserve">
     <value>Start trial</value>
   </data>
-  
   <data name="PlanEnterprise" xml:space="preserve">
     <value>Enterprise</value>
   </data>
@@ -330,12 +318,10 @@
   <data name="PlanEnterpriseButton" xml:space="preserve">
     <value>Contact sales</value>
   </data>
-  
   <!-- Testimonials -->
   <data name="HomeTestimonialsTitle" xml:space="preserve">
     <value>What our users say</value>
   </data>
-  
   <!-- CTA -->
   <data name="HomeCtaTitle" xml:space="preserve">
     <value>Ready to get started?</value>
@@ -349,7 +335,6 @@
   <data name="HomeCtaButton2" xml:space="preserve">
     <value>Contact sales</value>
   </data>
-  
   <!-- Footer -->
   <data name="FooterTagline" xml:space="preserve">
     <value>The most reliable WhatsApp API platform for developers.</value>
@@ -364,9 +349,8 @@
     <value>Legal</value>
   </data>
   <data name="FooterCopyright" xml:space="preserve">
-    <value> 2024 WaHub. All rights reserved.</value>
+    <value> © {0} WaHub. All rights reserved.</value>
   </data>
-  
   <!-- Footer Links -->
   <data name="APIDocs" xml:space="preserve">
     <value>API Docs</value>
@@ -395,7 +379,6 @@
   <data name="GDPR" xml:space="preserve">
     <value>GDPR</value>
   </data>
-  
   <!-- Code Example -->
   <data name="CodeExampleTitle" xml:space="preserve">
     <value>Send message with WaHub API</value>
@@ -406,7 +389,6 @@
   <data name="CodeExampleLog" xml:space="preserve">
     <value>Message sent:</value>
   </data>
-
   <!-- Translations for src/WaHub/Components/Layout/InternalLayout.razor -->
   <data name="InternalLayout_ErrorOccurred" xml:space="preserve">
     <value>An unhandled error has occurred.</value>
@@ -417,7 +399,6 @@
   <data name="InternalLayout_CloseIcon" xml:space="preserve">
     <value>🗙</value>
   </data>
-
   <!-- Translations for src/WaHub.Client/Layout/NotificationContainer.razor -->
   <data name="Notification_Close" xml:space="preserve">
     <value>✖</value>
@@ -434,7 +415,6 @@
   <data name="Notification_InfoIcon" xml:space="preserve">
     <value>ℹ</value>
   </data>
-
   <!-- Translations for src/WaHub.Client/Shared/MyButton.razor -->
   <data name="MyButton_ClickMe" xml:space="preserve">
     <value>Click me</value>
@@ -442,7 +422,6 @@
   <data name="MyButton_HelloWorld" xml:space="preserve">
     <value>Hello World from the button</value>
   </data>
-
   <!-- Translations for src/WaHub/Components/App.razor -->
   <data name="App_Lang" xml:space="preserve">
     <value>en</value>
@@ -450,7 +429,6 @@
   <data name="App_Title" xml:space="preserve">
     <value>WaHub - WhatsApp Management Platform</value>
   </data>
-
   <!-- Translations for src/WaHub/Components/Routes.razor -->
   <data name="Routes_PageNotFound" xml:space="preserve">
     <value>Page not found</value>
@@ -461,7 +439,6 @@
   <data name="Routes_BackToHome" xml:space="preserve">
     <value>← Back to home</value>
   </data>
-
   <!-- Translations for src/WaHub/Components/ErrorBoundaryContent.razor -->
   <data name="ErrorBoundaryContent_ErrorOccurred" xml:space="preserve">
     <value>Error Occurred</value>
@@ -472,7 +449,6 @@
   <data name="ErrorBoundaryContent_Ok" xml:space="preserve">
     <value>Ok</value>
   </data>
-
   <!-- Translations for src/WaHub/Components/Pages/Privacy.razor -->
   <data name="Privacy_Title" xml:space="preserve">
     <value>Privacy Policy - WaHub</value>
@@ -871,7 +847,7 @@
     <value>Use the privacy settings in your account</value>
   </data>
   <data name="Privacy_Section7_Exercise_Contact" xml:space="preserve">
-    <value>Contact us at &lt;a href=&quot;mailto:privacy@wahub.com&quot;&gt;privacy@wahub.com&lt;/a&gt;</value>
+    <value>Contact us at &lt;a href="mailto:privacy@wahub.com"&gt;privacy@wahub.com&lt;/a&gt;</value>
   </data>
   <data name="Privacy_Section7_Exercise_Form" xml:space="preserve">
     <value>Use our online data request form</value>
@@ -882,7 +858,6 @@
   <data name="Privacy_Section7_Exercise_Response" xml:space="preserve">
     <value>We will respond to your request within 30 calendar days.</value>
   </data>
-
   <!-- Sección 8: Uso de Cookies -->
   <data name="Privacy_Section8_Title" xml:space="preserve">
     <value>8. Use of Cookies</value>
@@ -956,7 +931,6 @@
   <data name="Privacy_Section8_3_ThirdParty" xml:space="preserve">
     <value>Third-party opt-out tools</value>
   </data>
-  
   <!-- Sección 9: Transferencias Internacionales -->
   <data name="Privacy_Section9_Title" xml:space="preserve">
     <value>9. International Transfers</value>
@@ -973,7 +947,6 @@
   <data name="Privacy_Section9_Measures_Technical" xml:space="preserve">
     <value>Appropriate technical and organizational measures</value>
   </data>
-  
   <!-- Sección 10: Privacidad de los niños -->
   <data name="Privacy_Section10_Title" xml:space="preserve">
     <value>10. Children’s Privacy</value>
@@ -1077,5 +1050,98 @@
   </data>
   <data name="Privacy_Section12_Commitment_5" xml:space="preserve">
     <value>Maintaining high privacy standards in everything we do</value>
+  </data>
+  <data name="Testimonial1Text" xml:space="preserve">
+    <value>"Wahub completely transformed our notification system. Integration was incredibly easy."</value>
+  </data>
+  <data name="Testimonial1Author" xml:space="preserve">
+    <value>Carlos Martínez</value>
+  </data>
+  <data name="Testimonial1Role" xml:space="preserve">
+    <value>Cto, Techstartup</value>
+  </data>
+  <data name="Testimonial2Text" xml:space="preserve">
+    <value>"The fastest and most reliable API we have used. Technical support is exceptional."</value>
+  </data>
+  <data name="Testimonial2Author" xml:space="preserve">
+    <value>Ana García</value>
+  </data>
+  <data name="Testimonial2Role" xml:space="preserve">
+    <value>Lead Developer, e-commerce</value>
+  </data>
+  <data name="Testimonial3Text" xml:space="preserve">
+    <value>"We climb 1,000 to 100,000 messages without problems. The platform is incredibly stable."</value>
+  </data>
+  <data name="Testimonial3Author" xml:space="preserve">
+    <value>Miguel López</value>
+  </data>
+  <data name="Testimonial3Role" xml:space="preserve">
+    <value>FOUNDER, SAAS COMPANY</value>
+  </data>
+  <data name="Privacy_ServiceUsage_History" xml:space="preserve">
+    <value>History for the use of functions</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Metrics" xml:space="preserve">
+    <value>Performance and analytical metrics</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Logs" xml:space="preserve">
+    <value>ERRORS AND TECHNICAL PROBLEMS</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Integrations" xml:space="preserve">
+    <value>Integration information with third -party services</value>
+  </data>
+  <data name="Privacy_Intro1" xml:space="preserve">
+    <value>In Wahub, we deeply value your privacy and commit ourselves to protect your personal data. This privacy policy explains how we collect, use, disseminate and protect your information when you use our WhatsApp automation service.</value>
+  </data>
+  <data name="Privacy_Intro2" xml:space="preserve">
+    <value>When using Wahub, you accept the practices described in this policy. If you do not agree with our privacy practices, you should not use our service.</value>
+  </data>
+  <data name="Privacy_QuickSummary" xml:space="preserve">
+    <value>Fast summary</value>
+  </data>
+  <data name="Privacy_QuickSummary1" xml:space="preserve">
+    <value>✅ We only collect necessary data for the service</value>
+  </data>
+  <data name="Privacy_QuickSummary2" xml:space="preserve">
+    <value>✅ We do not sell your personal data</value>
+  </data>
+  <data name="Privacy_QuickSummary3" xml:space="preserve">
+    <value>✅ You can delete your data at any time</value>
+  </data>
+  <data name="Privacy_QuickSummary4" xml:space="preserve">
+    <value>✅ We comply with GDPR and other privacy regulations</value>
+  </data>
+  <data name="Privacy_QuickSummary5" xml:space="preserve">
+    <value>✅ We implement business level security</value>
+  </data>
+  <data name="Privacy_DeviceIdentifiers" xml:space="preserve">
+    <value>Unique identifiers of the device</value>
+  </data>
+  <data name="Privacy_Section2_5" xml:space="preserve">
+    <value>2.5 Payment information</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Intro" xml:space="preserve">
+    <value>To treat payments, we collect:</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Billing" xml:space="preserve">
+    <value>Billing information (name, address)</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Last4" xml:space="preserve">
+    <value>Last figures for credit cards</value>
+  </data>
+  <data name="Privacy_PaymentInfo_History" xml:space="preserve">
+    <value>Transactions history</value>
+  </data>
+  <data name="Privacy_Note" xml:space="preserve">
+    <value>Noticed :</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Processors" xml:space="preserve">
+    <value>The complete details of credit cards are processed directly by our secure payment processors (Stripe, Paypal) and are never stored on our servers.</value>
+  </data>
+  <data name="Privacy_HowWeUse" xml:space="preserve">
+    <value>How we use the information</value>
+  </data>
+  <data name="Privacy_Section7" xml:space="preserve">
+    <value>7. Your rights</value>
   </data>
 </root>

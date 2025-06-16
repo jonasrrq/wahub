@@ -117,12 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  
   <data name="Login" xml:space="preserve">
     <value>Fazer login</value>
   </data>
-  
-  
   <!-- Traduções para src/WaHub/Components/Layout/HomeNavbar.razor -->
   <data name="HomeNavbar_WaHub" xml:space="preserve">
     <value>WaHub</value>
@@ -139,7 +136,6 @@
   <data name="HomeNavbar_Register" xml:space="preserve">
     <value>Cadastre-se</value>
   </data>
-
   <!-- Traduções para src/WaHub.Client/Layout/WaHubSidebar.razor -->
   <data name="WaHubSidebar_WaHub" xml:space="preserve">
     <value>WaHub</value>
@@ -150,7 +146,6 @@
   <data name="WaHubSidebar_Logout" xml:space="preserve">
     <value>Sair</value>
   </data>
-
   <!-- Traduções para WaHub/Components/Pages/Error.razor (Brasil) -->
   <data name="Error404Title" xml:space="preserve">
     <value>Erro 404</value>
@@ -167,7 +162,6 @@
   <data name="BackToDashboard" xml:space="preserve">
     <value>Voltar para o painel</value>
   </data>
-
   <!-- Traduções para WaHub/Components/Pages/EnConstruccion.razor -->
   <data name="UnderConstructionTitle" xml:space="preserve">
     <value>Página em construção!</value>
@@ -181,7 +175,6 @@
   <data name="BackToDashboardButton" xml:space="preserve">
     <value>Voltar para o Painel</value>
   </data>
-  
   <!-- Traduções para WaHub/Components/Pages/Home.razor -->
   <data name="HomePageTitle" xml:space="preserve">
     <value>WaHub - Plataforma de Gerenciamento do WhatsApp</value>
@@ -201,7 +194,6 @@
   <data name="HomeWhyChoose" xml:space="preserve">
     <value>Por que escolher o WaHub?</value>
   </data>
-  
   <!-- Características -->
   <data name="FeatureFastApiTitle" xml:space="preserve">
     <value>API Super Rápida</value>
@@ -239,7 +231,6 @@
   <data name="FeatureMediaDesc" xml:space="preserve">
     <value>Envie imagens, vídeos, áudios, documentos e localizações sem limitações.</value>
   </data>
-  
   <!-- Seção de Código -->
   <data name="HomeCodeSectionTitle" xml:space="preserve">
     <value>Integração em Minutos</value>
@@ -256,7 +247,6 @@
   <data name="HomeCodeLog" xml:space="preserve">
     <value>Mensagem enviada:</value>
   </data>
-  
   <!-- Preços -->
   <data name="HomePricingTitle" xml:space="preserve">
     <value>Preços Transparentes</value>
@@ -264,7 +254,6 @@
   <data name="HomePricingPerMonth" xml:space="preserve">
     <value>/mês</value>
   </data>
-  
   <!-- Planos de Preços -->
   <data name="PlanDeveloper" xml:space="preserve">
     <value>Desenvolvedor</value>
@@ -284,7 +273,6 @@
   <data name="PlanDeveloperButton" xml:space="preserve">
     <value>Começar grátis</value>
   </data>
-  
   <data name="PlanStartupBadge" xml:space="preserve">
     <value>Mais Popular</value>
   </data>
@@ -309,7 +297,6 @@
   <data name="PlanStartupButton" xml:space="preserve">
     <value>Iniciar teste</value>
   </data>
-  
   <data name="PlanEnterprise" xml:space="preserve">
     <value>Empresa</value>
   </data>
@@ -331,12 +318,10 @@
   <data name="PlanEnterpriseButton" xml:space="preserve">
     <value>Falar com vendas</value>
   </data>
-  
   <!-- Depoimentos -->
   <data name="HomeTestimonialsTitle" xml:space="preserve">
     <value>O que dizem nossos usuários</value>
   </data>
-  
   <!-- CTA -->
   <data name="HomeCtaTitle" xml:space="preserve">
     <value>Pronto para começar?</value>
@@ -350,7 +335,6 @@
   <data name="HomeCtaButton2" xml:space="preserve">
     <value>Falar com vendas</value>
   </data>
-  
   <!-- Rodapé -->
   <data name="FooterTagline" xml:space="preserve">
     <value>A plataforma de API WhatsApp mais confiável para desenvolvedores.</value>
@@ -365,9 +349,8 @@
     <value>Legal</value>
   </data>
   <data name="FooterCopyright" xml:space="preserve">
-    <value>© 2024 WaHub. Todos os direitos reservados.</value>
+    <value>© {0} WaHub. Todos os direitos reservados.</value>
   </data>
-  
   <!-- Links do Rodapé -->
   <data name="APIDocs" xml:space="preserve">
     <value>Documentação da API</value>
@@ -396,7 +379,6 @@
   <data name="GDPR" xml:space="preserve">
     <value>LGPD</value>
   </data>
-  
   <!-- Exemplo de Código -->
   <data name="CodeExampleTitle" xml:space="preserve">
     <value>Enviar mensagem com a API do WaHub</value>
@@ -407,7 +389,6 @@
   <data name="CodeExampleLog" xml:space="preserve">
     <value>Mensagem enviada:</value>
   </data>
-
   <!-- Traduções para src/WaHub/Components/Layout/InternalLayout.razor -->
   <data name="InternalLayout_ErrorOccurred" xml:space="preserve">
     <value>Ocorreu um erro não tratado.</value>
@@ -418,7 +399,6 @@
   <data name="InternalLayout_CloseIcon" xml:space="preserve">
     <value>🗙</value>
   </data>
-
   <!-- Traduções para src/WaHub.Client/Layout/NotificationContainer.razor -->
   <data name="Notification_Close" xml:space="preserve">
     <value>✖</value>
@@ -435,7 +415,6 @@
   <data name="Notification_InfoIcon" xml:space="preserve">
     <value>ℹ</value>
   </data>
-
   <!-- Traduções para src/WaHub.Client/Shared/MyButton.razor -->
   <data name="MyButton_ClickMe" xml:space="preserve">
     <value>Clique em mim</value>
@@ -443,7 +422,6 @@
   <data name="MyButton_HelloWorld" xml:space="preserve">
     <value>Olá Mundo do botão</value>
   </data>
-
   <!-- Traduções para src/WaHub/Components/App.razor -->
   <data name="App_Lang" xml:space="preserve">
     <value>pt-BR</value>
@@ -451,7 +429,6 @@
   <data name="App_Title" xml:space="preserve">
     <value>WaHub - Plataforma de Gestão do WhatsApp</value>
   </data>
-
   <!-- Traduções para src/WaHub/Components/Routes.razor -->
   <data name="Routes_PageNotFound" xml:space="preserve">
     <value>Página não encontrada</value>
@@ -462,7 +439,6 @@
   <data name="Routes_BackToHome" xml:space="preserve">
     <value>← Voltar para o início</value>
   </data>
-
   <!-- Traduções para src/WaHub/Components/ErrorBoundaryContent.razor -->
   <data name="ErrorBoundaryContent_ErrorOccurred" xml:space="preserve">
     <value>Ocorreu um erro</value>
@@ -473,7 +449,6 @@
   <data name="ErrorBoundaryContent_Ok" xml:space="preserve">
     <value>Ok</value>
   </data>
-
   <!-- Traduções para src/WaHub/Components/Pages/Privacy.razor -->
   <data name="Privacy_Title" xml:space="preserve">
     <value>Política de Privacidade - WaHub</value>
@@ -812,7 +787,7 @@
     <value>Usar as configurações de privacidade em sua conta</value>
   </data>
   <data name="Privacy_Section7_Exercise_Contact" xml:space="preserve">
-    <value>Contactar-nos em &lt;a href=&quot;mailto:privacy@wahub.com&quot;&gt;privacy@wahub.com&lt;/a&gt;</value>
+    <value>Contactar-nos em &lt;a href="mailto:privacy@wahub.com"&gt;privacy@wahub.com&lt;/a&gt;</value>
   </data>
   <data name="Privacy_Section7_Exercise_Form" xml:space="preserve">
     <value>Usar nosso formulário de solicitação de dados online</value>
@@ -823,7 +798,6 @@
   <data name="Privacy_Section7_Exercise_Response" xml:space="preserve">
     <value>Responderemos à sua solicitação dentro de 30 dias corridos.</value>
   </data>
-  
   <!-- Seção 8 - Uso de Cookies -->
   <data name="Privacy_Section8_Title" xml:space="preserve">
     <value>8. Uso de Cookies</value>
@@ -897,7 +871,6 @@
   <data name="Privacy_Section8_3_ThirdParty" xml:space="preserve">
     <value>Ferramentas de opt-out de terceiros</value>
   </data>
-  
   <!-- Traduções para a seção 9 de Privacy -->
   <data name="Privacy_Section9_Title" xml:space="preserve">
     <value>9. Transferências Internacionais</value>
@@ -914,7 +887,6 @@
   <data name="Privacy_Section9_Measures_Technical" xml:space="preserve">
     <value>Medidas técnicas e organizacionais apropriadas</value>
   </data>
-  
   <!-- Traduções para a seção 10 de Privacy -->
   <data name="Privacy_Section10_Title" xml:space="preserve">
     <value>10. Privacidade de Menores</value>
@@ -1017,5 +989,158 @@
   </data>
   <data name="Privacy_Section12_Commitment_5" xml:space="preserve">
     <value>Manter altos padrões de privacidade em tudo o que fazemos</value>
+  </data>
+  <data name="Testimonial1Text" xml:space="preserve">
+    <value>"Wahub transformou completamente nosso sistema de notificação. A integração foi incrivelmente fácil".</value>
+  </data>
+  <data name="Testimonial1Author" xml:space="preserve">
+    <value>Carlos Martínez</value>
+  </data>
+  <data name="Testimonial1Role" xml:space="preserve">
+    <value>CTO, Techstartup</value>
+  </data>
+  <data name="Testimonial2Text" xml:space="preserve">
+    <value>"A API mais rápida e confiável que usamos. O suporte técnico é excepcional".</value>
+  </data>
+  <data name="Testimonial2Author" xml:space="preserve">
+    <value>Ana García</value>
+  </data>
+  <data name="Testimonial2Role" xml:space="preserve">
+    <value>Desenvolvedor principal, comércio eletrônico</value>
+  </data>
+  <data name="Testimonial3Text" xml:space="preserve">
+    <value>"Escalamos 1.000 a 100.000 mensagens sem problemas. A plataforma é incrivelmente estável".</value>
+  </data>
+  <data name="Testimonial3Author" xml:space="preserve">
+    <value>Miguel López</value>
+  </data>
+  <data name="Testimonial3Role" xml:space="preserve">
+    <value>Fundador, SaaS Company</value>
+  </data>
+  <data name="Privacy_Section6_1" xml:space="preserve">
+    <value>6.1 Períodos de retenção</value>
+  </data>
+  <data name="Privacy_RetentionTable_Type" xml:space="preserve">
+    <value>Tipo de dados</value>
+  </data>
+  <data name="Privacy_RetentionTable_Period" xml:space="preserve">
+    <value>Período de retenção</value>
+  </data>
+  <data name="Privacy_RetentionTable_Purpose" xml:space="preserve">
+    <value>Propósito</value>
+  </data>
+  <data name="Privacy_Retention_AccountInfo" xml:space="preserve">
+    <value>Informações da conta</value>
+  </data>
+  <data name="Privacy_Retention_AccountInfo_Period" xml:space="preserve">
+    <value>Enquanto a conta está ativa + 30 dias</value>
+  </data>
+  <data name="Privacy_Retention_AccountInfo_Purpose" xml:space="preserve">
+    <value>Fornecer serviço</value>
+  </data>
+  <data name="Privacy_Retention_WhatsAppMessages" xml:space="preserve">
+    <value>Mensagens do WhatsApp</value>
+  </data>
+  <data name="Privacy_Retention_WhatsAppMessages_Period" xml:space="preserve">
+    <value>7-30 dias (configurável)</value>
+  </data>
+  <data name="Privacy_Retention_WhatsAppMessages_Purpose" xml:space="preserve">
+    <value>Funcionalidade de automação</value>
+  </data>
+  <data name="Privacy_Retention_UsageLogs" xml:space="preserve">
+    <value>Use registros</value>
+  </data>
+  <data name="Privacy_Retention_UsageLogs_Period" xml:space="preserve">
+    <value>12 meses</value>
+  </data>
+  <data name="Privacy_Retention_UsageLogs_Purpose" xml:space="preserve">
+    <value>Análise e melhoria do serviço</value>
+  </data>
+  <data name="Privacy_Retention_BillingInfo" xml:space="preserve">
+    <value>Informações de pagamento</value>
+  </data>
+  <data name="Privacy_Retention_BillingInfo_Period" xml:space="preserve">
+    <value>7 anos</value>
+  </data>
+  <data name="Privacy_Retention_BillingInfo_Purpose" xml:space="preserve">
+    <value>Requisitos contábeis e fiscais</value>
+  </data>
+  <data name="Privacy_Retention_SecurityLogs" xml:space="preserve">
+    <value>Logs de segurança</value>
+  </data>
+  <data name="Privacy_Retention_SecurityLogs_Period" xml:space="preserve">
+    <value>24 meses</value>
+  </data>
+  <data name="Privacy_Retention_SecurityLogs_Purpose" xml:space="preserve">
+    <value>Segurança e detecção de fraude</value>
+  </data>
+  <data name="Privacy_Section6_2" xml:space="preserve">
+    <value>6.2 Eliminação de dados</value>
+  </data>
+  <data name="Privacy_DataDeletion" xml:space="preserve">
+    <value>Quando os dados não são mais necessários para os fins para os quais foram coletados, os removeremos com segurança usando métodos que impossibilitam a recuperação.</value>
+  </data>
+  <data name="Privacy_Section7_Title" xml:space="preserve">
+    <value>7. Seus direitos</value>
+  </data>
+  <data name="Privacy_Intro1" xml:space="preserve">
+    <value>No Wahub, valorizamos profundamente sua privacidade e nos comprometemos a proteger seus dados pessoais. Esta Política de Privacidade explica como coletamos, usamos, disseminamos e protegemos suas informações quando você usa nosso serviço de automação do WhatsApp.</value>
+  </data>
+  <data name="Privacy_Intro2" xml:space="preserve">
+    <value>Ao usar o Wahub, você aceita as práticas descritas nesta política. Se você não concorda com nossas práticas de privacidade, não deve usar nosso serviço.</value>
+  </data>
+  <data name="Privacy_QuickSummary" xml:space="preserve">
+    <value>Resumo rápido</value>
+  </data>
+  <data name="Privacy_QuickSummary1" xml:space="preserve">
+    <value>✅ Nós apenas coletamos os dados necessários para o serviço</value>
+  </data>
+  <data name="Privacy_QuickSummary2" xml:space="preserve">
+    <value>✅ Não vendemos seus dados pessoais</value>
+  </data>
+  <data name="Privacy_QuickSummary3" xml:space="preserve">
+    <value>✅ Você pode excluir seus dados a qualquer momento</value>
+  </data>
+  <data name="Privacy_QuickSummary4" xml:space="preserve">
+    <value>✅ Nós cumprimos o GDPR e outros regulamentos de privacidade</value>
+  </data>
+  <data name="Privacy_QuickSummary5" xml:space="preserve">
+    <value>✅ Implementamos a segurança no nível dos negócios</value>
+  </data>
+  <data name="Privacy_Section3_3" xml:space="preserve">
+    <value>3.3 Comunicação</value>
+  </data>
+  <data name="Privacy_SendUpdates" xml:space="preserve">
+    <value>Envie atualizações de serviço</value>
+  </data>
+  <data name="Privacy_AnswerSupport" xml:space="preserve">
+    <value>Responda a consultas e solicitações de suporte</value>
+  </data>
+  <data name="Privacy_SendNewsletters" xml:space="preserve">
+    <value>Envie boletins informativos (com seu consentimento)</value>
+  </data>
+  <data name="Privacy_CommunicateChanges" xml:space="preserve">
+    <value>Comunicar alterações de política ou termos</value>
+  </data>
+  <data name="Privacy_ProvidePromotions" xml:space="preserve">
+    <value>Fornecer informações promocionais relevantes (opcional)</value>
+  </data>
+  <data name="Privacy_Section3_4" xml:space="preserve">
+    <value>3.4 Segurança e conformidade</value>
+  </data>
+  <data name="Privacy_DetectFraud" xml:space="preserve">
+    <value>Detectar e prevenir fraude ou uso indevido</value>
+  </data>
+  <data name="Privacy_VerifyIdentity" xml:space="preserve">
+    <value>Verifique a identidade e autentique usuários</value>
+  </data>
+  <data name="Privacy_ComplyLegal" xml:space="preserve">
+    <value>Cumprir as obrigações legais e regulatórias</value>
+  </data>
+  <data name="Privacy_ProtectRights" xml:space="preserve">
+    <value>Proteger os direitos e segurança dos usuários</value>
+  </data>
+  <data name="Privacy_InvestigateSuspicious" xml:space="preserve">
+    <value>Investigue atividades suspeitas</value>
   </data>
 </root>

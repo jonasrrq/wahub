@@ -269,7 +269,7 @@ console.log('@Localization.GetString(ResourceKeys.CodeExampleLog)', result.messa
             </div>
             
             <div class="footer-bottom">
-                <p>@Localization.GetString(ResourceKeys.FooterCopyright)</p>
+                <p>@(string.Format(Localization.GetString(ResourceKeys.FooterCopyright), DateTime.UtcNow.Year))</p>
             </div>
         </div>
     </footer>

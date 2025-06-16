@@ -117,11 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  
   <data name="Login" xml:space="preserve">
     <value>Fazer login</value>
   </data>
-
   <!-- Traduções para src/WaHub/Components/Layout/HomeNavbar.razor -->
   <data name="HomeNavbar_WaHub" xml:space="preserve">
     <value>WaHub</value>
@@ -138,7 +136,6 @@
   <data name="HomeNavbar_Register" xml:space="preserve">
     <value>Registrar</value>
   </data>
-  
   <!-- Traduções para src/WaHub.Client/Layout/WaHubSidebar.razor -->
   <data name="WaHubSidebar_WaHub" xml:space="preserve">
     <value>WaHub</value>
@@ -149,7 +146,6 @@
   <data name="WaHubSidebar_Logout" xml:space="preserve">
     <value>Sair</value>
   </data>
-
   <!-- Traduções para WaHub/Components/Pages/Error.razor -->
   <data name="Error404Title" xml:space="preserve">
     <value>Erro 404</value>
@@ -166,7 +162,6 @@
   <data name="BackToDashboard" xml:space="preserve">
     <value>Voltar ao painel</value>
   </data>
-
   <!-- Traduções para WaHub/Components/Pages/EnConstruccion.razor -->
   <data name="UnderConstructionTitle" xml:space="preserve">
     <value>Página em construção!</value>
@@ -180,7 +175,6 @@
   <data name="BackToDashboardButton" xml:space="preserve">
     <value>Voltar ao Painel</value>
   </data>
-
   <!-- Traduções para WaHub/Components/Pages/Home.razor -->
   <data name="HomePageTitle" xml:space="preserve">
     <value>WaHub - Plataforma de Gestão de WhatsApp</value>
@@ -200,7 +194,6 @@
   <data name="HomeWhyChoose" xml:space="preserve">
     <value>Porquê escolher o WaHub?</value>
   </data>
-  
   <!-- Características -->
   <data name="FeatureFastApiTitle" xml:space="preserve">
     <value>API Ultrarrápida</value>
@@ -238,7 +231,6 @@
   <data name="FeatureMediaDesc" xml:space="preserve">
     <value>Envie imagens, vídeos, áudios, documentos e localizações sem limitações.</value>
   </data>
-  
   <!-- Seção de Código -->
   <data name="HomeCodeSectionTitle" xml:space="preserve">
     <value>Integração em Minutos</value>
@@ -255,7 +247,6 @@
   <data name="HomeCodeLog" xml:space="preserve">
     <value>Mensagem enviada:</value>
   </data>
-  
   <!-- Preços -->
   <data name="HomePricingTitle" xml:space="preserve">
     <value>Preços Transparentes</value>
@@ -263,7 +254,6 @@
   <data name="HomePricingPerMonth" xml:space="preserve">
     <value>/mês</value>
   </data>
-  
   <!-- Planos de Preços -->
   <data name="PlanDeveloper" xml:space="preserve">
     <value>Programador</value>
@@ -283,7 +273,6 @@
   <data name="PlanDeveloperButton" xml:space="preserve">
     <value>Começar grátis</value>
   </data>
-  
   <data name="PlanStartupBadge" xml:space="preserve">
     <value>Mais Popular</value>
   </data>
@@ -308,7 +297,6 @@
   <data name="PlanStartupButton" xml:space="preserve">
     <value>Iniciar teste</value>
   </data>
-  
   <data name="PlanEnterprise" xml:space="preserve">
     <value>Empresa</value>
   </data>
@@ -330,12 +318,10 @@
   <data name="PlanEnterpriseButton" xml:space="preserve">
     <value>Fale com vendas</value>
   </data>
-  
   <!-- Depoimentos -->
   <data name="HomeTestimonialsTitle" xml:space="preserve">
     <value>O que dizem os nossos utilizadores</value>
   </data>
-  
   <!-- CTA -->
   <data name="HomeCtaTitle" xml:space="preserve">
     <value>Pronto para começar?</value>
@@ -349,7 +335,6 @@
   <data name="HomeCtaButton2" xml:space="preserve">
     <value>Fale com vendas</value>
   </data>
-  
   <!-- Rodapé -->
   <data name="FooterTagline" xml:space="preserve">
     <value>A plataforma de API WhatsApp mais confiável para programadores.</value>
@@ -364,9 +349,8 @@
     <value>Legal</value>
   </data>
   <data name="FooterCopyright" xml:space="preserve">
-    <value>© 2024 WaHub. Todos os direitos reservados.</value>
+    <value>© {0} WaHub. Todos os direitos reservados.</value>
   </data>
-  
   <!-- Links do Rodapé -->
   <data name="APIDocs" xml:space="preserve">
     <value>Documentação da API</value>
@@ -395,7 +379,6 @@
   <data name="GDPR" xml:space="preserve">
     <value>RGPD</value>
   </data>
-  
   <!-- Exemplo de Código -->
   <data name="CodeExampleTitle" xml:space="preserve">
     <value>Enviar mensagem com a API do WaHub</value>
@@ -406,7 +389,6 @@
   <data name="CodeExampleLog" xml:space="preserve">
     <value>Mensagem enviada:</value>
   </data>
-
   <!-- Traduções para src/WaHub/Components/Layout/InternalLayout.razor -->
   <data name="InternalLayout_ErrorOccurred" xml:space="preserve">
     <value>Ocorreu um erro não tratado.</value>
@@ -417,7 +399,6 @@
   <data name="InternalLayout_CloseIcon" xml:space="preserve">
     <value>🗙</value>
   </data>
-
   <!-- Traduções para src/WaHub.Client/Layout/NotificationContainer.razor -->
   <data name="Notification_Close" xml:space="preserve">
     <value>✖</value>
@@ -434,7 +415,6 @@
   <data name="Notification_InfoIcon" xml:space="preserve">
     <value>ℹ</value>
   </data>
-
   <!-- Traduções para src/WaHub.Client/Shared/MyButton.razor -->
   <data name="MyButton_ClickMe" xml:space="preserve">
     <value>Clique em mim</value>
@@ -442,7 +422,6 @@
   <data name="MyButton_HelloWorld" xml:space="preserve">
     <value>Olá Mundo do botão</value>
   </data>
-
   <!-- Traduções para src/WaHub/Components/App.razor -->
   <data name="App_Lang" xml:space="preserve">
     <value>pt</value>
@@ -450,7 +429,6 @@
   <data name="App_Title" xml:space="preserve">
     <value>WaHub - Plataforma de Gestão do WhatsApp</value>
   </data>
-
   <!-- Traduções para src/WaHub/Components/Routes.razor -->
   <data name="Routes_PageNotFound" xml:space="preserve">
     <value>Página não encontrada</value>
@@ -461,7 +439,6 @@
   <data name="Routes_BackToHome" xml:space="preserve">
     <value>← Voltar para o início</value>
   </data>
-
   <!-- Traduções para src/WaHub/Components/ErrorBoundaryContent.razor -->
   <data name="ErrorBoundaryContent_ErrorOccurred" xml:space="preserve">
     <value>Ocorreu um erro</value>
@@ -472,7 +449,6 @@
   <data name="ErrorBoundaryContent_Ok" xml:space="preserve">
     <value>Ok</value>
   </data>
-
   <!-- Traduções para src/WaHub/Components/Pages/Privacy.razor -->
   <data name="Privacy_Title" xml:space="preserve">
     <value>Política de Privacidade - WaHub</value>
@@ -765,7 +741,6 @@
   <data name="Privacy_DataDeletion" xml:space="preserve">
     <value>Quando os dados não forem mais necessários para os fins para os quais foram coletados, iremos excluí-los de forma segura usando métodos que tornam a recuperação impossível.</value>
   </data>
-  
   <!-- Traduções para a seção 7 de Privacy -->
   <data name="Privacy_Section7_Title" xml:space="preserve">
     <value>7. Seus Direitos</value>
@@ -815,67 +790,54 @@
   <data name="Privacy_Section7_GDPR_Consent_Desc" xml:space="preserve">
     <value>Retirar o consentimento a qualquer momento</value>
   </data>
-  <data name="Privacy_Section7_CCPA_Title" xml:space="preserve">
-    <value>7.2 Direitos sob a CCPA (Para residentes da Califórnia)</value>
+  <!-- ...existing code... -->
+  <data name="Testimonial1Text" xml:space="preserve">
+    <value>"Wahub transformou completamente nosso sistema de notificação. A integração foi incrivelmente fácil".</value>
   </data>
-  <data name="Privacy_Section7_CCPA_KnowCollected" xml:space="preserve">
-    <value>Saber quais informações pessoais são coletadas</value>
+  <data name="Testimonial1Author" xml:space="preserve">
+    <value>Carlos Martínez</value>
   </data>
-  <data name="Privacy_Section7_CCPA_KnowSold" xml:space="preserve">
-    <value>Saber se as informações pessoais são vendidas ou divulgadas</value>
+  <data name="Testimonial1Role" xml:space="preserve">
+    <value>CTO, Techstartup</value>
   </data>
-  <data name="Privacy_Section7_CCPA_OptOut" xml:space="preserve">
-    <value>Dizer não à venda de informações pessoais</value>
+  <data name="Testimonial2Text" xml:space="preserve">
+    <value>"A API mais rápida e confiável que usamos. O suporte técnico é excepcional".</value>
   </data>
-  <data name="Privacy_Section7_CCPA_Access" xml:space="preserve">
-    <value>Acessar informações pessoais</value>
+  <data name="Testimonial2Author" xml:space="preserve">
+    <value>Ana García</value>
   </data>
-  <data name="Privacy_Section7_CCPA_Delete" xml:space="preserve">
-    <value>Solicitar a exclusão de informações pessoais</value>
+  <data name="Testimonial2Role" xml:space="preserve">
+    <value>Desenvolvedor principal, comércio eletrônico</value>
   </data>
-  <data name="Privacy_Section7_CCPA_NonDiscrimination" xml:space="preserve">
-    <value>Não ser discriminado por exercer seus direitos</value>
+  <data name="Testimonial3Text" xml:space="preserve">
+    <value>"Escalamos 1.000 a 100.000 mensagens sem problemas. A plataforma é incrivelmente estável".</value>
   </data>
-  <data name="Privacy_Section7_Exercise_Title" xml:space="preserve">
-    <value>7.3 Como Exercer Seus Direitos</value>
+  <data name="Testimonial3Author" xml:space="preserve">
+    <value>Miguel López</value>
   </data>
-  <data name="Privacy_Section7_Exercise_Intro" xml:space="preserve">
-    <value>Para exercer qualquer um desses direitos, você pode:</value>
+  <data name="Testimonial3Role" xml:space="preserve">
+    <value>Fundador, SaaS Company</value>
   </data>
-  <data name="Privacy_Section7_Exercise_Settings" xml:space="preserve">
-    <value>Usar as configurações de privacidade em sua conta</value>
+  <data name="Privacy_Section6" xml:space="preserve">
+    <value>6. Retenção de dados e eliminação</value>
   </data>
-  <data name="Privacy_Section7_Exercise_Contact" xml:space="preserve">
-    <value>Contactar-nos em &lt;a href=&quot;mailto:privacy@wahub.com&quot;&gt;privacy@wahub.com&lt;/a&gt;</value>
-  </data>
-  <data name="Privacy_Section7_Exercise_Form" xml:space="preserve">
-    <value>Usar nosso formulário de solicitação de dados online</value>
-  </data>
-  <data name="Privacy_Section7_Exercise_Phone" xml:space="preserve">
-    <value>Ligar para +1 (555) 123-4567</value>
-  </data>
-  <data name="Privacy_Section7_Exercise_Response" xml:space="preserve">
-    <value>Responderemos à sua solicitação dentro de 30 dias corridos.</value>
-  </data>
-
-  <!-- Traduções para a seção 8 de Privacy -->
   <data name="Privacy_Section8_Title" xml:space="preserve">
-    <value>8. Uso de Cookies</value>
+    <value>8. Uso de cookies</value>
   </data>
   <data name="Privacy_Section8_1_Title" xml:space="preserve">
-    <value>8.1 O que são Cookies</value>
+    <value>8.1 O que são cookies</value>
   </data>
   <data name="Privacy_Section8_1_Desc" xml:space="preserve">
-    <value>Cookies são pequenos arquivos de texto armazenados em seu dispositivo quando você visita nosso site. Eles nos ajudam a melhorar sua experiência e fornecer funcionalidades personalizadas.</value>
+    <value>Os cookies são pequenos arquivos de texto armazenados no seu dispositivo quando você visita nosso site. Eles nos ajudam a melhorar sua experiência e fornecer funcionalidades personalizadas.</value>
   </data>
   <data name="Privacy_Section8_2_Title" xml:space="preserve">
-    <value>8.2 Tipos de Cookies que Usamos</value>
+    <value>8.2 Tipos de cookies que usamos</value>
   </data>
   <data name="Privacy_Section8_Essential_Title" xml:space="preserve">
-    <value>Cookies Essenciais</value>
+    <value>Cookies essenciais</value>
   </data>
   <data name="Privacy_Section8_Essential_Desc" xml:space="preserve">
-    <value>Necessárias para o funcionamento básico do site:</value>
+    <value>Necessário para o funcionamento básico do site:</value>
   </data>
   <data name="Privacy_Section8_Essential_Session" xml:space="preserve">
     <value>Gerenciamento de sessão do usuário</value>
@@ -884,13 +846,13 @@
     <value>Preferências de segurança</value>
   </data>
   <data name="Privacy_Section8_Essential_Cart" xml:space="preserve">
-    <value>Funcionalidade de carrinho de compras</value>
+    <value>Funcionalidade do carrinho de compras</value>
   </data>
   <data name="Privacy_Section8_Performance_Title" xml:space="preserve">
-    <value>Cookies de Desempenho</value>
+    <value>Cookies de desempenho</value>
   </data>
   <data name="Privacy_Section8_Performance_Desc" xml:space="preserve">
-    <value>Para entender como os usuários interagem com nosso site:</value>
+    <value>Para entender como os usuários interagem com o nosso site:</value>
   </data>
   <data name="Privacy_Section8_Performance_Analytics" xml:space="preserve">
     <value>Google Analytics</value>
@@ -899,48 +861,46 @@
     <value>Métricas de desempenho</value>
   </data>
   <data name="Privacy_Section8_Performance_Usage" xml:space="preserve">
-    <value>Análise de uso</value>
+    <value>Use Análise</value>
   </data>
   <data name="Privacy_Section8_Functionality_Title" xml:space="preserve">
-    <value>Cookies de Funcionalidade</value>
+    <value>Cookies de funcionalidade</value>
   </data>
   <data name="Privacy_Section8_Functionality_Desc" xml:space="preserve">
     <value>Para lembrar suas preferências:</value>
   </data>
   <data name="Privacy_Section8_Functionality_Language" xml:space="preserve">
-    <value>Configurações de idioma</value>
+    <value>Configurações de idiomas</value>
   </data>
   <data name="Privacy_Section8_Functionality_Theme" xml:space="preserve">
     <value>Tema da interface</value>
   </data>
   <data name="Privacy_Section8_Functionality_Display" xml:space="preserve">
-    <value>Preferências de exibição</value>
+    <value>Preferências de visualização</value>
   </data>
   <data name="Privacy_Section8_3_Title" xml:space="preserve">
-    <value>8.3 Gerenciamento de Cookies</value>
+    <value>8.3 Gerenciamento de cookies</value>
   </data>
   <data name="Privacy_Section8_3_Desc" xml:space="preserve">
-    <value>Você pode controlar os cookies por meio de:</value>
+    <value>Você pode controlar os cookies através de:</value>
   </data>
   <data name="Privacy_Section8_3_Browser" xml:space="preserve">
-    <value>Configurações do seu navegador</value>
+    <value>Suas configurações de navegador</value>
   </data>
   <data name="Privacy_Section8_3_Center" xml:space="preserve">
-    <value>Nosso centro de preferências de cookies</value>
+    <value>Nosso Centro de Preferências de Cookies</value>
   </data>
   <data name="Privacy_Section8_3_ThirdParty" xml:space="preserve">
-    <value>Ferramentas de opt-out de terceiros</value>
+    <value>Ferramentas de opção de terceiros</value>
   </data>
-  
-  <!-- Traduções para a seção 9 de Privacy -->
   <data name="Privacy_Section9_Title" xml:space="preserve">
-    <value>9. Transferências Internacionais</value>
+    <value>9. Transferências internacionais</value>
   </data>
   <data name="Privacy_Section9_Desc" xml:space="preserve">
-    <value>Podemos transferir suas informações pessoais para países fora de sua jurisdição para fornecer nossos serviços. Garantimos que tais transferências estejam em conformidade com as leis de proteção de dados aplicáveis.</value>
+    <value>Podemos transferir suas informações pessoais para países fora de sua jurisdição para fornecer nossos serviços. Garantimos que essas transferências cumpram as leis de proteção de dados aplicáveis.</value>
   </data>
   <data name="Privacy_Section9_Measures_Title" xml:space="preserve">
-    <value>Medidas de Proteção</value>
+    <value>Medidas de proteção</value>
   </data>
   <data name="Privacy_Section9_Measures_Processor" xml:space="preserve">
     <value>Acordos de processamento de dados com fornecedores</value>
@@ -948,44 +908,65 @@
   <data name="Privacy_Section9_Measures_Technical" xml:space="preserve">
     <value>Medidas técnicas e organizacionais apropriadas</value>
   </data>
-  
-  <!-- Traduções para a seção 10 de Privacy -->
+  <data name="Privacy_Intro1" xml:space="preserve">
+    <value>No Wahub, valorizamos profundamente sua privacidade e nos comprometemos a proteger seus dados pessoais. Esta Política de Privacidade explica como coletamos, usamos, disseminamos e protegemos suas informações quando você usa nosso serviço de automação do WhatsApp.</value>
+  </data>
+  <data name="Privacy_Intro2" xml:space="preserve">
+    <value>Ao usar o Wahub, você aceita as práticas descritas nesta política. Se você não concorda com nossas práticas de privacidade, não deve usar nosso serviço.</value>
+  </data>
+  <data name="Privacy_QuickSummary" xml:space="preserve">
+    <value>Resumo rápido</value>
+  </data>
+  <data name="Privacy_QuickSummary1" xml:space="preserve">
+    <value>✅ Nós apenas coletamos os dados necessários para o serviço</value>
+  </data>
+  <data name="Privacy_QuickSummary2" xml:space="preserve">
+    <value>✅ Não vendemos seus dados pessoais</value>
+  </data>
+  <data name="Privacy_QuickSummary3" xml:space="preserve">
+    <value>✅ Você pode excluir seus dados a qualquer momento</value>
+  </data>
+  <data name="Privacy_QuickSummary4" xml:space="preserve">
+    <value>✅ Nós cumprimos o GDPR e outros regulamentos de privacidade</value>
+  </data>
+  <data name="Privacy_QuickSummary5" xml:space="preserve">
+    <value>✅ Implementamos a segurança no nível dos negócios</value>
+  </data>
   <data name="Privacy_Section10_Title" xml:space="preserve">
-    <value>10. Privacidade de Menores</value>
+    <value>10. Privacidade de menores</value>
   </data>
   <data name="Privacy_Section10_Desc1" xml:space="preserve">
-    <value>Nosso serviço não é direcionado a menores de 18 anos. Não coletamos conscientemente informações pessoais de menores de 18 anos.</value>
+    <value>Nosso serviço não é destinado a crianças menores de 18 anos. Não coletamos conscientemente informações pessoais de crianças menores de 18 anos.</value>
   </data>
   <data name="Privacy_Section10_Desc2" xml:space="preserve">
-    <value>Se descobrirmos que coletamos informações de um menor de 18 anos sem consentimento parental verificável, tomaremos medidas para excluir essas informações de nossos servidores.</value>
+    <value>Se descobrirmos que compilamos informações de uma criança com menos de 18 anos sem consentimento verificável dos pais, tomaremos medidas para eliminar essas informações de nossos servidores.</value>
   </data>
   <data name="Privacy_Section10_Desc3" xml:space="preserve">
-    <value>Se você acredita que podemos ter informações de um menor de 18 anos, entre em contato imediatamente pelo privacy@wahub.com.</value>
+    <value>Se você acha que podemos ter informações de uma criança com menos de 18 anos, entre em contato conosco imediatamente em privacy@wahub.com.</value>
   </data>
-  <!-- Traduções para a seção 11 de Privacy -->
   <data name="Privacy_Section11_Title" xml:space="preserve">
-    <value>11. Alterações nesta Política</value>
+    <value>11. mudanças nessa política</value>
   </data>
   <data name="Privacy_Section11_Desc1" xml:space="preserve">
-    <value>Podemos atualizar esta Política de Privacidade ocasionalmente para refletir mudanças em nossas práticas ou por outros motivos operacionais, legais ou regulatórios.</value>
+    <value>Ocasionalmente, podemos atualizar esta política de privacidade para refletir mudanças em nossas práticas ou por outros motivos operacionais, legais ou regulatórios.</value>
   </data>
   <data name="Privacy_Section11_1_Title" xml:space="preserve">
-    <value>11.1 Notificação de Alterações</value>
+    <value>11.1 Notificação de mudanças</value>
   </data>
   <data name="Privacy_Section11_1_Change1" xml:space="preserve">
     <value>Publicaremos a política atualizada nesta página</value>
   </data>
   <data name="Privacy_Section11_1_Change2" xml:space="preserve">
-    <value>Alteraremos a data de "última atualização"</value>
+    <value>Vamos mudar a data de "última atualização"</value>
   </data>
   <data name="Privacy_Section11_1_Change3" xml:space="preserve">
-    <value>Para alterações importantes, enviaremos notificação por e-mail</value>
+    <value>Para mudanças importantes, enviaremos notificação por e -mail</value>
   </data>
   <data name="Privacy_Section11_1_Change4" xml:space="preserve">
-    <value>Para alterações significativas, solicitaremos seu consentimento renovado</value>
+    <value>Para mudanças significativas, solicitaremos seu consentimento renovado</value>
   </data>
   <data name="Privacy_Section11_2_Title" xml:space="preserve">
-    <value>11.2 Revisão Regular</value>
+    <value>11.2 Revisão regular</value>
   </data>
   <data name="Privacy_Section11_2_Desc1" xml:space="preserve">
     <value>Recomendamos revisar esta política periodicamente para se manter informado sobre como protegemos suas informações.</value>
@@ -994,25 +975,25 @@
     <value>12. Contato</value>
   </data>
   <data name="Privacy_Section12_Desc1" xml:space="preserve">
-    <value>Se você tiver dúvidas sobre esta Política de Privacidade ou nossas práticas de dados, pode nos contatar:</value>
+    <value>Se você tiver dúvidas sobre esta política de privacidade ou nossas práticas de dados, entre em contato conosco:</value>
   </data>
   <data name="Privacy_Section12_DPO_Title" xml:space="preserve">
-    <value>Encarregado de Proteção de Dados</value>
+    <value>Oficial de Proteção de Dados</value>
   </data>
   <data name="Privacy_Section12_DPO_Email" xml:space="preserve">
-    <value>Email: privacy@wahub.com</value>
+    <value>E -mail: privacy@wahub.com</value>
   </data>
   <data name="Privacy_Section12_DPO_Phone" xml:space="preserve">
     <value>Telefone: +1 (555) 123-4567</value>
   </data>
   <data name="Privacy_Section12_Address_Title" xml:space="preserve">
-    <value>Endereço Postal</value>
+    <value>Endereço postal</value>
   </data>
   <data name="Privacy_Section12_Address_Company" xml:space="preserve">
-    <value>WaHub Inc.</value>
+    <value>Wahub Inc.</value>
   </data>
   <data name="Privacy_Section12_Address_Attn" xml:space="preserve">
-    <value>Attn: Privacy Officer</value>
+    <value>ATTN: Oficial de Privacidade</value>
   </data>
   <data name="Privacy_Section12_Address_Street" xml:space="preserve">
     <value>123 Tech Street</value>
@@ -1021,36 +1002,144 @@
     <value>Innovation City, IC 12345</value>
   </data>
   <data name="Privacy_Section12_Address_Country" xml:space="preserve">
-    <value>Estados Unidos</value>
+    <value>EUA</value>
   </data>
   <data name="Privacy_Section12_EURep_Title" xml:space="preserve">
     <value>Representante na UE</value>
   </data>
   <data name="Privacy_Section12_EURep_Desc" xml:space="preserve">
-    <value>Para residentes da UE, nosso representante é:</value>
+    <value>Para os residentes da UE, nosso representante é:</value>
   </data>
   <data name="Privacy_Section12_EURep_Email" xml:space="preserve">
-    <value>Email: eu-privacy@wahub.com</value>
+    <value>E-mail: eu-privacy@wahub.com</value>
   </data>
   <data name="Privacy_Section12_Commitment_Title" xml:space="preserve">
-    <value>Nosso Compromisso</value>
+    <value>Nosso compromisso</value>
   </data>
   <data name="Privacy_Section12_Commitment_Desc" xml:space="preserve">
-    <value>Na WaHub, a privacidade não é apenas uma obrigação legal, mas um valor fundamental. Comprometemo-nos a:</value>
+    <value>No Wahub, a privacidade não é apenas uma obrigação legal, mas um valor fundamental. Nós nos comprometemos a:</value>
   </data>
   <data name="Privacy_Section12_Commitment_1" xml:space="preserve">
-    <value>Ser transparentes sobre nossas práticas de dados</value>
+    <value>Seja transparente sobre nossas práticas de dados</value>
   </data>
   <data name="Privacy_Section12_Commitment_2" xml:space="preserve">
-    <value>Dar a você controle sobre suas informações pessoais</value>
+    <value>Dê o controle sobre suas informações pessoais</value>
   </data>
   <data name="Privacy_Section12_Commitment_3" xml:space="preserve">
-    <value>Proteger seus dados com as melhores medidas de segurança</value>
+    <value>Proteja seus dados com as melhores medidas de segurança</value>
   </data>
   <data name="Privacy_Section12_Commitment_4" xml:space="preserve">
-    <value>Responder rapidamente às suas perguntas e solicitações</value>
+    <value>Responda rapidamente às suas perguntas e solicitações</value>
   </data>
   <data name="Privacy_Section12_Commitment_5" xml:space="preserve">
     <value>Manter altos padrões de privacidade em tudo o que fazemos</value>
+  </data>
+  <data name="Privacy_Section3_3" xml:space="preserve">
+    <value>3.3 Comunicação</value>
+  </data>
+  <data name="Privacy_SendUpdates" xml:space="preserve">
+    <value>Envie atualizações de serviço</value>
+  </data>
+  <data name="Privacy_AnswerSupport" xml:space="preserve">
+    <value>Responda a consultas e solicitações de suporte</value>
+  </data>
+  <data name="Privacy_SendNewsletters" xml:space="preserve">
+    <value>Envie boletins informativos (com seu consentimento)</value>
+  </data>
+  <data name="Privacy_CommunicateChanges" xml:space="preserve">
+    <value>Comunicar alterações de política ou termos</value>
+  </data>
+  <data name="Privacy_ProvidePromotions" xml:space="preserve">
+    <value>Fornecer informações promocionais relevantes (opcional)</value>
+  </data>
+  <data name="Privacy_Section3_4" xml:space="preserve">
+    <value>3.4 Segurança e conformidade</value>
+  </data>
+  <data name="Privacy_DetectFraud" xml:space="preserve">
+    <value>Detectar e prevenir fraude ou uso indevido</value>
+  </data>
+  <data name="Privacy_VerifyIdentity" xml:space="preserve">
+    <value>Verifique a identidade e autentique usuários</value>
+  </data>
+  <data name="Privacy_ComplyLegal" xml:space="preserve">
+    <value>Cumprir as obrigações legais e regulatórias</value>
+  </data>
+  <data name="Privacy_ProtectRights" xml:space="preserve">
+    <value>Proteger os direitos e segurança dos usuários</value>
+  </data>
+  <data name="Privacy_InvestigateSuspicious" xml:space="preserve">
+    <value>Investigue atividades suspeitas</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_Title" xml:space="preserve">
+    <value>7.2 Direitos sob CCPA (para residentes da Califórnia)</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_KnowCollected" xml:space="preserve">
+    <value>Saiba que informações pessoais são coletadas</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_KnowSold" xml:space="preserve">
+    <value>Saiba se as informações pessoais são vendidas ou divulgadas</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_OptOut" xml:space="preserve">
+    <value>Diga não à venda de informações pessoais</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_Access" xml:space="preserve">
+    <value>Acesse informações pessoais</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_Delete" xml:space="preserve">
+    <value>Solicitar exclusão de informações pessoais</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_NonDiscrimination" xml:space="preserve">
+    <value>Não ser discriminado por exercer seus direitos</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Title" xml:space="preserve">
+    <value>7.3 Como exercer seus direitos</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Intro" xml:space="preserve">
+    <value>Para exercer qualquer um desses direitos, você pode:</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Settings" xml:space="preserve">
+    <value>Use as configurações de privacidade em sua conta</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Contact" xml:space="preserve">
+    <value>Entre em contato conosco em &lt;a href = "Mailto: privacy@wahub.com"&gt; privacy@wahub.com &lt;/a&gt;</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Form" xml:space="preserve">
+    <value>Use nosso formulário de solicitação de dados on -line</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Phone" xml:space="preserve">
+    <value>Ligue para +1 (555) 123-4567</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Response" xml:space="preserve">
+    <value>Responderemos à sua solicitação dentro de 30 dias de calendário.</value>
+  </data>
+  <data name="Privacy_DeviceIdentifiers" xml:space="preserve">
+    <value>Identificadores exclusivos do dispositivo</value>
+  </data>
+  <data name="Privacy_Section2_5" xml:space="preserve">
+    <value>2.5 informações de pagamento</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Intro" xml:space="preserve">
+    <value>Para tratar os pagamentos, coletamos:</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Billing" xml:space="preserve">
+    <value>Informações de cobrança (nome, endereço)</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Last4" xml:space="preserve">
+    <value>Últimos números para cartões de crédito</value>
+  </data>
+  <data name="Privacy_PaymentInfo_History" xml:space="preserve">
+    <value>Histórico de transações</value>
+  </data>
+  <data name="Privacy_Note" xml:space="preserve">
+    <value>Percebido :</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Processors" xml:space="preserve">
+    <value>Os detalhes completos dos cartões de crédito são processados ​​diretamente por nossos processadores de pagamento seguros (Stripe, PayPal) e nunca são armazenados em nossos servidores.</value>
+  </data>
+  <data name="Privacy_HowWeUse" xml:space="preserve">
+    <value>Como usamos a informação</value>
+  </data>
+  <data name="Privacy_Section7" xml:space="preserve">
+    <value>7. Seus Direitos</value>
   </data>
 </root>

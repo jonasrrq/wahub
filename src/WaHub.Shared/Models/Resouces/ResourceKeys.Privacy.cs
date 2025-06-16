@@ -76,6 +76,7 @@ public static partial class ResourceKeys
     public const string Privacy_ImproveFeatures = "Privacy_ImproveFeatures";
     public const string Privacy_ImproveResearch = "Privacy_ImproveResearch";
     public const string Privacy_ImproveFixes = "Privacy_ImproveFixes";
+    public const string Privacy_ImprovePersonalization = "Privacy_ImprovePersonalization";
 
     // Other Privacy
     public const string Privacy_Intro1 = "Privacy_Intro1";
