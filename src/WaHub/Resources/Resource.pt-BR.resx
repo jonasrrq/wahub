@@ -1170,7 +1170,134 @@
   <data name="Privacy_TechInfo_Referrer" xml:space="preserve">
     <value>Fonte de referência</value>
   </data>
-  <data name="Privacy_DeviceIdentifiers" xml:space="preserve">
-    <value>Identificadores únicos de dispositivo</value>
+  <!-- Traduções para a página Pricing -->
+  <data name="Pricing_Title" xml:space="preserve">
+    <value>Planos que se adaptam ao seu negócio</value>
+  </data>
+  <data name="Pricing_Description" xml:space="preserve">
+    <value>Comece grátis e escale conforme suas necessidades. Sem contratos, sem surpresas.</value>
+  </data>
+  <data name="Pricing_Monthly" xml:space="preserve">
+    <value>Mensal</value>
+  </data>
+  <data name="Pricing_Annual" xml:space="preserve">
+    <value>Anual</value>
+  </data>
+  <data name="Pricing_AnnualDiscount" xml:space="preserve">
+    <value>-20%</value>
+  </data>
+  <data name="Pricing_FreePlan" xml:space="preserve">
+    <value>Gratuito</value>
+  </data>
+  <data name="Pricing_FreePlan_Description" xml:space="preserve">
+    <value>Perfeito para projetos pessoais e testes</value>
+  </data>
+  <data name="Pricing_ProPlan" xml:space="preserve">
+    <value>Profissional</value>
+  </data>
+  <data name="Pricing_ProPlan_Description" xml:space="preserve">
+    <value>Ideal para pequenas e médias empresas</value>
+  </data>
+  <data name="Pricing_BusinessPlan" xml:space="preserve">
+    <value>Empresarial</value>
+  </data>
+  <data name="Pricing_BusinessPlan_Description" xml:space="preserve">
+    <value>Para empresas com grandes volumes</value>
+  </data>
+  <data name="Pricing_Feature_Messages" xml:space="preserve">
+    <value>{0} mensagens/mês</value>
+  </data>
+  <data name="Pricing_Feature_Instances" xml:space="preserve">
+    <value>{0} instância(s) de WhatsApp</value>
+  </data>
+  <data name="Pricing_Feature_Api" xml:space="preserve">
+    <value>API REST {0}</value>
+  </data>
+  <data name="Pricing_Feature_Webhooks" xml:space="preserve">
+    <value>Webhooks{0}</value>
+  </data>
+  <data name="Pricing_Feature_Dashboard" xml:space="preserve">
+    <value>Dashboard {0}</value>
+  </data>
+  <data name="Pricing_Feature_Support" xml:space="preserve">
+    <value>Suporte {0}</value>
+  </data>
+  <data name="Pricing_Feature_Analytics" xml:space="preserve">
+    <value>Análises {0}</value>
+  </data>
+  <data name="Pricing_Feature_Integrations" xml:space="preserve">
+    <value>Integrações</value>
+  </data>
+  <data name="Pricing_Feature_Promotions" xml:space="preserve">
+    <value>Promoções</value>
+  </data>
+  <data name="Pricing_Feature_AccountManager" xml:space="preserve">
+    <value>Gerente de conta dedicado</value>
+  </data>
+  <data name="Pricing_Feature_24_7Support" xml:space="preserve">
+    <value>Suporte 24/7</value>
+  </data>
+  <data name="Pricing_Feature_CustomWebhooks" xml:space="preserve">
+    <value>Webhooks personalizados</value>
+  </data>
+  <data name="Pricing_Feature_AdvancedDashboard" xml:space="preserve">
+    <value>Dashboard avançado</value>
+  </data>
+  <data name="Pricing_Feature_EnterpriseApi" xml:space="preserve">
+    <value>API REST Enterprise</value>
+  </data>
+  <data name="Pricing_Feature_UnlimitedInstances" xml:space="preserve">
+    <value>Instâncias ilimitadas</value>
+  </data>
+  <data name="Pricing_Button_Free" xml:space="preserve">
+    <value>Começar grátis</value>
+  </data>
+  <data name="Pricing_Button_Trial" xml:space="preserve">
+    <value>Iniciar teste gratuito</value>
+  </data>
+  <data name="Pricing_Button_Contact" xml:space="preserve">
+    <value>Contactar vendas</value>
+  </data>
+  <data name="Pricing_MostPopular" xml:space="preserve">
+    <value>Mais popular</value>
+  </data>
+  <data name="Pricing_OriginalPrice" xml:space="preserve">
+    <value>Preço original</value>
+  </data>
+  <data name="Pricing_FAQ_Title" xml:space="preserve">
+    <value>Perguntas frequentes</value>
+  </data>
+  <data name="Pricing_FAQ_ChangePlan_Q" xml:space="preserve">
+    <value>Posso mudar de plano a qualquer momento?</value>
+  </data>
+  <data name="Pricing_FAQ_ChangePlan_A" xml:space="preserve">
+    <value>Sim, você pode fazer upgrade ou downgrade do seu plano quando quiser. As mudanças são aplicadas imediatamente.</value>
+  </data>
+  <data name="Pricing_FAQ_Limit_Q" xml:space="preserve">
+    <value>O que acontece se eu ultrapassar meu limite de mensagens?</value>
+  </data>
+  <data name="Pricing_FAQ_Limit_A" xml:space="preserve">
+    <value>Vamos notificá-lo quando estiver próximo do limite. Você pode fazer upgrade do plano ou comprar mensagens adicionais.</value>
+  </data>
+  <data name="Pricing_FAQ_NGO_Q" xml:space="preserve">
+    <value>Vocês oferecem descontos para ONGs?</value>
+  </data>
+  <data name="Pricing_FAQ_NGO_A" xml:space="preserve">
+    <value>Sim, oferecemos descontos especiais para organizações sem fins lucrativos. Entre em contato para mais informações.</value>
+  </data>
+  <data name="Pricing_FAQ_Setup_Q" xml:space="preserve">
+    <value>Existem custos de configuração?</value>
+  </data>
+  <data name="Pricing_FAQ_Setup_A" xml:space="preserve">
+    <value>Não, não há custos de configuração nem taxas ocultas. Você só paga pelo que usa.</value>
+  </data>
+  <data name="Pricing_CTA_Title" xml:space="preserve">
+    <value>Pronto para começar?</value>
+  </data>
+  <data name="Pricing_CTA_Description" xml:space="preserve">
+    <value>Junte-se a mais de 10.000 desenvolvedores que confiam no WaHub</value>
+  </data>
+  <data name="Pricing_CTA_Button" xml:space="preserve">
+    <value>Começar grátis</value>
   </data>
 </root>
