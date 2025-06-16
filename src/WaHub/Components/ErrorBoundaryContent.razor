@@ -1,15 +1,16 @@
-﻿
+﻿@inject ILocalizationService Localization
+
 <div class="error-content d-grid" style="place-content: center">
     <div class="card">
         <div class="card-header bg-danger text-white">
-            <h5 class="card-title">Error Occurred</h5>
+            <h5 class="card-title">@Localization.GetString(ResourceKeys.ErrorBoundaryContent_ErrorOccurred)</h5>
         </div>
         <div class="card-body">
-            <p class="card-text">Oops, unecpevted error occured!</p>
+            <p class="card-text">@Localization.GetString(ResourceKeys.ErrorBoundaryContent_Unexpected)</p>
             <pre class="bg-secondary p-3">@Error.Message</pre>
         </div>
         <div class="card-footer">
-            <button type="button" class="btn btn-secondary" @onclick="OnHandle">Ok</button>
+            <button type="button" class="btn btn-secondary" @onclick="OnHandle">@Localization.GetString(ResourceKeys.ErrorBoundaryContent_Ok)</button>
         </div>
     </div>
 </div>

@@ -1,4 +1,6 @@
-﻿<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="new[] { typeof(Client._Imports).Assembly }">
+﻿@inject ILocalizationService Localization
+
+<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="new[] { typeof(Client._Imports).Assembly }">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)">
             <NotAuthorized>
@@ -8,13 +10,13 @@
         <FocusOnNavigate RouteData="routeData" Selector="h1"/>
     </Found>
     <NotFound>
-        <PageTitle>Página no encontrada</PageTitle>
+        <PageTitle>@Localization.GetString(ResourceKeys.Routes_PageNotFound)</PageTitle>
         <LayoutView Layout="typeof(Layout.MainLayout)">
             <div class="dashboard-container">
                 <div class="dashboard-header">
-                    <h1>Página no encontrada</h1>
-                    <p>La página que buscas no existe.</p>
-                    <a href="/" style="color: #007bff; text-decoration: none;">← Volver al inicio</a>
+                    <h1>@Localization.GetString(ResourceKeys.Routes_PageNotFound)</h1>
+                    <p>@Localization.GetString(ResourceKeys.Routes_PageNotFoundMessage)</p>
+                    <a href="/" style="color: #007bff; text-decoration: none;">@Localization.GetString(ResourceKeys.Routes_BackToHome)</a>
                 </div>
             </div>
         </LayoutView>

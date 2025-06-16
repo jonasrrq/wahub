@@ -216,3 +216,13 @@ window.toggleTheme = () => window.waHubApp.theme.toggle();
 window.showLoading = (message) => window.waHubApp.loading.show(message);
 window.hideLoading = () => window.waHubApp.loading.hide();
 window.copyToClipboard = (text) => window.waHubApp.utils.copyToClipboard(text);
+
+// Function to set language cookie (used by Blazor Interop)
+window.setLanguageCookie = function(cookieName, language) {
+    const date = new Date();
+    date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000)); // 1 year expiry
+    const expires = "; expires=" + date.toUTCString();
+    const cookieValue = `c=${language}|uic=${language}`;
+    document.cookie = `${cookieName}=${cookieValue}${expires}; path=/`;
+    // console.log(`Cookie '${cookieName}' set to: ${cookieValue}`); // For debug
+};

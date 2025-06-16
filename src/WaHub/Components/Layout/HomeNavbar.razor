@@ -1,34 +1,30 @@
-
 @inject NavigationService Navigation
-@inject LocalizationService Localization
+@inject ILocalizationService Localization
 
 <nav class="home-navbar">
     <div class="navbar-content">
         <div class="logo-section">
             <a href="/" @onclick="@(() => Navigation.Push("/"))" @onclick:preventDefault="true" class="logo-link">
                 <img src="/logo-wahub.png" alt="WaHub Logo" class="logo" />
-                <span class="app-name">WaHub</span>
+                <span class="app-name">@Localization.GetString(ResourceKeys.HomeNavbar_WaHub)</span>
             </a>
         </div>
         <div class="nav-actions">
             <nav class="nav-menu">
-                <a href="/pricing" @onclick="@(() => Navigation.Push("/pricing"))" @onclick:preventDefault="true">Precios</a>
-                <a href="/docs" @onclick="@(() => Navigation.Push("/docs"))" @onclick:preventDefault="true">API</a>
-                <a href="/contact" @onclick="@(() => Navigation.Push("/contact"))" @onclick:preventDefault="true">Contacto</a>
+                <a href="/pricing" @onclick="@(() => Navigation.Push("/pricing"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.HomeNavbar_Prices)</a>
+                <a href="/docs" @onclick="@(() => Navigation.Push("/docs"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.HomeNavbar_API)</a>
+                <a href="/contact" @onclick="@(() => Navigation.Push("/contact"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.HomeNavbar_Contact)</a>
             </nav>
             <div class="language-switcher">
-                <select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
-                    <option value="es">🇪🇸 ES</option>
-                    <option value="en">🇺🇸 EN</option>
-                </select>
+                <LanguageSelector />
             </div>
 
-            <a class="nav-btn nav-btn-primary" href="/Account/login" @onclick="@(() => Navigation.Push("/account/login"))" @onclick:preventDefault="true">@Localization.Login</a>
-            <a class="nav-btn nav-btn-primary" href="/Account/register" @onclick="@(() => Navigation.Push("/account/register"))" @onclick:preventDefault="true">Registrarse</a>
+            <a class="nav-btn nav-btn-primary" href="/Account/login" @onclick="@(() => Navigation.Push("/account/login"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.Login)</a>
+            <a class="nav-btn nav-btn-primary" href="/Account/register" @onclick="@(() => Navigation.Push("/account/register"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.HomeNavbar_Register)</a>
             
 
             @* <button class="nav-btn nav-btn-primary" @onclick="GoToLogin">
-                @Localization.Login
+                @Localization.GetString(ResourceKeys.Login)
             </button>
             <button class="nav-btn nav-btn-primary" @onclick="GoToRegister">
                 Registrarse
@@ -47,12 +43,5 @@
     private void GoToRegister()
     {
         Navigation.Push("/account/register");
-    }
-
-    private async Task OnLanguageChanged(ChangeEventArgs e)
-    {
-        var selectedLanguage = e.Value?.ToString() ?? "es";
-        await Localization.SetLanguageAsync(selectedLanguage);
-        StateHasChanged();
     }
 }

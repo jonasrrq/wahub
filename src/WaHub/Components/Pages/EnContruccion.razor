@@ -1,4 +1,4 @@
-﻿
+
 @page "/admin/trial"
 @page "/admin/subscription"
 @page "/admin/documentation"
@@ -7,14 +7,17 @@
 @page "/admin/webhook-settings"
 @page "/admin/support"
 
+@inject ILocalizationService Localization
 
 <div class="en-construccion-container">
     <div class="en-construccion-content">
-        <img src="/img/under-construction.png" alt="En construcción" class="en-construccion-img" />
-        <h1>¡Página en construcción!</h1>
-        <p>Estamos trabajando para traerte esta sección muy pronto.<br />
-        Vuelve más tarde o explora otras áreas de la plataforma.</p>
-        <a href="/admin/dashboard" class="btn btn-primary">Volver al Dashboard</a>
+        <img src="/img/under-construction.png" 
+             alt="@Localization.GetString(ResourceKeys.UnderConstructionTitle)" 
+             class="en-construccion-img" />
+        <h1>@Localization.GetString(ResourceKeys.UnderConstructionTitle)</h1>
+        <p>@Localization.GetString(ResourceKeys.UnderConstructionMessage1)<br />
+        @Localization.GetString(ResourceKeys.UnderConstructionMessage2)</p>
+        <a href="/admin/dashboard" class="btn btn-primary">@Localization.GetString(ResourceKeys.BackToDashboardButton)</a>
     </div>
 </div>
 

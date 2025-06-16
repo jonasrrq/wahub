@@ -2,9 +2,9 @@
 @rendermode InteractiveServer
 @inject IJSRuntime JSRuntime
 @inject NavigationService Navigation
-@inject LocalizationService Localization
+@inject ILocalizationService Localization
 
-<PageTitle>Contacto - WaHub</PageTitle>
+<PageTitle>@Localization.GetString(ResourceKeys.Contact_Title) - WaHub</PageTitle>
 
 
 
@@ -12,8 +12,8 @@
     <div class="contact-hero bg-gradient-primary text-white py-8 py-lg-10">
         <div class="container text-center">
             <div class="contact-hero-content max-w-3xl mx-auto">
-                <h1 class="display-4 fw-bold mb-3">Contáctanos</h1>
-                <p class="lead mb-0">¿Tienes preguntas? Nos encantaría ayudarte. Ponte en contacto con nuestro equipo.</p>
+                <h1 class="display-4 fw-bold mb-3">@Localization.GetString(ResourceKeys.Contact_ContactUs)</h1>
+                <p class="lead mb-0">@Localization.GetString(ResourceKeys.Contact_Lead)</p>
             </div>
         </div>
     </div>
@@ -23,16 +23,16 @@
             <div class="row g-5">
                 <div class="col-lg-5">
                     <div class="contact-info bg-white p-4 p-lg-5 rounded-3 shadow-sm h-100">
-                        <h2 class="h3 fw-bold mb-4">Información de Contacto</h2>
+                        <h2 class="h3 fw-bold mb-4">@Localization.GetString(ResourceKeys.Contact_InfoTitle)</h2>
                         <div class="d-flex flex-column gap-4">
                             <div class="contact-method d-flex gap-3 p-3 rounded-3 bg-light-hover transition-all">
                                 <div class="contact-icon d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle" style="width: 48px; height: 48px; flex-shrink: 0;">
                                     <i class="fas fa-envelope fa-lg"></i>
                                 </div>
                                 <div class="contact-details">
-                                    <h3 class="h6 fw-bold mb-1">Email</h3>
+                                    <h3 class="h6 fw-bold mb-1">@Localization.GetString(ResourceKeys.Contact_Email)</h3>
                                     <p class="mb-1">support@wahub.com</p>
-                                    <span class="text-muted small">Respuesta en 24 horas</span>
+                                    <span class="text-muted small">@Localization.GetString(ResourceKeys.Contact_EmailResponse)</span>
                                 </div>
                             </div>
                             
@@ -41,9 +41,9 @@
                                     <i class="fas fa-phone fa-lg"></i>
                                 </div>
                                 <div class="contact-details">
-                                    <h3 class="h6 fw-bold mb-1">Teléfono</h3>
+                                    <h3 class="h6 fw-bold mb-1">@Localization.GetString(ResourceKeys.Contact_Phone)</h3>
                                     <p class="mb-1">+1 (555) 123-4567</p>
-                                    <span class="text-muted small">Lunes a Viernes 9AM - 6PM</span>
+                                    <span class="text-muted small">@Localization.GetString(ResourceKeys.Contact_PhoneHours)</span>
                                 </div>
                             </div>
                             
@@ -52,9 +52,9 @@
                                     <i class="fab fa-whatsapp fa-lg"></i>
                                 </div>
                                 <div class="contact-details">
-                                    <h3 class="h6 fw-bold mb-1">WhatsApp</h3>
+                                    <h3 class="h6 fw-bold mb-1">@Localization.GetString(ResourceKeys.Contact_WhatsApp)</h3>
                                     <p class="mb-1">+1 (555) 987-6543</p>
-                                    <span class="text-muted small">Soporte inmediato</span>
+                                    <span class="text-muted small">@Localization.GetString(ResourceKeys.Contact_WhatsAppSupport)</span>
                                 </div>
                             </div>
                             
@@ -63,9 +63,9 @@
                                     <i class="fas fa-map-marker-alt fa-lg"></i>
                                 </div>
                                 <div class="contact-details">
-                                    <h3 class="h6 fw-bold mb-1">Oficina</h3>
+                                    <h3 class="h6 fw-bold mb-1">@Localization.GetString(ResourceKeys.Contact_Office)</h3>
                                     <p class="mb-1">123 Tech Street<br>Innovation City, IC 12345</p>
-                                    <span class="text-muted small">Visítanos con cita previa</span>
+                                    <span class="text-muted small">@Localization.GetString(ResourceKeys.Contact_OfficeVisit)</span>
                                 </div>
                             </div>
                         </div>
@@ -74,63 +74,63 @@
 
                 <div class="col-lg-7">
                     <div class="contact-form-section bg-white p-4 p-lg-5 rounded-3 shadow-sm h-100">
-                        <h2 class="h3 fw-bold mb-4">Envía un Mensaje</h2>
+                        <h2 class="h3 fw-bold mb-4">@Localization.GetString(ResourceKeys.Contact_SendMessage)</h2>
                         <EditForm Model="@contactForm" OnValidSubmit="@HandleContactSubmit" FormName="contactForm">
                             <DataAnnotationsValidator />
                             
                             <div class="row g-3 mb-3">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="firstName" class="form-label fw-medium">Nombre</label>
-                                        <InputText id="firstName" @bind-Value="contactForm.FirstName" class="form-control form-control-lg" placeholder="Tu nombre" />
+                                        <label for="firstName" class="form-label fw-medium">@Localization.GetString(ResourceKeys.Contact_FirstName)</label>
+                                        <InputText id="firstName" @bind-Value="contactForm.FirstName" class="form-control form-control-lg" placeholder="@Localization.GetString(ResourceKeys.Contact_FirstName_Placeholder)" />
                                         <ValidationMessage For="@(() => contactForm.FirstName)" class="invalid-feedback d-block" />
                                     </div>
                                 </div>
                                 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="lastName" class="form-label fw-medium">Apellido</label>
-                                        <InputText id="lastName" @bind-Value="contactForm.LastName" class="form-control form-control-lg" placeholder="Tu apellido" />
+                                        <label for="lastName" class="form-label fw-medium">@Localization.GetString(ResourceKeys.Contact_LastName)</label>
+                                        <InputText id="lastName" @bind-Value="contactForm.LastName" class="form-control form-control-lg" placeholder="@Localization.GetString(ResourceKeys.Contact_LastName_Placeholder)" />
                                         <ValidationMessage For="@(() => contactForm.LastName)" class="invalid-feedback d-block" />
                                     </div>
                                 </div>
                             </div>
                             
                             <div class="mb-3">
-                                <label for="email" class="form-label fw-medium">Email</label>
-                                <InputText id="email" @bind-Value="contactForm.Email" class="form-control form-control-lg" placeholder="tu@email.com" type="email" />
+                                <label for="email" class="form-label fw-medium">@Localization.GetString(ResourceKeys.Contact_EmailField)</label>
+                                <InputText id="email" @bind-Value="contactForm.Email" class="form-control form-control-lg" placeholder="@Localization.GetString(ResourceKeys.Contact_Email_Placeholder)" type="email" />
                                 <ValidationMessage For="@(() => contactForm.Email)" class="invalid-feedback d-block" />
                             </div>
                             
                             <div class="mb-3">
-                                <label for="company" class="form-label fw-medium">Empresa <span class="text-muted">(Opcional)</span></label>
-                                <InputText id="company" @bind-Value="contactForm.Company" class="form-control form-control-lg" placeholder="Nombre de tu empresa" />
+                                <label for="company" class="form-label fw-medium">@Localization.GetString(ResourceKeys.Contact_Company) <span class="text-muted">@Localization.GetString(ResourceKeys.Contact_Company_Optional)</span></label>
+                                <InputText id="company" @bind-Value="contactForm.Company" class="form-control form-control-lg" placeholder="@Localization.GetString(ResourceKeys.Contact_Company_Placeholder)" />
                             </div>
                             
                             <div class="mb-3">
-                                <label for="subject" class="form-label fw-medium">Asunto</label>
+                                <label for="subject" class="form-label fw-medium">@Localization.GetString(ResourceKeys.Contact_Subject)</label>
                                 <InputSelect id="subject" @bind-Value="contactForm.Subject" class="form-select form-select-lg">
-                                    <option value="">Selecciona un asunto</option>
-                                    <option value="sales">Consulta de Ventas</option>
-                                    <option value="support">Soporte Técnico</option>
-                                    <option value="billing">Facturación</option>
-                                    <option value="feature">Solicitud de Función</option>
-                                    <option value="partnership">Asociación</option>
-                                    <option value="other">Otro</option>
+                                    <option value="">@Localization.GetString(ResourceKeys.Contact_Subject_Placeholder)</option>
+                                    <option value="sales">@Localization.GetString(ResourceKeys.Contact_Subject_Sales)</option>
+                                    <option value="support">@Localization.GetString(ResourceKeys.Contact_Subject_Support)</option>
+                                    <option value="billing">@Localization.GetString(ResourceKeys.Contact_Subject_Billing)</option>
+                                    <option value="feature">@Localization.GetString(ResourceKeys.Contact_Subject_Feature)</option>
+                                    <option value="partnership">@Localization.GetString(ResourceKeys.Contact_Subject_Partnership)</option>
+                                    <option value="other">@Localization.GetString(ResourceKeys.Contact_Subject_Other)</option>
                                 </InputSelect>
                                 <ValidationMessage For="@(() => contactForm.Subject)" class="invalid-feedback d-block" />
                             </div>
                             
                             <div class="mb-4">
-                                <label for="message" class="form-label fw-medium">Mensaje</label>
-                                <InputTextArea id="message" @bind-Value="contactForm.Message" class="form-control form-control-lg" style="min-height: 120px;" placeholder="Cuéntanos cómo podemos ayudarte..." />
+                                <label for="message" class="form-label fw-medium">@Localization.GetString(ResourceKeys.Contact_Message)</label>
+                                <InputTextArea id="message" @bind-Value="contactForm.Message" class="form-control form-control-lg" style="min-height: 120px;" placeholder="@Localization.GetString(ResourceKeys.Contact_Message_Placeholder)" />
                                 <ValidationMessage For="@(() => contactForm.Message)" class="invalid-feedback d-block" />
                             </div>
                             
                             <div class="form-check mb-4">
                                 <InputCheckbox id="acceptPrivacy" @bind-Value="contactForm.AcceptPrivacy" class="form-check-input" />
                                 <label class="form-check-label" for="acceptPrivacy">
-                                    Acepto la <a href="/privacy" class="text-primary text-decoration-underline">Política de Privacidad</a> y los <a href="/terms" class="text-primary text-decoration-underline">Términos de Servicio</a>
+                                    @Localization.GetString(ResourceKeys.Contact_Accept) <a href="/privacy" class="text-primary text-decoration-underline">@Localization.GetString(ResourceKeys.Contact_PrivacyPolicy)</a> @Localization.GetString(ResourceKeys.Contact_And) <a href="/terms" class="text-primary text-decoration-underline">@Localization.GetString(ResourceKeys.Contact_Terms)</a>
                                 </label>
                                 <ValidationMessage For="@(() => contactForm.AcceptPrivacy)" class="invalid-feedback d-block" />
                             </div>
@@ -139,11 +139,11 @@
                                 @if (isSubmitting)
                                 {
                                     <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                                    <span>Enviando...</span>
+                                    <span>@Localization.GetString(ResourceKeys.Contact_Sending)</span>
                                 }
                                 else
                                 {
-                                    <span>Enviar Mensaje</span>
+                                    <span>@Localization.GetString(ResourceKeys.Contact_Send)</span>
                                 }
                             </button>
                         </EditForm>
@@ -156,8 +156,8 @@
     <div class="contact-faq py-6 py-lg-8 bg-light">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3">Preguntas Frecuentes</h2>
-                <p class="lead text-muted max-w-3xl mx-auto">Respuestas a las preguntas más comunes que recibimos de nuestros clientes</p>
+                <h2 class="display-5 fw-bold mb-3">@Localization.GetString(ResourceKeys.Contact_FAQ_Title)</h2>
+                <p class="lead text-muted max-w-3xl mx-auto">@Localization.GetString(ResourceKeys.Contact_FAQ_Lead)</p>
             </div>
             
             <div class="row g-4">
@@ -168,8 +168,8 @@
                                 <i class="far fa-clock fa-lg"></i>
                             </div>
                             <div>
-                                <h3 class="h5 fw-bold mb-2">¿Cuánto tiempo toma recibir una respuesta?</h3>
-                                <p class="mb-0 text-muted">Respondemos a todos los emails dentro de 24 horas durante días laborables. Para consultas urgentes, te recomendamos utilizar nuestro chat de WhatsApp para una respuesta más rápida.</p>
+                                <h3 class="h5 fw-bold mb-2">@Localization.GetString(ResourceKeys.Contact_FAQ_Response_Q)</h3>
+                                <p class="mb-0 text-muted">@Localization.GetString(ResourceKeys.Contact_FAQ_Response_A)</p>
                             </div>
                         </div>
                     </div>
@@ -182,8 +182,8 @@
                                 <i class="fas fa-language fa-lg"></i>
                             </div>
                             <div>
-                                <h3 class="h5 fw-bold mb-2">¿Ofrecen soporte en español?</h3>
-                                <p class="mb-0 text-muted">¡Por supuesto! Nuestro equipo de soporte está disponible en español, inglés y otros idiomas. No dudes en contactarnos en el idioma con el que te sientas más cómodo.</p>
+                                <h3 class="h5 fw-bold mb-2">@Localization.GetString(ResourceKeys.Contact_FAQ_Language_Q)</h3>
+                                <p class="mb-0 text-muted">@Localization.GetString(ResourceKeys.Contact_FAQ_Language_A)</p>
                             </div>
                         </div>
                     </div>
@@ -196,8 +196,8 @@
                                 <i class="fas fa-desktop fa-lg"></i>
                             </div>
                             <div>
-                                <h3 class="h5 fw-bold mb-2">¿Puedo agendar una demo personalizada?</h3>
-                                <p class="mb-0 text-muted">Sí, ofrecemos demos personalizadas gratuitas donde te mostraremos todas las características de nuestra plataforma. Nuestro equipo de ventas estará encantado de adaptar la demo a tus necesidades específicas.</p>
+                                <h3 class="h5 fw-bold mb-2">@Localization.GetString(ResourceKeys.Contact_FAQ_Demo_Q)</h3>
+                                <p class="mb-0 text-muted">@Localization.GetString(ResourceKeys.Contact_FAQ_Demo_A)</p>
                             </div>
                         </div>
                     </div>
@@ -210,8 +210,8 @@
                                 <i class="fas fa-hand-holding-heart fa-lg"></i>
                             </div>
                             <div>
-                                <h3 class="h5 fw-bold mb-2">¿Hay descuentos para organizaciones sin fines de lucro?</h3>
-                                <p class="mb-0 text-muted">Sí, ofrecemos precios especiales para ONGs, organizaciones educativas y sin fines de lucro. Contáctanos para obtener más información sobre nuestros programas de descuento.</p>
+                                <h3 class="h5 fw-bold mb-2">@Localization.GetString(ResourceKeys.Contact_FAQ_NGO_Q)</h3>
+                                <p class="mb-0 text-muted">@Localization.GetString(ResourceKeys.Contact_FAQ_NGO_A)</p>
                             </div>
                         </div>
                     </div>
@@ -219,8 +219,8 @@
             </div>
             
             <div class="text-center mt-6">
-                <p class="mb-4">¿No encuentras lo que buscas?</p>
-                <a href="#contact-form" class="btn btn-outline-primary btn-lg">Contáctanos</a>
+                <p class="mb-4">@Localization.GetString(ResourceKeys.Contact_FAQ_NotFound)</p>
+                <a href="#contact-form" class="btn btn-outline-primary btn-lg">@Localization.GetString(ResourceKeys.Contact_FAQ_ContactUs)</a>
             </div>
         </div>
     </div>

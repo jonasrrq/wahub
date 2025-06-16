@@ -5,104 +5,105 @@
 @rendermode InteractiveAuto
 
 
-<PageTitle>Dashboard - WaHub</PageTitle>
+
+<PageTitle>@_localization.GetString(ResourceKeys.PageTitle) - WaHub</PageTitle>
 @* 
 <AuthorizeView>
     <Authorized> *@
 <div class="dashboard-container">
     <div class="dashboard-header">
-        <h1>Dashboard</h1>
-        <p>Bienvenido a tu panel de control de WaHub</p>
+        <h1>@_localization.GetString(ResourceKeys.PageTitle)</h1>
+        <p>@_localization.GetString(ResourceKeys.WelcomeMessage)</p>
     </div>
 
     <div class="dashboard-grid">
         <div class="dashboard-card">
-            <div class="card-title">Instancias Activas</div>
+            <div class="card-title">@_localization.GetString(ResourceKeys.ActiveInstances)</div>
             <div class="card-value">3</div>
-            <div class="card-change positive">+1 esta semana</div>
+            <div class="card-change positive">+1 @_localization.GetString(ResourceKeys.ThisWeek)</div>
         </div>
 
         <div class="dashboard-card">
-            <div class="card-title">Mensajes Enviados</div>
+            <div class="card-title">@_localization.GetString(ResourceKeys.MessagesSent)</div>
             <div class="card-value">1,234</div>
-            <div class="card-change positive">+12% vs mes anterior</div>
+            <div class="card-change positive">+12% @_localization.GetString(ResourceKeys.VsPreviousMonth)</div>
         </div>
 
         <div class="dashboard-card">
-            <div class="card-title">Contactos</div>
+            <div class="card-title">@_localization.GetString(ResourceKeys.Contacts)</div>
             <div class="card-value">567</div>
-            <div class="card-change positive">+23 nuevos</div>
+            <div class="card-change positive">+23 @_localization.GetString(ResourceKeys.NewContacts)</div>
         </div>
 
         <div class="dashboard-card">
-            <div class="card-title">API Calls</div>
+            <div class="card-title">@_localization.GetString(ResourceKeys.APICalls)</div>
             <div class="card-value">89,012</div>
-            <div class="card-change negative">-5% vs ayer</div>
+            <div class="card-change negative">-5% @_localization.GetString(ResourceKeys.VsYesterday)</div>
         </div>
     </div>
 
     <div class="chart-container">
-        <h2 class="chart-title">Mensajes por Día</h2>
+        <h2 class="chart-title">@_localization.GetString(ResourceKeys.MessagesPerDay)</h2>
         <div class="chart-placeholder">
-            Gráfico de mensajes enviados (integrar Chart.js)
+            @_localization.GetString(ResourceKeys.MessagesChartPlaceholder)
         </div>
     </div>
 
     <div class="recent-activity">
-        <h2 class="activity-title">Actividad Reciente</h2>
+        <h2 class="activity-title">@_localization.GetString(ResourceKeys.RecentActivity)</h2>
         <ul class="activity-list">
             <li class="activity-item">
-                <span class="activity-text">Mensaje enviado a +34 123 456 789</span>
-                <span class="activity-time">Hace 5 min</span>
+                <span class="activity-text">@_localization.GetString(ResourceKeys.MessageSentTo) +34 123 456 789</span>
+                <span class="activity-time">@_localization.GetString(ResourceKeys.MinutesAgo, "5")</span>
             </li>
             <li class="activity-item">
-                <span class="activity-text">Nueva instancia "Soporte Cliente" creada</span>
-                <span class="activity-time">Hace 1 hora</span>
+                <span class="activity-text">@_localization.GetString(ResourceKeys.NewInstanceCreated, "Soporte Cliente")</span>
+                <span class="activity-time">@_localization.GetString(ResourceKeys.HourAgo, "1")</span>
             </li>
             <li class="activity-item">
-                <span class="activity-text">Webhook configurado para instancia principal</span>
-                <span class="activity-time">Hace 2 horas</span>
+                <span class="activity-text">@_localization.GetString(ResourceKeys.WebhookConfigured)</span>
+                <span class="activity-time">@_localization.GetString(ResourceKeys.HoursAgo, "2")</span>
             </li>
             <li class="activity-item">
-                <span class="activity-text">Contacto agregado: Juan Pérez</span>
-                <span class="activity-time">Hace 3 horas</span>
+                <span class="activity-text">@_localization.GetString(ResourceKeys.ContactAdded, "Juan Pérez")</span>
+                <span class="activity-time">@_localization.GetString(ResourceKeys.HoursAgo, "3")</span>
             </li>
         </ul>
     </div>
 
     <div class="quick-actions">
-        <h2 class="actions-title">Acciones Rápidas</h2>
+        <h2 class="actions-title">@_localization.GetString(ResourceKeys.QuickActions)</h2>
         <div class="actions-grid">
             <button class="action-button">
-                Nueva Instancia
+                @_localization.GetString(ResourceKeys.NewInstanceButton)
             </button>
             <button class="action-button secondary">
-                Enviar Mensaje
+                @_localization.GetString(ResourceKeys.SendMessageButton)
             </button>
             <button class="action-button success">
-                Ver API Docs
+                @_localization.GetString(ResourceKeys.ViewAPIDocsButton)
             </button>
             <button class="action-button warning">
-                Soporte
+                @_localization.GetString(ResourceKeys.SupportButton)
             </button>
         </div>
 
         <!-- Sección de prueba de interactividad -->
         <div class="dashboard-card" style="grid-column: 1 / -1; margin-top: 20px;">
-            <div class="card-title">🧪 Prueba de Interactividad</div>
-            <p>Esta sección demuestra que la interactividad del servidor está funcionando:</p>
+            <div class="card-title">🧪 @_localization.GetString(ResourceKeys.InteractivityTestTitle)</div>
+            <p>@_localization.GetString(ResourceKeys.InteractivityTestMessage)</p>
             <div style="margin: 15px 0;">
                 <button class="action-button primary" @onclick="TestInteractivity">
-                    Probar Interactividad (Clicks: @clickCount)
+                    @_localization.GetString(ResourceKeys.TestInteractivityButton) (@_localization.GetString(ResourceKeys.Clicks): @clickCount)
                 </button>
                 <button class="action-button secondary" @onclick="ResetCounter" style="margin-left: 10px;">
-                    Reiniciar Contador
+                    @_localization.GetString(ResourceKeys.ResetCounterButton)
                 </button>
             </div>
             @if (showMessage)
             {
                 <div style="padding: 10px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 5px; color: #155724; margin-top: 10px;">
-                    ✅ ¡La interactividad funciona perfectamente! Los botones responden a los eventos onclick.
+                    ✅ @_localization.GetString(ResourceKeys.InteractivitySuccessMessage)
                 </div>
             }
         </div>
@@ -110,41 +111,41 @@
 
     <!-- Monitor de Estado en Tiempo Real -->
     <div class="dashboard-card" style="grid-column: 1 / -1; margin-top: 20px;">
-        <div class="card-title">📊 Monitor de Estado en Tiempo Real</div>
-        <p>Datos que se actualizan automáticamente cada 3 segundos:</p>
+        <div class="card-title">📊 @_localization.GetString(ResourceKeys.RealTimeStatusMonitor)</div>
+        <p>@_localization.GetString(ResourceKeys.RealTimeDataMessage)</p>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
             <div style="padding: 15px; background-color: #f8f9fa; border-radius: 8px; text-align: center;">
                 <div style="font-size: 24px; font-weight: bold; color: #007bff;">@onlineUsers</div>
-                <div style="font-size: 14px; color: #6c757d;">Usuarios en línea</div>
+                <div style="font-size: 14px; color: #6c757d;">@_localization.GetString(ResourceKeys.OnlineUsers)</div>
             </div>
 
             <div style="padding: 15px; background-color: #f8f9fa; border-radius: 8px; text-align: center;">
                 <div style="font-size: 24px; font-weight: bold; color: #28a745;">@messagesPerSecond/s</div>
-                <div style="font-size: 14px; color: #6c757d;">Mensajes por segundo</div>
+                <div style="font-size: 14px; color: #6c757d;">@_localization.GetString(ResourceKeys.MessagesPerSecond)</div>
             </div>
 
             <div style="padding: 15px; background-color: #f8f9fa; border-radius: 8px; text-align: center;">
                 <div style="font-size: 24px; font-weight: bold; color: #ffc107;">@serverLoad%</div>
-                <div style="font-size: 14px; color: #6c757d;">Carga del servidor</div>
+                <div style="font-size: 14px; color: #6c757d;">@_localization.GetString(ResourceKeys.ServerLoad)</div>
             </div>
 
             <div style="padding: 15px; background-color: #f8f9fa; border-radius: 8px; text-align: center;">
                 <div style="font-size: 24px; font-weight: bold; color: #17a2b8;">@queueSize</div>
-                <div style="font-size: 14px; color: #6c757d;">Cola de mensajes</div>
+                <div style="font-size: 14px; color: #6c757d;">@_localization.GetString(ResourceKeys.MessageQueue)</div>
             </div>
         </div>
         <div style="margin: 15px 0;">
             <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
                 <input type="checkbox" checked="@isMonitoringActive" @onchange="ToggleMonitoring" />
-                <span>@(isMonitoringActive ? "⏸️ Pausar" : "▶️ Iniciar") monitoreo automático</span>
+                <span>@(isMonitoringActive ? _localization.GetString(ResourceKeys.PauseMonitoring) : _localization.GetString(ResourceKeys.StartMonitoring)) monitoreo automático</span>
             </label>
         </div>
 
         @if (isMonitoringActive)
         {
             <div style="padding: 10px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 5px; color: #155724;">
-                ✅ Monitor activo - Actualizando datos cada 3 segundos...
+                ✅ @_localization.GetString(ResourceKeys.MonitorActiveMessage)
             </div>
         }
     </div>
@@ -153,8 +154,8 @@
     <NotAuthorized>
         <div class="dashboard-container">
             <div class="dashboard-header">
-                <h1>Acceso Denegado</h1>
-                <p>No estás autenticado. <a href="/login">Ir al Login</a></p>
+                <h1>@_localization.GetString(ResourceKeys.AccessDeniedTitle)</h1>
+                <p>@_localization.GetString(ResourceKeys.AccessDeniedMessage) <a href="/login">@_localization.GetString(ResourceKeys.GoToLogin)</a></p>
             </div>
         </div>
     </NotAuthorized>

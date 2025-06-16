@@ -1,16 +1,24 @@
 using Microsoft.Extensions.Localization;
-using WaHub.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
+
+using WaHub.Resources;
+using WaHub.Shared.Models;
+using WaHub.Shared.Services;
 
 namespace WaHub.Services;
 
-public class LocalizationService
+public class LocalizationService : ILocalizationService
 {
-    private readonly IStringLocalizer<LocalizationService> _localizer;   
+    private readonly IStringLocalizer<Resource> _localizer;
+    private readonly IHttpContextAccessor _httpContextAccessor;
     private string _currentLanguage = "es";
 
-    public LocalizationService(IStringLocalizer<LocalizationService> localizer)
+    public LocalizationService(IStringLocalizer<Resource> localizer, IHttpContextAccessor httpContextAccessor)
     {
-        _localizer = localizer;       
+        _localizer = localizer;
+        _httpContextAccessor = httpContextAccessor;
         _ = InitializeLanguageAsync();
     }
 
@@ -20,53 +28,73 @@ public class LocalizationService
 
     public string GetString(string key, string defaultValue = "")
     {
-        var localizedString = _localizer[key];
+        
+        var culture = new CultureInfo(_currentLanguage);
+        CultureInfo.CurrentUICulture = culture;
+        CultureInfo.CurrentCulture = culture;
+        var localizedString = _localizer.GetString(key);
         return localizedString.ResourceNotFound ? defaultValue : localizedString.Value;
     }
 
     public async Task SetLanguageAsync(string language)
     {
         _currentLanguage = language;
-        //await _storageService.SetAsync("language", language);
-        
+
+        var newCulture = new CultureInfo(language);
+        CultureInfo.DefaultThreadCurrentUICulture = newCulture;
+        CultureInfo.DefaultThreadCurrentCulture = newCulture;
+        await Task.CompletedTask;
         LanguageChanged?.Invoke();
     }
 
     private async Task InitializeLanguageAsync()
     {
+        // Console.WriteLine("InitializeLanguageAsync: Started");
         try
         {
-            //var result = await _storageService.GetAsync<string>("language");
-            //if (result.Success && !string.IsNullOrEmpty(result.Value))
-            //{
-            //    _currentLanguage = result.Value;
-            //}
+            string? preferredLanguage = null;
+
+            if (_httpContextAccessor.HttpContext != null && _httpContextAccessor.HttpContext.Request.Cookies.TryGetValue(CookieRequestCultureProvider.DefaultCookieName, out var cookieValue))
+            {
+                var requestCulture = CookieRequestCultureProvider.ParseCookieValue(cookieValue);
+                preferredLanguage = requestCulture?.UICultures[0].Value;
+                // Console.WriteLine($"InitializeLanguageAsync: Preferred Language from cookie: {preferredLanguage}");
+            }
+
+            if (!string.IsNullOrEmpty(preferredLanguage) && 
+                SupportedCultures.All.Any(x => 
+                    x.Name.Equals(preferredLanguage, StringComparison.OrdinalIgnoreCase) || 
+                    x.TwoLetterISOLanguageName.Equals(preferredLanguage, StringComparison.OrdinalIgnoreCase)
+                ))
+            {
+                _currentLanguage = preferredLanguage;
+                // Console.WriteLine($"InitializeLanguageAsync: Setting current language from preferred: {_currentLanguage}");
+            }
+            else
+            {
+                var browserLang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+                // Console.WriteLine($"InitializeLanguageAsync: Browser Language: {browserLang}");
+                if (SupportedCultures.All.Any(x => x.TwoLetterISOLanguageName.Equals(browserLang, StringComparison.OrdinalIgnoreCase)))
+                {
+                    _currentLanguage = browserLang;
+                    // Console.WriteLine($"InitializeLanguageAsync: Setting current language from browser: {_currentLanguage}");
+                }
+                else
+                {
+                    _currentLanguage = "es";
+                    // Console.WriteLine($"InitializeLanguageAsync: Setting current language to default 'es': {_currentLanguage}");
+                }
+            }
+
+            // Console.WriteLine($"InitializeLanguageAsync: Calling SetLanguageAsync with: {_currentLanguage}");
+            await SetLanguageAsync(_currentLanguage);
         }
-        catch
+        catch (Exception ex)
         {
-            _currentLanguage = "es"; // idioma por defecto
+            Console.WriteLine($"InitializeLanguageAsync: Error - {ex.Message}");
+            _currentLanguage = "es";
+            await SetLanguageAsync(_currentLanguage);
         }
-    }
-
-    // Métodos de conveniencia para las traducciones específicas
-    public string T(string key, string defaultValue = "") => GetString(key, defaultValue);
-
-    // Traducciones específicas que encontramos en el código Next.js
-    public string UserName => T("user_name", "Jonas Requena");
-    public string YourInstances => T("your_instances", "Tus Instancias");
-    public string FreeTrial => T("free_trial", "Prueba Gratis");
-    public string Subscription => T("subscription", "Suscripción");
-    public string Documentation => T("documentation", "Documentación");
-    public string Wabulk => T("wabulk", "WaBulk");
-    public string ApiToken => T("api_token", "Token API");
-    public string WebhookSettings => T("webhook_settings", "Configuración Webhook");
-    public string Support => T("support", "Soporte");
-    public string Profile => T("profile", "Perfil");
-    public string Logout => T("logout", "Cerrar Sesión");
-    public string Login => T("login", "Iniciar Sesión");
-    public string HomeTitle => T("home_title", "WhatsApp API");
-    public string ForDevelopers => T("for_developers", "para desarrolladores");
-    public string HomeDescription => T("home_description", "Envía y recibe mensajes, gestiona chats, grupos y canales fácilmente con nuestra API de nivel empresarial. Paga por cuenta de WhatsApp, sin tarifas por mensaje.");
-    public string StartFreeTrial => T("start_free_trial", "Comenzar prueba gratis");
-    public string TrialInfo => T("trial_info", "3 días de prueba gratis • Sin tarjeta de crédito • Cancela cuando quieras");
+        // Console.WriteLine("InitializeLanguageAsync: Completed");
+    }   
 }

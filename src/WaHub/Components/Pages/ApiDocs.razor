@@ -1,9 +1,9 @@
 @page "/docs"
 
 @inject NavigationService Navigation
-@inject LocalizationService Localization
+@inject ILocalizationService Localization
 
-<PageTitle>Documentación API - WaHub</PageTitle>
+<PageTitle>@Localization.GetString(ResourceKeys.ApiDocs_Title) - WaHub</PageTitle>
 
 
 
@@ -11,35 +11,35 @@
     <div class="docs-content">
         <aside class="docs-sidebar">
             <div class="sidebar-header">
-                <h3>Documentación</h3>
+                <h3>@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_Title)</h3>
             </div>
             
             <nav class="docs-nav">
                 <div class="nav-section">
-                    <h4>Primeros pasos</h4>
+                    <h4>@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_GettingStarted_Title)</h4>
                     <ul>
-                        <li><a href="/docs#getting-started" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("getting-started"))">Introducción</a></li>
-                        <li><a href="/docs#authentication" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("authentication"))">Autenticación</a></li>
-                        <li><a href="/docs#quick-start" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("quick-start"))">Inicio rápido</a></li>
+                        <li><a href="/docs#getting-started" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("getting-started"))">@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_GettingStarted_Intro)</a></li>
+                        <li><a href="/docs#authentication" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("authentication"))">@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_GettingStarted_Auth)</a></li>
+                        <li><a href="/docs#quick-start" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("quick-start"))">@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_GettingStarted_QuickStart)</a></li>
                     </ul>
                 </div>
                 
                 <div class="nav-section">
-                    <h4>API Reference</h4>
+                    <h4>@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_APIReference_Title)</h4>
                     <ul>
-                        <li><a href="/docs#send-message" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("send-message"))">Enviar mensajes</a></li>
-                        <li><a href="/docs#webhooks" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("webhooks"))">Webhooks</a></li>
-                        <li><a href="/docs#instances" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("instances"))">Instancias</a></li>
-                        <li><a href="/docs#contacts" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("contacts"))">Contactos</a></li>
+                        <li><a href="/docs#send-message" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("send-message"))">@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_APIReference_SendMessages)</a></li>
+                        <li><a href="/docs#webhooks" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("webhooks"))">@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_APIReference_Webhooks)</a></li>
+                        <li><a href="/docs#instances" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("instances"))">@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_APIReference_Instances)</a></li>
+                        <li><a href="/docs#contacts" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("contacts"))">@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_APIReference_Contacts)</a></li>
                     </ul>
                 </div>
                 
                 <div class="nav-section">
-                    <h4>SDKs</h4>
+                    <h4>@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_SDKs_Title)</h4>
                     <ul>
-                        <li><a href="/docs#javascript-sdk" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("javascript-sdk"))">JavaScript</a></li>
-                        <li><a href="/docs#python-sdk" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("python-sdk"))">Python</a></li>
-                        <li><a href="/docs#php-sdk" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("php-sdk"))">PHP</a></li>
+                        <li><a href="/docs#javascript-sdk" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("javascript-sdk"))">@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_SDKs_JS)</a></li>
+                        <li><a href="/docs#python-sdk" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("python-sdk"))">@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_SDKs_Python)</a></li>
+                        <li><a href="/docs#php-sdk" @onclick:preventDefault="true" @onclick="@(() => ScrollToSection("php-sdk"))">@Localization.GetString(ResourceKeys.ApiDocs_Sidebar_SDKs_PHP)</a></li>
                     </ul>
                 </div>
             </nav>
@@ -47,41 +47,41 @@
         
         <main class="docs-main">
             <section id="getting-started" class="docs-section">
-                <h1>Introducción a WaHub API</h1>
-                <p>WaHub proporciona una API REST simple y potente para integrar WhatsApp en tus aplicaciones. Con solo unas pocas líneas de código, puedes enviar mensajes, recibir webhooks y gestionar contactos.</p>
+                <h1>@Localization.GetString(ResourceKeys.ApiDocs_Intro_Title)</h1>
+                <p>@Localization.GetString(ResourceKeys.ApiDocs_Intro_Description)</p>
                 
                 <div class="info-box">
-                    <h3>🚀 Comenzar en 5 minutos</h3>
-                    <p>Nuestra API está diseñada para que puedas integrar WhatsApp en tu aplicación en menos de 5 minutos.</p>
+                    <h3>@Localization.GetString(ResourceKeys.ApiDocs_Intro_InfoBox_Title)</h3>
+                    <p>@Localization.GetString(ResourceKeys.ApiDocs_Intro_InfoBox_Content)</p>
                 </div>
                 
-                <h2>URL Base</h2>
+                <h2>@Localization.GetString(ResourceKeys.ApiDocs_BaseURL_Title)</h2>
                 <div class="code-block">
                     <code>https://api.wahub.dev/v1</code>
                 </div>
                 
-                <h2>Formato de respuesta</h2>
-                <p>Todas las respuestas de la API están en formato JSON:</p>
+                <h2>@Localization.GetString(ResourceKeys.ApiDocs_ResponseFormat_Title)</h2>
+                <p>@Localization.GetString(ResourceKeys.ApiDocs_ResponseFormat_Description)</p>
                 <div class="code-block">
 <pre><code>{
   "success": true,
   "data": { },
-  "message": "Operación exitosa",
+  "message": "@Localization.GetString(ResourceKeys.ApiDocs_ResponseFormat_SuccessMessage)",
   "timestamp": "2024-01-15T10:30:00Z"
 }</code></pre>
                 </div>
             </section>
             
             <section id="authentication" class="docs-section">
-                <h1>Autenticación</h1>
-                <p>WaHub utiliza API Keys para autenticar las solicitudes. Tu API Key se encuentra en tu dashboard.</p>
+                <h1>@Localization.GetString(ResourceKeys.ApiDocs_Auth_Title)</h1>
+                <p>@Localization.GetString(ResourceKeys.ApiDocs_Auth_Description)</p>
                 
                 <div class="warning-box">
-                    <h3>⚠️ Mantén tu API Key segura</h3>
-                    <p>No expongas tu API Key en código frontend. Úsala solo en tu backend.</p>
+                    <h3>@Localization.GetString(ResourceKeys.ApiDocs_Auth_WarningBox_Title)</h3>
+                    <p>@Localization.GetString(ResourceKeys.ApiDocs_Auth_WarningBox_Content)</p>
                 </div>
                 
-                <h2>Ejemplo de autenticación</h2>
+                <h2>@Localization.GetString(ResourceKeys.ApiDocs_Auth_Example_Title)</h2>
                 <div class="code-block">
 <pre><code>curl -X POST https://api.wahub.dev/v1/messages \
   -H "Authorization: Bearer YOUR_API_KEY" \
@@ -90,33 +90,33 @@
             </section>
             
             <section id="quick-start" class="docs-section">
-                <h1>Inicio rápido</h1>
-                <p>Envía tu primer mensaje con WhatsApp en menos de 2 minutos:</p>
+                <h1>@Localization.GetString(ResourceKeys.ApiDocs_QuickStart_Title)</h1>
+                <p>@Localization.GetString(ResourceKeys.ApiDocs_QuickStart_Description)</p>
                 
                 <div class="step-by-step">
                     <div class="step">
-                        <h3>Paso 1: Obtén tu API Key</h3>
-                        <p>Regístrate en WaHub y obtén tu API Key desde el dashboard.</p>
+                        <h3>@Localization.GetString(ResourceKeys.ApiDocs_QuickStart_Step1_Title)</h3>
+                        <p>@Localization.GetString(ResourceKeys.ApiDocs_QuickStart_Step1_Content)</p>
                     </div>
                     
                     <div class="step">
-                        <h3>Paso 2: Configura una instancia</h3>
-                        <p>Escanea el código QR para conectar tu número de WhatsApp.</p>
+                        <h3>@Localization.GetString(ResourceKeys.ApiDocs_QuickStart_Step2_Title)</h3>
+                        <p>@Localization.GetString(ResourceKeys.ApiDocs_QuickStart_Step2_Content)</p>
                     </div>
                     
                     <div class="step">
-                        <h3>Paso 3: Envía tu primer mensaje</h3>
+                        <h3>@Localization.GetString(ResourceKeys.ApiDocs_QuickStart_Step3_Title)</h3>
                         <div class="code-block">
-<pre><code>const response = await fetch('https://api.wahub.dev/v1/messages', {
-  method: 'POST',
+<pre><code>const response = await fetch(\'https://api.wahub.dev/v1/messages\', {
+  method: \'POST\',
   headers: {
-    'Authorization': 'Bearer YOUR_API_KEY',
-    'Content-Type': 'application/json'
+    \'Authorization\': \'Bearer YOUR_API_KEY\',
+    \'Content-Type\': \'application/json\'
   },
   body: JSON.stringify({
-    to: '5491234567890',
-    type: 'text',
-    text: '¡Hola desde WaHub! 👋'
+    to: \'5491234567890\',
+    type: \'text\',
+    text: \'@Localization.GetString(ResourceKeys.ApiDocs_QuickStart_Step3_Message)\'
   })
 });</code></pre>
                         </div>
@@ -125,20 +125,20 @@
             </section>
             
             <section id="send-message" class="docs-section">
-                <h1>Enviar mensajes</h1>
-                <p>Envía diferentes tipos de mensajes usando la API de WaHub.</p>
+                <h1>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_Title)</h1>
+                <p>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_Description)</p>
                 
-                <h2>POST /messages</h2>
-                <p>Envía un mensaje de texto, imagen, documento o cualquier otro tipo de contenido.</p>
+                <h2>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_PostEndpoint)</h2>
+                <p>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_PostEndpoint_Description)</p>
                 
-                <h3>Parámetros</h3>
+                <h3>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_Parameters_Title)</h3>
                 <table class="params-table">
                     <thead>
                         <tr>
-                            <th>Parámetro</th>
-                            <th>Tipo</th>
-                            <th>Requerido</th>
-                            <th>Descripción</th>
+                            <th>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_Parameters_Param)</th>
+                            <th>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_Parameters_Type)</th>
+                            <th>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_Parameters_Required)</th>
+                            <th>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_Parameters_Description)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -146,65 +146,65 @@
                             <td><code>to</code></td>
                             <td>string</td>
                             <td>Sí</td>
-                            <td>Número de teléfono con código de país</td>
+                            <td>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_Parameters_To_Desc)</td>
                         </tr>
                         <tr>
                             <td><code>type</code></td>
                             <td>string</td>
                             <td>Sí</td>
-                            <td>Tipo de mensaje: text, image, document, audio, video</td>
+                            <td>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_Parameters_Type_Desc)</td>
                         </tr>
                         <tr>
                             <td><code>text</code></td>
                             <td>string</td>
                             <td>No</td>
-                            <td>Texto del mensaje (requerido si type=text)</td>
+                            <td>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_Parameters_Text_Desc)</td>
                         </tr>
                         <tr>
                             <td><code>media_url</code></td>
                             <td>string</td>
                             <td>No</td>
-                            <td>URL del archivo multimedia</td>
+                            <td>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_Parameters_MediaUrl_Desc)</td>
                         </tr>
                     </tbody>
                 </table>
                 
-                <h3>Ejemplo: Mensaje de texto</h3>
+                <h3>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_ExampleText_Title)</h3>
                 <div class="code-block">
 <pre><code>{
   "to": "5491234567890",
   "type": "text",
-  "text": "¡Hola! ¿Cómo estás?"
+  "text": "@Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Example_Message)"
 }</code></pre>
                 </div>
                 
-                <h3>Ejemplo: Enviar imagen</h3>
+                <h3>@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_ExampleImage_Title)</h3>
                 <div class="code-block">
 <pre><code>{
   "to": "5491234567890",
   "type": "image",
   "media_url": "https://example.com/image.jpg",
-  "caption": "Mira esta foto increíble!"
+  "caption": "@Localization.GetString(ResourceKeys.ApiDocs_SendMessages_ExampleImage_Caption)"
 }</code></pre>
                 </div>
             </section>
             
             <section id="webhooks" class="docs-section">
-                <h1>Webhooks</h1>
-                <p>Recibe notificaciones en tiempo real cuando ocurren eventos en tu instancia de WhatsApp.</p>
+                <h1>@Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Title)</h1>
+                <p>@Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Description)</p>
                 
-                <h2>Configuración</h2>
-                <p>Configura tu URL de webhook en el dashboard de WaHub. Cuando ocurra un evento, enviaremos un POST a tu endpoint.</p>
+                <h2>@Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Config_Title)</h2>
+                <p>@Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Config_Description)</p>
                 
-                <h2>Eventos disponibles</h2>
+                <h2>@Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Events_Title)</h2>
                 <ul>
-                    <li><strong>message_received:</strong> Cuando recibes un mensaje</li>
-                    <li><strong>message_sent:</strong> Cuando envías un mensaje</li>
-                    <li><strong>message_delivered:</strong> Cuando un mensaje es entregado</li>
-                    <li><strong>message_read:</strong> Cuando un mensaje es leído</li>
+                    <li><strong>@Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Event_MessageReceived_Name)</strong> @Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Event_MessageReceived_Desc)</li>
+                    <li><strong>@Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Event_MessageSent_Name)</strong> @Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Event_MessageSent_Desc)</li>
+                    <li><strong>@Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Event_MessageDelivered_Name)</strong> @Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Event_MessageDelivered_Desc)</li>
+                    <li><strong>@Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Event_MessageRead_Name)</strong> @Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Event_MessageRead_Desc)</li>
                 </ul>
                 
-                <h2>Ejemplo de webhook</h2>
+                <h2>@Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Example_Title)</h2>
                 <div class="code-block">
 <pre><code>{
   "event": "message_received",
@@ -213,7 +213,7 @@
     "from": "5491234567890",
     "timestamp": "2024-01-15T10:30:00Z",
     "type": "text",
-    "text": "Hola, ¿cómo estás?"
+    "text": "@Localization.GetString(ResourceKeys.ApiDocs_Webhooks_Example_Message)"
   }
 }</code></pre>
                 </div>

@@ -1,0 +1,30 @@
+@using Microsoft.AspNetCore.Localization
+@rendermode InteractiveAuto
+@inject ILocalizationService Localization
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
+    @* { Console.WriteLine($"LanguageSelector: Select value is {Localization.CurrentLanguage}"); } *@
+    @foreach (var culture in SupportedCultures.All)
+    {
+        <option value="@culture.Name">@(char.ToUpper(culture.NativeName[0]) + culture.NativeName.Substring(1))</option>
+    }
+</select>
+
+@code {
+    private async Task OnLanguageChanged(ChangeEventArgs e)
+    {
+        // Console.WriteLine($"OnLanguageChanged event fired. New value: {e.Value}");
+        if (e.Value is string selectedLanguage)
+        {
+            await Localization.SetLanguageAsync(selectedLanguage);
+            
+            // Set the cookie directly using JavaScript
+            await JSRuntime.InvokeVoidAsync("setLanguageCookie", CookieRequestCultureProvider.DefaultCookieName, selectedLanguage);
+
+            NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true); // Recargar la página
+            // Console.WriteLine($"Language changed to: {selectedLanguage}");
+        }
+    }
+} 

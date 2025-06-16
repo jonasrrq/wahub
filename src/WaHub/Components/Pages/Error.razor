@@ -1,7 +1,9 @@
-﻿@page "/404"
+@page "/404"
 @using System.Diagnostics
+@using WaHub.Shared.Models
+@inject ILocalizationService Localization
 @* @inject NavigationService Navigation *@
-<PageTitle>Error 404</PageTitle>
+<PageTitle>@Localization.GetString(ResourceKeys.Error404Title)</PageTitle>
 
 
 <AuthorizeView>
@@ -21,9 +23,9 @@
                     <div class="dashboard-container">
                         <div class="dashboard-header">
                             <div class="error-number">404</div>
-                            <h1>Página no encontrada</h1>
-                            <p>Lo sentimos, la página que buscas no existe o ha sido movida.</p>
-                            <a href="/admin/dashboard">Volver al inicio</a>
+                            <h1>@Localization.GetString(ResourceKeys.PageNotFound)</h1>
+                            <p>@Localization.GetString(ResourceKeys.PageNotFoundMessage)</p>
+                            <a href="/admin/dashboard">@Localization.GetString(ResourceKeys.BackToDashboard)</a>
                         </div>
                     </div>
                 </div>
@@ -34,9 +36,9 @@
         <div class="dashboard-container">
             <div class="dashboard-header">
                 <div class="error-number">404</div>
-                <h1>Página no encontrada</h1>
-                <p>Lo sentimos, la página que buscas no existe o ha sido movida.</p>
-                <a href="/">Volver al inicio</a>
+                <h1>@Localization.GetString(ResourceKeys.PageNotFound)</h1>
+                <p>@Localization.GetString(ResourceKeys.PageNotFoundMessage)</p>
+                <a href="/">@Localization.GetString(ResourceKeys.BackToHome)</a>
             </div>
         </div>
     </NotAuthorized>
@@ -48,8 +50,8 @@
     [CascadingParameter]
     private HttpContext? HttpContext { get; set; }
 
-    [Parameter]
-    public string Id { get; set; }
+    // [Parameter]
+    // public string Id { get; set; }
 
     private string? RequestId { get; set; }
     private bool ShowRequestId => !string.IsNullOrEmpty(RequestId);

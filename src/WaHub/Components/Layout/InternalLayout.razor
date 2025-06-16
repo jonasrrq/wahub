@@ -1,5 +1,5 @@
 ﻿@inject NavigationService Navigation
-@inject LocalizationService Localization
+@inject ILocalizationService Localization
 
 @* 
 <ErrorBoundary @ref="_errorBoundary" Context="ex">
@@ -19,10 +19,7 @@
                             <div class="main-content">
                                 <div class="language-switcher-container">
                                     <div class="language-switcher">
-                                        <select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
-                                            <option value="es">🇪🇸 Español</option>
-                                            <option value="en">🇺🇸 English</option>
-                                        </select>
+                                        <LanguageSelector />
                                     </div>
                                 </div>
                                 <div class="content">
@@ -63,22 +60,15 @@
 
 
 @* <div id="blazor-error-ui" data-nosnippet>
-    An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
+    @Localization.GetString(ResourceKeys.InternalLayout_ErrorOccurred)
+    <a href="." class="reload">@Localization.GetString(ResourceKeys.InternalLayout_Reload)</a>
+    <span class="dismiss">@Localization.GetString(ResourceKeys.InternalLayout_CloseIcon)</span>
 </div> *@
 
 @code {
     [Parameter] public RenderFragment? ChildContent { get; set; }
 
-    private ErrorBoundary? _errorBoundary;
+    // private ErrorBoundary? _errorBoundary;
 
-    private void ResetErrorBoundary() => _errorBoundary?.Recover();
-
-    private async Task OnLanguageChanged(ChangeEventArgs e)
-    {
-        var selectedLanguage = e.Value?.ToString() ?? "es";
-        await Localization.SetLanguageAsync(selectedLanguage);
-        StateHasChanged();
-    }
+    // private void ResetErrorBoundary() => _errorBoundary?.Recover();
 }

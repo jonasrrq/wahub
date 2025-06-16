@@ -1,0 +1,2585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Login" xml:space="preserve">
+    <value>Se connecter</value>
+  </data>
+  <!-- Traductions pour src/WaHub/Components/Layout/HomeNavbar.razor -->
+  <data name="HomeNavbar_WaHub" xml:space="preserve">
+    <value>WaHub</value>
+  </data>
+  <data name="HomeNavbar_Prices" xml:space="preserve">
+    <value>Prix</value>
+  </data>
+  <data name="HomeNavbar_API" xml:space="preserve">
+    <value>API</value>
+  </data>
+  <data name="HomeNavbar_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="HomeNavbar_Register" xml:space="preserve">
+    <value>S'inscrire</value>
+  </data>
+  <!-- Traducciones para src/WaHub.Client/Layout/WaHubSidebar.razor -->
+  <data name="WaHubSidebar_WaHub" xml:space="preserve">
+    <value>WaHub</value>
+  </data>
+  <data name="WaHubSidebar_Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="WaHubSidebar_Logout" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
+  <data name="WaHubSidebar_YourInstances" xml:space="preserve">
+    <value>Vos Instances</value>
+  </data>
+  <data name="WaHubSidebar_FreeTrial" xml:space="preserve">
+    <value>Essai Gratuit</value>
+  </data>
+  <data name="WaHubSidebar_Subscription" xml:space="preserve">
+    <value>Abonnement</value>
+  </data>
+  <data name="WaHubSidebar_Documentation" xml:space="preserve">
+    <value>Documentation</value>
+  </data>
+  <data name="WaHubSidebar_WaBulk" xml:space="preserve">
+    <value>WaBulk</value>
+  </data>
+  <data name="WaHubSidebar_APIToken" xml:space="preserve">
+    <value>Jeton d'API</value>
+  </data>
+  <data name="WaHubSidebar_WebhookSettings" xml:space="preserve">
+    <value>Paramètres de Webhook</value>
+  </data>
+  <data name="WaHubSidebar_Support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <!-- Traductions pour WaHub/Components/Pages/Error.razor -->
+  <data name="Error404Title" xml:space="preserve">
+    <value>Erreur 404</value>
+  </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>Page non trouvée</value>
+  </data>
+  <data name="PageNotFoundMessage" xml:space="preserve">
+    <value>Désolé, la page que vous recherchez n'existe pas ou a été déplacée.</value>
+  </data>
+  <data name="BackToHome" xml:space="preserve">
+    <value>Retour à l'accueil</value>
+  </data>
+  <data name="BackToDashboard" xml:space="preserve">
+    <value>Retour au tableau de bord</value>
+  </data>
+  <!-- Traductions pour WaHub/Components/Pages/EnConstruccion.razor -->
+  <data name="UnderConstructionTitle" xml:space="preserve">
+    <value>Page en construction !</value>
+  </data>
+  <data name="UnderConstructionMessage1" xml:space="preserve">
+    <value>Nous travaillons dur pour vous apporter cette section très bientôt.</value>
+  </data>
+  <data name="UnderConstructionMessage2" xml:space="preserve">
+    <value>Veuillez revenir plus tard ou explorer d'autres parties de la plateforme.</value>
+  </data>
+  <data name="BackToDashboardButton" xml:space="preserve">
+    <value>Retour au tableau de bord</value>
+  </data>
+  <!-- Traductions pour WaHub/Components/Pages/Home.razor -->
+  <data name="Home_PageTitle" xml:space="preserve">
+    <value>WaHub - Plateforme de Gestion WhatsApp</value>
+  </data>
+  <data name="Home_AppName" xml:space="preserve">
+    <value>WaHub</value>
+  </data>
+  <data name="Home_HeroTitle" xml:space="preserve">
+    <value>WaHub pour les Développeurs</value>
+  </data>
+  <data name="Home_HeroDescription" xml:space="preserve">
+    <value>Envoyez et recevez des messages, gérez les discussions, groupes et canaux facilement avec notre API de niveau entreprise. Payez par compte WhatsApp, sans frais par message.</value>
+  </data>
+  <data name="Home_HeroButton" xml:space="preserve">
+    <value>Commencer l'Essai Gratuit</value>
+  </data>
+  <data name="Home_TrialInfo" xml:space="preserve">
+    <value>3 jours d'essai gratuit • Pas de carte de crédit requise • Annulez à tout moment</value>
+  </data>
+  <data name="Home_WhyChoose" xml:space="preserve">
+    <value>Pourquoi Choisir WaHub?</value>
+  </data>
+  <!-- Caractéristiques -->
+  <data name="FeatureFastApiTitle" xml:space="preserve">
+    <value>API Ultra-Rapide</value>
+  </data>
+  <data name="FeatureFastApiDesc" xml:space="preserve">
+    <value>Intégrez WhatsApp en quelques secondes avec notre API REST simple et puissante. Temps de réponse moyen &amp;lt; 100ms.</value>
+  </data>
+  <data name="FeatureSecurityTitle" xml:space="preserve">
+    <value>Sécurité Avancée</value>
+  </data>
+  <data name="FeatureSecurityDesc" xml:space="preserve">
+    <value>Authentification JWT, chiffrement de bout en bout et conformité RGPD. Vos données sont protégées.</value>
+  </data>
+  <data name="FeatureAnalyticsTitle" xml:space="preserve">
+    <value>Analyses en Temps Réel</value>
+  </data>
+  <data name="FeatureAnalyticsDesc" xml:space="preserve">
+    <value>Surveillez les métriques de livraison, de réponse et d'engagement avec des tableaux de bord interactifs.</value>
+  </data>
+  <data name="FeatureWebhooksTitle" xml:space="preserve">
+    <value>Webhooks Intelligents</value>
+  </data>
+  <data name="FeatureWebhooksDesc" xml:space="preserve">
+    <value>Recevez des notifications instantanées pour les messages entrants et les statuts de livraison.</value>
+  </data>
+  <data name="FeatureInstancesTitle" xml:space="preserve">
+    <value>Multiples Instances</value>
+  </data>
+  <data name="FeatureInstancesDesc" xml:space="preserve">
+    <value>Gérez plusieurs numéros WhatsApp à partir d'une seule plateforme. Idéal pour les équipes.</value>
+  </data>
+  <data name="FeatureMediaTitle" xml:space="preserve">
+    <value>Support Multimédia Complet</value>
+  </data>
+  <data name="FeatureMediaDesc" xml:space="preserve">
+    <value>Envoyez des images, vidéos, audios, documents et localisations sans limites.</value>
+  </data>
+  <!-- Section Code -->
+  <data name="HomeCodeSectionTitle" xml:space="preserve">
+    <value>Intégration en Quelques Minutes</value>
+  </data>
+  <data name="HomeCodeLanguage" xml:space="preserve">
+    <value>JavaScript</value>
+  </data>
+  <data name="HomeCodeCopy" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="HomeCodeMessage" xml:space="preserve">
+    <value>Bonjour ! Message envoyé depuis WaHub 🚀</value>
+  </data>
+  <data name="HomeCodeLog" xml:space="preserve">
+    <value>Message envoyé :</value>
+  </data>
+  <!-- Tarification -->
+  <data name="HomePricingTitle" xml:space="preserve">
+    <value>Tarification Transparente</value>
+  </data>
+  <data name="HomePricingPerMonth" xml:space="preserve">
+    <value>/mois</value>
+  </data>
+  <!-- Forfaits -->
+  <data name="PlanDeveloper" xml:space="preserve">
+    <value>Développeur</value>
+  </data>
+  <data name="PlanDeveloperMessages" xml:space="preserve">
+    <value>1 000 messages/mois</value>
+  </data>
+  <data name="PlanDeveloperInstances" xml:space="preserve">
+    <value>1 instance</value>
+  </data>
+  <data name="PlanDeveloperApi" xml:space="preserve">
+    <value>API complète</value>
+  </data>
+  <data name="PlanDeveloperSupport" xml:space="preserve">
+    <value>Support par email</value>
+  </data>
+  <data name="PlanDeveloperButton" xml:space="preserve">
+    <value>Commencer gratuitement</value>
+  </data>
+  <data name="PlanStartupBadge" xml:space="preserve">
+    <value>Le Plus Populaire</value>
+  </data>
+  <data name="PlanStartup" xml:space="preserve">
+    <value>Startup</value>
+  </data>
+  <data name="PlanStartupMessages" xml:space="preserve">
+    <value>50 000 messages/mois</value>
+  </data>
+  <data name="PlanStartupInstances" xml:space="preserve">
+    <value>5 instances</value>
+  </data>
+  <data name="PlanStartupAnalytics" xml:space="preserve">
+    <value>Analyses avancées</value>
+  </data>
+  <data name="PlanStartupWebhooks" xml:space="preserve">
+    <value>Webhooks</value>
+  </data>
+  <data name="PlanStartupSupport" xml:space="preserve">
+    <value>Support prioritaire</value>
+  </data>
+  <data name="PlanStartupButton" xml:space="preserve">
+    <value>Commencer l'essai</value>
+  </data>
+  <data name="PlanEnterprise" xml:space="preserve">
+    <value>Entreprise</value>
+  </data>
+  <data name="PlanEnterpriseMessages" xml:space="preserve">
+    <value>500 000 messages/mois</value>
+  </data>
+  <data name="PlanEnterpriseInstances" xml:space="preserve">
+    <value>Instances illimitées</value>
+  </data>
+  <data name="PlanEnterpriseSla" xml:space="preserve">
+    <value>SLA 99,9%</value>
+  </data>
+  <data name="PlanEnterpriseSupport" xml:space="preserve">
+    <value>Support 24/7</value>
+  </data>
+  <data name="PlanEnterpriseIntegrations" xml:space="preserve">
+    <value>Intégrations personnalisées</value>
+  </data>
+  <data name="PlanEnterpriseButton" xml:space="preserve">
+    <value>Contacter les ventes</value>
+  </data>
+  <!-- Témoignages -->
+  <data name="HomeTestimonialsTitle" xml:space="preserve">
+    <value>Ce que disent nos utilisateurs</value>
+  </data>
+  <!-- CTA -->
+  <data name="HomeCtaTitle" xml:space="preserve">
+    <value>Prêt à commencer ?</value>
+  </data>
+  <data name="HomeCtaSubtitle" xml:space="preserve">
+    <value>Rejoignez plus de 1 000 développeurs qui font déjà confiance à WaHub</value>
+  </data>
+  <data name="HomeCtaButton1" xml:space="preserve">
+    <value>Commencer gratuitement</value>
+  </data>
+  <data name="HomeCtaButton2" xml:space="preserve">
+    <value>Contacter les ventes</value>
+  </data>
+  <!-- Pied de page -->
+  <data name="FooterTagline" xml:space="preserve">
+    <value>La plateforme d'API WhatsApp la plus fiable pour les développeurs.</value>
+  </data>
+  <data name="FooterProduct" xml:space="preserve">
+    <value>Produit</value>
+  </data>
+  <data name="FooterSupport" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="FooterLegal" xml:space="preserve">
+    <value>Légal</value>
+  </data>
+  <data name="FooterCopyright" xml:space="preserve">
+    <value>© {0} WaHub. Tous droits réservés.</value>
+  </data>
+  <!-- Liens du Pied de page -->
+  <data name="APIDocs" xml:space="preserve">
+    <value>Documentation API</value>
+  </data>
+  <data name="Pricing" xml:space="preserve">
+    <value>Tarification</value>
+  </data>
+  <data name="ServiceStatus" xml:space="preserve">
+    <value>État des services</value>
+  </data>
+  <data name="HelpCenter" xml:space="preserve">
+    <value>Centre d'aide</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Community" xml:space="preserve">
+    <value>Communauté</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Confidentialité</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Conditions</value>
+  </data>
+  <data name="GDPR" xml:space="preserve">
+    <value>RGPD</value>
+  </data>
+  <!-- Exemple de Code -->
+  <data name="CodeExampleTitle" xml:space="preserve">
+    <value>Envoyer un message avec l'API WaHub</value>
+  </data>
+  <data name="CodeExampleMessage" xml:space="preserve">
+    <value>Bonjour ! Message envoyé depuis WaHub 🚀</value>
+  </data>
+  <data name="CodeExampleLog" xml:space="preserve">
+    <value>Message envoyé :</value>
+  </data>
+  <!-- Traductions pour src/WaHub/Components/Layout/InternalLayout.razor -->
+  <data name="InternalLayout_ErrorOccurred" xml:space="preserve">
+    <value>Une erreur non gérée s'est produite.</value>
+  </data>
+  <data name="InternalLayout_Reload" xml:space="preserve">
+    <value>Recharger</value>
+  </data>
+  <data name="InternalLayout_CloseIcon" xml:space="preserve">
+    <value>🗙</value>
+  </data>
+  <!-- Traductions pour src/WaHub.Client/Layout/NotificationContainer.razor -->
+  <data name="Notification_Close" xml:space="preserve">
+    <value>✖</value>
+  </data>
+  <data name="Notification_SuccessIcon" xml:space="preserve">
+    <value>✓</value>
+  </data>
+  <data name="Notification_ErrorIcon" xml:space="preserve">
+    <value>✗</value>
+  </data>
+  <data name="Notification_WarningIcon" xml:space="preserve">
+    <value>⚠</value>
+  </data>
+  <data name="Notification_InfoIcon" xml:space="preserve">
+    <value>ℹ</value>
+  </data>
+  <!-- Traductions pour src/WaHub.Client/Shared/MyButton.razor -->
+  <data name="MyButton_ClickMe" xml:space="preserve">
+    <value>Cliquez-moi</value>
+  </data>
+  <data name="MyButton_HelloWorld" xml:space="preserve">
+    <value>Bonjour le monde depuis le bouton</value>
+  </data>
+  <!-- Traductions pour src/WaHub/Components/App.razor -->
+  <data name="App_Lang" xml:space="preserve">
+    <value>fr</value>
+  </data>
+  <data name="App_Title" xml:space="preserve">
+    <value>WaHub - Plateforme de gestion WhatsApp</value>
+  </data>
+  <!-- Traductions pour src/WaHub/Components/Routes.razor -->
+  <data name="Routes_PageNotFound" xml:space="preserve">
+    <value>Page non trouvée</value>
+  </data>
+  <data name="Routes_PageNotFoundMessage" xml:space="preserve">
+    <value>La page que vous recherchez n'existe pas.</value>
+  </data>
+  <data name="Routes_BackToHome" xml:space="preserve">
+    <value>← Retour à l'accueil</value>
+  </data>
+  <!-- Traductions pour src/WaHub/Components/ErrorBoundaryContent.razor -->
+  <data name="ErrorBoundaryContent_ErrorOccurred" xml:space="preserve">
+    <value>Une erreur s'est produite</value>
+  </data>
+  <data name="ErrorBoundaryContent_Unexpected" xml:space="preserve">
+    <value>Oups, une erreur inattendue s'est produite !</value>
+  </data>
+  <data name="ErrorBoundaryContent_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <!-- Traductions pour src/WaHub/Components/Pages/Privacy.razor -->
+  <data name="Privacy_Title" xml:space="preserve">
+    <value>Politique de Confidentialité - WaHub</value>
+  </data>
+  <data name="Privacy_Header" xml:space="preserve">
+    <value>Politique de Confidentialité</value>
+  </data>
+  <data name="Privacy_LastUpdate" xml:space="preserve">
+    <value>Dernière mise à jour : 15 décembre 2023</value>
+  </data>
+  <data name="Privacy_Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="Privacy_Section1" xml:space="preserve">
+    <value>1. Introduction</value>
+  </data>
+  <data name="Privacy_Section2" xml:space="preserve">
+    <value>2. Informations que nous collectons</value>
+  </data>
+  <data name="Privacy_AccountInfo_Intro" xml:space="preserve">
+    <value>Lorsque vous créez un compte chez nous, nous collectons :</value>
+  </data>
+  <data name="Privacy_AccountInfo_Name" xml:space="preserve">
+    <value>Nom et prénom</value>
+  </data>
+  <data name="Privacy_AccountInfo_Email" xml:space="preserve">
+    <value>Adresse e-mail</value>
+  </data>
+  <data name="Privacy_AccountInfo_Password" xml:space="preserve">
+    <value>Mot de passe (chiffré)</value>
+  </data>
+  <data name="Privacy_AccountInfo_Phone" xml:space="preserve">
+    <value>Numéro de téléphone (optionnel)</value>
+  </data>
+  <data name="Privacy_AccountInfo_Company" xml:space="preserve">
+    <value>Informations sur l'entreprise (optionnel)</value>
+  </data>
+  <data name="Privacy_AccountInfo_Photo" xml:space="preserve">
+    <value>Photo de profil (optionnel)</value>
+  </data>
+  <data name="Privacy_Section2_2" xml:space="preserve">
+    <value>2.2 Informations d'utilisation du service</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Intro" xml:space="preserve">
+    <value>Pour fournir et améliorer notre service, nous collectons :</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Preferences" xml:space="preserve">
+    <value>Paramètres de compte et préférences</value>
+  </data>
+  <data name="Privacy_Section3" xml:space="preserve">
+    <value>3. Comment nous utilisons les informations</value>
+  </data>
+  <data name="Privacy_Section3_1" xml:space="preserve">
+    <value>3.1 Fournir le service</value>
+  </data>
+  <data name="Privacy_ProvideAccount" xml:space="preserve">
+    <value>Créer et gérer votre compte</value>
+  </data>
+  <data name="Privacy_ProvideAutomations" xml:space="preserve">
+    <value>Traiter et exécuter les automatisations WhatsApp</value>
+  </data>
+  <data name="Privacy_ProvideSupport" xml:space="preserve">
+    <value>Fournir un support technique et un service client</value>
+  </data>
+  <data name="Privacy_ProvidePayments" xml:space="preserve">
+    <value>Traiter les paiements et gérer la facturation</value>
+  </data>
+  <data name="Privacy_ProvideNotifications" xml:space="preserve">
+    <value>Envoyer des notifications importantes du service</value>
+  </data>
+  <data name="Privacy_Section3_2" xml:space="preserve">
+    <value>3.2 Améliorer le service</value>
+  </data>
+  <data name="Privacy_ImproveUsage" xml:space="preserve">
+    <value>Analyser les habitudes d'utilisation pour optimiser les fonctionnalités</value>
+  </data>
+  <data name="Privacy_ImproveFeatures" xml:space="preserve">
+    <value>Développer de nouvelles fonctionnalités et services</value>
+  </data>
+  <data name="Privacy_ImproveResearch" xml:space="preserve">
+    <value>Mener des recherches et des analyses de marché</value>
+  </data>
+  <data name="Privacy_ImproveFixes" xml:space="preserve">
+    <value>Identifier et corriger les erreurs ou problèmes de performance</value>
+  </data>
+  <data name="Privacy_Section4" xml:space="preserve">
+    <value>4. Partage des informations</value>
+  </data>
+  <data name="Privacy_Section4_1" xml:space="preserve">
+    <value>4.1 Nous ne vendons pas de données personnelles</value>
+  </data>
+  <data name="Privacy_NoSellData" xml:space="preserve">
+    <value>Nous ne vendons, louons ni ne commercialisons vos informations personnelles à des tiers à des fins de marketing.</value>
+  </data>
+  <data name="Privacy_Section4_2" xml:space="preserve">
+    <value>4.2 Quand partageons-nous des informations</value>
+  </data>
+  <data name="Privacy_ShareCircumstances" xml:space="preserve">
+    <value>Nous pouvons partager vos informations uniquement dans les circonstances suivantes :</value>
+  </data>
+  <data name="Privacy_WithServiceProviders" xml:space="preserve">
+    <value>Avec des fournisseurs de services</value>
+  </data>
+  <data name="Privacy_PaymentProcessors" xml:space="preserve">
+    <value>Processeurs de paiement (Stripe, PayPal)</value>
+  </data>
+  <data name="Privacy_CloudServices" xml:space="preserve">
+    <value>Services d'infrastructure cloud (AWS, Google Cloud)</value>
+  </data>
+  <data name="Privacy_AnalyticsTools" xml:space="preserve">
+    <value>Outils d'analyse et de surveillance</value>
+  </data>
+  <data name="Privacy_CustomerSupport" xml:space="preserve">
+    <value>Services d'assistance à la clientèle</value>
+  </data>
+  <data name="Privacy_SecurityProviders" xml:space="preserve">
+    <value>Fournisseurs de sécurité et de prévention de la fraude</value>
+  </data>
+  <data name="Privacy_WithConsent" xml:space="preserve">
+    <value>Avec votre consentement</value>
+  </data>
+  <data name="Privacy_ExplicitAuthorization" xml:space="preserve">
+    <value>Lorsque vous autorisez explicitement le partage</value>
+  </data>
+  <data name="Privacy_ThirdPartyIntegrations" xml:space="preserve">
+    <value>Pour les intégrations avec des services tiers que vous configurez</value>
+  </data>
+  <data name="Privacy_SpecificFeatures" xml:space="preserve">
+    <value>Pour des fonctionnalités spécifiques nécessitant le partage de données</value>
+  </data>
+  <data name="Privacy_LegalRequirements" xml:space="preserve">
+    <value>Pour des exigences légales</value>
+  </data>
+  <data name="Privacy_CourtOrders" xml:space="preserve">
+    <value>Pour se conformer aux ordonnances judiciaires ou aux assignations</value>
+  </data>
+  <data name="Privacy_LawsRegulations" xml:space="preserve">
+    <value>Pour se conformer aux lois et réglementations applicables</value>
+  </data>
+  <data name="Privacy_ProtectLegalRights" xml:space="preserve">
+    <value>Pour protéger nos droits légaux</value>
+  </data>
+  <data name="Privacy_InvestigateViolations" xml:space="preserve">
+    <value>Pour enquêter sur d'éventuelles violations de nos conditions</value>
+  </data>
+  <data name="Privacy_CorporateTransactions" xml:space="preserve">
+    <value>Dans les transactions d'entreprise</value>
+  </data>
+  <data name="Privacy_TransactionNote" xml:space="preserve">
+    <value>En cas de fusion, d'acquisition ou de vente d'actifs, vos informations peuvent être transférées dans le cadre de cette transaction, avec les mêmes protections de confidentialité.</value>
+  </data>
+  <data name="Privacy_Section5" xml:space="preserve">
+    <value>5. Sécurité des données</value>
+  </data>
+  <data name="Privacy_Section5_1" xml:space="preserve">
+    <value>5.1 Mesures de sécurité</value>
+  </data>
+  <data name="Privacy_SecurityMeasures_Intro" xml:space="preserve">
+    <value>Nous mettons en œuvre plusieurs couches de sécurité pour protéger vos informations :</value>
+  </data>
+  <data name="Privacy_TechnicalSecurity" xml:space="preserve">
+    <value>Sécurité technique</value>
+  </data>
+  <data name="Privacy_TLS" xml:space="preserve">
+    <value>Chiffrement TLS/SSL pour les données en transit</value>
+  </data>
+  <data name="Privacy_AES256" xml:space="preserve">
+    <value>Chiffrement AES-256 pour les données au repos</value>
+  </data>
+  <data name="Privacy_2FA" xml:space="preserve">
+    <value>Authentification à deux facteurs (2FA)</value>
+  </data>
+  <data name="Privacy_RBAC" xml:space="preserve">
+    <value>Contrôles d'accès basés sur les rôles</value>
+  </data>
+  <data name="Privacy_SecurityMonitoring" xml:space="preserve">
+    <value>Surveillance de la sécurité 24h/24 et 7j/7</value>
+  </data>
+  <data name="Privacy_SecurityAudits" xml:space="preserve">
+    <value>Audits de sécurité réguliers</value>
+  </data>
+  <data name="Privacy_PhysicalSecurity" xml:space="preserve">
+    <value>Sécurité physique</value>
+  </data>
+  <data name="Privacy_SOC2" xml:space="preserve">
+    <value>Centres de données certifiés SOC 2</value>
+  </data>
+  <data name="Privacy_PhysicalAccess" xml:space="preserve">
+    <value>Accès physique contrôlé et surveillé</value>
+  </data>
+  <data name="Privacy_BackupSystems" xml:space="preserve">
+    <value>Systèmes de sauvegarde et de récupération</value>
+  </data>
+  <data name="Privacy_GeoRedundancy" xml:space="preserve">
+    <value>Redondance géographique</value>
+  </data>
+  <data name="Privacy_AdminSecurity" xml:space="preserve">
+    <value>Sécurité administrative</value>
+  </data>
+  <data name="Privacy_SecurityTraining" xml:space="preserve">
+    <value>Formation régulière à la sécurité pour les employés</value>
+  </data>
+  <data name="Privacy_DataAccessPolicies" xml:space="preserve">
+    <value>Politiques d'accès strictes aux données</value>
+  </data>
+  <data name="Privacy_NDA" xml:space="preserve">
+    <value>Accords de confidentialité avec tout le personnel</value>
+  </data>
+  <data name="Privacy_IncidentResponse" xml:space="preserve">
+    <value>Processus de réponse aux incidents</value>
+  </data>
+  <data name="Privacy_Section5_2" xml:space="preserve">
+    <value>5.2 Notification de violation</value>
+  </data>
+  <data name="Privacy_BreachNotification" xml:space="preserve">
+    <value>Dans le cas improbable d'une violation de la sécurité affectant vos données personnelles, nous vous en informerons dans les 72 heures suivant la prise de connaissance de l'incident, comme l'exigent les réglementations applicables.</value>
+  </data>
+  <data name="Privacy_Section6" xml:space="preserve">
+    <value>6. Conservation des données</value>
+  </data>
+  <data name="Privacy_DeviceIdentifiers" xml:space="preserve">
+    <value>Identifiants uniques de l'appareil</value>
+  </data>
+  <data name="Privacy_Section2_5" xml:space="preserve">
+    <value>2.5 Informations de Paiement</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Intro" xml:space="preserve">
+    <value>Pour traiter les paiements, nous collectons :</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Billing" xml:space="preserve">
+    <value>Informations de facturation (nom, adresse)</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Last4" xml:space="preserve">
+    <value>4 derniers chiffres des cartes de crédit</value>
+  </data>
+  <data name="Privacy_PaymentInfo_History" xml:space="preserve">
+    <value>Historique des transactions</value>
+  </data>
+  <data name="Privacy_Note" xml:space="preserve">
+    <value>Remarque :</value>
+  </data>
+  <data name="Privacy_PaymentInfo_Processors" xml:space="preserve">
+    <value>Les détails complets des cartes de crédit sont traités directement par nos processeurs de paiement sécurisés (Stripe, PayPal) et ne sont jamais stockés sur nos serveurs.</value>
+  </data>
+  <data name="Privacy_HowWeUse" xml:space="preserve">
+    <value>Comment nous utilisons les informations</value>
+  </data>
+  <data name="Privacy_Section7_Title" xml:space="preserve">
+    <value>7. Vos droits</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Title" xml:space="preserve">
+    <value>7.1 Droits en vertu du RGPD (Pour les résidents de l'UE)</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Access_Title" xml:space="preserve">
+    <value>Accès</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Access_Desc" xml:space="preserve">
+    <value>Demander des copies de vos données personnelles</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Rectification_Title" xml:space="preserve">
+    <value>Rectification</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Rectification_Desc" xml:space="preserve">
+    <value>Corriger des informations inexactes ou incomplètes</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Erasure_Title" xml:space="preserve">
+    <value>Suppression</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Erasure_Desc" xml:space="preserve">
+    <value>Demander la suppression de vos données personnelles</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Restriction_Title" xml:space="preserve">
+    <value>Restriction</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Restriction_Desc" xml:space="preserve">
+    <value>Limiter le traitement de vos données</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Portability_Title" xml:space="preserve">
+    <value>Portabilité</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Portability_Desc" xml:space="preserve">
+    <value>Recevoir vos données dans un format structuré</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Objection_Title" xml:space="preserve">
+    <value>Opposition</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Objection_Desc" xml:space="preserve">
+    <value>S'opposer au traitement de vos données</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Consent_Title" xml:space="preserve">
+    <value>Consentement</value>
+  </data>
+  <data name="Privacy_Section7_GDPR_Consent_Desc" xml:space="preserve">
+    <value>Retirer le consentement à tout moment</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_Title" xml:space="preserve">
+    <value>7.2 Droits en vertu du CCPA (Pour les résidents de Californie)</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_KnowCollected" xml:space="preserve">
+    <value>Savoir quelles informations personnelles sont collectées</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_KnowSold" xml:space="preserve">
+    <value>Savoir si les informations personnelles sont vendues ou divulguées</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_OptOut" xml:space="preserve">
+    <value>Refuser la vente d'informations personnelles</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_Access" xml:space="preserve">
+    <value>Accéder aux informations personnelles</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_Delete" xml:space="preserve">
+    <value>Demander la suppression des informations personnelles</value>
+  </data>
+  <data name="Privacy_Section7_CCPA_NonDiscrimination" xml:space="preserve">
+    <value>Ne pas être discriminé pour l'exercice de vos droits</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Title" xml:space="preserve">
+    <value>7.3 Comment exercer vos droits</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Intro" xml:space="preserve">
+    <value>Pour exercer l'un de ces droits, vous pouvez :</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Settings" xml:space="preserve">
+    <value>Utiliser les paramètres de confidentialité de votre compte</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Contact" xml:space="preserve">
+    <value>Nous contacter à &lt;a href="mailto:privacy@wahub.com"&gt;privacy@wahub.com&lt;/a&gt;</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Form" xml:space="preserve">
+    <value>Utiliser notre formulaire de demande de données en ligne</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Phone" xml:space="preserve">
+    <value>Nous appeler au +1 (555) 123-4567</value>
+  </data>
+  <data name="Privacy_Section7_Exercise_Response" xml:space="preserve">
+    <value>Nous répondrons à votre demande dans un délai de 30 jours calendaires.</value>
+  </data>
+  <!-- Traductions pour la section 8 de Privacy -->
+  <data name="Privacy_Section8_Title" xml:space="preserve">
+    <value>8. Utilisation des cookies</value>
+  </data>
+  <data name="Privacy_Section8_1_Title" xml:space="preserve">
+    <value>8.1 Que sont les cookies</value>
+  </data>
+  <data name="Privacy_Section8_1_Desc" xml:space="preserve">
+    <value>Les cookies sont de petits fichiers texte stockés sur votre appareil lorsque vous visitez notre site Web. Ils nous aident à améliorer votre expérience et à fournir des fonctionnalités personnalisées.</value>
+  </data>
+  <data name="Privacy_Section8_2_Title" xml:space="preserve">
+    <value>8.2 Types de cookies que nous utilisons</value>
+  </data>
+  <data name="Privacy_Section8_Essential_Title" xml:space="preserve">
+    <value>Cookies essentiels</value>
+  </data>
+  <data name="Privacy_Section8_Essential_Desc" xml:space="preserve">
+    <value>Nécessaires au fonctionnement de base du site :</value>
+  </data>
+  <data name="Privacy_Section8_Essential_Session" xml:space="preserve">
+    <value>Gestion de la session utilisateur</value>
+  </data>
+  <data name="Privacy_Section8_Essential_Security" xml:space="preserve">
+    <value>Préférences de sécurité</value>
+  </data>
+  <data name="Privacy_Section8_Essential_Cart" xml:space="preserve">
+    <value>Fonctionnalité du panier d'achat</value>
+  </data>
+  <data name="Privacy_Section8_Performance_Title" xml:space="preserve">
+    <value>Cookies de performance</value>
+  </data>
+  <data name="Privacy_Section8_Performance_Desc" xml:space="preserve">
+    <value>Pour comprendre comment les utilisateurs interagissent avec notre site :</value>
+  </data>
+  <data name="Privacy_Section8_Performance_Analytics" xml:space="preserve">
+    <value>Google Analytics</value>
+  </data>
+  <data name="Privacy_Section8_Performance_Metrics" xml:space="preserve">
+    <value>Métriques de performance</value>
+  </data>
+  <data name="Privacy_Section8_Performance_Usage" xml:space="preserve">
+    <value>Analyse d'utilisation</value>
+  </data>
+  <data name="Privacy_Section8_Functionality_Title" xml:space="preserve">
+    <value>Cookies de fonctionnalité</value>
+  </data>
+  <data name="Privacy_Section8_Functionality_Desc" xml:space="preserve">
+    <value>Pour mémoriser vos préférences :</value>
+  </data>
+  <data name="Privacy_Section8_Functionality_Language" xml:space="preserve">
+    <value>Paramètres de langue</value>
+  </data>
+  <data name="Privacy_Section8_Functionality_Theme" xml:space="preserve">
+    <value>Thème de l'interface</value>
+  </data>
+  <data name="Privacy_Section8_Functionality_Display" xml:space="preserve">
+    <value>Préférences d'affichage</value>
+  </data>
+  <data name="Privacy_Section8_3_Title" xml:space="preserve">
+    <value>8.3 Gestion des cookies</value>
+  </data>
+  <data name="Privacy_Section8_3_Desc" xml:space="preserve">
+    <value>Vous pouvez contrôler les cookies via :</value>
+  </data>
+  <data name="Privacy_Section8_3_Browser" xml:space="preserve">
+    <value>Paramètres de votre navigateur</value>
+  </data>
+  <data name="Privacy_Section8_3_Center" xml:space="preserve">
+    <value>Notre centre de préférences de cookies</value>
+  </data>
+  <data name="Privacy_Section8_3_ThirdParty" xml:space="preserve">
+    <value>Outils de désactivation tiers</value>
+  </data>
+  <!-- Traductions pour la section 9 de Privacy -->
+  <data name="Privacy_Section9_Title" xml:space="preserve">
+    <value>9. Transferts internationaux</value>
+  </data>
+  <data name="Privacy_Section9_Desc" xml:space="preserve">
+    <value>Nous pouvons transférer vos informations personnelles vers des pays en dehors de votre juridiction pour fournir nos services. Nous veillons à ce que ces transferts soient conformes aux lois applicables sur la protection des données.</value>
+  </data>
+  <data name="Privacy_Section9_Measures_Title" xml:space="preserve">
+    <value>Mesures de protection</value>
+  </data>
+  <data name="Privacy_Section9_Measures_Processor" xml:space="preserve">
+    <value>Accords de traitement des données avec les fournisseurs</value>
+  </data>
+  <data name="Privacy_Section9_Measures_Technical" xml:space="preserve">
+    <value>Mesures techniques et organisationnelles appropriées</value>
+  </data>
+  <data name="Privacy_Section10_Title" xml:space="preserve">
+    <value>10. Confidentialité des mineurs</value>
+  </data>
+  <data name="Privacy_Section10_Desc1" xml:space="preserve">
+    <value>Notre service ne s'adresse pas aux mineurs de moins de 18 ans. Nous ne collectons pas sciemment d'informations personnelles auprès de mineurs de moins de 18 ans.</value>
+  </data>
+  <data name="Privacy_Section10_Desc2" xml:space="preserve">
+    <value>Si nous découvrons que nous avons collecté des informations auprès d'un mineur de moins de 18 ans sans consentement parental vérifiable, nous prendrons des mesures pour supprimer ces informations de nos serveurs.</value>
+  </data>
+  <data name="Privacy_Section10_Desc3" xml:space="preserve">
+    <value>Si vous pensez que nous pouvons avoir des informations sur un mineur de moins de 18 ans, veuillez nous contacter immédiatement à privacy@wahub.com.</value>
+  </data>
+  <data name="Privacy_Section11_Title" xml:space="preserve">
+    <value>11. Modifications de cette politique</value>
+  </data>
+  <data name="Privacy_Section11_Desc1" xml:space="preserve">
+    <value>Nous pouvons mettre à jour cette politique de confidentialité de temps à autre pour refléter les changements dans nos pratiques ou pour d'autres raisons opérationnelles, juridiques ou réglementaires.</value>
+  </data>
+  <data name="Privacy_Section11_1_Title" xml:space="preserve">
+    <value>11.1 Notification des modifications</value>
+  </data>
+  <data name="Privacy_Section11_1_Change1" xml:space="preserve">
+    <value>Nous publierons la politique mise à jour sur cette page</value>
+  </data>
+  <data name="Privacy_Section11_1_Change2" xml:space="preserve">
+    <value>Nous modifierons la date de "dernière mise à jour"</value>
+  </data>
+  <data name="Privacy_Section11_1_Change3" xml:space="preserve">
+    <value>Pour les modifications importantes, nous enverrons une notification par e-mail</value>
+  </data>
+  <data name="Privacy_Section11_1_Change4" xml:space="preserve">
+    <value>Pour les modifications significatives, nous solliciterons votre consentement renouvelé</value>
+  </data>
+  <data name="Privacy_Section11_2_Title" xml:space="preserve">
+    <value>11.2 Révision régulière</value>
+  </data>
+  <data name="Privacy_Section11_2_Desc1" xml:space="preserve">
+    <value>Nous vous recommandons de consulter régulièrement cette politique afin de rester informé sur la façon dont nous protégeons vos informations.</value>
+  </data>
+  <!-- Traductions pour la section 12 de Privacy -->
+  <data name="Privacy_Section12_Title" xml:space="preserve">
+    <value>12. Contact</value>
+  </data>
+  <data name="Privacy_Section12_Desc1" xml:space="preserve">
+    <value>Si vous avez des questions concernant cette politique de confidentialité ou nos pratiques en matière de données, vous pouvez nous contacter :</value>
+  </data>
+  <data name="Privacy_Section12_DPO_Title" xml:space="preserve">
+    <value>Délégué à la protection des données</value>
+  </data>
+  <data name="Privacy_Section12_DPO_Email" xml:space="preserve">
+    <value>Email : privacy@wahub.com</value>
+  </data>
+  <data name="Privacy_Section12_DPO_Phone" xml:space="preserve">
+    <value>Téléphone : +1 (555) 123-4567</value>
+  </data>
+  <data name="Privacy_Section12_Address_Title" xml:space="preserve">
+    <value>Adresse postale</value>
+  </data>
+  <data name="Privacy_Section12_Address_Company" xml:space="preserve">
+    <value>WaHub Inc.</value>
+  </data>
+  <data name="Privacy_Section12_Address_Attn" xml:space="preserve">
+    <value>Attn : Privacy Officer</value>
+  </data>
+  <data name="Privacy_Section12_Address_Street" xml:space="preserve">
+    <value>123 Tech Street</value>
+  </data>
+  <data name="Privacy_Section12_Address_City" xml:space="preserve">
+    <value>Innovation City, IC 12345</value>
+  </data>
+  <data name="Privacy_Section12_Address_Country" xml:space="preserve">
+    <value>États-Unis</value>
+  </data>
+  <data name="Privacy_Section12_EURep_Title" xml:space="preserve">
+    <value>Représentant dans l'UE</value>
+  </data>
+  <data name="Privacy_Section12_EURep_Desc" xml:space="preserve">
+    <value>Pour les résidents de l'UE, notre représentant est :</value>
+  </data>
+  <data name="Privacy_Section12_EURep_Email" xml:space="preserve">
+    <value>Email : eu-privacy@wahub.com</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_Title" xml:space="preserve">
+    <value>Notre engagement</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_Desc" xml:space="preserve">
+    <value>Chez WaHub, la confidentialité n'est pas seulement une obligation légale, mais une valeur fondamentale. Nous nous engageons à :</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_1" xml:space="preserve">
+    <value>Être transparents sur nos pratiques en matière de données</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_2" xml:space="preserve">
+    <value>Vous donner le contrôle sur vos informations personnelles</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_3" xml:space="preserve">
+    <value>Protéger vos données avec les meilleures mesures de sécurité</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_4" xml:space="preserve">
+    <value>Répondre rapidement à vos questions et demandes</value>
+  </data>
+  <data name="Privacy_Section12_Commitment_5" xml:space="preserve">
+    <value>Maintenir des normes élevées de confidentialité dans tout ce que nous faisons</value>
+  </data>
+  <data name="Testimonial1Text" xml:space="preserve">
+    <value>"Wahub a complètement transformé notre système de notification. L'intégration a été incroyablement facile."</value>
+  </data>
+  <data name="Testimonial1Author" xml:space="preserve">
+    <value>Carlos Martínez</value>
+  </data>
+  <data name="Testimonial1Role" xml:space="preserve">
+    <value>CTO, Techstartup</value>
+  </data>
+  <data name="Testimonial2Text" xml:space="preserve">
+    <value>"L'API la plus rapide et la plus fiable que nous ayons utilisée. Le support technique est exceptionnel."</value>
+  </data>
+  <data name="Testimonial2Author" xml:space="preserve">
+    <value>Ana García</value>
+  </data>
+  <data name="Testimonial2Role" xml:space="preserve">
+    <value>Développeur principal, commerce électronique</value>
+  </data>
+  <data name="Testimonial3Text" xml:space="preserve">
+    <value>"Nous grimpons 1 000 à 100 000 messages sans problème. La plate-forme est incroyablement stable."</value>
+  </data>
+  <data name="Testimonial3Author" xml:space="preserve">
+    <value>Miguel López</value>
+  </data>
+  <data name="Testimonial3Role" xml:space="preserve">
+    <value>Fondateur, compagnie SaaS</value>
+  </data>
+  <data name="Privacy_ServiceUsage_History" xml:space="preserve">
+    <value>Historique pour l'utilisation des fonctions</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Metrics" xml:space="preserve">
+    <value>Performance et métriques analytiques</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Logs" xml:space="preserve">
+    <value>Erreurs et problèmes techniques</value>
+  </data>
+  <data name="Privacy_ServiceUsage_Integrations" xml:space="preserve">
+    <value>Informations d'intégration avec des services de troisième partie</value>
+  </data>
+  <data name="Privacy_Section6_1" xml:space="preserve">
+    <value>6.1 périodes de rétention</value>
+  </data>
+  <data name="Privacy_RetentionTable_Type" xml:space="preserve">
+    <value>Type de données</value>
+  </data>
+  <data name="Privacy_RetentionTable_Period" xml:space="preserve">
+    <value>Période de rétention</value>
+  </data>
+  <data name="Privacy_RetentionTable_Purpose" xml:space="preserve">
+    <value>But</value>
+  </data>
+  <data name="Privacy_Retention_AccountInfo" xml:space="preserve">
+    <value>Informations sur le compte</value>
+  </data>
+  <data name="Privacy_Retention_AccountInfo_Period" xml:space="preserve">
+    <value>Alors que le compte est actif + 30 jours</value>
+  </data>
+  <data name="Privacy_Retention_AccountInfo_Purpose" xml:space="preserve">
+    <value>Fournir des services</value>
+  </data>
+  <data name="Privacy_Retention_WhatsAppMessages" xml:space="preserve">
+    <value>Messages WhatsApp</value>
+  </data>
+  <data name="Privacy_Retention_WhatsAppMessages_Period" xml:space="preserve">
+    <value>7-30 jours (configurable)</value>
+  </data>
+  <data name="Privacy_Retention_WhatsAppMessages_Purpose" xml:space="preserve">
+    <value>Fonctionnalité d'automatisation</value>
+  </data>
+  <data name="Privacy_Retention_UsageLogs" xml:space="preserve">
+    <value>Utiliser des enregistrements</value>
+  </data>
+  <data name="Privacy_Retention_UsageLogs_Period" xml:space="preserve">
+    <value>12 mois</value>
+  </data>
+  <data name="Privacy_Retention_UsageLogs_Purpose" xml:space="preserve">
+    <value>Analyse et amélioration du service</value>
+  </data>
+  <data name="Privacy_Retention_BillingInfo" xml:space="preserve">
+    <value>Informations de facturation</value>
+  </data>
+  <data name="Privacy_Retention_BillingInfo_Period" xml:space="preserve">
+    <value>7 ans</value>
+  </data>
+  <data name="Privacy_Retention_BillingInfo_Purpose" xml:space="preserve">
+    <value>Exigences comptables et budgétaires</value>
+  </data>
+  <data name="Privacy_Retention_SecurityLogs" xml:space="preserve">
+    <value>Journaux de sécurité</value>
+  </data>
+  <data name="Privacy_Retention_SecurityLogs_Period" xml:space="preserve">
+    <value>24 mois</value>
+  </data>
+  <data name="Privacy_Retention_SecurityLogs_Purpose" xml:space="preserve">
+    <value>Détection de sécurité et de fraude</value>
+  </data>
+  <data name="Privacy_Section6_2" xml:space="preserve">
+    <value>6.2 Élimination des données</value>
+  </data>
+  <data name="Privacy_DataDeletion" xml:space="preserve">
+    <value>Lorsque les données ne sont plus nécessaires aux fins pour lesquelles elles ont été collectées, nous les supprimerons en toute sécurité en utilisant des méthodes qui rendent la récupération impossible.</value>
+  </data>
+  <data name="Privacy_Intro1" xml:space="preserve">
+    <value>À Wahub, nous apprécions profondément votre vie privée et nous engageons à protéger vos données personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons, diffusons et protégeons vos informations lorsque vous utilisez notre service d'automatisation WhatsApp.</value>
+  </data>
+  <data name="Privacy_Intro2" xml:space="preserve">
+    <value>Lorsque vous utilisez WAHUB, vous acceptez les pratiques décrites dans cette politique. Si vous n'êtes pas d'accord avec nos pratiques de confidentialité, vous ne devez pas utiliser notre service.</value>
+  </data>
+  <data name="Privacy_QuickSummary" xml:space="preserve">
+    <value>Résumé rapide</value>
+  </data>
+  <data name="Privacy_QuickSummary1" xml:space="preserve">
+    <value>✅ Nous collectons uniquement les données nécessaires pour le service</value>
+  </data>
+  <data name="Privacy_QuickSummary2" xml:space="preserve">
+    <value>✅ Nous ne vendons pas vos données personnelles</value>
+  </data>
+  <data name="Privacy_QuickSummary3" xml:space="preserve">
+    <value>✅ Vous pouvez supprimer vos données à tout moment</value>
+  </data>
+  <data name="Privacy_QuickSummary4" xml:space="preserve">
+    <value>✅ Nous respectons le RGPD et d'autres réglementations de confidentialité</value>
+  </data>
+  <data name="Privacy_QuickSummary5" xml:space="preserve">
+    <value>✅ Nous mettons en œuvre une sécurité au niveau de l'entreprise</value>
+  </data>
+  <data name="Privacy_Section3_3" xml:space="preserve">
+    <value>3.3 Communication</value>
+  </data>
+  <data name="Privacy_SendUpdates" xml:space="preserve">
+    <value>Envoyer des mises à jour de service</value>
+  </data>
+  <data name="Privacy_AnswerSupport" xml:space="preserve">
+    <value>Répondre aux demandes de renseignements et aux demandes de soutien</value>
+  </data>
+  <data name="Privacy_SendNewsletters" xml:space="preserve">
+    <value>Envoyer des newsletters (avec votre consentement)</value>
+  </data>
+  <data name="Privacy_CommunicateChanges" xml:space="preserve">
+    <value>Communiquer la politique ou les modifications des termes</value>
+  </data>
+  <data name="Privacy_ProvidePromotions" xml:space="preserve">
+    <value>Fournir des informations promotionnelles pertinentes (facultative)</value>
+  </data>
+  <data name="Privacy_Section3_4" xml:space="preserve">
+    <value>3.4 Sécurité et conformité</value>
+  </data>
+  <data name="Privacy_DetectFraud" xml:space="preserve">
+    <value>Détecter et prévenir la fraude ou une mauvaise utilisation</value>
+  </data>
+  <data name="Privacy_VerifyIdentity" xml:space="preserve">
+    <value>Vérifier l'identité et authentifier les utilisateurs</value>
+  </data>
+  <data name="Privacy_ComplyLegal" xml:space="preserve">
+    <value>Respecter les obligations juridiques et réglementaires</value>
+  </data>
+  <data name="Privacy_ProtectRights" xml:space="preserve">
+    <value>Protéger les droits et la sécurité des utilisateurs</value>
+  </data>
+  <data name="Privacy_InvestigateSuspicious" xml:space="preserve">
+    <value>Enquêter sur les activités suspectes</value>
+  </data>
+  <data name="Privacy_Section7" xml:space="preserve">
+    <value>7. Vos droits</value>
+  </data>
+  <data name="Privacy_Important" xml:space="preserve">
+    <value>Important :</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Note" xml:space="preserve">
+    <value>Les messages WhatsApp sont traités uniquement pour fournir le service demandé et ne sont pas stockés de façon permanente sur nos serveurs, sauf si vous le configurez spécifiquement.</value>
+  </data>
+  <data name="Privacy_Section2_4" xml:space="preserve">
+    <value>2.4 Informations techniques</value>
+  </data>
+  <data name="Privacy_TechInfo_Intro" xml:space="preserve">
+    <value>Nous recueillons automatiquement certaines informations techniques :</value>
+  </data>
+  <data name="Privacy_TechInfo_IP" xml:space="preserve">
+    <value>Adresse IP et localisation géographique approximative</value>
+  </data>
+  <data name="Privacy_TechInfo_Browser" xml:space="preserve">
+    <value>Type de navigateur et d'appareil</value>
+  </data>
+  <data name="Privacy_TechInfo_OS" xml:space="preserve">
+    <value>Système d'exploitation</value>
+  </data>
+  <data name="Privacy_TechInfo_Pages" xml:space="preserve">
+    <value>Pages visitées et temps de visite</value>
+  </data>
+  <data name="Privacy_TechInfo_Referrer" xml:space="preserve">
+    <value>Source de référence</value>
+  </data>
+  <!-- Pricing Page Translations -->
+  <data name="Pricing_Title" xml:space="preserve">
+    <value>Des plans adaptés à votre entreprise</value>
+  </data>
+  <data name="Pricing_Description" xml:space="preserve">
+    <value>Commencez gratuitement et évoluez selon vos besoins. Pas de contrats, pas de surprises.</value>
+  </data>
+  <data name="Pricing_Monthly" xml:space="preserve">
+    <value>Mensuel</value>
+  </data>
+  <data name="Pricing_Annual" xml:space="preserve">
+    <value>Annuel</value>
+  </data>
+  <data name="Pricing_AnnualDiscount" xml:space="preserve">
+    <value>-20%</value>
+  </data>
+  <data name="Pricing_FreePlan" xml:space="preserve">
+    <value>Gratuit</value>
+  </data>
+  <data name="Pricing_FreePlan_Description" xml:space="preserve">
+    <value>Parfait pour les projets personnels et les tests</value>
+  </data>
+  <data name="Pricing_ProPlan" xml:space="preserve">
+    <value>Professionnel</value>
+  </data>
+  <data name="Pricing_ProPlan_Description" xml:space="preserve">
+    <value>Idéal pour les petites et moyennes entreprises</value>
+  </data>
+  <data name="Pricing_BusinessPlan" xml:space="preserve">
+    <value>Entreprise</value>
+  </data>
+  <data name="Pricing_BusinessPlan_Description" xml:space="preserve">
+    <value>Pour les entreprises à fort volume</value>
+  </data>
+  <data name="Pricing_Feature_Messages" xml:space="preserve">
+    <value>{0} messages/mois</value>
+  </data>
+  <data name="Pricing_Feature_Instances" xml:space="preserve">
+    <value>{0} instance(s) WhatsApp</value>
+  </data>
+  <data name="Pricing_Feature_Api" xml:space="preserve">
+    <value>API REST {0}</value>
+  </data>
+  <data name="Pricing_Feature_Webhooks" xml:space="preserve">
+    <value>Webhooks{0}</value>
+  </data>
+  <data name="Pricing_Feature_Dashboard" xml:space="preserve">
+    <value>Tableau de bord {0}</value>
+  </data>
+  <data name="Pricing_Feature_Support" xml:space="preserve">
+    <value>Support {0}</value>
+  </data>
+  <data name="Pricing_Feature_Analytics" xml:space="preserve">
+    <value>Analyses {0}</value>
+  </data>
+  <data name="Pricing_Feature_Integrations" xml:space="preserve">
+    <value>Intégrations</value>
+  </data>
+  <data name="Pricing_Feature_Promotions" xml:space="preserve">
+    <value>Promotions</value>
+  </data>
+  <data name="Pricing_Feature_AccountManager" xml:space="preserve">
+    <value>Gestionnaire de compte dédié</value>
+  </data>
+  <data name="Pricing_Feature_24_7Support" xml:space="preserve">
+    <value>Support 24/7</value>
+  </data>
+  <data name="Pricing_Feature_CustomWebhooks" xml:space="preserve">
+    <value>Webhooks personnalisés</value>
+  </data>
+  <data name="Pricing_Feature_AdvancedDashboard" xml:space="preserve">
+    <value>Tableau de bord avancé</value>
+  </data>
+  <data name="Pricing_Feature_EnterpriseApi" xml:space="preserve">
+    <value>API REST Enterprise</value>
+  </data>
+  <data name="Pricing_Feature_UnlimitedInstances" xml:space="preserve">
+    <value>Instances illimitées</value>
+  </data>
+  <data name="Pricing_Button_Free" xml:space="preserve">
+    <value>Commencer gratuitement</value>
+  </data>
+  <data name="Pricing_Button_Trial" xml:space="preserve">
+    <value>Démarrer l'essai gratuit</value>
+  </data>
+  <data name="Pricing_Button_Contact" xml:space="preserve">
+    <value>Contacter les ventes</value>
+  </data>
+  <data name="Pricing_MostPopular" xml:space="preserve">
+    <value>Le plus populaire</value>
+  </data>
+  <data name="Pricing_OriginalPrice" xml:space="preserve">
+    <value>Prix d'origine</value>
+  </data>
+  <data name="Pricing_FAQ_Title" xml:space="preserve">
+    <value>Questions fréquentes</value>
+  </data>
+  <data name="Pricing_FAQ_ChangePlan_Q" xml:space="preserve">
+    <value>Puis-je changer de plan à tout moment ?</value>
+  </data>
+  <data name="Pricing_FAQ_ChangePlan_A" xml:space="preserve">
+    <value>Oui, vous pouvez mettre à niveau ou rétrograder votre plan quand vous le souhaitez. Les changements s'appliquent immédiatement.</value>
+  </data>
+  <data name="Pricing_FAQ_Limit_Q" xml:space="preserve">
+    <value>Que se passe-t-il si je dépasse ma limite de messages ?</value>
+  </data>
+  <data name="Pricing_FAQ_Limit_A" xml:space="preserve">
+    <value>Nous vous informerons lorsque vous approcherez de la limite. Vous pouvez mettre à niveau votre plan ou acheter des messages supplémentaires.</value>
+  </data>
+  <data name="Pricing_FAQ_NGO_Q" xml:space="preserve">
+    <value>Offrez-vous des réductions pour les ONG ?</value>
+  </data>
+  <data name="Pricing_FAQ_NGO_A" xml:space="preserve">
+    <value>Oui, nous offrons des réductions spéciales pour les organisations à but non lucratif. Contactez-nous pour plus d'informations.</value>
+  </data>
+  <data name="Pricing_FAQ_Setup_Q" xml:space="preserve">
+    <value>Y a-t-il des frais d'installation ?</value>
+  </data>
+  <data name="Pricing_FAQ_Setup_A" xml:space="preserve">
+    <value>Non, il n'y a pas de frais d'installation ni de frais cachés. Vous ne payez que pour ce que vous utilisez.</value>
+  </data>
+  <data name="Pricing_CTA_Title" xml:space="preserve">
+    <value>Prêt à commencer ?</value>
+  </data>
+  <data name="Pricing_CTA_Description" xml:space="preserve">
+    <value>Rejoignez plus de 10 000 développeurs qui font confiance à WaHub</value>
+  </data>
+  <data name="Pricing_CTA_Button" xml:space="preserve">
+    <value>Commencer gratuitement</value>
+  </data>
+  <!-- Traductions pour src/WaHub/Components/Pages/Contact.razor -->
+  <data name="Contact_Title" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Contact_ContactUs" xml:space="preserve">
+    <value>Nous Contacter</value>
+  </data>
+  <data name="Contact_Lead" xml:space="preserve">
+    <value>Des questions? Nous serions ravis de vous aider. Prenez contact avec notre équipe.</value>
+  </data>
+  <data name="Contact_InfoTitle" xml:space="preserve">
+    <value>Informations de Contact</value>
+  </data>
+  <data name="Contact_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Contact_EmailResponse" xml:space="preserve">
+    <value>Réponse sous 24 heures</value>
+  </data>
+  <data name="Contact_Phone" xml:space="preserve">
+    <value>Téléphone</value>
+  </data>
+  <data name="Contact_PhoneHours" xml:space="preserve">
+    <value>Lundi au Vendredi 9h - 18h</value>
+  </data>
+  <data name="Contact_WhatsApp" xml:space="preserve">
+    <value>WhatsApp</value>
+  </data>
+  <data name="Contact_WhatsAppSupport" xml:space="preserve">
+    <value>Support immédiat</value>
+  </data>
+  <data name="Contact_Office" xml:space="preserve">
+    <value>Bureau</value>
+  </data>
+  <data name="Contact_OfficeVisit" xml:space="preserve">
+    <value>Visite sur rendez-vous</value>
+  </data>
+  <data name="Contact_SendMessage" xml:space="preserve">
+    <value>Envoyer un Message</value>
+  </data>
+  <data name="Contact_FirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="Contact_FirstName_Placeholder" xml:space="preserve">
+    <value>Votre prénom</value>
+  </data>
+  <data name="Contact_LastName" xml:space="preserve">
+    <value>Nom de Famille</value>
+  </data>
+  <data name="Contact_LastName_Placeholder" xml:space="preserve">
+    <value>Votre nom de famille</value>
+  </data>
+  <data name="Contact_EmailField" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Contact_Email_Placeholder" xml:space="preserve">
+    <value>votre@email.com</value>
+  </data>
+  <data name="Contact_Company" xml:space="preserve">
+    <value>Entreprise</value>
+  </data>
+  <data name="Contact_Company_Optional" xml:space="preserve">
+    <value>(Optionnel)</value>
+  </data>
+  <data name="Contact_Company_Placeholder" xml:space="preserve">
+    <value>Nom de votre entreprise</value>
+  </data>
+  <data name="Contact_Subject" xml:space="preserve">
+    <value>Sujet</value>
+  </data>
+  <data name="Contact_Subject_Placeholder" xml:space="preserve">
+    <value>Sélectionnez un sujet</value>
+  </data>
+  <data name="Contact_Subject_Sales" xml:space="preserve">
+    <value>Demande Commerciale</value>
+  </data>
+  <data name="Contact_Subject_Support" xml:space="preserve">
+    <value>Support Technique</value>
+  </data>
+  <data name="Contact_Subject_Billing" xml:space="preserve">
+    <value>Facturation</value>
+  </data>
+  <data name="Contact_Subject_Feature" xml:space="preserve">
+    <value>Demande de Fonctionnalité</value>
+  </data>
+  <data name="Contact_Subject_Partnership" xml:space="preserve">
+    <value>Partenariat</value>
+  </data>
+  <data name="Contact_Subject_Other" xml:space="preserve">
+    <value>Autre</value>
+  </data>
+  <data name="Contact_Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Contact_Message_Placeholder" xml:space="preserve">
+    <value>Dites-nous comment nous pouvons vous aider...</value>
+  </data>
+  <data name="Contact_Accept" xml:space="preserve">
+    <value>J'accepte la</value>
+  </data>
+  <data name="Contact_PrivacyPolicy" xml:space="preserve">
+    <value>Politique de Confidentialité</value>
+  </data>
+  <data name="Contact_And" xml:space="preserve">
+    <value>et les</value>
+  </data>
+  <data name="Contact_Terms" xml:space="preserve">
+    <value>Conditions Générales de Service</value>
+  </data>
+  <data name="Contact_Sending" xml:space="preserve">
+    <value>Envoi en cours...</value>
+  </data>
+  <data name="Contact_Send" xml:space="preserve">
+    <value>Envoyer le Message</value>
+  </data>
+  <data name="Contact_FAQ_Title" xml:space="preserve">
+    <value>Questions Fréquentes</value>
+  </data>
+  <data name="Contact_FAQ_Lead" xml:space="preserve">
+    <value>Réponses aux questions les plus courantes que nous recevons de nos clients</value>
+  </data>
+  <data name="Contact_FAQ_Response_Q" xml:space="preserve">
+    <value>Combien de temps faut-il pour recevoir une réponse?</value>
+  </data>
+  <data name="Contact_FAQ_Response_A" xml:space="preserve">
+    <value>Nous répondons à tous les e-mails dans les 24 heures ouvrables. Pour les demandes urgentes, nous vous recommandons d'utiliser notre chat WhatsApp pour une réponse plus rapide.</value>
+  </data>
+  <data name="Contact_FAQ_Language_Q" xml:space="preserve">
+    <value>Offrez-vous un support en français?</value>
+  </data>
+  <data name="Contact_FAQ_Language_A" xml:space="preserve">
+    <value>Bien sûr! Notre équipe de support est disponible en espagnol, anglais et d'autres langues. N'hésitez pas à nous contacter dans la langue avec laquelle vous êtes le plus à l'aise.</value>
+  </data>
+  <data name="Contact_FAQ_Demo_Q" xml:space="preserve">
+    <value>Puis-je planifier une démo personnalisée?</value>
+  </data>
+  <data name="Contact_FAQ_Demo_A" xml:space="preserve">
+    <value>Oui, nous proposons des démos personnalisées gratuites où nous vous montrerons toutes les fonctionnalités de notre plateforme. Notre équipe de vente se fera un plaisir d'adapter la démo à vos besoins spécifiques.</value>
+  </data>
+  <data name="Contact_FAQ_NGO_Q" xml:space="preserve">
+    <value>Y a-t-il des réductions pour les organisations à but non lucratif?</value>
+  </data>
+  <data name="Contact_FAQ_NGO_A" xml:space="preserve">
+    <value>Oui, nous offrons des tarifs spéciaux pour les ONG, les organisations éducatives et à but non lucratif. Contactez-nous pour plus d'informations sur nos programmes de réduction.</value>
+  </data>
+  <data name="Contact_FAQ_NotFound" xml:space="preserve">
+    <value>Vous ne trouvez pas ce que vous cherchez?</value>
+  </data>
+  <data name="Contact_FAQ_ContactUs" xml:space="preserve">
+    <value>Nous Contacter</value>
+  </data>
+  <!-- Validations -->
+  <data name="Contact_Validation_FirstName" xml:space="preserve">
+    <value>Le prénom est requis</value>
+  </data>
+  <data name="Contact_Validation_LastName" xml:space="preserve">
+    <value>Le nom de famille est requis</value>
+  </data>
+  <data name="Contact_Validation_Email" xml:space="preserve">
+    <value>L'e-mail est requis</value>
+  </data>
+  <data name="Contact_Validation_EmailFormat" xml:space="preserve">
+    <value>Format d'e-mail invalide</value>
+  </data>
+  <data name="Contact_Validation_Subject" xml:space="preserve">
+    <value>Sélectionnez un sujet</value>
+  </data>
+  <data name="Contact_Validation_Message" xml:space="preserve">
+    <value>Le message est requis</value>
+  </data>
+  <data name="Contact_Validation_Privacy" xml:space="preserve">
+    <value>Vous devez accepter la politique de confidentialité et les conditions générales de service</value>
+  </data>
+  <!-- Alerts -->
+  <data name="Contact_Alert_Success" xml:space="preserve">
+    <value>Message envoyé avec succès! Nous vous contacterons bientôt.</value>
+  </data>
+  <data name="Contact_Alert_Error" xml:space="preserve">
+    <value>Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard.</value>
+  </data>
+  <!-- Traductions pour src/WaHub/Components/Pages/ApiDocs.razor -->
+  <data name="ApiDocs_Title" xml:space="preserve">
+    <value>Documentation API</value>
+  </data>
+  <!-- Traductions pour src/WaHub/Components/Pages/Account/Login.razor -->
+  <data name="Login_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="Login_SigningIn" xml:space="preserve">
+    <value>Connexion en cours...</value>
+  </data>
+  <data name="Login_NoAccount" xml:space="preserve">
+    <value>Vous n'avez pas de compte?</value>
+  </data>
+  <data name="Login_RegisterHere" xml:space="preserve">
+    <value>Inscrivez-vous ici</value>
+  </data>
+  <!-- Validations -->
+  <data name="Login_Validation_EmailRequired" xml:space="preserve">
+    <value>L'e-mail est requis</value>
+  </data>
+  <data name="Login_Validation_EmailInvalid" xml:space="preserve">
+    <value>Veuillez entrer un e-mail valide</value>
+  </data>
+  <data name="Login_Validation_PasswordRequired" xml:space="preserve">
+    <value>Le mot de passe est requis</value>
+  </data>
+  <data name="Login_Validation_EnterEmailPassword" xml:space="preserve">
+    <value>Veuillez saisir votre e-mail et votre mot de passe.</value>
+  </data>
+  <data name="Login_ErrorDuringLogin" xml:space="preserve">
+    <value>Erreur lors de la connexion:</value>
+  </data>
+  <!-- Traductions para src/WaHub/Components/Pages/Account/Register.razor -->
+  <data name="Register_Title" xml:space="preserve">
+    <value>Inscription</value>
+  </data>
+  <data name="Register_CreateAccount" xml:space="preserve">
+    <value>Créer un compte</value>
+  </data>
+  <data name="Register_Intro" xml:space="preserve">
+    <value>Rejoignez WaHub et commencez à intégrer WhatsApp dans vos applications</value>
+  </data>
+  <data name="Register_FirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="Register_LastName" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Register_Email" xml:space="preserve">
+    <value>Adresse e-mail</value>
+  </data>
+  <data name="Register_Company" xml:space="preserve">
+    <value>Entreprise</value>
+  </data>
+  <data name="Register_Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="Register_ConfirmPassword" xml:space="preserve">
+    <value>Confirmer le mot de passe</value>
+  </data>
+  <data name="Register_AcceptTermsPart1" xml:space="preserve">
+    <value>J'accepte les</value>
+  </data>
+  <data name="Register_TermsAndConditions" xml:space="preserve">
+    <value>conditions générales</value>
+  </data>
+  <data name="Register_AcceptTermsPart2" xml:space="preserve">
+    <value>et la</value>
+  </data>
+  <data name="Register_PrivacyPolicy" xml:space="preserve">
+    <value>politique de confidentialité</value>
+  </data>
+  <data name="Register_CreatingAccount" xml:space="preserve">
+    <value>Création du compte...</value>
+  </data>
+  <data name="Register_CreateFreeAccount" xml:space="preserve">
+    <value>Créer un compte gratuit</value>
+  </data>
+  <data name="Register_AlreadyHaveAccount" xml:space="preserve">
+    <value>Vous avez déjà un compte?</value>
+  </data>
+  <data name="Register_SignIn" xml:space="preserve">
+    <value>Connectez-vous</value>
+  </data>
+  <data name="Register_BenefitsTitle" xml:space="preserve">
+    <value>Ce que vous obtenez avec WaHub</value>
+  </data>
+  <data name="Register_Benefit1" xml:space="preserve">
+    <value>✅ 1 000 messages gratuits par mois</value>
+  </data>
+  <data name="Register_Benefit2" xml:space="preserve">
+    <value>✅ API REST facile à utiliser</value>
+  </data>
+  <data name="Register_Benefit3" xml:space="preserve">
+    <value>✅ Webhooks en temps réel</value>
+  </data>
+  <data name="Register_Benefit4" xml:space="preserve">
+    <value>✅ Tableau de bord analytique</value>
+  </data>
+  <data name="Register_Benefit5" xml:space="preserve">
+    <value>✅ Support technique 24/7</value>
+  </data>
+  <data name="Register_Benefit6" xml:space="preserve">
+    <value>✅ Documentation complète</value>
+  </data>
+  <data name="Register_TestimonialQuote" xml:space="preserve">
+    <value>"WaHub a complètement transformé notre communication client. L'intégration a été super simple."</value>
+  </data>
+  <data name="Register_TestimonialCite" xml:space="preserve">
+    <value>- María González, CTO de TechCorp</value>
+  </data>
+  <!-- Validations -->
+  <data name="Register_Validation_FirstNameRequired" xml:space="preserve">
+    <value>Le prénom est requis</value>
+  </data>
+  <data name="Register_Validation_LastNameRequired" xml:space="preserve">
+    <value>Le nom est requis</value>
+  </data>
+  <data name="Register_Validation_EmailRequired" xml:space="preserve">
+    <value>L'adresse e-mail est requise</value>
+  </data>
+  <data name="Register_Validation_EmailInvalid" xml:space="preserve">
+    <value>Le format de l'adresse e-mail n'est pas valide</value>
+  </data>
+  <data name="Register_Validation_PasswordsDoNotMatch" xml:space="preserve">
+    <value>Les mots de passe ne correspondent pas</value>
+  </data>
+  <data name="Register_Validation_MustAcceptTerms" xml:space="preserve">
+    <value>Vous devez accepter les conditions générales</value>
+  </data>
+  <data name="Register_Validation_PasswordRequired" xml:space="preserve">
+    <value>Le mot de passe est requis</value>
+  </data>
+  <data name="Register_Validation_PasswordMinLength" xml:space="preserve">
+    <value>Le mot de passe doit contenir au moins 8 caractères</value>
+  </data>
+  <data name="Register_Validation_PasswordUppercase" xml:space="preserve">
+    <value>Le mot de passe doit contenir au moins une lettre majuscule</value>
+  </data>
+  <data name="Register_Validation_PasswordLowercase" xml:space="preserve">
+    <value>Le mot de passe doit contenir au moins une lettre minuscule</value>
+  </data>
+  <data name="Register_Validation_PasswordDigit" xml:space="preserve">
+    <value>Le mot de passe doit contenir au moins un chiffre</value>
+  </data>
+  <data name="Register_ErrorCreatingAccount" xml:space="preserve">
+    <value>Erreur lors de la création du compte. Veuillez réessayer.</value>
+  </data>
+  <data name="ApiDocs_Sidebar_Title" xml:space="preserve">
+    <value>Documentation</value>
+  </data>
+  <data name="ApiDocs_Sidebar_GettingStarted_Title" xml:space="preserve">
+    <value>Premier pas</value>
+  </data>
+  <data name="ApiDocs_Sidebar_GettingStarted_Intro" xml:space="preserve">
+    <value>Introduction</value>
+  </data>
+  <data name="ApiDocs_Sidebar_GettingStarted_Auth" xml:space="preserve">
+    <value>Authentification</value>
+  </data>
+  <data name="ApiDocs_Sidebar_GettingStarted_QuickStart" xml:space="preserve">
+    <value>Démarrage rapide</value>
+  </data>
+  <data name="ApiDocs_Sidebar_APIReference_Title" xml:space="preserve">
+    <value>Référence de l'API</value>
+  </data>
+  <data name="ApiDocs_Sidebar_APIReference_SendMessages" xml:space="preserve">
+    <value>Envoyer des messages</value>
+  </data>
+  <data name="ApiDocs_Sidebar_APIReference_Webhooks" xml:space="preserve">
+    <value>Webhooks</value>
+  </data>
+  <data name="ApiDocs_Sidebar_APIReference_Instances" xml:space="preserve">
+    <value>Instances</value>
+  </data>
+  <data name="ApiDocs_Sidebar_APIReference_Contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="ApiDocs_Sidebar_SDKs_Title" xml:space="preserve">
+    <value>SDK</value>
+  </data>
+  <data name="ApiDocs_Sidebar_SDKs_JS" xml:space="preserve">
+    <value>JavaScript</value>
+  </data>
+  <data name="ApiDocs_Sidebar_SDKs_Python" xml:space="preserve">
+    <value>Python</value>
+  </data>
+  <data name="ApiDocs_Sidebar_SDKs_PHP" xml:space="preserve">
+    <value>Php</value>
+  </data>
+  <data name="ApiDocs_Intro_Title" xml:space="preserve">
+    <value>Introduction à l'API WAHUB</value>
+  </data>
+  <data name="ApiDocs_Intro_Description" xml:space="preserve">
+    <value>WAHUB fournit une API simple et puissante pour intégrer WhatsApp dans vos applications. Avec seulement quelques lignes de code, vous pouvez envoyer des messages, recevoir des webhooks et gérer les contacts.</value>
+  </data>
+  <data name="ApiDocs_Intro_InfoBox_Title" xml:space="preserve">
+    <value>🚀 Commencez en 5 minutes</value>
+  </data>
+  <data name="ApiDocs_Intro_InfoBox_Content" xml:space="preserve">
+    <value>Notre API est conçue afin que vous puissiez intégrer WhatsApp dans votre application en moins de 5 minutes.</value>
+  </data>
+  <data name="ApiDocs_BaseURL_Title" xml:space="preserve">
+    <value>URL de base</value>
+  </data>
+  <data name="ApiDocs_ResponseFormat_Title" xml:space="preserve">
+    <value>Format de réponse</value>
+  </data>
+  <data name="ApiDocs_ResponseFormat_Description" xml:space="preserve">
+    <value>Toutes les réponses API sont au format JSON:</value>
+  </data>
+  <data name="ApiDocs_ResponseFormat_SuccessMessage" xml:space="preserve">
+    <value>Opération réussie</value>
+  </data>
+  <data name="ApiDocs_Auth_Title" xml:space="preserve">
+    <value>Authentification</value>
+  </data>
+  <data name="ApiDocs_Auth_Description" xml:space="preserve">
+    <value>WAHUB utilise des clés API pour authentifier les applications. Votre clé API est dans votre tableau de bord.</value>
+  </data>
+  <data name="ApiDocs_Auth_WarningBox_Title" xml:space="preserve">
+    <value>⚠️ Gardez votre clé API Segura</value>
+  </data>
+  <data name="ApiDocs_Auth_WarningBox_Content" xml:space="preserve">
+    <value>N'exposez pas votre API clé en code fronnnd. Utilisez-le seul dans votre backend.</value>
+  </data>
+  <data name="ApiDocs_Auth_Example_Title" xml:space="preserve">
+    <value>Exemple d'authentification</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Title" xml:space="preserve">
+    <value>Démarrage rapide</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Description" xml:space="preserve">
+    <value>Envoyez votre premier message avec WhatsApp en moins de 2 minutes:</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Step1_Title" xml:space="preserve">
+    <value>Étape 1: Obtenez votre clé API</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Step1_Content" xml:space="preserve">
+    <value>Inscrivez-vous à WAHUB et obtenez votre clé API à partir du tableau de bord.</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Step2_Title" xml:space="preserve">
+    <value>Étape 2: configurer une instance</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Step2_Content" xml:space="preserve">
+    <value>Analysez le code QR pour connecter votre numéro WhatsApp.</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Step3_Title" xml:space="preserve">
+    <value>Étape 3: Envoyez votre premier message</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Step3_Message" xml:space="preserve">
+    <value>Bonjour de Wahub! 👋</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Title" xml:space="preserve">
+    <value>Envoyer des messages</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Description" xml:space="preserve">
+    <value>Envoyez différents types de messages à l'aide de l'API WAHUB.</value>
+  </data>
+  <data name="ApiDocs_SendMessages_PostEndpoint" xml:space="preserve">
+    <value>Publication / messages</value>
+  </data>
+  <data name="ApiDocs_SendMessages_PostEndpoint_Description" xml:space="preserve">
+    <value>Envoyer un texte, une image, un document ou tout autre message de contenu.</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Title" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Param" xml:space="preserve">
+    <value>Paramètre</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Type" xml:space="preserve">
+    <value>Gars</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Required" xml:space="preserve">
+    <value>Demandé</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_To_Desc" xml:space="preserve">
+    <value>Numéro de téléphone avec code de pays</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Type_Desc" xml:space="preserve">
+    <value>Type de message: texte, image, document, audio, vidéo</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Text_Desc" xml:space="preserve">
+    <value>Texte du message (requis si type = texte)</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_MediaUrl_Desc" xml:space="preserve">
+    <value>URL de fichier multimédia</value>
+  </data>
+  <data name="ApiDocs_SendMessages_ExampleText_Title" xml:space="preserve">
+    <value>Exemple: SMS</value>
+  </data>
+  <data name="ApiDocs_SendMessages_ExampleImage_Title" xml:space="preserve">
+    <value>Exemple: envoyer l'image</value>
+  </data>
+  <data name="ApiDocs_SendMessages_ExampleImage_Caption" xml:space="preserve">
+    <value>Regardez cette photo incroyable!</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Title" xml:space="preserve">
+    <value>Webhooks</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Description" xml:space="preserve">
+    <value>Recevez des notifications de temps réel lorsque les événements se produisent dans votre instance WhatsApp.</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Config_Title" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Config_Description" xml:space="preserve">
+    <value>Configurez votre URL WebHook sur le tableau de bord WAHUB. Lorsqu'un événement se produit, nous enverrons un message à votre point de terminaison.</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Events_Title" xml:space="preserve">
+    <value>Événements disponibles</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageReceived_Name" xml:space="preserve">
+    <value>Messagereced:</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageReceived_Desc" xml:space="preserve">
+    <value>Lorsque vous recevez un message</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageSent_Name" xml:space="preserve">
+    <value>MessageSent:</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageSent_Desc" xml:space="preserve">
+    <value>Lorsque vous envoyez un message</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageDelivered_Name" xml:space="preserve">
+    <value>Messaged Fivered:</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageDelivered_Desc" xml:space="preserve">
+    <value>Lorsqu'un message est livré</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageRead_Name" xml:space="preserve">
+    <value>MessageRead:</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageRead_Desc" xml:space="preserve">
+    <value>Lorsqu'un message est lu</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Example_Title" xml:space="preserve">
+    <value>Exemple Webhook</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Example_Message" xml:space="preserve">
+    <value>Bonjour comment allez-vous?</value>
+  </data>
+  <data name="Instances_Title" xml:space="preserve">
+    <value>Instances - wahub</value>
+  </data>
+  <data name="Instances_YourInstances" xml:space="preserve">
+    <value>Vos instances</value>
+  </data>
+  <data name="Instances_NewInstance" xml:space="preserve">
+    <value>Nouvelle instance</value>
+  </data>
+  <data name="Instances_LoadingInstances" xml:space="preserve">
+    <value>Chargement des instances ...</value>
+  </data>
+  <data name="Instances_ErrorPrefix" xml:space="preserve">
+    <value>⚠️</value>
+  </data>
+  <data name="Instances_Retry" xml:space="preserve">
+    <value>Réintégrer</value>
+  </data>
+  <data name="Instances_Pause" xml:space="preserve">
+    <value>Pauvreté</value>
+  </data>
+  <data name="Instances_Activate" xml:space="preserve">
+    <value>Activer</value>
+  </data>
+  <data name="Instances_ShowQr" xml:space="preserve">
+    <value>Montrer QR</value>
+  </data>
+  <data name="Instances_Delete" xml:space="preserve">
+    <value>Éliminer</value>
+  </data>
+  <data name="Instances_Messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="Instances_Contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="Instances_Created" xml:space="preserve">
+    <value>Créé:</value>
+  </data>
+  <data name="Instances_Last" xml:space="preserve">
+    <value>Dernier:</value>
+  </data>
+  <data name="Instances_Manage" xml:space="preserve">
+    <value>Gérer</value>
+  </data>
+  <data name="Instances_NoInstancesTitle" xml:space="preserve">
+    <value>Vous n'avez aucun cas</value>
+  </data>
+  <data name="Instances_NoInstancesMessage" xml:space="preserve">
+    <value>Créez votre première instance de WhatsApp pour commencer à envoyer des messages</value>
+  </data>
+  <data name="Instances_CreateFirstInstance" xml:space="preserve">
+    <value>Créer une première instance</value>
+  </data>
+  <data name="Instances_NewInstanceModalTitle" xml:space="preserve">
+    <value>Nouvelle instance de WhatsApp</value>
+  </data>
+  <data name="Instances_CloseButton" xml:space="preserve">
+    <value>✖️</value>
+  </data>
+  <data name="Instances_InstanceNameLabel" xml:space="preserve">
+    <value>Nom de l'instance:</value>
+  </data>
+  <data name="Instances_InstanceNamePlaceholder" xml:space="preserve">
+    <value>Ex: ventes principales</value>
+  </data>
+  <data name="Instances_PhoneNumberLabel" xml:space="preserve">
+    <value>Numéro de téléphone:</value>
+  </data>
+  <data name="Instances_PhoneNumberPlaceholder" xml:space="preserve">
+    <value>Ex: +34 666 123 456</value>
+  </data>
+  <data name="Instances_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Instances_CreateInstanceButton" xml:space="preserve">
+    <value>Créer une instance</value>
+  </data>
+  <data name="Instances_QrScanMessage" xml:space="preserve">
+    <value>Scannez ce code QR avec votre application WhatsApp pour connecter cette instance.</value>
+  </data>
+  <data name="Instances_Close" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="Instances_Status_Online" xml:space="preserve">
+    <value>Connecté</value>
+  </data>
+  <data name="Instances_Status_Offline" xml:space="preserve">
+    <value>Hors ligne</value>
+  </data>
+  <data name="ApiDocs_Title_Duplicate[1]" xml:space="preserve">
+    <value>Documentation API</value>
+  </data>
+  <!-- Traductions pour src/WaHub.Client/Pages/Instances.razor -->
+  <data name="Instances_PageTitle" xml:space="preserve">
+    <value>Instances</value>
+  </data>
+  <data name="Instances_YourInstances_Duplicate[1]" xml:space="preserve">
+    <value>Vos Instances</value>
+  </data>
+  <data name="Instances_NewInstance_Duplicate[1]" xml:space="preserve">
+    <value>Nouvelle Instance</value>
+  </data>
+  <data name="Instances_LoadingInstances_Duplicate[1]" xml:space="preserve">
+    <value>Chargement des instances...</value>
+  </data>
+  <data name="Instances_ErrorLoadingInstances" xml:space="preserve">
+    <value>Erreur lors du chargement des instances</value>
+  </data>
+  <data name="Instances_Retry_Duplicate[1]" xml:space="preserve">
+    <value>Réessayer</value>
+  </data>
+  <data name="Instances_StatusConnected" xml:space="preserve">
+    <value>Connecté</value>
+  </data>
+  <data name="Instances_StatusDisconnected" xml:space="preserve">
+    <value>Déconnecté</value>
+  </data>
+  <data name="Instances_Pause_Duplicate[1]" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Instances_Activate_Duplicate[1]" xml:space="preserve">
+    <value>Activer</value>
+  </data> 
+  <data name="Instances_Delete_Duplicate[1]" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Instances_Messages_Duplicate[1]" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="Instances_Contacts_Duplicate[1]" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="Instances_Created_Duplicate[1]" xml:space="preserve">
+    <value>Créé</value>
+  </data>
+  <data name="Instances_LastActive" xml:space="preserve">
+    <value>Dernière</value>
+  </data>
+  <data name="Instances_Manage_Duplicate[1]" xml:space="preserve">
+    <value>Gérer</value>
+  </data>
+  <data name="Instances_NoInstancesTitle_Duplicate[1]" xml:space="preserve">
+    <value>Vous n'avez pas d'instances</value>
+  </data>
+  <data name="Instances_NoInstancesMessage_Duplicate[1]" xml:space="preserve">
+    <value>Créez votre première instance WhatsApp pour commencer à envoyer des messages</value>
+  </data>
+  <data name="Instances_CreateFirstInstance_Duplicate[1]" xml:space="preserve">
+    <value>Créer la Première Instance</value>
+  </data>
+  <data name="Instances_NewInstanceModalTitle_Duplicate[1]" xml:space="preserve">
+    <value>Nouvelle Instance WhatsApp</value>
+  </data>
+  <data name="Instances_InstanceNameLabel_Duplicate[1]" xml:space="preserve">
+    <value>Nom de l'instance :</value>
+  </data>
+  <data name="Instances_InstanceNamePlaceholder_Duplicate[1]" xml:space="preserve">
+    <value>Ex: Ventes Principales</value>
+  </data>
+  <data name="Instances_PhoneNumberLabel_Duplicate[1]" xml:space="preserve">
+    <value>Numéro de téléphone :</value>
+  </data>
+  <data name="Instances_PhoneNumberPlaceholder_Duplicate[1]" xml:space="preserve">
+    <value>Ex: +34 666 123 456</value>
+  </data>
+  <data name="Instances_Cancel_Duplicate[1]" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Instances_CreateInstance" xml:space="preserve">
+    <value>Créer l'Instance</value>
+  </data>
+  <data name="Instances_QRModalTitle" xml:space="preserve">
+    <value>Code QR pour WhatsApp</value>
+  </data>
+  <data name="Instances_QRInstructions" xml:space="preserve">
+    <value>Scannez ce code QR avec votre application WhatsApp pour connecter cette instance.</value>
+  </data>
+  <data name="Instances_Close_Duplicate[1]" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="Instances_Notification_CompleteAllFields" xml:space="preserve">
+    <value>Veuillez remplir tous les champs</value>
+  </data>
+  <data name="Instances_Notification_InstanceCreatedSuccessfully" xml:space="preserve">
+    <value>Instance '{0}' créée avec succès</value>
+  </data>
+  <data name="Instances_Notification_ErrorCreatingInstance" xml:space="preserve">
+    <value>Erreur lors de la création de l'instance. Veuillez réessayer.</value>
+  </data>
+  <data name="Instances_Notification_UnexpectedError" xml:space="preserve">
+    <value>Erreur inattendue : {0}</value>
+  </data>
+  <data name="Instances_Notification_InstanceToggledSuccessfully" xml:space="preserve">
+    <value>Instance '{0}' {1} correctement</value>
+  </data>
+  <data name="Instances_Notification_ErrorTogglingInstance" xml:space="preserve">
+    <value>Erreur lors du changement d'état de l'instance</value>
+  </data>
+  <data name="Instances_Notification_ConfirmDelete" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer l'instance '{0}'?</value>
+  </data>
+  <data name="Instances_Notification_InstanceDeletedSuccessfully" xml:space="preserve">
+    <value>Instance '{0}' supprimée avec succès</value>
+  </data>
+  <data name="Instances_Notification_ErrorDeletingInstance" xml:space="preserve">
+    <value>Erreur lors de la suppression de l'instance</value>
+  </data>
+  <data name="Instances_Notification_QRCodeInstructions" xml:space="preserve">
+    <value>Scannez le code QR avec WhatsApp pour connecter l'instance</value>
+  </data>
+  <data name="Instances_Notification_ErrorGettingQRCode" xml:space="preserve">
+    <value>Impossible d'obtenir le code QR</value>
+  </data>
+  <data name="Instances_Notification_AdminFunctionalityComingSoon" xml:space="preserve">
+    <value>Fonctionnalité d'administration pour '{0}' bientôt disponible</value>
+  </data>
+  <!-- Traducciones para src/WaHub.Client/Pages/Dashboard.razor -->
+  <data name="Dashboard_PageTitle" xml:space="preserve">
+    <value>Tableau de bord</value>
+  </data>
+  <data name="Dashboard_WelcomeMessage" xml:space="preserve">
+    <value>Bienvenue sur votre tableau de bord WaHub</value>
+  </data>
+  <data name="Dashboard_ActiveInstances" xml:space="preserve">
+    <value>Instances Actives</value>
+  </data>
+  <data name="Dashboard_ThisWeek" xml:space="preserve">
+    <value>cette semaine</value>
+  </data>
+  <data name="Dashboard_MessagesSent" xml:space="preserve">
+    <value>Messages Envoyés</value>
+  </data>
+  <data name="Dashboard_VsPreviousMonth" xml:space="preserve">
+    <value>par rapport au mois précédent</value>
+  </data>
+  <data name="Dashboard_Contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="Dashboard_NewContacts" xml:space="preserve">
+    <value>nouveaux</value>
+  </data>
+  <data name="Dashboard_APICalls" xml:space="preserve">
+    <value>Appels API</value>
+  </data>
+  <data name="Dashboard_VsYesterday" xml:space="preserve">
+    <value>par rapport à hier</value>
+  </data>
+  <data name="Dashboard_MessagesPerDay" xml:space="preserve">
+    <value>Messages par Jour</value>
+  </data>
+  <data name="Dashboard_MessagesChartPlaceholder" xml:space="preserve">
+    <value>Graphique des messages envoyés (intégrer Chart.js)</value>
+  </data>
+  <data name="Dashboard_RecentActivity" xml:space="preserve">
+    <value>Activité Récente</value>
+  </data>
+  <data name="Dashboard_MessageSentTo" xml:space="preserve">
+    <value>Message envoyé à</value>
+  </data>
+  <data name="Dashboard_MinutesAgo" xml:space="preserve">
+    <value>Il y a {0} min</value>
+  </data>
+  <data name="Dashboard_NewInstanceCreated" xml:space="preserve">
+    <value>Nouvelle instance "{0}" créée</value>
+  </data>
+  <data name="Dashboard_HourAgo" xml:space="preserve">
+    <value>Il y a {0} heure</value>
+  </data>
+  <data name="Dashboard_WebhookConfigured" xml:space="preserve">
+    <value>Webhook configuré pour l'instance principale</value>
+  </data>
+  <data name="Dashboard_HoursAgo" xml:space="preserve">
+    <value>Il y a {0} heures</value>
+  </data>
+  <data name="Dashboard_ContactAdded" xml:space="preserve">
+    <value>Contact ajouté : {0}</value>
+  </data>
+  <data name="Dashboard_QuickActions" xml:space="preserve">
+    <value>Actions Rapides</value>
+  </data>
+  <data name="Dashboard_NewInstanceButton" xml:space="preserve">
+    <value>Nouvelle Instance</value>
+  </data>
+  <data name="Dashboard_SendMessageButton" xml:space="preserve">
+    <value>Envoyer un Message</value>
+  </data>
+  <data name="Dashboard_ViewAPIDocsButton" xml:space="preserve">
+    <value>Voir les Docs API</value>
+  </data>
+  <data name="Dashboard_SupportButton" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="Dashboard_InteractivityTestTitle" xml:space="preserve">
+    <value>Test d'Interactivité</value>
+  </data>
+  <data name="Dashboard_InteractivityTestMessage" xml:space="preserve">
+    <value>Cette section démontre que l'interactivité du serveur fonctionne :</value>
+  </data>
+  <data name="Dashboard_TestInteractivityButton" xml:space="preserve">
+    <value>Tester l'Interactivité</value>
+  </data>
+  <data name="Dashboard_Clicks" xml:space="preserve">
+    <value>Clics</value>
+  </data>
+  <data name="Dashboard_ResetCounterButton" xml:space="preserve">
+    <value>Réinitialiser le Compteur</value>
+  </data>
+  <data name="Dashboard_InteractivitySuccessMessage" xml:space="preserve">
+    <value>L'interactivité fonctionne parfaitement ! Les boutons répondent aux événements onclick.</value>
+  </data>
+  <data name="Dashboard_RealTimeStatusMonitor" xml:space="preserve">
+    <value>Moniteur de Statut en Temps Réel</value>
+  </data>
+  <data name="Dashboard_RealTimeDataMessage" xml:space="preserve">
+    <value>Données qui se mettent à jour automatiquement toutes les 3 secondes :</value>
+  </data>
+  <data name="Dashboard_OnlineUsers" xml:space="preserve">
+    <value>Utilisateurs en ligne</value>
+  </data>
+  <data name="Dashboard_MessagesPerSecond" xml:space="preserve">
+    <value>Messages par seconde</value>
+  </data>
+  <data name="Dashboard_ServerLoad" xml:space="preserve">
+    <value>Charge du serveur</value>
+  </data>
+  <data name="Dashboard_MessageQueue" xml:space="preserve">
+    <value>File d'attente des messages</value>
+  </data>
+  <data name="Dashboard_PauseMonitoring" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Dashboard_StartMonitoring" xml:space="preserve">
+    <value>Démarrer</value>
+  </data>
+  <data name="Dashboard_MonitorActiveMessage" xml:space="preserve">
+    <value>Moniteur actif - Mise à jour des données toutes les 3 secondes...</value>
+  </data>
+  <data name="Dashboard_AccessDeniedTitle" xml:space="preserve">
+    <value>Accès Refusé</value>
+  </data>
+  <data name="Dashboard_AccessDeniedMessage" xml:space="preserve">
+    <value>Vous n'êtes pas authentifié.</value>
+  </data>
+  <data name="Dashboard_GoToLogin" xml:space="preserve">
+    <value>Aller à la Connexion</value>
+  </data>
+  <data name="Profile_PageTitle" xml:space="preserve">
+    <value>Mon profil</value>
+  </data>
+  <data name="Profile_ChangeAvatarTitle" xml:space="preserve">
+    <value>Changer d'avatar</value>
+  </data>
+  <data name="Profile_VerifiedBadge" xml:space="preserve">
+    <value>Vérifié</value>
+  </data>
+  <data name="Profile_PersonalInformationTab" xml:space="preserve">
+    <value>Information personnelle</value>
+  </data>
+  <data name="Profile_SecurityTab" xml:space="preserve">
+    <value>Sécurité</value>
+  </data>
+  <data name="Profile_PreferencesTab" xml:space="preserve">
+    <value>Préférences</value>
+  </data>
+  <data name="Profile_BillingTab" xml:space="preserve">
+    <value>Facturation</value>
+  </data>
+  <data name="Profile_PersonalInformationTitle" xml:space="preserve">
+    <value>Information personnelle</value>
+  </data>
+  <data name="Profile_FirstNameLabel" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="Profile_LastNameLabel" xml:space="preserve">
+    <value>Nom de Famille</value>
+  </data>
+  <data name="Profile_EmailLabel" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Profile_EmailChangeHelp" xml:space="preserve">
+    <value>Pour modifier votre e-mail, contactez l'assistance</value>
+  </data>
+  <data name="Profile_PhoneLabel" xml:space="preserve">
+    <value>Téléphone</value>
+  </data>
+  <data name="Profile_CompanyLabel" xml:space="preserve">
+    <value>Entreprise</value>
+  </data>
+  <data name="Profile_BioLabel" xml:space="preserve">
+    <value>Biographie</value>
+  </data>
+  <data name="Profile_SavingText" xml:space="preserve">
+    <value>Garder ...</value>
+  </data>
+  <data name="Profile_SaveChangesButton" xml:space="preserve">
+    <value>Enregistrer les modifications</value>
+  </data>
+  <data name="Profile_SecurityTitle" xml:space="preserve">
+    <value>Sécurité</value>
+  </data>
+  <data name="Profile_ChangePasswordTitle" xml:space="preserve">
+    <value>Changer le mot de passe</value>
+  </data>
+  <data name="Profile_CurrentPasswordLabel" xml:space="preserve">
+    <value>Mot de passe actuel</value>
+  </data>
+  <data name="Profile_NewPasswordLabel" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
+  <data name="Profile_ConfirmNewPasswordLabel" xml:space="preserve">
+    <value>Confirmer un nouveau mot de passe</value>
+  </data>
+  <data name="Profile_ChangePasswordButton" xml:space="preserve">
+    <value>Changer le mot de passe</value>
+  </data>
+  <data name="Profile_TwoFactorAuthenticationTitle" xml:space="preserve">
+    <value>Authentification de deux facteurs</value>
+  </data>
+  <data name="Profile_TwoFactorEnabled" xml:space="preserve">
+    <value>Activé</value>
+  </data>
+  <data name="Profile_TwoFactorDisabled" xml:space="preserve">
+    <value>Désactivé</value>
+  </data>
+  <data name="Profile_TwoFactorHelp" xml:space="preserve">
+    <value>Ajoutez une couche de sécurité supplémentaire à votre compte</value>
+  </data>
+  <data name="Profile_DeactivateTwoFactor" xml:space="preserve">
+    <value>Désactiver</value>
+  </data>
+  <data name="Profile_ActivateTwoFactor" xml:space="preserve">
+    <value>Activer</value>
+  </data>
+  <data name="Profile_ActiveSessionsTitle" xml:space="preserve">
+    <value>Sessions actives</value>
+  </data>
+  <data name="Profile_CurrentSessionBadge" xml:space="preserve">
+    <value>Actuel</value>
+  </data>
+  <data name="Profile_CloseSessionButton" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
+  <data name="Profile_PreferencesTitle" xml:space="preserve">
+    <value>Préférences</value>
+  </data>
+  <data name="Profile_AppearanceTitle" xml:space="preserve">
+    <value>Apparence</value>
+  </data>
+  <data name="Profile_ThemeLabel" xml:space="preserve">
+    <value>Problème</value>
+  </data>
+  <data name="Profile_ThemeDescription" xml:space="preserve">
+    <value>Choisissez le problème d'interface</value>
+  </data>
+  <data name="Profile_LightTheme" xml:space="preserve">
+    <value>Clair</value>
+  </data>
+  <data name="Profile_DarkTheme" xml:space="preserve">
+    <value>Sombre</value>
+  </data>
+  <data name="Profile_AutoTheme" xml:space="preserve">
+    <value>Automatique</value>
+  </data>
+  <data name="Profile_LanguageLabel" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="Profile_LanguageDescription" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Profile_SpanishLanguage" xml:space="preserve">
+    <value>Espagnol</value>
+  </data>
+  <data name="Profile_EnglishLanguage" xml:space="preserve">
+    <value>Anglais</value>
+  </data>
+  <data name="Profile_PortugueseLanguage" xml:space="preserve">
+    <value>portugais</value>
+  </data>
+  <data name="Profile_NotificationsTitle" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="Profile_EmailNotificationsTitle" xml:space="preserve">
+    <value>Notifications par e-mail</value>
+  </data>
+  <data name="Profile_EmailNotificationsDescription" xml:space="preserve">
+    <value>Recevoir des mises à jour importantes par e-mail</value>
+  </data>
+  <data name="Profile_PushNotificationsTitle" xml:space="preserve">
+    <value>Notifications push</value>
+  </data>
+  <data name="Profile_PushNotificationsDescription" xml:space="preserve">
+    <value>Notifications de temps réel dans le navigateur</value>
+  </data>
+  <data name="Profile_NewsletterTitle" xml:space="preserve">
+    <value>Bulletin d'information</value>
+  </data>
+  <data name="Profile_NewsletterDescription" xml:space="preserve">
+    <value>Restez à jour avec de nouvelles fonctions et conseils</value>
+  </data>
+  <data name="Profile_SavePreferencesButton" xml:space="preserve">
+    <value>Sauver les préférences</value>
+  </data>
+  <data name="Profile_BillingTitle" xml:space="preserve">
+    <value>Facturation</value>
+  </data>
+  <data name="Profile_CurrentPlanTitle" xml:space="preserve">
+    <value>Plan actuel</value>
+  </data>
+  <data name="Profile_NextBillingLabel" xml:space="preserve">
+    <value>Facturation suivante:</value>
+  </data>
+  <data name="Profile_ChangePlanButton" xml:space="preserve">
+    <value>Plan de changement</value>
+  </data>
+  <data name="Profile_PaymentMethodTitle" xml:space="preserve">
+    <value>Mode de paiement</value>
+  </data>
+  <data name="Profile_UpdatePaymentMethodButton" xml:space="preserve">
+    <value>Mise à jour</value>
+  </data>
+  <data name="Profile_BillingHistoryTitle" xml:space="preserve">
+    <value>Billing History</value>
+  </data>
+  <data name="Profile_DownloadInvoiceButton" xml:space="preserve">
+    <value>Décharge</value>
+  </data>
+  <data name="Profile_PersonalInfoUpdatedSuccessfully" xml:space="preserve">
+    <value>Informations personnelles mises à jour avec succès</value>
+  </data>
+  <data name="Profile_PasswordChangedSuccessfully" xml:space="preserve">
+    <value>Mot de passe modifié avec succès</value>
+  </data>
+  <data name="Profile_ErrorChangingPassword" xml:space="preserve">
+    <value>Erreur lors de la modification du mot de passe</value>
+  </data>
+  <data name="Profile_TwoFactorToggleMessage" xml:space="preserve">
+    <value>Deux facteurs Authentification {0} activé {1} désactivé</value>
+  </data>
+  <data name="Profile_SessionClosedSuccessfully" xml:space="preserve">
+    <value>Session fermée avec succès</value>
+  </data>
+  <data name="Profile_PreferencesSavedSuccessfully" xml:space="preserve">
+    <value>Préférences économisées avec succès</value>
+  </data>
+  <data name="Profile_ErrorSavingPreferences" xml:space="preserve">
+    <value>Préférences d'économie d'erreur</value>
+  </data>
+  <data name="Profile_ChangeAvatarComingSoon" xml:space="preserve">
+    <value>Fonction de changement d'avatar bientôt disponible</value>
+  </data>
+  <data name="Profile_Title" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Profile_Section_PersonalInfo" xml:space="preserve">
+    <value>Informations Personnelles</value>
+  </data>
+  <data name="Profile_Label_FirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="Profile_Label_LastName" xml:space="preserve">
+    <value>Nom de Famille</value>
+  </data>
+  <data name="Profile_Label_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Profile_Label_PhoneNumber" xml:space="preserve">
+    <value>Numéro de Téléphone</value>
+  </data>
+  <data name="Profile_Label_Country" xml:space="preserve">
+    <value>Pays</value>
+  </data>
+  <data name="Profile_Label_City" xml:space="preserve">
+    <value>Ville</value>
+  </data>
+  <data name="Profile_Label_Address" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="Profile_Label_ZipCode" xml:space="preserve">
+    <value>Code Postal</value>
+  </data>
+  <data name="Profile_Section_Security" xml:space="preserve">
+    <value>Sécurité</value>
+  </data>
+  <data name="Profile_Label_CurrentPassword" xml:space="preserve">
+    <value>Mot de passe actuel</value>
+  </data>
+  <data name="Profile_Label_NewPassword" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
+  <data name="Profile_Label_ConfirmPassword" xml:space="preserve">
+    <value>Confirmer le nouveau mot de passe</value>
+  </data>
+  <data name="Profile_Button_UpdateProfile" xml:space="preserve">
+    <value>Mettre à jour le profil</value>
+  </data>
+  <data name="Profile_Button_ChangePassword" xml:space="preserve">
+    <value>Changer le mot de passe</value>
+  </data>
+  <data name="Profile_Update_Success" xml:space="preserve">
+    <value>Profil mis à jour avec succès !</value>
+  </data>
+  <data name="Profile_ChangePassword_Success" xml:space="preserve">
+    <value>Mot de passe changé avec succès !</value>
+  </data>
+  <data name="Profile_Update_Error" xml:space="preserve">
+    <value>Erreur lors de la mise à jour du profil : {0}</value>
+  </data>
+  <data name="Profile_ChangePassword_Error" xml:space="preserve">
+    <value>Erreur lors du changement de mot de passe : {0}</value>
+  </data>
+  <data name="Profile_Validation_Required" xml:space="preserve">
+    <value>{0} est requis.</value>
+  </data>
+  <data name="Profile_Validation_Email" xml:space="preserve">
+    <value>Format d'e-mail invalide.</value>
+  </data>
+  <data name="Profile_Validation_PasswordMatch" xml:space="preserve">
+    <value>Le nouveau mot de passe et la confirmation ne correspondent pas.</value>
+  </data>
+  <data name="Profile_Validation_PasswordLength" xml:space="preserve">
+    <value>Le {0} doit contenir au moins {1} caractères.</value>
+  </data>
+  <data name="Profile_Validation_PasswordUppercase" xml:space="preserve">
+    <value>Le {0} doit contenir au moins un caractère majuscule.</value>
+  </data>
+  <data name="Profile_Validation_PasswordLowercase" xml:space="preserve">
+    <value>Le {0} doit contenir au moins un caractère minuscule.</value>
+  </data>
+  <data name="Profile_Validation_PasswordDigit" xml:space="preserve">
+    <value>Le {0} doit contenir au moins un chiffre.</value>
+  </data>
+  <data name="Profile_Validation_PasswordSpecialChar" xml:space="preserve">
+    <value>Le {0} doit contenir au moins un caractère spécial.</value>
+  </data>
+  <data name="Profile_Card_Title" xml:space="preserve">
+    <value>Gérer votre profil</value>
+  </data>
+  <data name="Profile_Card_Description" xml:space="preserve">
+    <value>Vous pouvez modifier vos informations personnelles et votre mot de passe ici.</value>
+  </data>
+  <data name="Profile_DeleteAccount_Title" xml:space="preserve">
+    <value>Supprimer le compte</value>
+  </data>
+  <data name="Profile_DeleteAccount_Description" xml:space="preserve">
+    <value>Supprimer définitivement votre compte. Cette action est irréversible.</value>
+  </data>
+  <data name="Profile_DeleteAccount_Button" xml:space="preserve">
+    <value>Supprimer le compte</value>
+  </data>
+  <data name="Profile_DeleteAccount_Confirm" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.</value>
+  </data>
+  <data name="Profile_DeleteAccount_Success" xml:space="preserve">
+    <value>Compte supprimé avec succès.</value>
+  </data>
+  <data name="Profile_DeleteAccount_Error" xml:space="preserve">
+    <value>Erreur lors de la suppression du compte : {0}</value>
+  </data>
+  <data name="Profile_DefaultBio" xml:space="preserve">
+    <value>Développeur Full Stack avec expérience en automatisation WhatsApp</value>
+  </data>
+  <data name="Profile_NextBilling_Date" xml:space="preserve">
+    <value>15 janvier 2024</value>
+  </data>
+  <data name="Profile_Session_Location_Madrid" xml:space="preserve">
+    <value>Madrid, Espagne</value>
+  </data>
+  <data name="Profile_Session_LastActive_Now" xml:space="preserve">
+    <value>Maintenant</value>
+  </data>
+  <data name="Profile_Session_LastActive_2HoursAgo" xml:space="preserve">
+    <value>Il y a 2 heures</value>
+  </data>
+  <data name="Profile_Session_Location_Barcelona" xml:space="preserve">
+    <value>Barcelone, Espagne</value>
+  </data>
+  <data name="Profile_Session_LastActive_Yesterday" xml:space="preserve">
+    <value>Hier</value>
+  </data>
+  <data name="Profile_Billing_ProfessionalPlan_Dec" xml:space="preserve">
+    <value>Plan Professionnel - Décembre</value>
+  </data>
+  <data name="Profile_Billing_ProfessionalPlan_Nov" xml:space="preserve">
+    <value>Plan Professionnel - Novembre</value>
+  </data>
+  <data name="Profile_Billing_ProfessionalPlan_Oct" xml:space="preserve">
+    <value>Plan Professionnel - Octobre</value>
+  </data>
+  <data name="HomePageTitle" xml:space="preserve">
+    <value>WaHub - Plateforme de gestion WhatsApp</value>
+  </data>
+  <data name="HomeHeroTitle" xml:space="preserve">
+    <value>Wahub &lt;span class = "highlight"&gt; pour les développeurs &lt;/anc&gt;</value>
+  </data>
+  <data name="HomeHeroDescription" xml:space="preserve">
+    <value>Envoyez et recevez des messages, gérez facilement les chats, les groupes et les canaux avec notre API au niveau métier. Payer au nom de WhatsApp, sans tarifs de message.</value>
+  </data>
+  <data name="HomeHeroButton" xml:space="preserve">
+    <value>Démarrer le test gratuit</value>
+  </data>
+  <data name="HomeTrialInfo" xml:space="preserve">
+    <value>3 jours de test gratuit • Sans carte de crédit • annule quand vous le souhaitez</value>
+  </data>
+  <data name="HomeWhyChoose" xml:space="preserve">
+    <value>Pourquoi choisir Wahub?</value>
+  </data>
+  <data name="Home_CodeSectionTitle" xml:space="preserve">
+    <value>Intégration en quelques minutes</value>
+  </data>
+  <data name="Home_CodeLanguage" xml:space="preserve">
+    <value>JavaScript</value>
+  </data>
+  <data name="Home_CodeCopy" xml:space="preserve">
+    <value>Copie</value>
+  </data>
+  <data name="CodeExampleTitle_Duplicate[1]" xml:space="preserve">
+    <value>Envoyer un message avec l'API WAHUB</value>
+  </data>
+  <data name="CodeExampleMessage_Duplicate[1]" xml:space="preserve">
+    <value>Envoyer un message avec l'API WaHub</value>
+  </data>
+  <data name="CodeExampleLog_Duplicate[1]" xml:space="preserve">
+    <value>Message envoyé :</value>
+  </data>
+</root>

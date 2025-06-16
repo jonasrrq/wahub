@@ -1,61 +1,70 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using Microsoft.JSInterop;
-
+using WaHub.Shared.Services;
+using WaHub.Shared.Models.Resouces;
 
 namespace WaHub.Client.Pages;
 
 public partial class Profile
 {
     private readonly IJSRuntime _jSRuntime;
+    private readonly ILocalizationService _localization;
 
-    public Profile(IJSRuntime jSRuntime)
+    public Profile(IJSRuntime jSRuntime, ILocalizationService localization)
     {
         _jSRuntime = jSRuntime;
+        _localization = localization;
     }
 
     private string activeTab = "personal";
     private bool isSaving = false;
 
-    private UserProfileModel userProfile = new()
-    {
-        FirstName = "Juan",
-        LastName = "Pérez",
-        Email = "juan.perez@example.com",
-        Phone = "+1 (555) 123-4567",
-        Company = "TechCorp Inc.",
-        Bio = "Desarrollador Full Stack con experiencia en automatización de WhatsApp",
-        Plan = "Professional",
-        MonthlyPrice = "49.99",
-        NextBilling = "15 de Enero, 2024",
-        LastFourDigits = "1234",
-        TwoFactorEnabled = false,
-        Theme = "light",
-        Language = "es",
-        EmailNotifications = true,
-        PushNotifications = true,
-        Newsletter = false
-    };
+    private UserProfileModel userProfile = new();
 
     private PasswordChangeModel passwordForm = new();
 
-    private List<ActiveSession> activeSessions = new()
-    {
-        new() { Id = "1", DeviceName = "Chrome en Windows", DeviceType = "desktop", Location = "Madrid, España", LastActive = "Ahora", IsCurrent = true },
-        new() { Id = "2", DeviceName = "Safari en iPhone", DeviceType = "mobile-alt", Location = "Madrid, España", LastActive = "Hace 2 horas", IsCurrent = false },
-        new() { Id = "3", DeviceName = "Firefox en Ubuntu", DeviceType = "desktop", Location = "Barcelona, España", LastActive = "Ayer", IsCurrent = false }
-    };
+    private List<ActiveSession> activeSessions = new();
 
-    private List<BillingInvoice> billingHistory = new()
-    {
-        new() { Date = "01 Dic 2023", Description = "Plan Professional - Diciembre", Amount = "49.99" },
-        new() { Date = "01 Nov 2023", Description = "Plan Professional - Noviembre", Amount = "49.99" },
-        new() { Date = "01 Oct 2023", Description = "Plan Professional - Octubre", Amount = "49.99" }
-    };
+    private List<BillingInvoice> billingHistory = new();
 
     protected override async Task OnInitializedAsync()
     {
         // Aquí se cargaría el perfil del usuario desde el backend
+        userProfile = new()
+        {
+            FirstName = "Juan",
+            LastName = "Pérez",
+            Email = "juan.perez@example.com",
+            Phone = "+1 (555) 123-4567",
+            Company = "TechCorp Inc.",
+            Bio = _localization.GetString(ResourceKeys.Profile_DefaultBio),
+            Plan = "Professional",
+            MonthlyPrice = "49.99",
+            NextBilling = _localization.GetString(ResourceKeys.Profile_NextBilling_Date),
+            LastFourDigits = "1234",
+            TwoFactorEnabled = false,
+            Theme = "light",
+            Language = "es",
+            EmailNotifications = true,
+            PushNotifications = true,
+            Newsletter = false
+        };
+
+        activeSessions = new()
+        {
+            new() { Id = "1", DeviceName = "Chrome en Windows", DeviceType = "desktop", Location = _localization.GetString(ResourceKeys.Profile_Session_Location_Madrid), LastActive = _localization.GetString(ResourceKeys.Profile_Session_LastActive_Now), IsCurrent = true },
+            new() { Id = "2", DeviceName = "Safari en iPhone", DeviceType = "mobile-alt", Location = _localization.GetString(ResourceKeys.Profile_Session_Location_Madrid), LastActive = _localization.GetString(ResourceKeys.Profile_Session_LastActive_2HoursAgo), IsCurrent = false },
+            new() { Id = "3", DeviceName = "Firefox en Ubuntu", DeviceType = "desktop", Location = _localization.GetString(ResourceKeys.Profile_Session_Location_Barcelona), LastActive = _localization.GetString(ResourceKeys.Profile_Session_LastActive_Yesterday), IsCurrent = false }
+        };
+
+        billingHistory = new()
+        {
+            new() { Date = "01 Dic 2023", Description = _localization.GetString(ResourceKeys.Profile_Billing_ProfessionalPlan_Dec), Amount = "49.99" },
+            new() { Date = "01 Nov 2023", Description = _localization.GetString(ResourceKeys.Profile_Billing_ProfessionalPlan_Nov), Amount = "49.99" },
+            new() { Date = "01 Oct 2023", Description = _localization.GetString(ResourceKeys.Profile_Billing_ProfessionalPlan_Oct), Amount = "49.99" }
+        };
+
         await Task.CompletedTask;
     }
 
@@ -72,7 +81,7 @@ public partial class Profile
         try
         {
             await Task.Delay(1000); // Simular llamada a API
-            await _jSRuntime.InvokeVoidAsync("alert", "Información personal actualizada exitosamente");
+            await _jSRuntime.InvokeVoidAsync("alert", _localization.GetString(ResourceKeys.PersonalInfoUpdatedSuccessfully));
         }
         finally
         {
@@ -86,12 +95,12 @@ public partial class Profile
         try
         {
             await Task.Delay(1000); // Simular llamada a API
-            await _jSRuntime.InvokeVoidAsync("alert", "Contraseña cambiada exitosamente");
+            await _jSRuntime.InvokeVoidAsync("alert", _localization.GetString(ResourceKeys.PasswordChangedSuccessfully));
             passwordForm = new(); // Limpiar formulario
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            await _jSRuntime.InvokeVoidAsync("alert", "Error al cambiar la contraseña");
+            await _jSRuntime.InvokeVoidAsync("alert", _localization.GetString(ResourceKeys.ErrorChangingPassword, ex.Message));
         }
     }
 
@@ -99,13 +108,14 @@ public partial class Profile
     {
         userProfile.TwoFactorEnabled = !userProfile.TwoFactorEnabled;
         await _jSRuntime.InvokeVoidAsync("alert",
-            $"Autenticación de dos factores {(userProfile.TwoFactorEnabled ? "activada" : "desactivada")}");
+            _localization.GetString(
+                userProfile.TwoFactorEnabled ? ResourceKeys.TwoFactorEnabled : ResourceKeys.TwoFactorDisabled));
     }
 
     private async Task RevokeSession(string sessionId)
     {
         activeSessions.RemoveAll(s => s.Id == sessionId);
-        await _jSRuntime.InvokeVoidAsync("alert", "Sesión cerrada exitosamente");
+        await _jSRuntime.InvokeVoidAsync("alert", _localization.GetString(ResourceKeys.SessionClosedSuccessfully));
         StateHasChanged();
     }
 
@@ -114,17 +124,36 @@ public partial class Profile
         try
         {
             await Task.Delay(1000); // Simular llamada a API
-            await _jSRuntime.InvokeVoidAsync("alert", "Preferencias guardadas exitosamente");
+            await _jSRuntime.InvokeVoidAsync("alert", _localization.GetString(ResourceKeys.PreferencesSavedSuccessfully));
         }
         catch (Exception)
         {
-            await _jSRuntime.InvokeVoidAsync("alert", "Error al guardar preferencias");
+            await _jSRuntime.InvokeVoidAsync("alert", _localization.GetString(ResourceKeys.ErrorSavingPreferences));
         }
     }
 
     private async Task ChangeAvatar()
     {
-        await _jSRuntime.InvokeVoidAsync("alert", "Función de cambio de avatar próximamente disponible");
+        await _jSRuntime.InvokeVoidAsync("alert", _localization.GetString(ResourceKeys.ChangeAvatarComingSoon));
+    }
+
+    private async Task DeleteAccountConfirm()
+    {
+        var confirmed = await _jSRuntime.InvokeAsync<bool>("confirm", _localization.GetString(ResourceKeys.DeleteAccountConfirm));
+        if (confirmed)
+        {
+            try
+            {
+                // Lógica para eliminar la cuenta
+                await Task.Delay(1000); // Simular operación asíncrona
+                await _jSRuntime.InvokeVoidAsync("alert", _localization.GetString(ResourceKeys.DeleteAccountSuccess));
+                // Redirigir o cerrar sesión
+            }
+            catch (Exception ex)
+            {
+                await _jSRuntime.InvokeVoidAsync("alert", _localization.GetString(ResourceKeys.DeleteAccountError, ex.Message));
+            }
+        }
     }
 
     public class UserProfileModel

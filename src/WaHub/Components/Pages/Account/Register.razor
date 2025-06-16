@@ -4,50 +4,49 @@
 @inject SignInManager<ApplicationUser> singInManager
 @inject UserManager<ApplicationUser> userManager
 @inject NavigationService Navigation
+@inject ILocalizationService Localization
 
-<PageTitle>Registro - WaHub</PageTitle>
-
-
+<PageTitle>@Localization.GetString(ResourceKeys.Register_Title) - WaHub</PageTitle>
 
 <div class="register-container">
     <div class="register-content">
         <div class="register-form-container">
             <div class="register-form">
                 <div class="form-header">
-                    <h1>Crear cuenta</h1>
-                    <p>Únete a WaHub y comienza a integrar WhatsApp en tus aplicaciones</p>
+                    <h1>@Localization.GetString(ResourceKeys.Register_CreateAccount)</h1>
+                    <p>@Localization.GetString(ResourceKeys.Register_Intro)</p>
                 </div>
 
                 <form @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="firstName">Nombre</label>
+                            <label for="firstName">@Localization.GetString(ResourceKeys.Register_FirstName)</label>
                             <input type="text" id="firstName" @bind="registerModel.FirstName" required />
                         </div>
 
                         <div class="form-group">
-                            <label for="lastName">Apellido</label>
+                            <label for="lastName">@Localization.GetString(ResourceKeys.Register_LastName)</label>
                             <input type="text" id="lastName" @bind="registerModel.LastName" required />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Correo electrónico</label>
+                        <label for="email">@Localization.GetString(ResourceKeys.Register_Email)</label>
                         <input type="email" id="email" @bind="registerModel.Email" required />
                     </div>
 
                     <div class="form-group">
-                        <label for="company">Empresa</label>
+                        <label for="company">@Localization.GetString(ResourceKeys.Register_Company)</label>
                         <input type="text" id="company" @bind="registerModel.Company" />
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Contraseña</label>
+                        <label for="password">@Localization.GetString(ResourceKeys.Register_Password)</label>
                         <input type="password" id="password" @bind="registerModel.Password" required />
                     </div>
 
                     <div class="form-group">
-                        <label for="confirmPassword">Confirmar contraseña</label>
+                        <label for="confirmPassword">@Localization.GetString(ResourceKeys.Register_ConfirmPassword)</label>
                         <input type="password" id="confirmPassword" @bind="registerModel.ConfirmPassword" required />
                     </div>
 
@@ -55,7 +54,7 @@
                         <label class="checkbox-label">
                             <input type="checkbox" @bind="acceptTerms" required />
                             <span class="checkmark"></span>
-                            Acepto los <a href="/terms" target="_blank">términos y condiciones</a> y la <a href="/privacy" target="_blank">política de privacidad</a>
+                            @Localization.GetString(ResourceKeys.Register_AcceptTermsPart1) <a href="/terms" target="_blank">@Localization.GetString(ResourceKeys.Register_TermsAndConditions)</a> @Localization.GetString(ResourceKeys.Register_AcceptTermsPart2) <a href="/privacy" target="_blank">@Localization.GetString(ResourceKeys.Register_PrivacyPolicy)</a>
                         </label>
                     </div>
 
@@ -63,17 +62,17 @@
                         @if (isLoading)
                         {
                             <span class="loading-spinner"></span>
-                            <span>Creando cuenta...</span>
+                            <span>@Localization.GetString(ResourceKeys.Register_CreatingAccount)</span>
                         }
                         else
                         {
-                            <span>Crear cuenta gratuita</span>
+                            <span>@Localization.GetString(ResourceKeys.Register_CreateFreeAccount)</span>
                         }
                     </button>
                 </form>
 
                 <div class="form-footer">
-                    <p>¿Ya tienes una cuenta? <a href="/Account/login" @onclick="@(() => Navigation.Push("/Account/login"))" @onclick:preventDefault="true">Inicia sesión</a></p>
+                    <p>@Localization.GetString(ResourceKeys.Register_AlreadyHaveAccount) <a href="/Account/login" @onclick="@(() => Navigation.Push("/Account/login"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.Register_SignIn)</a></p>
                 </div>
 
                 @if (!string.IsNullOrEmpty(errorMessage))
@@ -85,21 +84,21 @@
             </div>
 
             <div class="register-benefits">
-                <h3>Lo que obtienes con WaHub</h3>
+                <h3>@Localization.GetString(ResourceKeys.Register_BenefitsTitle)</h3>
                 <ul class="benefits-list">
-                    <li>✅ 1,000 mensajes gratuitos al mes</li>
-                    <li>✅ API REST fácil de usar</li>
-                    <li>✅ Webhooks en tiempo real</li>
-                    <li>✅ Dashboard de analíticas</li>
-                    <li>✅ Soporte técnico 24/7</li>
-                    <li>✅ Documentación completa</li>
+                    <li>@Localization.GetString(ResourceKeys.Register_Benefit1)</li>
+                    <li>@Localization.GetString(ResourceKeys.Register_Benefit2)</li>
+                    <li>@Localization.GetString(ResourceKeys.Register_Benefit3)</li>
+                    <li>@Localization.GetString(ResourceKeys.Register_Benefit4)</li>
+                    <li>@Localization.GetString(ResourceKeys.Register_Benefit5)</li>
+                    <li>@Localization.GetString(ResourceKeys.Register_Benefit6)</li>
                 </ul>
 
                 <div class="testimonial">
                     <blockquote>
-                        "WaHub transformó nuestra comunicación con clientes. La integración fue súper simple."
+                        @Localization.GetString(ResourceKeys.Register_TestimonialQuote)
                     </blockquote>
-                    <cite>- María González, CTO de TechCorp</cite>
+                    <cite>@Localization.GetString(ResourceKeys.Register_TestimonialCite)</cite>
                 </div>
             </div>
         </div>
@@ -120,6 +119,15 @@
         public string Company { get; set; } = "";
         public string Password { get; set; } = "";
         public string ConfirmPassword { get; set; } = "";
+    }
+
+    protected override void OnInitialized()
+    {
+        // Ensure Localization service is available before using it in validation
+        if (Localization == null)
+        {
+            throw new InvalidOperationException($"{nameof(Localization)} is not injected. Check if @inject ILocalizationService Localization is present in the .razor file.");
+        }
     }
 
     private async Task HandleSubmit()
@@ -148,7 +156,7 @@
                 FullName = $"{registerModel.FirstName} {registerModel.LastName}"
             };
 
-            var result = await userManager.CreateAsync(user, registerModel.Password);
+            var result = await singInManager.UserManager.CreateAsync(user, registerModel.Password);
 
             if (result.Succeeded)
             {
@@ -156,14 +164,12 @@
             }
             else
             {
-
                 errorMessage = string.Join("\n", result.Errors.Select(x => x.Description));
-                // errorMessage = "Error al crear la cuenta. Por favor, verifica los datos.";
             }
         }
         catch (Exception)
         {
-            errorMessage = "Error al crear la cuenta. Por favor, inténtalo de nuevo.";
+            errorMessage = Localization.GetString(ResourceKeys.Register_ErrorCreatingAccount);
         }
         finally
         {
@@ -178,22 +184,22 @@
         // Validar campos requeridos
         if (string.IsNullOrWhiteSpace(registerModel.FirstName?.Trim()))
         {
-            errors.Add("El nombre es requerido");
+            errors.Add(Localization.GetString(ResourceKeys.Register_Validation_FirstNameRequired));
         }
 
         if (string.IsNullOrWhiteSpace(registerModel.LastName?.Trim()))
         {
-            errors.Add("El apellido es requerido");
+            errors.Add(Localization.GetString(ResourceKeys.Register_Validation_LastNameRequired));
         }
 
         // Validar email
         if (string.IsNullOrWhiteSpace(registerModel.Email?.Trim()))
         {
-            errors.Add("El correo electrónico es requerido");
+            errors.Add(Localization.GetString(ResourceKeys.Register_Validation_EmailRequired));
         }
         else if (!IsValidEmail(registerModel.Email))
         {
-            errors.Add("El formato del correo electrónico no es válido");
+            errors.Add(Localization.GetString(ResourceKeys.Register_Validation_EmailInvalid));
         }
 
         // Validar contraseña
@@ -202,12 +208,12 @@
 
         if (registerModel.Password != registerModel.ConfirmPassword)
         {
-            errors.Add("Las contraseñas no coinciden");
+            errors.Add(Localization.GetString(ResourceKeys.Register_Validation_PasswordsDoNotMatch));
         }
 
         if (!acceptTerms)
         {
-            errors.Add("Debes aceptar los términos y condiciones");
+            errors.Add(Localization.GetString(ResourceKeys.Register_Validation_MustAcceptTerms));
         }
 
         return errors;
@@ -219,28 +225,28 @@
 
         if (string.IsNullOrWhiteSpace(password))
         {
-            errors.Add("La contraseña es requerida");
+            errors.Add(Localization.GetString(ResourceKeys.Register_Validation_PasswordRequired));
             return errors;
         }
 
         if (password.Length < 8)
         {
-            errors.Add("La contraseña debe tener al menos 8 caracteres");
+            errors.Add(Localization.GetString(ResourceKeys.Register_Validation_PasswordMinLength));
         }
 
         if (!password.Any(char.IsUpper))
         {
-            errors.Add("La contraseña debe contener al menos una letra mayúscula");
+            errors.Add(Localization.GetString(ResourceKeys.Register_Validation_PasswordUppercase));
         }
 
         if (!password.Any(char.IsLower))
         {
-            errors.Add("La contraseña debe contener al menos una letra minúscula");
+            errors.Add(Localization.GetString(ResourceKeys.Register_Validation_PasswordLowercase));
         }
 
         if (!password.Any(char.IsDigit))
         {
-            errors.Add("La contraseña debe contener al menos un número");
+            errors.Add(Localization.GetString(ResourceKeys.Register_Validation_PasswordDigit));
         }
 
         return errors;

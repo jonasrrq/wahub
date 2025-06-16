@@ -4,17 +4,17 @@
 
 @using System.ComponentModel.DataAnnotations
 
-@inject LocalizationService Localization
+@inject ILocalizationService Localization
 @inject SignInManager<ApplicationUser> singInManager
 @inject UserManager<ApplicationUser> userManager
 @inject NavigationService navigation
 @inject IHttpContextAccessor httpContextAccessor
 
-<PageTitle>@Localization.Login - WaHub</PageTitle>
+<PageTitle>@Localization.GetString(ResourceKeys.Login) - WaHub</PageTitle>
 
 <div class="login-container">
     <div class="login-form">
-        <h1>@Localization.Login</h1>
+        <h1>@Localization.GetString(ResourceKeys.Login)</h1>
         @if (!string.IsNullOrEmpty(errorMessage))
         {
             <div class="error-message">
@@ -27,13 +27,13 @@
             <ValidationSummary />
 
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">@Localization.GetString(ResourceKeys.Login_Email)</label>
                 <InputText id="email" @bind-Value="inputModel.Email" placeholder="admin@wahub.com" />
                 <ValidationMessage For="@(() => inputModel.Email)" />
             </div>
 
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">@Localization.GetString(ResourceKeys.Login_Password)</label>
                 <InputText type="password" id="password" @bind-Value="inputModel.Password" placeholder="admin123" />
                 <ValidationMessage For="@(() => inputModel.Password)" />
             </div>
@@ -42,23 +42,23 @@
                 {
                     <div class="login-loading">
                         <div class="login-spinner"></div>
-                        <span>Iniciando sesión...</span>
+                        <span>@Localization.GetString(ResourceKeys.Login_SigningIn)</span>
                     </div>
                 }
                 else
                 {
-                    <span>@Localization.Login</span>
+                    <span>@Localization.GetString(ResourceKeys.Login)</span>
                 }
             </button>
         </EditForm>
 
-        <p>¿No tienes cuenta? <a href="/Account/register">Regístrate aquí</a></p>
+        <p>@Localization.GetString(ResourceKeys.Login_NoAccount) <a href="/Account/register">@Localization.GetString(ResourceKeys.Login_RegisterHere)</a></p>
     </div>
 </div>
 
 @code {
     [SupplyParameterFromForm]
-    private LoginModel inputModel { get; set; } = new(); 
+    private LoginModel inputModel { get; set; } = new();
     private bool isLoading = false;
     private string errorMessage = "";
 
@@ -68,11 +68,11 @@
 
     public class LoginModel
     {
-        [Required(ErrorMessage = "El email es requerido")]
-        [EmailAddress(ErrorMessage = "Ingrese un email válido")]
+        [Required(ErrorMessage = nameof(ResourceKeys.Login_Validation_EmailRequired))]
+        [EmailAddress(ErrorMessage = nameof(ResourceKeys.Login_Validation_EmailInvalid))]
         public string Email { get; set; } = "";
 
-        [Required(ErrorMessage = "La contraseña es requerida")]
+        [Required(ErrorMessage = nameof(ResourceKeys.Login_Validation_PasswordRequired))]
         // [MinLength(6, ErrorMessage = "La contraseña debe tener al menos 6 caracteres")]
         [DataType(DataType.Password)]
         public string Password { get; set; } = "";
@@ -87,18 +87,19 @@
         //     // Clear the existing external cookie to ensure a clean login process
         //     await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
         // }
+        await Task.CompletedTask;
     }
 
     private async Task HandleLogin()
     {
         if (string.IsNullOrWhiteSpace(inputModel.Email) || string.IsNullOrWhiteSpace(inputModel.Password))
         {
-            errorMessage = "Por favor, ingresa tu email y contraseña.";
+            errorMessage = Localization.GetString(ResourceKeys.Login_Validation_EnterEmailPassword);
             return;
         }
         inputModel.isLoading = true;
         isLoading = true;
-        
+
         errorMessage = "";
 
         try
@@ -121,7 +122,7 @@
             // await singInManager.PasswordSignInAsync(findUser, inputModel.Password, false, false);
 
             // Usar redirección HTTP en lugar de navegación del cliente
-           
+
             var httpContext = httpContextAccessor.HttpContext;
             if (httpContext != null)
             {
@@ -131,7 +132,7 @@
         }
         catch (Exception ex)
         {
-            errorMessage = $"Error durante el login: {ex.Message}";
+            errorMessage = $"{Localization.GetString(ResourceKeys.Login_ErrorDuringLogin)} {ex.Message}";
         }
         finally
         {
