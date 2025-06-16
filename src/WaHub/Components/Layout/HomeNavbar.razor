@@ -14,9 +14,8 @@
                 <a href="/pricing" @onclick="@(() => Navigation.Push("/pricing"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.HomeNavbar_Prices)</a>
                 <a href="/docs" @onclick="@(() => Navigation.Push("/docs"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.HomeNavbar_API)</a>
                 <a href="/contact" @onclick="@(() => Navigation.Push("/contact"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.HomeNavbar_Contact)</a>
-            </nav>
-            <div class="language-switcher">
-                <LanguageSelector />
+            </nav>            <div class="language-switcher">
+                <WaHub.Client.Shared.LanguageSelector />
             </div>
 
             <a class="nav-btn nav-btn-primary" href="/Account/login" @onclick="@(() => Navigation.Push("/account/login"))" @onclick:preventDefault="true">@Localization.GetString(ResourceKeys.Login)</a>
