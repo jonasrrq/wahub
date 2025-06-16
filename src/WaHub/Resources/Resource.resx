@@ -1912,9 +1912,6 @@
   <data name="Instances_CreateInstanceButton" xml:space="preserve">
     <value>Crear Instancia</value>
   </data>
-  <data name="Instances_QrModalTitle" xml:space="preserve">
-    <value>Código QR para WhatsApp</value>
-  </data>
   <data name="Instances_QrScanMessage" xml:space="preserve">
     <value>Escanea este código QR con tu aplicación de WhatsApp para conectar esta instancia.</value>
   </data>
@@ -2294,10 +2291,7 @@
   </data>
   <data name="Instances_Activate_Duplicate[1]" xml:space="preserve">
     <value>Activar</value>
-  </data>
-  <data name="Instances_ShowQR" xml:space="preserve">
-    <value>Mostrar QR</value>
-  </data>
+  </data> 
   <data name="Instances_Delete_Duplicate[1]" xml:space="preserve">
     <value>BORRAR</value>
   </data>
