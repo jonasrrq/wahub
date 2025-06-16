@@ -1303,4 +1303,418 @@
   <data name="Pricing_CTA_Button" xml:space="preserve">
     <value>Comenzar gratis</value>
   </data>
+  <!-- Traducciones para src/WaHub/Components/Pages/Contact.razor -->
+  <data name="Contact_Title" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="Contact_ContactUs" xml:space="preserve">
+    <value>Contáctanos</value>
+  </data>
+  <data name="Contact_Lead" xml:space="preserve">
+    <value>¿Tienes preguntas? Nos encantaría ayudarte. Ponte en contacto con nuestro equipo.</value>
+  </data>
+  <data name="Contact_InfoTitle" xml:space="preserve">
+    <value>Información de Contacto</value>
+  </data>
+  <data name="Contact_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Contact_EmailResponse" xml:space="preserve">
+    <value>Respuesta en 24 horas</value>
+  </data>
+  <data name="Contact_Phone" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
+  <data name="Contact_PhoneHours" xml:space="preserve">
+    <value>Lunes a Viernes 9AM - 6PM</value>
+  </data>
+  <data name="Contact_WhatsApp" xml:space="preserve">
+    <value>WhatsApp</value>
+  </data>
+  <data name="Contact_WhatsAppSupport" xml:space="preserve">
+    <value>Soporte inmediato</value>
+  </data>
+  <data name="Contact_Office" xml:space="preserve">
+    <value>Oficina</value>
+  </data>
+  <data name="Contact_OfficeVisit" xml:space="preserve">
+    <value>Visítanos con cita previa</value>
+  </data>
+  <data name="Contact_SendMessage" xml:space="preserve">
+    <value>Envía un Mensaje</value>
+  </data>
+  <data name="Contact_FirstName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Contact_FirstName_Placeholder" xml:space="preserve">
+    <value>Tu nombre</value>
+  </data>
+  <data name="Contact_LastName" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Contact_LastName_Placeholder" xml:space="preserve">
+    <value>Tu apellido</value>
+  </data>
+  <data name="Contact_EmailField" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Contact_Email_Placeholder" xml:space="preserve">
+    <value>tu@email.com</value>
+  </data>
+  <data name="Contact_Company" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
+  <data name="Contact_Company_Optional" xml:space="preserve">
+    <value>(Opcional)</value>
+  </data>
+  <data name="Contact_Company_Placeholder" xml:space="preserve">
+    <value>Nombre de tu empresa</value>
+  </data>
+  <data name="Contact_Subject" xml:space="preserve">
+    <value>Asunto</value>
+  </data>
+  <data name="Contact_Subject_Placeholder" xml:space="preserve">
+    <value>Selecciona un asunto</value>
+  </data>
+  <data name="Contact_Subject_Sales" xml:space="preserve">
+    <value>Consulta de Ventas</value>
+  </data>
+  <data name="Contact_Subject_Support" xml:space="preserve">
+    <value>Soporte Técnico</value>
+  </data>
+  <data name="Contact_Subject_Billing" xml:space="preserve">
+    <value>Facturación</value>
+  </data>
+  <data name="Contact_Subject_Feature" xml:space="preserve">
+    <value>Solicitud de Función</value>
+  </data>
+  <data name="Contact_Subject_Partnership" xml:space="preserve">
+    <value>Asociación</value>
+  </data>
+  <data name="Contact_Subject_Other" xml:space="preserve">
+    <value>Otro</value>
+  </data>
+  <data name="Contact_Message" xml:space="preserve">
+    <value>Mensaje</value>
+  </data>
+  <data name="Contact_Message_Placeholder" xml:space="preserve">
+    <value>Cuéntanos cómo podemos ayudarte...</value>
+  </data>
+  <data name="Contact_Accept" xml:space="preserve">
+    <value>Acepto la</value>
+  </data>
+  <data name="Contact_PrivacyPolicy" xml:space="preserve">
+    <value>Política de Privacidad</value>
+  </data>
+  <data name="Contact_And" xml:space="preserve">
+    <value>y los</value>
+  </data>
+  <data name="Contact_Terms" xml:space="preserve">
+    <value>Términos de Servicio</value>
+  </data>
+  <data name="Contact_Sending" xml:space="preserve">
+    <value>Enviando...</value>
+  </data>
+  <data name="Contact_Send" xml:space="preserve">
+    <value>Enviar Mensaje</value>
+  </data>
+  <data name="Contact_FAQ_Title" xml:space="preserve">
+    <value>Preguntas Frecuentes</value>
+  </data>
+  <data name="Contact_FAQ_Lead" xml:space="preserve">
+    <value>Respuestas a las preguntas más comunes que recibimos de nuestros clientes</value>
+  </data>
+  <data name="Contact_FAQ_Response_Q" xml:space="preserve">
+    <value>¿Cuánto tiempo toma recibir una respuesta?</value>
+  </data>
+  <data name="Contact_FAQ_Response_A" xml:space="preserve">
+    <value>Respondemos a todos los emails dentro de 24 horas durante días laborables. Para consultas urgentes, te recomendamos utilizar nuestro chat de WhatsApp para una respuesta más rápida.</value>
+  </data>
+  <data name="Contact_FAQ_Language_Q" xml:space="preserve">
+    <value>¿Ofrecen soporte en español?</value>
+  </data>
+  <data name="Contact_FAQ_Language_A" xml:space="preserve">
+    <value>¡Por supuesto! Nuestro equipo de soporte está disponible en español, inglés y otros idiomas. No dudes en contactarnos en el idioma con el que te sientas más cómodo.</value>
+  </data>
+  <data name="Contact_FAQ_Demo_Q" xml:space="preserve">
+    <value>¿Puedo agendar una demo personalizada?</value>
+  </data>
+  <data name="Contact_FAQ_Demo_A" xml:space="preserve">
+    <value>Sí, ofrecemos demos personalizadas gratuitas donde te mostraremos todas las características de nuestra plataforma. Nuestro equipo de ventas estará encantado de adaptar la demo a tus necesidades específicas.</value>
+  </data>
+  <data name="Contact_FAQ_NGO_Q" xml:space="preserve">
+    <value>¿Hay descuentos para organizaciones sin fines de lucro?</value>
+  </data>
+  <data name="Contact_FAQ_NGO_A" xml:space="preserve">
+    <value>Sí, ofrecemos precios especiales para ONGs, organizaciones educativas y sin fines de lucro. Contáctanos para obtener más información sobre nuestros programas de descuento.</value>
+  </data>
+  <data name="Contact_FAQ_NotFound" xml:space="preserve">
+    <value>¿No encuentras lo que buscas?</value>
+  </data>
+  <data name="Contact_FAQ_ContactUs" xml:space="preserve">
+    <value>Contáctanos</value>
+  </data>
+  <!-- Validations -->
+  <data name="Contact_Validation_FirstName" xml:space="preserve">
+    <value>El nombre es requerido</value>
+  </data>
+  <data name="Contact_Validation_LastName" xml:space="preserve">
+    <value>El apellido es requerido</value>
+  </data>
+  <data name="Contact_Validation_Email" xml:space="preserve">
+    <value>El email es requerido</value>
+  </data>
+  <data name="Contact_Validation_EmailFormat" xml:space="preserve">
+    <value>Formato de email inválido</value>
+  </data>
+  <data name="Contact_Validation_Subject" xml:space="preserve">
+    <value>Selecciona un asunto</value>
+  </data>
+  <data name="Contact_Validation_Message" xml:space="preserve">
+    <value>El mensaje es requerido</value>
+  </data>
+  <data name="Contact_Validation_Privacy" xml:space="preserve">
+    <value>Debes aceptar la política de privacidad y los términos de servicio</value>
+  </data>
+  <!-- Alerts -->
+  <data name="Contact_Alert_Success" xml:space="preserve">
+    <value>¡Mensaje enviado exitosamente! Te contactaremos pronto.</value>
+  </data>
+  <data name="Contact_Alert_Error" xml:space="preserve">
+    <value>Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.</value>
+  </data>
+  <!-- Traducciones para src/WaHub/Components/Pages/ApiDocs.razor -->
+  <data name="ApiDocs_Title" xml:space="preserve">
+    <value>Documentación API</value>
+  </data>
+  <data name="ApiDocs_Sidebar_Title" xml:space="preserve">
+    <value>Documentación</value>
+  </data>
+  <data name="ApiDocs_Sidebar_GettingStarted_Title" xml:space="preserve">
+    <value>Primeros pasos</value>
+  </data>
+  <data name="ApiDocs_Sidebar_GettingStarted_Intro" xml:space="preserve">
+    <value>Introducción</value>
+  </data>
+  <data name="ApiDocs_Sidebar_GettingStarted_Auth" xml:space="preserve">
+    <value>Autenticación</value>
+  </data>
+  <data name="ApiDocs_Sidebar_GettingStarted_QuickStart" xml:space="preserve">
+    <value>Inicio rápido</value>
+  </data>
+  <data name="ApiDocs_Sidebar_APIReference_Title" xml:space="preserve">
+    <value>Referencia de la API</value>
+  </data>
+  <data name="ApiDocs_Sidebar_APIReference_SendMessages" xml:space="preserve">
+    <value>Enviar mensajes</value>
+  </data>
+  <data name="ApiDocs_Sidebar_APIReference_Webhooks" xml:space="preserve">
+    <value>Webhooks</value>
+  </data>
+  <data name="ApiDocs_Sidebar_APIReference_Instances" xml:space="preserve">
+    <value>Instancias</value>
+  </data>
+  <data name="ApiDocs_Sidebar_APIReference_Contacts" xml:space="preserve">
+    <value>Contactos</value>
+  </data>
+  <data name="ApiDocs_Sidebar_SDKs_Title" xml:space="preserve">
+    <value>SDKs</value>
+  </data>
+  <data name="ApiDocs_Sidebar_SDKs_JS" xml:space="preserve">
+    <value>JavaScript</value>
+  </data>
+  <data name="ApiDocs_Sidebar_SDKs_Python" xml:space="preserve">
+    <value>Python</value>
+  </data>
+  <data name="ApiDocs_Sidebar_SDKs_PHP" xml:space="preserve">
+    <value>PHP</value>
+  </data>
+  <data name="ApiDocs_Intro_Title" xml:space="preserve">
+    <value>Introducción a WaHub API</value>
+  </data>
+  <data name="ApiDocs_Intro_Description" xml:space="preserve">
+    <value>WaHub proporciona una API REST simple y potente para integrar WhatsApp en tus aplicaciones. Con solo unas pocas líneas de código, puedes enviar mensajes, recibir webhooks y gestionar contactos.</value>
+  </data>
+  <data name="ApiDocs_Intro_InfoBox_Title" xml:space="preserve">
+    <value>🚀 Comenzar en 5 minutos</value>
+  </data>
+  <data name="ApiDocs_Intro_InfoBox_Content" xml:space="preserve">
+    <value>Nuestra API está diseñada para que puedas integrar WhatsApp en tu aplicación en menos de 5 minutos.</value>
+  </data>
+  <data name="ApiDocs_BaseURL_Title" xml:space="preserve">
+    <value>URL Base</value>
+  </data>
+  <data name="ApiDocs_ResponseFormat_Title" xml:space="preserve">
+    <value>Formato de respuesta</value>
+  </data>
+  <data name="ApiDocs_ResponseFormat_Description" xml:space="preserve">
+    <value>Todas las respuestas de la API están en formato JSON:</value>
+  </data>
+  <data name="ApiDocs_ResponseFormat_SuccessMessage" xml:space="preserve">
+    <value>Operación exitosa</value>
+  </data>
+  <data name="ApiDocs_Auth_Title" xml:space="preserve">
+    <value>Autenticación</value>
+  </data>
+  <data name="ApiDocs_Auth_Description" xml:space="preserve">
+    <value>WaHub utiliza API Keys para autenticar las solicitudes. Tu API Key se encuentra en tu dashboard.</value>
+  </data>
+  <data name="ApiDocs_Auth_WarningBox_Title" xml:space="preserve">
+    <value>⚠️ Mantén tu API Key segura</value>
+  </data>
+  <data name="ApiDocs_Auth_WarningBox_Content" xml:space="preserve">
+    <value>No expongas tu API Key en código frontend. Úsala solo en tu backend.</value>
+  </data>
+  <data name="ApiDocs_Auth_Example_Title" xml:space="preserve">
+    <value>Ejemplo de autenticación</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Title" xml:space="preserve">
+    <value>Inicio rápido</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Description" xml:space="preserve">
+    <value>Envía tu primer mensaje con WhatsApp en menos de 2 minutos:</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Step1_Title" xml:space="preserve">
+    <value>Paso 1: Obtén tu API Key</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Step1_Content" xml:space="preserve">
+    <value>Regístrate en WaHub y obtén tu API Key desde el dashboard.</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Step2_Title" xml:space="preserve">
+    <value>Paso 2: Configura una instancia</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Step2_Content" xml:space="preserve">
+    <value>Escanea el código QR para conectar tu número de WhatsApp.</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Step3_Title" xml:space="preserve">
+    <value>Paso 3: Envía tu primer mensaje</value>
+  </data>
+  <data name="ApiDocs_QuickStart_Step3_Message" xml:space="preserve">
+    <value>¡Hola desde WaHub! 👋</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Title" xml:space="preserve">
+    <value>Enviar mensajes</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Description" xml:space="preserve">
+    <value>Envía diferentes tipos de mensajes usando la API de WaHub.</value>
+  </data>
+  <data name="ApiDocs_SendMessages_PostEndpoint" xml:space="preserve">
+    <value>POST /messages</value>
+  </data>
+  <data name="ApiDocs_SendMessages_PostEndpoint_Description" xml:space="preserve">
+    <value>Envía un mensaje de texto, imagen, documento o cualquier otro tipo de contenido.</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Title" xml:space="preserve">
+    <value>Parámetros</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Param" xml:space="preserve">
+    <value>Parámetro</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Required" xml:space="preserve">
+    <value>Requerido</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_To_Desc" xml:space="preserve">
+    <value>Número de teléfono con código de país</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Type_Desc" xml:space="preserve">
+    <value>Tipo de mensaje: text, image, document, audio, video</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_Text_Desc" xml:space="preserve">
+    <value>Texto del mensaje (requerido si type=text)</value>
+  </data>
+  <data name="ApiDocs_SendMessages_Parameters_MediaUrl_Desc" xml:space="preserve">
+    <value>URL del archivo multimedia</value>
+  </data>
+  <data name="ApiDocs_SendMessages_ExampleText_Title" xml:space="preserve">
+    <value>Ejemplo: Mensaje de texto</value>
+  </data>
+  <data name="ApiDocs_SendMessages_ExampleImage_Title" xml:space="preserve">
+    <value>Ejemplo: Enviar imagen</value>
+  </data>
+  <data name="ApiDocs_SendMessages_ExampleImage_Caption" xml:space="preserve">
+    <value>Mira esta foto increíble!</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Title" xml:space="preserve">
+    <value>Webhooks</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Description" xml:space="preserve">
+    <value>Recibe notificaciones en tiempo real cuando ocurren eventos en tu instancia de WhatsApp.</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Config_Title" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Config_Description" xml:space="preserve">
+    <value>Configura tu URL de webhook en el dashboard de WaHub. Cuando ocurra un evento, enviaremos un POST a tu endpoint.</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Events_Title" xml:space="preserve">
+    <value>Eventos disponibles</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageReceived_Name" xml:space="preserve">
+    <value>message_received:</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageReceived_Desc" xml:space="preserve">
+    <value>Cuando recibes un mensaje</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageSent_Name" xml:space="preserve">
+    <value>message_sent:</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageSent_Desc" xml:space="preserve">
+    <value>Cuando envías un mensaje</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageDelivered_Name" xml:space="preserve">
+    <value>message_delivered:</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageDelivered_Desc" xml:space="preserve">
+    <value>Cuando un mensaje es entregado</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageRead_Name" xml:space="preserve">
+    <value>message_read:</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Event_MessageRead_Desc" xml:space="preserve">
+    <value>Cuando un mensaje es leído</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Example_Title" xml:space="preserve">
+    <value>Ejemplo de webhook</value>
+  </data>
+  <data name="ApiDocs_Webhooks_Example_Message" xml:space="preserve">
+    <value>Hola, ¿cómo estás?</value>
+  </data>
+  <!-- Traducciones para src/WaHub/Components/Pages/Account/Login.razor -->
+  <data name="Login_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Login_SigningIn" xml:space="preserve">
+    <value>Iniciando sesión...</value>
+  </data>
+  <data name="Login_NoAccount" xml:space="preserve">
+    <value>¿No tienes cuenta?</value>
+  </data>
+  <data name="Login_RegisterHere" xml:space="preserve">
+    <value>Regístrate aquí</value>
+  </data>
+  <!-- Validations -->
+  <data name="Login_Validation_EmailRequired" xml:space="preserve">
+    <value>El email es requerido</value>
+  </data>
+  <data name="Login_Validation_EmailInvalid" xml:space="preserve">
+    <value>Ingrese un email válido</value>
+  </data>
+  <data name="Login_Validation_PasswordRequired" xml:space="preserve">
+    <value>La contraseña es requerida</value>
+  </data>
+  <data name="Login_Validation_EnterEmailPassword" xml:space="preserve">
+    <value>Por favor, ingresa tu email y contraseña.</value>
+  </data>
+  <data name="Login_ErrorDuringLogin" xml:space="preserve">
+    <value>Error durante el login:</value>
+  </data>
 </root>

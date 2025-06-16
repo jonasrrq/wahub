@@ -1300,4 +1300,184 @@
   <data name="Pricing_CTA_Button" xml:space="preserve">
     <value>Commencer gratuitement</value>
   </data>
+  <!-- Traductions pour src/WaHub/Components/Pages/Contact.razor -->
+  <data name="Contact_Title" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Contact_ContactUs" xml:space="preserve">
+    <value>Nous Contacter</value>
+  </data>
+  <data name="Contact_Lead" xml:space="preserve">
+    <value>Des questions? Nous serions ravis de vous aider. Prenez contact avec notre équipe.</value>
+  </data>
+  <data name="Contact_InfoTitle" xml:space="preserve">
+    <value>Informations de Contact</value>
+  </data>
+  <data name="Contact_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Contact_EmailResponse" xml:space="preserve">
+    <value>Réponse sous 24 heures</value>
+  </data>
+  <data name="Contact_Phone" xml:space="preserve">
+    <value>Téléphone</value>
+  </data>
+  <data name="Contact_PhoneHours" xml:space="preserve">
+    <value>Lundi au Vendredi 9h - 18h</value>
+  </data>
+  <data name="Contact_WhatsApp" xml:space="preserve">
+    <value>WhatsApp</value>
+  </data>
+  <data name="Contact_WhatsAppSupport" xml:space="preserve">
+    <value>Support immédiat</value>
+  </data>
+  <data name="Contact_Office" xml:space="preserve">
+    <value>Bureau</value>
+  </data>
+  <data name="Contact_OfficeVisit" xml:space="preserve">
+    <value>Visite sur rendez-vous</value>
+  </data>
+  <data name="Contact_SendMessage" xml:space="preserve">
+    <value>Envoyer un Message</value>
+  </data>
+  <data name="Contact_FirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="Contact_FirstName_Placeholder" xml:space="preserve">
+    <value>Votre prénom</value>
+  </data>
+  <data name="Contact_LastName" xml:space="preserve">
+    <value>Nom de Famille</value>
+  </data>
+  <data name="Contact_LastName_Placeholder" xml:space="preserve">
+    <value>Votre nom de famille</value>
+  </data>
+  <data name="Contact_EmailField" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Contact_Email_Placeholder" xml:space="preserve">
+    <value>votre@email.com</value>
+  </data>
+  <data name="Contact_Company" xml:space="preserve">
+    <value>Entreprise</value>
+  </data>
+  <data name="Contact_Company_Optional" xml:space="preserve">
+    <value>(Optionnel)</value>
+  </data>
+  <data name="Contact_Company_Placeholder" xml:space="preserve">
+    <value>Nom de votre entreprise</value>
+  </data>
+  <data name="Contact_Subject" xml:space="preserve">
+    <value>Sujet</value>
+  </data>
+  <data name="Contact_Subject_Placeholder" xml:space="preserve">
+    <value>Sélectionnez un sujet</value>
+  </data>
+  <data name="Contact_Subject_Sales" xml:space="preserve">
+    <value>Demande Commerciale</value>
+  </data>
+  <data name="Contact_Subject_Support" xml:space="preserve">
+    <value>Support Technique</value>
+  </data>
+  <data name="Contact_Subject_Billing" xml:space="preserve">
+    <value>Facturation</value>
+  </data>
+  <data name="Contact_Subject_Feature" xml:space="preserve">
+    <value>Demande de Fonctionnalité</value>
+  </data>
+  <data name="Contact_Subject_Partnership" xml:space="preserve">
+    <value>Partenariat</value>
+  </data>
+  <data name="Contact_Subject_Other" xml:space="preserve">
+    <value>Autre</value>
+  </data>
+  <data name="Contact_Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Contact_Message_Placeholder" xml:space="preserve">
+    <value>Dites-nous comment nous pouvons vous aider...</value>
+  </data>
+  <data name="Contact_Accept" xml:space="preserve">
+    <value>J'accepte la</value>
+  </data>
+  <data name="Contact_PrivacyPolicy" xml:space="preserve">
+    <value>Politique de Confidentialité</value>
+  </data>
+  <data name="Contact_And" xml:space="preserve">
+    <value>et les</value>
+  </data>
+  <data name="Contact_Terms" xml:space="preserve">
+    <value>Conditions Générales de Service</value>
+  </data>
+  <data name="Contact_Sending" xml:space="preserve">
+    <value>Envoi en cours...</value>
+  </data>
+  <data name="Contact_Send" xml:space="preserve">
+    <value>Envoyer le Message</value>
+  </data>
+  <data name="Contact_FAQ_Title" xml:space="preserve">
+    <value>Questions Fréquentes</value>
+  </data>
+  <data name="Contact_FAQ_Lead" xml:space="preserve">
+    <value>Réponses aux questions les plus courantes que nous recevons de nos clients</value>
+  </data>
+  <data name="Contact_FAQ_Response_Q" xml:space="preserve">
+    <value>Combien de temps faut-il pour recevoir une réponse?</value>
+  </data>
+  <data name="Contact_FAQ_Response_A" xml:space="preserve">
+    <value>Nous répondons à tous les e-mails dans les 24 heures ouvrables. Pour les demandes urgentes, nous vous recommandons d'utiliser notre chat WhatsApp pour une réponse plus rapide.</value>
+  </data>
+  <data name="Contact_FAQ_Language_Q" xml:space="preserve">
+    <value>Offrez-vous un support en français?</value>
+  </data>
+  <data name="Contact_FAQ_Language_A" xml:space="preserve">
+    <value>Bien sûr! Notre équipe de support est disponible en espagnol, anglais et d'autres langues. N'hésitez pas à nous contacter dans la langue avec laquelle vous êtes le plus à l'aise.</value>
+  </data>
+  <data name="Contact_FAQ_Demo_Q" xml:space="preserve">
+    <value>Puis-je planifier une démo personnalisée?</value>
+  </data>
+  <data name="Contact_FAQ_Demo_A" xml:space="preserve">
+    <value>Oui, nous proposons des démos personnalisées gratuites où nous vous montrerons toutes les fonctionnalités de notre plateforme. Notre équipe de vente se fera un plaisir d'adapter la démo à vos besoins spécifiques.</value>
+  </data>
+  <data name="Contact_FAQ_NGO_Q" xml:space="preserve">
+    <value>Y a-t-il des réductions pour les organisations à but non lucratif?</value>
+  </data>
+  <data name="Contact_FAQ_NGO_A" xml:space="preserve">
+    <value>Oui, nous offrons des tarifs spéciaux pour les ONG, les organisations éducatives et à but non lucratif. Contactez-nous pour plus d'informations sur nos programmes de réduction.</value>
+  </data>
+  <data name="Contact_FAQ_NotFound" xml:space="preserve">
+    <value>Vous ne trouvez pas ce que vous cherchez?</value>
+  </data>
+  <data name="Contact_FAQ_ContactUs" xml:space="preserve">
+    <value>Nous Contacter</value>
+  </data>
+  <!-- Validations -->
+  <data name="Contact_Validation_FirstName" xml:space="preserve">
+    <value>Le prénom est requis</value>
+  </data>
+  <data name="Contact_Validation_LastName" xml:space="preserve">
+    <value>Le nom de famille est requis</value>
+  </data>
+  <data name="Contact_Validation_Email" xml:space="preserve">
+    <value>L'e-mail est requis</value>
+  </data>
+  <data name="Contact_Validation_EmailFormat" xml:space="preserve">
+    <value>Format d'e-mail invalide</value>
+  </data>
+  <data name="Contact_Validation_Subject" xml:space="preserve">
+    <value>Sélectionnez un sujet</value>
+  </data>
+  <data name="Contact_Validation_Message" xml:space="preserve">
+    <value>Le message est requis</value>
+  </data>
+  <data name="Contact_Validation_Privacy" xml:space="preserve">
+    <value>Vous devez accepter la politique de confidentialité et les conditions générales de service</value>
+  </data>
+  <!-- Alerts -->
+  <data name="Contact_Alert_Success" xml:space="preserve">
+    <value>Message envoyé avec succès! Nous vous contacterons bientôt.</value>
+  </data>
+  <data name="Contact_Alert_Error" xml:space="preserve">
+    <value>Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard.</value>
+  </data>
 </root>
