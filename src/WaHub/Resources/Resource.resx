@@ -1701,7 +1701,7 @@
   <data name="Login_RegisterHere" xml:space="preserve">
     <value>Regístrate aquí</value>
   </data>
-  <!-- Validations -->
+  <!-- Validaciones -->
   <data name="Login_Validation_EmailRequired" xml:space="preserve">
     <value>El email es requerido</value>
   </data>
@@ -1716,5 +1716,856 @@
   </data>
   <data name="Login_ErrorDuringLogin" xml:space="preserve">
     <value>Error durante el login:</value>
+  </data>
+  <!-- Traducciones para src/WaHub/Components/Pages/Account/Register.razor -->
+  <data name="Register_Title" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+  <data name="Register_CreateAccount" xml:space="preserve">
+    <value>Crear cuenta</value>
+  </data>
+  <data name="Register_Intro" xml:space="preserve">
+    <value>Únete a WaHub y comienza a integrar WhatsApp en tus aplicaciones</value>
+  </data>
+  <data name="Register_FirstName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Register_LastName" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Register_Email" xml:space="preserve">
+    <value>Correo electrónico</value>
+  </data>
+  <data name="Register_Company" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
+  <data name="Register_Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Register_ConfirmPassword" xml:space="preserve">
+    <value>Confirmar contraseña</value>
+  </data>
+  <data name="Register_AcceptTermsPart1" xml:space="preserve">
+    <value>Acepto los</value>
+  </data>
+  <data name="Register_TermsAndConditions" xml:space="preserve">
+    <value>términos y condiciones</value>
+  </data>
+  <data name="Register_AcceptTermsPart2" xml:space="preserve">
+    <value>y la</value>
+  </data>
+  <data name="Register_PrivacyPolicy" xml:space="preserve">
+    <value>política de privacidad</value>
+  </data>
+  <data name="Register_CreatingAccount" xml:space="preserve">
+    <value>Creando cuenta...</value>
+  </data>
+  <data name="Register_CreateFreeAccount" xml:space="preserve">
+    <value>Crear cuenta gratuita</value>
+  </data>
+  <data name="Register_AlreadyHaveAccount" xml:space="preserve">
+    <value>¿Ya tienes una cuenta?</value>
+  </data>
+  <data name="Register_SignIn" xml:space="preserve">
+    <value>Inicia sesión</value>
+  </data>
+  <data name="Register_BenefitsTitle" xml:space="preserve">
+    <value>Lo que obtienes con WaHub</value>
+  </data>
+  <data name="Register_Benefit1" xml:space="preserve">
+    <value>✅ 1,000 mensajes gratuitos al mes</value>
+  </data>
+  <data name="Register_Benefit2" xml:space="preserve">
+    <value>✅ API REST fácil de usar</value>
+  </data>
+  <data name="Register_Benefit3" xml:space="preserve">
+    <value>✅ Webhooks en tiempo real</value>
+  </data>
+  <data name="Register_Benefit4" xml:space="preserve">
+    <value>✅ Dashboard de analíticas</value>
+  </data>
+  <data name="Register_Benefit5" xml:space="preserve">
+    <value>✅ Soporte técnico 24/7</value>
+  </data>
+  <data name="Register_Benefit6" xml:space="preserve">
+    <value>✅ Documentación completa</value>
+  </data>
+  <data name="Register_TestimonialQuote" xml:space="preserve">
+    <value>"WaHub transformó nuestra comunicación con clientes. La integración fue súper simple."</value>
+  </data>
+  <data name="Register_TestimonialCite" xml:space="preserve">
+    <value>- María González, CTO de TechCorp</value>
+  </data>
+  <!-- Validations -->
+  <data name="Register_Validation_FirstNameRequired" xml:space="preserve">
+    <value>El nombre es requerido</value>
+  </data>
+  <data name="Register_Validation_LastNameRequired" xml:space="preserve">
+    <value>El apellido es requerido</value>
+  </data>
+  <data name="Register_Validation_EmailRequired" xml:space="preserve">
+    <value>El correo electrónico es requerido</value>
+  </data>
+  <data name="Register_Validation_EmailInvalid" xml:space="preserve">
+    <value>El formato del correo electrónico no es válido</value>
+  </data>
+  <data name="Register_Validation_PasswordsDoNotMatch" xml:space="preserve">
+    <value>Las contraseñas no coinciden</value>
+  </data>
+  <data name="Register_Validation_MustAcceptTerms" xml:space="preserve">
+    <value>Debes aceptar los términos y condiciones</value>
+  </data>
+  <data name="Register_Validation_PasswordRequired" xml:space="preserve">
+    <value>La contraseña es requerida</value>
+  </data>
+  <data name="Register_Validation_PasswordMinLength" xml:space="preserve">
+    <value>La contraseña debe tener al menos 8 caracteres</value>
+  </data>
+  <data name="Register_Validation_PasswordUppercase" xml:space="preserve">
+    <value>La contraseña debe contener al menos una letra mayúscula</value>
+  </data>
+  <data name="Register_Validation_PasswordLowercase" xml:space="preserve">
+    <value>La contraseña debe contener al menos una letra minúscula</value>
+  </data>
+  <data name="Register_Validation_PasswordDigit" xml:space="preserve">
+    <value>La contraseña debe contener al menos un número</value>
+  </data>
+  <data name="Register_ErrorCreatingAccount" xml:space="preserve">
+    <value>Error al crear la cuenta. Por favor, inténtalo de nuevo.</value>
+  </data>
+  <!-- Traducciones para src/WaHub.Client/Pages/Instances.razor -->
+  <data name="Instances_Title" xml:space="preserve">
+    <value>Instancias - WaHub</value>
+  </data>
+  <data name="Instances_YourInstances" xml:space="preserve">
+    <value>Tus Instancias</value>
+  </data>
+  <data name="Instances_NewInstance" xml:space="preserve">
+    <value>Nueva Instancia</value>
+  </data>
+  <data name="Instances_LoadingInstances" xml:space="preserve">
+    <value>Cargando instancias...</value>
+  </data>
+  <data name="Instances_ErrorPrefix" xml:space="preserve">
+    <value>⚠️</value>
+  </data>
+  <data name="Instances_Retry" xml:space="preserve">
+    <value>Reintentar</value>
+  </data>
+  <data name="Instances_Pause" xml:space="preserve">
+    <value>Pausar</value>
+  </data>
+  <data name="Instances_Activate" xml:space="preserve">
+    <value>Activar</value>
+  </data>
+  <data name="Instances_ShowQr" xml:space="preserve">
+    <value>Mostrar QR</value>
+  </data>
+  <data name="Instances_Delete" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Instances_Messages" xml:space="preserve">
+    <value>Mensajes</value>
+  </data>
+  <data name="Instances_Contacts" xml:space="preserve">
+    <value>Contactos</value>
+  </data>
+  <data name="Instances_Created" xml:space="preserve">
+    <value>Creado:</value>
+  </data>
+  <data name="Instances_Last" xml:space="preserve">
+    <value>Último:</value>
+  </data>
+  <data name="Instances_Manage" xml:space="preserve">
+    <value>Administrar</value>
+  </data>
+  <data name="Instances_NoInstancesTitle" xml:space="preserve">
+    <value>No tienes instancias</value>
+  </data>
+  <data name="Instances_NoInstancesMessage" xml:space="preserve">
+    <value>Crea tu primera instancia de WhatsApp para comenzar a enviar mensajes</value>
+  </data>
+  <data name="Instances_CreateFirstInstance" xml:space="preserve">
+    <value>Crear Primera Instancia</value>
+  </data>
+  <data name="Instances_NewInstanceModalTitle" xml:space="preserve">
+    <value>Nueva Instancia de WhatsApp</value>
+  </data>
+  <data name="Instances_CloseButton" xml:space="preserve">
+    <value>✖️</value>
+  </data>
+  <data name="Instances_InstanceNameLabel" xml:space="preserve">
+    <value>Nombre de la instancia:</value>
+  </data>
+  <data name="Instances_InstanceNamePlaceholder" xml:space="preserve">
+    <value>Ej: Ventas Principal</value>
+  </data>
+  <data name="Instances_PhoneNumberLabel" xml:space="preserve">
+    <value>Número de teléfono:</value>
+  </data>
+  <data name="Instances_PhoneNumberPlaceholder" xml:space="preserve">
+    <value>Ej: +34 666 123 456</value>
+  </data>
+  <data name="Instances_Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Instances_CreateInstanceButton" xml:space="preserve">
+    <value>Crear Instancia</value>
+  </data>
+  <data name="Instances_QrModalTitle" xml:space="preserve">
+    <value>Código QR para WhatsApp</value>
+  </data>
+  <data name="Instances_QrScanMessage" xml:space="preserve">
+    <value>Escanea este código QR con tu aplicación de WhatsApp para conectar esta instancia.</value>
+  </data>
+  <data name="Instances_Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="Instances_Status_Online" xml:space="preserve">
+    <value>Conectado</value>
+  </data>
+  <data name="Instances_Status_Offline" xml:space="preserve">
+    <value>Desconectado</value>
+  </data>
+  <data name="ApiDocs_Title_Duplicate[1]" xml:space="preserve">
+    <value>Documentación API</value>
+  </data>
+  <!-- Traducciones para src/WaHub.Client/Pages/Dashboard.razor -->
+  <data name="Dashboard_PageTitle" xml:space="preserve">
+    <value>Panel de Control</value>
+  </data>
+  <data name="Dashboard_WelcomeMessage" xml:space="preserve">
+    <value>Bienvenido a tu panel de control de WaHub</value>
+  </data>
+  <data name="Dashboard_ActiveInstances" xml:space="preserve">
+    <value>Instancias Activas</value>
+  </data>
+  <data name="Dashboard_ThisWeek" xml:space="preserve">
+    <value>esta semana</value>
+  </data>
+  <data name="Dashboard_MessagesSent" xml:space="preserve">
+    <value>Mensajes Enviados</value>
+  </data>
+  <data name="Dashboard_VsPreviousMonth" xml:space="preserve">
+    <value>vs mes anterior</value>
+  </data>
+  <data name="Dashboard_Contacts" xml:space="preserve">
+    <value>Contactos</value>
+  </data>
+  <data name="Dashboard_NewContacts" xml:space="preserve">
+    <value>nuevos</value>
+  </data>
+  <data name="Dashboard_APICalls" xml:space="preserve">
+    <value>Llamadas a la API</value>
+  </data>
+  <data name="Dashboard_VsYesterday" xml:space="preserve">
+    <value>vs ayer</value>
+  </data>
+  <data name="Dashboard_MessagesPerDay" xml:space="preserve">
+    <value>Mensajes por Día</value>
+  </data>
+  <data name="Dashboard_MessagesChartPlaceholder" xml:space="preserve">
+    <value>Gráfico de mensajes enviados (integrar Chart.js)</value>
+  </data>
+  <data name="Dashboard_RecentActivity" xml:space="preserve">
+    <value>Actividad Reciente</value>
+  </data>
+  <data name="Dashboard_MessageSentTo" xml:space="preserve">
+    <value>Mensaje enviado a</value>
+  </data>
+  <data name="Dashboard_MinutesAgo" xml:space="preserve">
+    <value>Hace {0} min</value>
+  </data>
+  <data name="Dashboard_NewInstanceCreated" xml:space="preserve">
+    <value>Nueva instancia "{0}" creada</value>
+  </data>
+  <data name="Dashboard_HourAgo" xml:space="preserve">
+    <value>Hace {0} hora</value>
+  </data>
+  <data name="Dashboard_WebhookConfigured" xml:space="preserve">
+    <value>Webhook configurado para instancia principal</value>
+  </data>
+  <data name="Dashboard_HoursAgo" xml:space="preserve">
+    <value>Hace {0} horas</value>
+  </data>
+  <data name="Dashboard_ContactAdded" xml:space="preserve">
+    <value>Contacto agregado: {0}</value>
+  </data>
+  <data name="Dashboard_QuickActions" xml:space="preserve">
+    <value>Acciones Rápidas</value>
+  </data>
+  <data name="Dashboard_NewInstanceButton" xml:space="preserve">
+    <value>Nueva Instancia</value>
+  </data>
+  <data name="Dashboard_SendMessageButton" xml:space="preserve">
+    <value>Enviar Mensaje</value>
+  </data>
+  <data name="Dashboard_ViewAPIDocsButton" xml:space="preserve">
+    <value>Ver API Docs</value>
+  </data>
+  <data name="Dashboard_SupportButton" xml:space="preserve">
+    <value>Soporte</value>
+  </data>
+  <data name="Dashboard_InteractivityTestTitle" xml:space="preserve">
+    <value>Prueba de Interactividad</value>
+  </data>
+  <data name="Dashboard_InteractivityTestMessage" xml:space="preserve">
+    <value>Esta sección demuestra que la interactividad del servidor está funcionando:</value>
+  </data>
+  <data name="Dashboard_TestInteractivityButton" xml:space="preserve">
+    <value>Probar Interactividad</value>
+  </data>
+  <data name="Dashboard_Clicks" xml:space="preserve">
+    <value>Clicks</value>
+  </data>
+  <data name="Dashboard_ResetCounterButton" xml:space="preserve">
+    <value>Reiniciar Contador</value>
+  </data>
+  <data name="Dashboard_InteractivitySuccessMessage" xml:space="preserve">
+    <value>¡La interactividad funciona perfectamente! Los botones responden a los eventos onclick.</value>
+  </data>
+  <data name="Dashboard_RealTimeStatusMonitor" xml:space="preserve">
+    <value>Monitor de Estado en Tiempo Real</value>
+  </data>
+  <data name="Dashboard_RealTimeDataMessage" xml:space="preserve">
+    <value>Datos que se actualizan automáticamente cada 3 segundos:</value>
+  </data>
+  <data name="Dashboard_OnlineUsers" xml:space="preserve">
+    <value>Usuarios en línea</value>
+  </data>
+  <data name="Dashboard_MessagesPerSecond" xml:space="preserve">
+    <value>Mensajes por segundo</value>
+  </data>
+  <data name="Dashboard_ServerLoad" xml:space="preserve">
+    <value>Carga del servidor</value>
+  </data>
+  <data name="Dashboard_MessageQueue" xml:space="preserve">
+    <value>Cola de mensajes</value>
+  </data>
+  <data name="Dashboard_PauseMonitoring" xml:space="preserve">
+    <value>Pausar</value>
+  </data>
+  <data name="Dashboard_StartMonitoring" xml:space="preserve">
+    <value>Iniciar</value>
+  </data>
+  <data name="Dashboard_MonitorActiveMessage" xml:space="preserve">
+    <value>Monitor activo - Actualizando datos cada 3 segundos...</value>
+  </data>
+  <data name="Dashboard_AccessDeniedTitle" xml:space="preserve">
+    <value>Acceso Denegado</value>
+  </data>
+  <data name="Dashboard_AccessDeniedMessage" xml:space="preserve">
+    <value>No estás autenticado.</value>
+  </data>
+  <data name="Dashboard_GoToLogin" xml:space="preserve">
+    <value>Ir al Login</value>
+  </data>
+  <!-- Traducciones para src/WaHub.Client/Pages/Profile.razor -->
+  <data name="Profile_PageTitle" xml:space="preserve">
+    <value>Mi Perfil</value>
+  </data>
+  <data name="Profile_ChangeAvatarTitle" xml:space="preserve">
+    <value>Cambiar avatar</value>
+  </data>
+  <data name="Profile_VerifiedBadge" xml:space="preserve">
+    <value>Verificado</value>
+  </data>
+  <data name="Profile_PersonalInformationTab" xml:space="preserve">
+    <value>Información Personal</value>
+  </data>
+  <data name="Profile_SecurityTab" xml:space="preserve">
+    <value>Seguridad</value>
+  </data>
+  <data name="Profile_PreferencesTab" xml:space="preserve">
+    <value>Preferencias</value>
+  </data>
+  <data name="Profile_BillingTab" xml:space="preserve">
+    <value>Facturación</value>
+  </data>
+  <data name="Profile_PersonalInformationTitle" xml:space="preserve">
+    <value>Información Personal</value>
+  </data>
+  <data name="Profile_FirstNameLabel" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Profile_LastNameLabel" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Profile_EmailLabel" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Profile_EmailChangeHelp" xml:space="preserve">
+    <value>Para cambiar tu email, contacta al soporte</value>
+  </data>
+  <data name="Profile_PhoneLabel" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
+  <data name="Profile_CompanyLabel" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
+  <data name="Profile_BioLabel" xml:space="preserve">
+    <value>Biografía</value>
+  </data>
+  <data name="Profile_SavingText" xml:space="preserve">
+    <value>Guardando...</value>
+  </data>
+  <data name="Profile_SaveChangesButton" xml:space="preserve">
+    <value>Guardar Cambios</value>
+  </data>
+  <data name="Profile_SecurityTitle" xml:space="preserve">
+    <value>Seguridad</value>
+  </data>
+  <data name="Profile_ChangePasswordTitle" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="Profile_CurrentPasswordLabel" xml:space="preserve">
+    <value>Contraseña Actual</value>
+  </data>
+  <data name="Profile_NewPasswordLabel" xml:space="preserve">
+    <value>Nueva Contraseña</value>
+  </data>
+  <data name="Profile_ConfirmNewPasswordLabel" xml:space="preserve">
+    <value>Confirmar Nueva Contraseña</value>
+  </data>
+  <data name="Profile_ChangePasswordButton" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="Profile_TwoFactorAuthenticationTitle" xml:space="preserve">
+    <value>Autenticación de Dos Factores</value>
+  </data>
+  <data name="Profile_TwoFactorEnabled" xml:space="preserve">
+    <value>Activado</value>
+  </data>
+  <data name="Profile_TwoFactorDisabled" xml:space="preserve">
+    <value>Desactivado</value>
+  </data>
+  <data name="Profile_TwoFactorHelp" xml:space="preserve">
+    <value>Agrega una capa extra de seguridad a tu cuenta</value>
+  </data>
+  <data name="Profile_DeactivateTwoFactor" xml:space="preserve">
+    <value>Desactivar</value>
+  </data>
+  <data name="Profile_ActivateTwoFactor" xml:space="preserve">
+    <value>Activar</value>
+  </data>
+  <data name="Profile_ActiveSessionsTitle" xml:space="preserve">
+    <value>Sesiones Activas</value>
+  </data>
+  <data name="Profile_CurrentSessionBadge" xml:space="preserve">
+    <value>Actual</value>
+  </data>
+  <data name="Profile_CloseSessionButton" xml:space="preserve">
+    <value>Cerrar Sesión</value>
+  </data>
+  <data name="Profile_PreferencesTitle" xml:space="preserve">
+    <value>Preferencias</value>
+  </data>
+  <data name="Profile_AppearanceTitle" xml:space="preserve">
+    <value>Apariencia</value>
+  </data>
+  <data name="Profile_ThemeLabel" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="Profile_ThemeDescription" xml:space="preserve">
+    <value>Elige el tema de la interfaz</value>
+  </data>
+  <data name="Profile_LightTheme" xml:space="preserve">
+    <value>Claro</value>
+  </data>
+  <data name="Profile_DarkTheme" xml:space="preserve">
+    <value>Oscuro</value>
+  </data>
+  <data name="Profile_AutoTheme" xml:space="preserve">
+    <value>Automático</value>
+  </data>
+  <data name="Profile_LanguageLabel" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="Profile_LanguageDescription" xml:space="preserve">
+    <value>Idioma de la interfaz</value>
+  </data>
+  <data name="Profile_SpanishLanguage" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="Profile_EnglishLanguage" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Profile_PortugueseLanguage" xml:space="preserve">
+    <value>Português</value>
+  </data>
+  <data name="Profile_NotificationsTitle" xml:space="preserve">
+    <value>Notificaciones</value>
+  </data>
+  <data name="Profile_EmailNotificationsTitle" xml:space="preserve">
+    <value>Notificaciones por Email</value>
+  </data>
+  <data name="Profile_EmailNotificationsDescription" xml:space="preserve">
+    <value>Recibe actualizaciones importantes por email</value>
+  </data>
+  <data name="Profile_PushNotificationsTitle" xml:space="preserve">
+    <value>Notificaciones Push</value>
+  </data>
+  <data name="Profile_PushNotificationsDescription" xml:space="preserve">
+    <value>Notificaciones en tiempo real en el navegador</value>
+  </data>
+  <data name="Profile_NewsletterTitle" xml:space="preserve">
+    <value>Boletín de Novedades</value>
+  </data>
+  <data name="Profile_NewsletterDescription" xml:space="preserve">
+    <value>Mantente al día con nuevas funciones y consejos</value>
+  </data>
+  <data name="Profile_SavePreferencesButton" xml:space="preserve">
+    <value>Guardar Preferencias</value>
+  </data>
+  <data name="Profile_BillingTitle" xml:space="preserve">
+    <value>Facturación</value>
+  </data>
+  <data name="Profile_CurrentPlanTitle" xml:space="preserve">
+    <value>Plan Actual</value>
+  </data>
+  <data name="Profile_NextBillingLabel" xml:space="preserve">
+    <value>Próxima facturación:</value>
+  </data>
+  <data name="Profile_ChangePlanButton" xml:space="preserve">
+    <value>Cambiar Plan</value>
+  </data>
+  <data name="Profile_PaymentMethodTitle" xml:space="preserve">
+    <value>Método de Pago</value>
+  </data>
+  <data name="Profile_UpdatePaymentMethodButton" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="Profile_BillingHistoryTitle" xml:space="preserve">
+    <value>Historial de Facturación</value>
+  </data>
+  <data name="Profile_DownloadInvoiceButton" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="Profile_PersonalInfoUpdatedSuccessfully" xml:space="preserve">
+    <value>Información personal actualizada exitosamente</value>
+  </data>
+  <data name="Profile_PasswordChangedSuccessfully" xml:space="preserve">
+    <value>Contraseña cambiada exitosamente</value>
+  </data>
+  <data name="Profile_ErrorChangingPassword" xml:space="preserve">
+    <value>Error al cambiar la contraseña</value>
+  </data>
+  <data name="Profile_TwoFactorToggleMessage" xml:space="preserve">
+    <value>Autenticación de dos factores {0}activada{1}desactivada</value>
+  </data>
+  <data name="Profile_SessionClosedSuccessfully" xml:space="preserve">
+    <value>Sesión cerrada exitosamente</value>
+  </data>
+  <data name="Profile_PreferencesSavedSuccessfully" xml:space="preserve">
+    <value>Preferencias guardadas exitosamente</value>
+  </data>
+  <data name="Profile_ErrorSavingPreferences" xml:space="preserve">
+    <value>Error al guardar preferencias</value>
+  </data>
+  <data name="Profile_ChangeAvatarComingSoon" xml:space="preserve">
+    <value>Función de cambio de avatar próximamente disponible</value>
+  </data>
+  <data name="Instances_PageTitle" xml:space="preserve">
+    <value>Instancias</value>
+  </data>
+  <data name="Instances_YourInstances_Duplicate[1]" xml:space="preserve">
+    <value>Tus instancias</value>
+  </data>
+  <data name="Instances_NewInstance_Duplicate[1]" xml:space="preserve">
+    <value>Nueva Instancia</value>
+  </data>
+  <data name="Instances_LoadingInstances_Duplicate[1]" xml:space="preserve">
+    <value>Cargas de instancias ...</value>
+  </data>
+  <data name="Instances_ErrorLoadingInstances" xml:space="preserve">
+    <value>Error al cargar instancias</value>
+  </data>
+  <data name="Instances_Retry_Duplicate[1]" xml:space="preserve">
+    <value>Intentar otra vez</value>
+  </data>
+  <data name="Instances_StatusConnected" xml:space="preserve">
+    <value>Conectado</value>
+  </data>
+  <data name="Instances_StatusDisconnected" xml:space="preserve">
+    <value>Desconectado</value>
+  </data>
+  <data name="Instances_Pause_Duplicate[1]" xml:space="preserve">
+    <value>Pausar</value>
+  </data>
+  <data name="Instances_Activate_Duplicate[1]" xml:space="preserve">
+    <value>Activar</value>
+  </data>
+  <data name="Instances_ShowQR" xml:space="preserve">
+    <value>Mostrar QR</value>
+  </data>
+  <data name="Instances_Delete_Duplicate[1]" xml:space="preserve">
+    <value>BORRAR</value>
+  </data>
+  <data name="Instances_Messages_Duplicate[1]" xml:space="preserve">
+    <value>Mensajes</value>
+  </data>
+  <data name="Instances_Contacts_Duplicate[1]" xml:space="preserve">
+    <value>Contactos</value>
+  </data>
+  <data name="Instances_Created_Duplicate[1]" xml:space="preserve">
+    <value>Creado</value>
+  </data>
+  <data name="Instances_LastActive" xml:space="preserve">
+    <value>Último</value>
+  </data>
+  <data name="Instances_Manage_Duplicate[1]" xml:space="preserve">
+    <value>Administrar</value>
+  </data>
+  <data name="Instances_NoInstancesTitle_Duplicate[1]" xml:space="preserve">
+    <value>No tienes instancias</value>
+  </data>
+  <data name="Instances_NoInstancesMessage_Duplicate[1]" xml:space="preserve">
+    <value>Cree su primera instancia de WhatsApp para comenzar a enviar mensajes</value>
+  </data>
+  <data name="Instances_CreateFirstInstance_Duplicate[1]" xml:space="preserve">
+    <value>Crea la primera instancia</value>
+  </data>
+  <data name="Instances_NewInstanceModalTitle_Duplicate[1]" xml:space="preserve">
+    <value>Nueva instancia de whatsapp</value>
+  </data>
+  <data name="Instances_InstanceNameLabel_Duplicate[1]" xml:space="preserve">
+    <value>Nombre de la instancia:</value>
+  </data>
+  <data name="Instances_InstanceNamePlaceholder_Duplicate[1]" xml:space="preserve">
+    <value>Ej: ventas principales</value>
+  </data>
+  <data name="Instances_PhoneNumberLabel_Duplicate[1]" xml:space="preserve">
+    <value>Número telefónico:</value>
+  </data>
+  <data name="Instances_PhoneNumberPlaceholder_Duplicate[1]" xml:space="preserve">
+    <value>Ej: +34 666 123 456</value>
+  </data>
+  <data name="Instances_Cancel_Duplicate[1]" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Instances_CreateInstance" xml:space="preserve">
+    <value>Crea la instancia</value>
+  </data>
+  <data name="Instances_QRModalTitle" xml:space="preserve">
+    <value>Código QR para WhatsApp</value>
+  </data>
+  <data name="Instances_QRInstructions" xml:space="preserve">
+    <value>Escanea este código QR con tu aplicación de WhatsApp para conectar esta instancia.</value>
+  </data>
+  <data name="Instances_Close_Duplicate[1]" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="Instances_Notification_CompleteAllFields" xml:space="preserve">
+    <value>Por favor llene todos los campos</value>
+  </data>
+  <data name="Instances_Notification_InstanceCreatedSuccessfully" xml:space="preserve">
+    <value>Instancia '{0}' creada correctamente</value>
+  </data>
+  <data name="Instances_Notification_ErrorCreatingInstance" xml:space="preserve">
+    <value>Error al crear el cuerpo. Por favor intente de nuevo.</value>
+  </data>
+  <data name="Instances_Notification_UnexpectedError" xml:space="preserve">
+    <value>Error inesperado: {0}</value>
+  </data>
+  <data name="Instances_Notification_InstanceToggledSuccessfully" xml:space="preserve">
+    <value>Instancia '{0}' {1} correctamente</value>
+  </data>
+  <data name="Instances_Notification_ErrorTogglingInstance" xml:space="preserve">
+    <value>Error durante el cambio de estado del cuerpo</value>
+  </data>
+  <data name="Instances_Notification_ConfirmDelete" xml:space="preserve">
+    <value>¿Estás seguro de que quieres eliminar la instancia '{0}'?</value>
+  </data>
+  <data name="Instances_Notification_InstanceDeletedSuccessfully" xml:space="preserve">
+    <value>Instancia '{0}' eliminada correctamente</value>
+  </data>
+  <data name="Instances_Notification_ErrorDeletingInstance" xml:space="preserve">
+    <value>Error al eliminar el cuerpo</value>
+  </data>
+  <data name="Instances_Notification_QRCodeInstructions" xml:space="preserve">
+    <value>Escanee el código QR con WhatsApp para conectar la instancia</value>
+  </data>
+  <data name="Instances_Notification_ErrorGettingQRCode" xml:space="preserve">
+    <value>Imposible obtener el código QR</value>
+  </data>
+  <data name="Instances_Notification_AdminFunctionalityComingSoon" xml:space="preserve">
+    <value>Funcionalidad de administración para '{0}' pronto disponible</value>
+  </data>
+  <data name="Profile_DeleteAccount_Error" xml:space="preserve">
+    <value>Error al eliminar cuenta: {0}</value>
+  </data>
+  <data name="Profile_DefaultBio" xml:space="preserve">
+    <value>Desarrollador Full Stack con experiencia en automatización de WhatsApp</value>
+  </data>
+  <data name="Profile_NextBilling_Date" xml:space="preserve">
+    <value>15 de Enero, 2024</value>
+  </data>
+  <data name="Profile_Session_Location_Madrid" xml:space="preserve">
+    <value>Madrid, España</value>
+  </data>
+  <data name="Profile_Session_LastActive_Now" xml:space="preserve">
+    <value>Ahora</value>
+  </data>
+  <data name="Profile_Session_LastActive_2HoursAgo" xml:space="preserve">
+    <value>Hace 2 horas</value>
+  </data>
+  <data name="Profile_Session_Location_Barcelona" xml:space="preserve">
+    <value>Barcelona, España</value>
+  </data>
+  <data name="Profile_Session_LastActive_Yesterday" xml:space="preserve">
+    <value>Ayer</value>
+  </data>
+  <data name="Profile_Billing_ProfessionalPlan_Dec" xml:space="preserve">
+    <value>Plan Professional - Diciembre</value>
+  </data>
+  <data name="Profile_Billing_ProfessionalPlan_Nov" xml:space="preserve">
+    <value>Plan Professional - Noviembre</value>
+  </data>
+  <data name="Profile_Billing_ProfessionalPlan_Oct" xml:space="preserve">
+    <value>Plan Professional - Octubre</value>
+  </data>
+  <data name="Profile_Title" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="Profile_Section_PersonalInfo" xml:space="preserve">
+    <value>Información personal</value>
+  </data>
+  <data name="Profile_Label_FirstName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Profile_Label_LastName" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Profile_Label_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Profile_Label_PhoneNumber" xml:space="preserve">
+    <value>Número de teléfono</value>
+  </data>
+  <data name="Profile_Label_Country" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="Profile_Label_City" xml:space="preserve">
+    <value>Ciudad</value>
+  </data>
+  <data name="Profile_Label_Address" xml:space="preserve">
+    <value>DIRECCIÓN</value>
+  </data>
+  <data name="Profile_Label_ZipCode" xml:space="preserve">
+    <value>Código Postal</value>
+  </data>
+  <data name="Profile_Section_Security" xml:space="preserve">
+    <value>Seguridad</value>
+  </data>
+  <data name="Profile_Label_CurrentPassword" xml:space="preserve">
+    <value>Contraseña Actual</value>
+  </data>
+  <data name="Profile_Label_NewPassword" xml:space="preserve">
+    <value>Nueva Contraseña</value>
+  </data>
+  <data name="Profile_Label_ConfirmPassword" xml:space="preserve">
+    <value>Confirmar la nueva contraseña</value>
+  </data>
+  <data name="Profile_Button_UpdateProfile" xml:space="preserve">
+    <value>Actualizar el perfil</value>
+  </data>
+  <data name="Profile_Button_ChangePassword" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="Profile_Update_Success" xml:space="preserve">
+    <value>¡Perfil exitoso!</value>
+  </data>
+  <data name="Profile_ChangePassword_Success" xml:space="preserve">
+    <value>¡La contraseña cambió con éxito!</value>
+  </data>
+  <data name="Profile_Update_Error" xml:space="preserve">
+    <value>Error Al actualizar el perfil: {0}</value>
+  </data>
+  <data name="Profile_ChangePassword_Error" xml:space="preserve">
+    <value>Error Al cambiar la contraseña: {0}</value>
+  </data>
+  <data name="Profile_Validation_Required" xml:space="preserve">
+    <value>Se requiere {0}.</value>
+  </data>
+  <data name="Profile_Validation_Email" xml:space="preserve">
+    <value>Formato de correo electrónico no válido.</value>
+  </data>
+  <data name="Profile_Validation_PasswordMatch" xml:space="preserve">
+    <value>La nueva contraseña y la confirmación no se corresponden.</value>
+  </data>
+  <data name="Profile_Validation_PasswordLength" xml:space="preserve">
+    <value>El {0} debe contener al menos {1} caracteres.</value>
+  </data>
+  <data name="Profile_Validation_PasswordUppercase" xml:space="preserve">
+    <value>El {0} debe contener al menos un carácter capital.</value>
+  </data>
+  <data name="Profile_Validation_PasswordLowercase" xml:space="preserve">
+    <value>El {0} debe contener al menos un pequeño carácter.</value>
+  </data>
+  <data name="Profile_Validation_PasswordDigit" xml:space="preserve">
+    <value>El {0} debe contener al menos una figura.</value>
+  </data>
+  <data name="Profile_Validation_PasswordSpecialChar" xml:space="preserve">
+    <value>El {0} debe contener al menos un carácter especial.</value>
+  </data>
+  <data name="Profile_Card_Title" xml:space="preserve">
+    <value>Administre su perfil</value>
+  </data>
+  <data name="Profile_Card_Description" xml:space="preserve">
+    <value>Puede cambiar su información personal y contraseña aquí.</value>
+  </data>
+  <data name="Profile_DeleteAccount_Title" xml:space="preserve">
+    <value>Eliminar cuenta</value>
+  </data>
+  <data name="Profile_DeleteAccount_Description" xml:space="preserve">
+    <value>Elimine su cuenta de forma permanente. Esta acción es irreversible.</value>
+  </data>
+  <data name="Profile_DeleteAccount_Button" xml:space="preserve">
+    <value>Eliminar cuenta</value>
+  </data>
+  <data name="Profile_DeleteAccount_Confirm" xml:space="preserve">
+    <value>¿Estás seguro de que quieres eliminar tu cuenta? Esta acción es irreversible.</value>
+  </data>
+  <data name="Profile_DeleteAccount_Success" xml:space="preserve">
+    <value>Cuenta eliminada con éxito.</value>
+  </data>
+  <data name="Home_PageTitle" xml:space="preserve">
+    <value>Wahub - Plataforma de gestión de WhatsApp</value>
+  </data>
+  <data name="Home_AppName" xml:space="preserve">
+    <value>WaHub</value>
+  </data>
+  <data name="Home_HeroTitle" xml:space="preserve">
+    <value>Wahub para desarrolladores</value>
+  </data>
+  <data name="Home_HeroDescription" xml:space="preserve">
+    <value>Enviar y recibir mensajes, administrar discusiones, grupos y canales fácilmente con nuestra API de nivel comercial. Pagar por WhatsApp, sin costo por mensaje.</value>
+  </data>
+  <data name="Home_HeroButton" xml:space="preserve">
+    <value>Iniciar prueba gratis</value>
+  </data>
+  <data name="Home_TrialInfo" xml:space="preserve">
+    <value>3 días de prueba gratuita • No se requiere tarjeta de crédito • Cancelar en cualquier momento</value>
+  </data>
+  <data name="Home_WhyChoose" xml:space="preserve">
+    <value>¿Por qué elegir Wahub?</value>
+  </data>
+  <data name="Home_CodeSectionTitle" xml:space="preserve">
+    <value>Integración en minutos</value>
+  </data>
+  <data name="Home_CodeLanguage" xml:space="preserve">
+    <value>JavaScript</value>
+  </data>
+  <data name="Home_CodeCopy" xml:space="preserve">
+    <value>Copiar</value>
+  </data>
+  <data name="CodeExampleTitle_Duplicate[1]" xml:space="preserve">
+    <value>Enviar un mensaje con la API Wahub</value>
+  </data>
+  <data name="CodeExampleMessage_Duplicate[1]" xml:space="preserve">
+    <value>Enviar mensaje con WaHub API</value>
+  </data>
+  <data name="CodeExampleLog_Duplicate[1]" xml:space="preserve">
+    <value>Mensaje enviado:</value>
   </data>
 </root>

@@ -20,11 +20,10 @@ Tu proyecto utiliza la siguiente estructura para la internacionalización:
 
 ## Pasos para Añadir una Nueva Traducción
 
-Sigue estos pasos para internacionalizar cualquier texto identificado en el `TODO-Traductions.md`:
 
 ### Paso 1: Identificar el Texto a Traducir
 
-Consulta tu archivo `TODO-Traductions.md` para encontrar el texto que deseas traducir. Por ejemplo, si deseas traducir "Tus Instances" del componente `Instances.razor`.
+Revisa el componente y has una lista de textos a tradocur. Por ejemplo, si deseas traducir "Tus Instances" del componente `Instances.razor`.
 
 ### Paso 2: Añadir una Nueva Constante en `ResourceKeys.cs`
 
@@ -404,6 +403,3 @@ public partial class WaHubSidebar
 ---
 
 Recuerda que cada vez que añadas una nueva constante a `ResourceKeys.cs`, deberás asegurarte de añadir la entrada `data` correspondiente en *todos* los archivos `.resx` para cada idioma que soportes. Si un idioma no tiene una traducción para una clave, el `LocalizationService` debería devolver la cadena por defecto (del `Resource.resx`).
-
-### Paso 5: Actualizar (TODO-Traductions.md)
-Actualiza el archivo `TODO-Traductions.md` con los componentes procesados.

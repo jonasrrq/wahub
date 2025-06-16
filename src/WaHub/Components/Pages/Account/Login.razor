@@ -27,13 +27,13 @@
             <ValidationSummary />
 
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">@Localization.GetString(ResourceKeys.Login_Email)</label>
                 <InputText id="email" @bind-Value="inputModel.Email" placeholder="admin@wahub.com" />
                 <ValidationMessage For="@(() => inputModel.Email)" />
             </div>
 
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">@Localization.GetString(ResourceKeys.Login_Password)</label>
                 <InputText type="password" id="password" @bind-Value="inputModel.Password" placeholder="admin123" />
                 <ValidationMessage For="@(() => inputModel.Password)" />
             </div>
@@ -42,7 +42,7 @@
                 {
                     <div class="login-loading">
                         <div class="login-spinner"></div>
-                        <span>Iniciando sesión...</span>
+                        <span>@Localization.GetString(ResourceKeys.Login_SigningIn)</span>
                     </div>
                 }
                 else
@@ -52,7 +52,7 @@
             </button>
         </EditForm>
 
-        <p>¿No tienes cuenta? <a href="/Account/register">Regístrate aquí</a></p>
+        <p>@Localization.GetString(ResourceKeys.Login_NoAccount) <a href="/Account/register">@Localization.GetString(ResourceKeys.Login_RegisterHere)</a></p>
     </div>
 </div>
 
@@ -68,11 +68,11 @@
 
     public class LoginModel
     {
-        [Required(ErrorMessage = "El email es requerido")]
-        [EmailAddress(ErrorMessage = "Ingrese un email válido")]
+        [Required(ErrorMessage = nameof(ResourceKeys.Login_Validation_EmailRequired))]
+        [EmailAddress(ErrorMessage = nameof(ResourceKeys.Login_Validation_EmailInvalid))]
         public string Email { get; set; } = "";
 
-        [Required(ErrorMessage = "La contraseña es requerida")]
+        [Required(ErrorMessage = nameof(ResourceKeys.Login_Validation_PasswordRequired))]
         // [MinLength(6, ErrorMessage = "La contraseña debe tener al menos 6 caracteres")]
         [DataType(DataType.Password)]
         public string Password { get; set; } = "";
@@ -94,7 +94,7 @@
     {
         if (string.IsNullOrWhiteSpace(inputModel.Email) || string.IsNullOrWhiteSpace(inputModel.Password))
         {
-            errorMessage = "Por favor, ingresa tu email y contraseña.";
+            errorMessage = Localization.GetString(ResourceKeys.Login_Validation_EnterEmailPassword);
             return;
         }
         inputModel.isLoading = true;
@@ -132,7 +132,7 @@
         }
         catch (Exception ex)
         {
-            errorMessage = $"Error durante el login: {ex.Message}";
+            errorMessage = $"{Localization.GetString(ResourceKeys.Login_ErrorDuringLogin)} {ex.Message}";
         }
         finally
         {

@@ -1,14 +1,14 @@
 ﻿@page "/admin/instances"
 @rendermode InteractiveAuto //@(new InteractiveAutoRenderMode(false))
 
-<PageTitle>Instancias - WaHub</PageTitle>
+<PageTitle>@_localization.GetString(ResourceKeys.Instances_Title) - WaHub</PageTitle>
 
 
 <div class="instances-container">
     <div class="instances-header">
-        <h1>Tus Instances</h1>
+        <h1>@_localization.GetString(ResourceKeys.Instances_YourInstances)</h1>
         <button class="btn-primary" @onclick="CreateNewInstance" disabled="@isLoading">
-            ➕ Nueva Instancia
+            ➕ @_localization.GetString(ResourceKeys.Instances_NewInstance)
         </button>
     </div>
 
@@ -16,14 +16,14 @@
     {
         <div class="loading-state">
             <div class="spinner"></div>
-            <p>Cargando instancias...</p>
+            <p>@_localization.GetString(ResourceKeys.Instances_LoadingInstances)</p>
         </div>
     }
     else if (!string.IsNullOrEmpty(errorMessage))
     {
         <div class="error-state">
-            <p>⚠️ @errorMessage</p>
-            <button class="btn-secondary" @onclick="LoadInstancesAsync">Reintentar</button>
+            <p>⚠️ @_localization.GetString(ResourceKeys.Instances_ErrorPrefix)</p>
+            <button class="btn-secondary" @onclick="LoadInstancesAsync">@_localization.GetString(ResourceKeys.Instances_Retry)</button>
         </div>
     }
     else
@@ -35,16 +35,16 @@
                     <div class="instance-header">
                         <div class="instance-status">
                             <span class="status-indicator @(instance.Connected ? "online" : "offline")"></span>
-                            <span class="status-text">@instance.Connected</span>
+                            <span class="status-text">@(instance.Connected ? _localization.GetString(ResourceKeys.Instances_Status_Online) : _localization.GetString(ResourceKeys.Instances_Status_Offline))</span>
                         </div>
                         <div class="instance-actions">
-                            <button class="btn-icon" @onclick="() => ToggleInstance(instance)" title="@(instance.Connected ? "Pausar" : "Activar")">
+                            <button class="btn-icon" @onclick="() => ToggleInstance(instance)" title="@(instance.Connected ? _localization.GetString(ResourceKeys.Instances_Pause) : _localization.GetString(ResourceKeys.Instances_Activate))">
                                 @(instance.Connected ? "⏸️" : "▶️")
                             </button>
-                            <button class="btn-icon" @onclick="() => ShowQrCode(instance)" title="Mostrar QR">
+                            <button class="btn-icon" @onclick="() => ShowQrCode(instance)" title="@_localization.GetString(ResourceKeys.Instances_ShowQr)">
                                 📱
                             </button>
-                            <button class="btn-icon" @onclick="() => DeleteInstance(instance)" title="Eliminar">
+                            <button class="btn-icon" @onclick="() => DeleteInstance(instance)" title="@_localization.GetString(ResourceKeys.Instances_Delete)">
                                 🗑️
                             </button>
                         </div>
@@ -58,19 +58,19 @@
                     <div class="instance-stats">
                         <div class="stat">
                             <span class="stat-value">1245</span>
-                            <span class="stat-label">Mensajes</span>
+                            <span class="stat-label">@_localization.GetString(ResourceKeys.Instances_Messages)</span>
                         </div>
                         <div class="stat">
                             <span class="stat-value">89</span>
-                            <span class="stat-label">Contactos</span>
+                            <span class="stat-label">@_localization.GetString(ResourceKeys.Instances_Contacts)</span>
                         </div>
                     </div>
 
                     <div class="instance-footer">
-                        <small>Creado: "dd/MM/yyyy"</small>
-                        <small>Último: "HH:mm"</small>
+                        <small>@_localization.GetString(ResourceKeys.Instances_Created): "dd/MM/yyyy"</small>
+                        <small>@_localization.GetString(ResourceKeys.Instances_Last): "HH:mm"</small>
                         <button class="btn-secondary" @onclick="() => ManageInstance(instance)">
-                            Administrar
+                            @_localization.GetString(ResourceKeys.Instances_Manage)
                         </button>
                     </div>
                 </div>
@@ -80,10 +80,10 @@
             {
                 <div class="empty-state">
                     <div class="empty-icon">📱</div>
-                    <h2>No tienes instancias</h2>
-                    <p>Crea tu primera instancia de WhatsApp para comenzar a enviar mensajes</p>
+                    <h2>@_localization.GetString(ResourceKeys.Instances_NoInstancesTitle)</h2>
+                    <p>@_localization.GetString(ResourceKeys.Instances_NoInstancesMessage)</p>
                     <button class="btn-primary" @onclick="CreateNewInstance">
-                        Crear Primera Instancia
+                        @_localization.GetString(ResourceKeys.Instances_CreateFirstInstance)
                     </button>
                 </div>
             }
@@ -97,23 +97,23 @@
     <div class="modal-overlay" @onclick="CloseCreateModal">
         <div class="modal-content" @onclick:stopPropagation="true">
             <div class="modal-header">
-                <h3>Nueva Instancia de WhatsApp</h3>
+                <h3>@_localization.GetString(ResourceKeys.Instances_NewInstanceModalTitle)</h3>
                 <button class="btn-close" @onclick="CloseCreateModal">✖️</button>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label>Nombre de la instancia:</label>
-                    <input type="text" @bind="createInstanceName" placeholder="Ej: Ventas Principal" class="form-input" />
+                    <label>@_localization.GetString(ResourceKeys.Instances_InstanceNameLabel)</label>
+                    <input type="text" @bind="createInstanceName" placeholder="@_localization.GetString(ResourceKeys.Instances_InstanceNamePlaceholder)" class="form-input" />
                 </div>
                 <div class="form-group">
-                    <label>Número de teléfono:</label>
-                    <input type="tel" @bind="createInstancePhone" placeholder="Ej: +34 666 123 456" class="form-input" />
+                    <label>@_localization.GetString(ResourceKeys.Instances_PhoneNumberLabel)</label>
+                    <input type="tel" @bind="createInstancePhone" placeholder="@_localization.GetString(ResourceKeys.Instances_PhoneNumberPlaceholder)" class="form-input" />
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn-secondary" @onclick="CloseCreateModal">Cancelar</button>
+                <button class="btn-secondary" @onclick="CloseCreateModal">@_localization.GetString(ResourceKeys.Instances_Cancel)</button>
                 <button class="btn-primary" @onclick="ConfirmCreateInstance" disabled="@(string.IsNullOrWhiteSpace(createInstanceName) || string.IsNullOrWhiteSpace(createInstancePhone))">
-                    Crear Instancia
+                    @_localization.GetString(ResourceKeys.Instances_CreateInstanceButton)
                 </button>
             </div>
         </div>
@@ -126,7 +126,7 @@
     <div class="modal-overlay" @onclick="CloseQrModal">
         <div class="modal-content qr-modal" @onclick:stopPropagation="true">
             <div class="modal-header">
-                <h3>Código QR para WhatsApp</h3>
+                <h3>@_localization.GetString(ResourceKeys.Instances_QrModalTitle)</h3>
                 <button class="btn-close" @onclick="CloseQrModal">✖️</button>
             </div>
             <div class="modal-body">
@@ -135,11 +135,11 @@
                     {
                         <img src="@qrCodeImage" alt="Código QR de WhatsApp" class="qr-image" />
                     }
-                    <p>Escanea este código QR con tu aplicación de WhatsApp para conectar esta instancia.</p>
+                    <p>@_localization.GetString(ResourceKeys.Instances_QrScanMessage)</p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn-primary" @onclick="CloseQrModal">Cerrar</button>
+                <button class="btn-primary" @onclick="CloseQrModal">@_localization.GetString(ResourceKeys.Instances_Close)</button>
             </div>
         </div>
     </div>

@@ -11,6 +11,7 @@ public partial class Instances
 {
     private readonly IApiAdminService _apiService;
     private readonly NotificationService _notification;
+    private readonly ILocalizationService _localization;
     private readonly IJSRuntime _jSRuntime;
     private List<InstanceDto> instances = new();
     private bool isLoading = true;
@@ -24,10 +25,12 @@ public partial class Instances
 
     public Instances(IApiAdminService apiService,
         NotificationService notification,
+        ILocalizationService localization,
         IJSRuntime jSRuntime)
     {
         _apiService = apiService;
         _notification = notification;
+        _localization = localization;
         _jSRuntime = jSRuntime;
     }
 

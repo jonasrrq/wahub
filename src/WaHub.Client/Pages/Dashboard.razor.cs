@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNetCore.Components;
 
+using WaHub.Shared.Services;
+
 namespace WaHub.Client.Pages;
 
 public partial class Dashboard : IDisposable
 {
+    private readonly ILocalizationService _localization;
+
     private int clickCount = 0;
     private bool showMessage = false;
 
@@ -15,6 +19,14 @@ public partial class Dashboard : IDisposable
     private bool isMonitoringActive = false;
     private Timer? monitoringTimer;
     private bool isDisposed = false;
+
+
+    public Dashboard(ILocalizationService localization)
+    {
+        // Iniciar el monitoreo al crear el componente
+        StartMonitoring();
+        _localization = localization;
+    }
 
     private void TestInteractivity()
     {
