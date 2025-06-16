@@ -15,5 +15,7 @@ builder.Services.AddAuthorizationCore()
 
 //builder.Services.AddScoped<IApiAdminService, ApiAdminService>();
 
+// Add localization service
+builder.Services.AddScoped<ILocalizationService, ClientLocalizationService>();
 
 await builder.Build().RunAsync();

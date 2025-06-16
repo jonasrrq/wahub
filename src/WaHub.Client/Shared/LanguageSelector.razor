@@ -1,0 +1,54 @@
+@rendermode InteractiveAuto
+@inject ILocalizationService Localization
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+@implements IDisposable
+
+<select @onchange="OnLanguageChanged" value="@Localization.CurrentLanguage" class="language-select">
+    @foreach (var culture in SupportedCultures.All)
+    {
+        <option value="@culture.Name">@(char.ToUpper(culture.NativeName[0]) + culture.NativeName.Substring(1))</option>
+    }
+</select>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        // Subscribe to language changes to update the UI
+        Localization.LanguageChanged += StateHasChanged;
+        
+        // If this is the client-side service, ensure it's initialized
+        if (Localization is WaHub.Client.Services.ClientLocalizationService clientService)
+        {
+            await clientService.InitializeAsync();
+            StateHasChanged(); // Refresh the UI after initialization
+        }
+    }
+
+    private async Task OnLanguageChanged(ChangeEventArgs e)
+    {
+        if (e.Value is string selectedLanguage)
+        {
+            try
+            {
+                await Localization.SetLanguageAsync(selectedLanguage);
+                
+                // Set the cookie directly using JavaScript
+                await JSRuntime.InvokeVoidAsync("setLanguageCookie", ".AspNetCore.Culture", selectedLanguage);
+
+                // Reload the page to apply server-side changes
+                NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error changing language: {ex.Message}");
+            }
+        }
+    }
+
+    public void Dispose()
+    {
+        // Unsubscribe from language changes
+        Localization.LanguageChanged -= StateHasChanged;
+    }
+}
