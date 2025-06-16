@@ -821,7 +821,6 @@
     <value>Retirar el consentimiento en cualquier momento</value>
   </data>
   <!-- Eliminar las claves antiguas agrupadas de GDPR si existen -->
-  <!-- ...existing code... -->
   <!-- Traducciones para la sección 8 de Privacy -->
   <data name="Privacy_Section8_Title" xml:space="preserve">
     <value>8. Uso de Cookies</value>
@@ -1146,5 +1145,35 @@
   </data>
   <data name="Privacy_Section7" xml:space="preserve">
     <value>7. Tus derechos</value>
+  </data>
+  <data name="Privacy_Important" xml:space="preserve">
+    <value>Importante:</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Note" xml:space="preserve">
+    <value>Los mensajes de WhatsApp se procesan únicamente para proporcionar el servicio solicitado y no se almacenan permanentemente en nuestros servidores a menos que usted lo configure específicamente.</value>
+  </data>
+  <data name="Privacy_Section2_4" xml:space="preserve">
+    <value>2.4 Información Técnica</value>
+  </data>
+  <data name="Privacy_TechInfo_Intro" xml:space="preserve">
+    <value>Recopilamos automáticamente cierta información técnica:</value>
+  </data>
+  <data name="Privacy_TechInfo_IP" xml:space="preserve">
+    <value>Dirección IP y ubicación geográfica aproximada</value>
+  </data>
+  <data name="Privacy_TechInfo_Browser" xml:space="preserve">
+    <value>Tipo de navegador y dispositivo</value>
+  </data>
+  <data name="Privacy_TechInfo_OS" xml:space="preserve">
+    <value>Sistema operativo</value>
+  </data>
+  <data name="Privacy_TechInfo_Pages" xml:space="preserve">
+    <value>Páginas visitadas y tiempo de permanencia</value>
+  </data>
+  <data name="Privacy_TechInfo_Referrer" xml:space="preserve">
+    <value>Fuente de referencia</value>
+  </data>
+  <data name="Privacy_DeviceIdentifiers" xml:space="preserve">
+    <value>Identificadores únicos de dispositivo</value>
   </data>
 </root>

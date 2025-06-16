@@ -28,6 +28,7 @@ public class LocalizationService : ILocalizationService
 
     public string GetString(string key, string defaultValue = "")
     {
+        
         var culture = new CultureInfo(_currentLanguage);
         CultureInfo.CurrentUICulture = culture;
         CultureInfo.CurrentCulture = culture;

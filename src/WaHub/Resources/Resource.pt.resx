@@ -1142,4 +1142,34 @@
   <data name="Privacy_Section7" xml:space="preserve">
     <value>7. Seus Direitos</value>
   </data>
+  <data name="Privacy_Important" xml:space="preserve">
+    <value>Importante:</value>
+  </data>
+  <data name="Privacy_WhatsAppData_Note" xml:space="preserve">
+    <value>As mensagens do WhatsApp são processadas apenas para fornecer o serviço solicitado e não são armazenadas permanentemente em nossos servidores, a menos que você configure isso especificamente.</value>
+  </data>
+  <data name="Privacy_Section2_4" xml:space="preserve">
+    <value>2.4 Informações Técnicas</value>
+  </data>
+  <data name="Privacy_TechInfo_Intro" xml:space="preserve">
+    <value>Coletamos automaticamente certas informações técnicas:</value>
+  </data>
+  <data name="Privacy_TechInfo_IP" xml:space="preserve">
+    <value>Endereço IP e localização geográfica aproximada</value>
+  </data>
+  <data name="Privacy_TechInfo_Browser" xml:space="preserve">
+    <value>Tipo de navegador e dispositivo</value>
+  </data>
+  <data name="Privacy_TechInfo_OS" xml:space="preserve">
+    <value>Sistema operacional</value>
+  </data>
+  <data name="Privacy_TechInfo_Pages" xml:space="preserve">
+    <value>Páginas visitadas e tempo de permanência</value>
+  </data>
+  <data name="Privacy_TechInfo_Referrer" xml:space="preserve">
+    <value>Fonte de referência</value>
+  </data>
+  <data name="Privacy_DeviceIdentifiers" xml:space="preserve">
+    <value>Identificadores únicos de dispositivo</value>
+  </data>
 </root>
