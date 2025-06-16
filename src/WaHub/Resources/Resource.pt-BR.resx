@@ -146,6 +146,30 @@
   <data name="WaHubSidebar_Logout" xml:space="preserve">
     <value>Sair</value>
   </data>
+  <data name="WaHubSidebar_YourInstances" xml:space="preserve">
+    <value>Suas Instâncias</value>
+  </data>
+  <data name="WaHubSidebar_FreeTrial" xml:space="preserve">
+    <value>Teste Grátis</value>
+  </data>
+  <data name="WaHubSidebar_Subscription" xml:space="preserve">
+    <value>Assinatura</value>
+  </data>
+  <data name="WaHubSidebar_Documentation" xml:space="preserve">
+    <value>Documentação</value>
+  </data>
+  <data name="WaHubSidebar_WaBulk" xml:space="preserve">
+    <value>WaBulk</value>
+  </data>
+  <data name="WaHubSidebar_APIToken" xml:space="preserve">
+    <value>Token da API</value>
+  </data>
+  <data name="WaHubSidebar_WebhookSettings" xml:space="preserve">
+    <value>Configurações de Webhook</value>
+  </data>
+  <data name="WaHubSidebar_Support" xml:space="preserve">
+    <value>Suporte</value>
+  </data>
   <!-- Traduções para WaHub/Components/Pages/Error.razor (Brasil) -->
   <data name="Error404Title" xml:space="preserve">
     <value>Erro 404</value>
