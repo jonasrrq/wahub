@@ -33,9 +33,9 @@
 		</PackageReference>		
 		
 	</ItemGroup>
+
 	<ItemGroup>
 		<ProjectReference Include="..\WaHub.Client\WaHub.Client.csproj" />
-		<ProjectReference Include="..\WaHub.Shared\WaHub.Shared.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
