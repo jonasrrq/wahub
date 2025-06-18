@@ -30,6 +30,20 @@
             }
         </div>
 
+        <!-- Admin Menu Section -->
+        <AuthorizeView Roles="Admin" Context="adminAuthContext">
+            <Authorized>
+                <div class="menu-section">
+                     <button class="menu-item" @onclick="@(() => NavigateToPage("/admin/roles"))">
+                        <span class="chakra-button__icon">
+                            <i class="menu-item-icon bi bi-person-badge-fill"></i>
+                        </span>
+                        <span class="menu-item-label">Admin Roles</span>
+                    </button>
+                </div>
+            </Authorized>
+        </AuthorizeView>
+
         <!-- Menú inferior -->
         <div class="bottom-menu">
             @foreach (var item in bottomMenu)

@@ -57,7 +57,10 @@ public partial class Instances
                 return;
             }
 
-            instances = result.Data ?? new List<InstanceDto>();
+            // instances = result.Data ?? new List<InstanceDto>(); // Original line - result.Data is List<UserDto>, instances is List<InstanceDto>
+            instances = new List<InstanceDto>(); // Temporary fix for build. Data source is incorrect.
+            _notification.ShowError("Data for instances is not being loaded correctly. Please check Instances.razor.cs.");
+            // TODO: Create and use an appropriate method in IApiAdminService to fetch InstanceDto list.
         }
         catch (Exception ex)
         {

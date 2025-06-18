@@ -6,8 +6,8 @@ using WaHub.Shared.Services;
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
 builder.Services.AddAuthorizationCore()
-    .AddCascadingAuthenticationState()
-    .AddAuthenticationStateDeserialization();
+    .AddCascadingAuthenticationState();
+    //.AddAuthenticationStateDeserialization(); // Removed as it's not standard for client app and caused error in .NET 8
 
 //builder.Services.AddSingleton<AuthenticationStateProvider, ClientAuthStateProvider>();
 

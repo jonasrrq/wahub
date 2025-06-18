@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WaHub.Shared.Models;
 
-public class Response<T> where T : class, new()  
+public class Response<T> where T : class
 {
     public T? Data { get; set; }
     public string? Message { get; set; }

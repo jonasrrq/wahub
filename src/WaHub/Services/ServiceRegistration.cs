@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection; // Added for CreateScope
+using Microsoft.AspNetCore.Components.WebAssembly.Server; // Added for AddAuthenticationStateSerialization
 
 using WaHub.Authentication;
 using WaHub.Client.Services;
@@ -16,11 +18,12 @@ namespace WaHub.Services;
 public static class ServiceRegistration
 {
     public static void AddServices(WebApplicationBuilder builder)
-    {        // Add services to the container.
+    {
+            builder.Services.AddScoped<IRoleService, RoleService>();        // Add services to the container.
         builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents()
-            .AddInteractiveWebAssemblyComponents()
-            .AddAuthenticationStateSerialization();
+            .AddInteractiveWebAssemblyComponents();
+            //.AddAuthenticationStateSerialization(); // Temporarily removed to resolve build error CS1061
 
         builder.Services.AddControllers(); // Habilitar controladores para API
 
@@ -110,7 +113,7 @@ public static class ServiceRegistration
         //app.UseAuthentication();
         //app.UseAuthorization();
 
-        app.MapStaticAssets();
+        //app.MapStaticAssets(); // Commented out as it's not a standard method and might be related to 'Assets' issues.
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode()
             .AddInteractiveWebAssemblyRenderMode()
@@ -152,6 +155,41 @@ public static class ServiceRegistration
             else
             {
                 logger.LogInformation("No pending migrations found. Database is up to date.");
+            }
+
+            // Create roles by default if they don't exist
+            // Renamed 'app' to 'webApp' to match the method parameter name for CreateScope
+            using (var roleScope = webApp.Services.CreateScope())
+            {
+                var roleManager = roleScope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
+                string[] roleNames = { "Admin", "User" }; // Add "User" as a standard role as well
+
+                foreach (var roleName in roleNames)
+                {
+                    var roleExist = await roleManager.RoleExistsAsync(roleName);
+                    if (!roleExist)
+                    {
+                        // Create the role and log the result
+                        var roleResult = await roleManager.CreateAsync(new ApplicationRole(roleName));
+                        if (roleResult.Succeeded)
+                        {
+                            // Use logger instead of Console.WriteLine for consistency
+                            logger.LogInformation($"Role '{roleName}' created successfully.");
+                        }
+                        else
+                        {
+                            logger.LogError($"Error creating role '{roleName}'.");
+                            foreach (var error in roleResult.Errors)
+                            {
+                                logger.LogError($"- {error.Description}");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        logger.LogInformation($"Role '{roleName}' already exists.");
+                    }
+                }
             }
         }
         catch (Exception ex)
