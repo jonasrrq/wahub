@@ -16,22 +16,20 @@ namespace WaHub.Services;
 public static class ServiceRegistration
 {
     public static void AddServices(WebApplicationBuilder builder)
-    {
-
-        // Add services to the container.
+    {        // Add services to the container.
         builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents()
             .AddInteractiveWebAssemblyComponents()
             .AddAuthenticationStateSerialization();
 
-        //builder.Services.AddControllers();
+        builder.Services.AddControllers(); // Habilitar controladores para API
 
-        //builder.Services.AddScoped<AuthService>();
-        builder.Services.AddScoped<IApiService, ApiService>();
+        //builder.Services.AddScoped<AuthService>();        builder.Services.AddScoped<IApiService, ApiService>();
         builder.Services.AddScoped<IApiAdminService, ApiAdminService>();
         builder.Services.AddScoped<NavigationService>();
         builder.Services.AddScoped<ILocalizationService, LocalizationService>();
         builder.Services.AddScoped<NotificationService>();
+        builder.Services.AddScoped<IThemeService, ThemeService>();
         builder.Services.AddHttpContextAccessor(); // Agregar para acceder al HttpContext
         //builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
         //builder.Services.AddScoped<ICrossPlatformStorageService, CrossPlatformStorageService>();
@@ -101,10 +99,8 @@ public static class ServiceRegistration
             app.UseExceptionHandler("/Error", createScopeForErrors: true);
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
-        }
-
-
-        //app.MapControllers();
+        }        //app.MapControllers();
+        app.MapControllers(); // Habilitar controladores para API
 
         //app.UseHttpsRedirection();
         app.UseStaticFiles();

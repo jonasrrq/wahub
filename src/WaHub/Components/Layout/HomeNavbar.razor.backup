@@ -1,6 +1,29 @@
-<button class="theme-toggle-btn" onclick="window.waHubApp.theme.toggle()">
-    <span id="theme-toggle-icon">🌙</span>
-</button>
+<nav class="home-navbar">
+    <div class="navbar-content">
+        <div class="logo-section">
+            <a href="/" class="logo-link">
+                <img src="/logo-wahub.png" alt="WaHub Logo" class="logo" />
+                <span class="app-name">WaHub</span>
+            </a>
+        </div>
+        <div class="nav-actions">
+            <nav class="nav-menu">
+                <a href="/pricing">Precios</a>
+                <a href="/docs">API</a>
+                <a href="/contact">Contacto</a>
+            </nav>
+            
+            <div class="theme-switcher">
+                <button class="theme-toggle-btn" onclick="window.waHubApp.theme.toggle()">
+                    <span id="theme-toggle-icon">🌙</span>
+                </button>
+            </div>
+
+            <a class="nav-btn nav-btn-primary" href="/Account/login">Iniciar Sesión</a>
+            <a class="nav-btn nav-btn-primary" href="/Account/register">Registrarse</a>
+        </div>
+    </div>
+</nav>
 
 <style>
     .theme-switcher {
@@ -23,9 +46,9 @@
         color: inherit;
     }
 
-        .theme-toggle-btn:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
+    .theme-toggle-btn:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
 
     [data-theme="dark"] .theme-toggle-btn:hover {
         background-color: rgba(255, 255, 255, 0.1);
@@ -42,10 +65,10 @@
                 icon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
             }
         }
-
+        
         // Actualizar inicialmente
         updateThemeIcon();
-
+        
         // Observar cambios en data-theme
         const observer = new MutationObserver(function(mutations) {
             mutations.forEach(function(mutation) {
@@ -54,7 +77,7 @@
                 }
             });
         });
-
+        
         observer.observe(document.documentElement, {
             attributes: true,
             attributeFilter: ['data-theme']

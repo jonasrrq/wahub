@@ -15,23 +15,24 @@
 .instances-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 0;
+    transition: color 0.3s ease;
 }
 
 .create-instance-btn {
-    background: #3182ce;
-    color: white;
+    background: var(--wh-btn-primary-bg);
+    color: var(--wh-btn-primary-text);
     border: none;
     padding: 0.75rem 1.5rem;
     border-radius: 0.375rem;
     cursor: pointer;
     font-weight: 500;
-    transition: background 0.2s;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
     .create-instance-btn:hover {
-        background: #2c5aa0;
+        background: var(--wh-btn-primary-hover-bg);
     }
 
 .instances-grid {
@@ -41,17 +42,17 @@
 }
 
 .instance-card {
-    background: white;
-    border: 1px solid #e2e8f0;
+    background: var(--wh-card-bg, var(--wh-bg-primary));
+    border: 1px solid var(--wh-border-primary);
     border-radius: 0.5rem;
     padding: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--wh-shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
     .instance-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        box-shadow: var(--wh-shadow-md);
     }
 
 .instance-header {
@@ -64,8 +65,9 @@
 .instance-name {
     font-size: 1.125rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 0;
+    transition: color 0.3s ease;
 }
 
 .instance-status {
@@ -75,21 +77,22 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
     .instance-status.active {
-        background: #c6f6d5;
-        color: #22543d;
+        background: var(--wh-success-bg);
+        color: var(--wh-success-text);
     }
 
     .instance-status.inactive {
-        background: #fed7d7;
-        color: #742a2a;
+        background: var(--wh-error-bg);
+        color: var(--wh-error-text);
     }
 
     .instance-status.connecting {
-        background: #feebc8;
-        color: #744210;
+        background: var(--wh-warning-bg);
+        color: var(--wh-warning-text);
     }
 
 .instance-details {
@@ -104,12 +107,14 @@
 }
 
 .detail-label {
-    color: #718096;
+    color: var(--wh-text-secondary);
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .detail-value {
-    color: #2d3748;
+    color: var(--wh-text-primary);
+    transition: color 0.3s ease;
 }
 
 .instance-actions {
@@ -125,40 +130,42 @@
     cursor: pointer;
     font-size: 0.8rem;
     font-weight: 500;
-    transition: all 0.2s;
+    transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
 }
 
     .instance-btn.primary {
-        background: #3182ce;
-        color: white;
+        background: var(--wh-btn-primary-bg);
+        color: var(--wh-btn-primary-text);
     }
 
         .instance-btn.primary:hover {
-            background: #2c5aa0;
+            background: var(--wh-btn-primary-hover-bg);
         }
 
     .instance-btn.secondary {
-        background: #e2e8f0;
-        color: #4a5568;
+        background: var(--wh-btn-secondary-bg);
+        color: var(--wh-btn-secondary-text);
     }
 
         .instance-btn.secondary:hover {
-            background: #cbd5e0;
+            background: var(--wh-btn-secondary-hover-bg);
         }
 
     .instance-btn.danger {
-        background: #e53e3e;
-        color: white;
+        background: var(--wh-error-bg); /* Using semantic error bg */
+        color: var(--wh-error-text);    /* Using semantic error text */
+        /* For higher contrast, consider: color: var(--wh-text-on-primary-bg); */
     }
 
         .instance-btn.danger:hover {
-            background: #c53030;
+            filter: brightness(90%);
         }
 
 .empty-state {
     text-align: center;
     padding: 4rem 2rem;
-    color: #718096;
+    color: var(--wh-text-secondary);
+    transition: color 0.3s ease;
 }
 
 .empty-state-title {
@@ -179,18 +186,7 @@
     gap: 0.5rem;
 }
 
-.btn-secondary {
-    background: var( --bs-btn-bg);
-}
-/* Enhanced instance card styles */
-.instance-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-    .instance-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
+/* Enhanced instance card styles were consolidated into the main .instance-card rule block. */
 
 .instance-actions {
     display: flex;
@@ -204,12 +200,12 @@
     border-radius: 6px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.2s ease;
-    color: var(--text-secondary);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: var(--wh-text-secondary);
 }
 
     .btn-icon:hover {
-        background-color: var(--bg-secondary);
+        background-color: var(--wh-bg-secondary);
     }
 
     .btn-icon:disabled {
@@ -226,8 +222,9 @@
 }
 
     .instance-footer small {
-        color: var(--text-secondary);
+        color: var(--wh-text-secondary);
         font-size: 0.875rem;
+        transition: color 0.3s ease;
     }
 
 /* Button improvements */
