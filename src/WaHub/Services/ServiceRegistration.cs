@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 using WaHub.Authentication;
 using WaHub.Client.Services;
@@ -67,6 +68,65 @@ public static class ServiceRegistration
             .AddDefaultTokenProviders();
 
         builder.Services.AddCascadingAuthenticationState();
+
+        // Add Role Service
+        builder.Services.AddScoped<IRoleService, RoleService>();
+
+        // Add Authorization Policies
+        builder.Services.AddAuthorization(options =>
+        {
+            options.AddPolicy(AppPermissions.ManageUsers, policy =>
+                policy.RequireAssertion(context =>
+                {
+                    var roleService = context.Resource as IRoleService;
+                    var userId = context.User?.Identity?.Name;
+                    if (roleService != null && !string.IsNullOrEmpty(userId))
+                    {
+                        var permissions = roleService.GetUserPermissionsAsync(userId).Result;
+                        return permissions.Contains(AppPermissions.ManageUsers);
+                    }
+                    return false;
+                }));
+
+            options.AddPolicy(AppPermissions.ManageRoles, policy =>
+                policy.RequireAssertion(context =>
+                {
+                    var roleService = context.Resource as IRoleService;
+                    var userId = context.User?.Identity?.Name;
+                    if (roleService != null && !string.IsNullOrEmpty(userId))
+                    {
+                        var permissions = roleService.GetUserPermissionsAsync(userId).Result;
+                        return permissions.Contains(AppPermissions.ManageRoles);
+                    }
+                    return false;
+                }));
+
+            // Add other permission policies...
+            var permissions = new[]
+            {
+                AppPermissions.ViewDashboard,
+                AppPermissions.ManageCampaigns,
+                AppPermissions.ManageInstances,
+                AppPermissions.ViewReports,
+                AppPermissions.ManageSettings
+            };
+
+            foreach (var permission in permissions)
+            {
+                options.AddPolicy(permission, policy =>
+                    policy.RequireAssertion(context =>
+                    {
+                        var roleService = context.Resource as IRoleService;
+                        var userId = context.User?.Identity?.Name;
+                        if (roleService != null && !string.IsNullOrEmpty(userId))
+                        {
+                            var userPermissions = roleService.GetUserPermissionsAsync(userId).Result;
+                            return userPermissions.Contains(permission);
+                        }
+                        return false;
+                    }));
+            }
+        });
 
     }
 

@@ -12,8 +12,8 @@ using WaHub.Data;
 namespace WaHub.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250603111609_Inicial")]
-    partial class Inicial
+    [Migration("20250618151108_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,6 +241,122 @@ namespace WaHub.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("WaHub.Shared.Models.AppRole", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("AppRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("44546e06-8719-4ad8-b88a-f271ae9d6eab"),
+                            CreatedAt = new DateTime(2025, 6, 18, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Description = "Full system access",
+                            Name = "Administrator"
+                        });
+                });
+
+            modelBuilder.Entity("WaHub.Shared.Models.AppRolePermission", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Permission")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AppRolePermissions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("7d9b7113-a8f8-4035-99a7-a20dd400f6a3"),
+                            CreatedAt = new DateTime(2025, 6, 18, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Permission = "manage_users",
+                            RoleId = new Guid("44546e06-8719-4ad8-b88a-f271ae9d6eab")
+                        },
+                        new
+                        {
+                            Id = new Guid("bb19f453-177d-4817-a5f4-ec91d97706a9"),
+                            CreatedAt = new DateTime(2025, 6, 18, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Permission = "manage_roles",
+                            RoleId = new Guid("44546e06-8719-4ad8-b88a-f271ae9d6eab")
+                        },
+                        new
+                        {
+                            Id = new Guid("e367f655-856f-4b14-a4b9-0f9c58970635"),
+                            CreatedAt = new DateTime(2025, 6, 18, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Permission = "view_dashboard",
+                            RoleId = new Guid("44546e06-8719-4ad8-b88a-f271ae9d6eab")
+                        },
+                        new
+                        {
+                            Id = new Guid("0f147473-7536-4c8c-86c3-8b5a3e2f6624"),
+                            CreatedAt = new DateTime(2025, 6, 18, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Permission = "manage_campaigns",
+                            RoleId = new Guid("44546e06-8719-4ad8-b88a-f271ae9d6eab")
+                        },
+                        new
+                        {
+                            Id = new Guid("d2606a8b-d928-4837-8b4f-3d5c054898c4"),
+                            CreatedAt = new DateTime(2025, 6, 18, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Permission = "manage_instances",
+                            RoleId = new Guid("44546e06-8719-4ad8-b88a-f271ae9d6eab")
+                        },
+                        new
+                        {
+                            Id = new Guid("4647bf49-1f9d-4c9e-a7c7-472aa987d5c5"),
+                            CreatedAt = new DateTime(2025, 6, 18, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Permission = "view_reports",
+                            RoleId = new Guid("44546e06-8719-4ad8-b88a-f271ae9d6eab")
+                        },
+                        new
+                        {
+                            Id = new Guid("9e6cf6c8-7d0c-4428-b01a-5d68df3c3947"),
+                            CreatedAt = new DateTime(2025, 6, 18, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Permission = "manage_settings",
+                            RoleId = new Guid("44546e06-8719-4ad8-b88a-f271ae9d6eab")
+                        });
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -290,6 +406,34 @@ namespace WaHub.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("WaHub.Shared.Models.AppRole", b =>
+                {
+                    b.HasOne("WaHub.Data.ApplicationUser", null)
+                        .WithMany("Roles")
+                        .HasForeignKey("ApplicationUserId");
+                });
+
+            modelBuilder.Entity("WaHub.Shared.Models.AppRolePermission", b =>
+                {
+                    b.HasOne("WaHub.Shared.Models.AppRole", "Role")
+                        .WithMany("Permissions")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("WaHub.Data.ApplicationUser", b =>
+                {
+                    b.Navigation("Roles");
+                });
+
+            modelBuilder.Entity("WaHub.Shared.Models.AppRole", b =>
+                {
+                    b.Navigation("Permissions");
                 });
 #pragma warning restore 612, 618
         }
