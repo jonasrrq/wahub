@@ -1,21 +1,19 @@
 /* WaHub Sidebar - Replicando diseño de Sidebar.tsx */
 
-
-
 /* Contenedor principal del sidebar */
 .sidebar {
     display: flex;
     flex-direction: column;
     width: 18rem; /* 64 en Chakra = 256px = 16rem */
-    background-color: var(--sidebar-bg);
-    border-right: 1px solid var(--sidebar-border);
+    background-color: var(--wh-sidebar-bg);
+    border-right: 1px solid var(--wh-sidebar-border);
     padding: 1rem .5rem;
     height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
     z-index: 1000;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 /* Header con logo y theme toggle */
@@ -31,7 +29,7 @@
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
     .logo-section:hover {
@@ -47,29 +45,19 @@
 .logo-text {
     font-weight: bold;
     font-size: 1.25rem;
-    color: var(--sidebar-text);
+    color: var(--wh-sidebar-text);
     margin: 0;
 }
 
-/* Theme Toggle Button Styles */
-.theme-toggle {
-    background: none;
-    border: none;
-    border-radius: 0.375rem;
-    padding: 0.5rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: var(--sidebar-text-secondary);
-    font-size: 1.25rem;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Theme Toggle Button Styles - Note: Main styles are in ThemeToggle.razor.css */
+/* This is just a placeholder if some specific sidebar context styling was needed */
+.sidebar .theme-toggle { /* Increased specificity if needed */
+    color: var(--wh-sidebar-text-secondary); /* Default icon color */
 }
 
-    .theme-toggle:hover {
-        background-color: var(--sidebar-hover);
-        transform: scale(1.1);
+    .sidebar .theme-toggle:hover {
+        background-color: var(--wh-sidebar-hover-bg); /* Use sidebar specific hover */
+        /* transform: scale(1.1); remove as it might conflict with global toggle style */
     }
 
 /* Menú principal */
@@ -77,7 +65,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    flex: 1; /* Equivalente a VStack con flex={1} en Chakra UI */
+    flex: 1;
 }
 
 .menu-item {
@@ -85,29 +73,29 @@
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    padding: 0.75rem 1.5rem; /* Ajustado para coincidir con el activo */
+    padding: 0.75rem 1.5rem;
     background: none;
     border: none;
     border-radius: 0.375rem;
     cursor: pointer;
     transition: all 0.2s ease;
-    color: var(--sidebar-text-secondary);
+    color: var(--wh-sidebar-text-secondary);
     font-weight: normal;
-    font-size: 1.125rem; /* Igualado con el activo */
+    font-size: 1.125rem;
     text-align: left;
     gap: 0.75rem;
     position: relative;
-    min-height: 3rem; /* Para mantener altura consistente con el activo */
+    min-height: 3rem;
     line-height: 1.2;
 }
 
     .menu-item:hover {
-        background-color: var(--sidebar-hover);
+        background-color: var(--wh-sidebar-hover-bg);
+        color: var(--wh-sidebar-text); /* Text color on hover */
         transform: translateX(2px);
     }
 
     .menu-item.active {
-        /* Replicando el estilo de Chakra UI del elemento seleccionado */
         display: inline-flex;
         appearance: none;
         align-items: center;
@@ -118,34 +106,35 @@
         outline: transparent solid 2px;
         outline-offset: 2px;
         line-height: 1.2;
-        border-radius: 0.375rem; /* --chakra-radii-md */
+        border-radius: 0.375rem;
         transition-property: all;
         transition-duration: 0.2s;
-        height: 3rem; /* --chakra-sizes-12 */
+        height: 3rem;
         min-width: 3rem;
-        font-size: 1.125rem; /* --chakra-fontSizes-lg */
-        padding-left: 1.5rem; /* --chakra-space-6 */
+        font-size: 1.125rem;
+        padding-left: 1.5rem;
         padding-right: 1.5rem;
-        background: transparent;
+        background: var(--wh-sidebar-active-bg); /* Use new variable */
         justify-content: flex-start;
-        color: var(--sidebar-active-green);
-        font-weight: bold; /* --chakra-fontWeights-bold */
+        color: var(--wh-sidebar-active-text); /* Use new variable */
+        font-weight: bold;
         border-right: none;
     }
 
         .menu-item.active:hover {
-            background-color: rgba(56, 161, 105, 0.12);
+             /* Slightly darken or adjust active background on hover */
+            background: var(--wh-sidebar-active-bg); /* Keep same or define a hover variant */
+            filter: brightness(95%); /* Example adjustment */
         }
 
 .menu-item-icon {
-    width: 1em; /* Como en Chakra UI */
+    width: 1em;
     height: 1em;
-    font-size: 1.25rem; /* 20px - tamaño del icono */
+    font-size: 1.25rem;
     flex-shrink: 0;
 }
 
-/* Chakra UI button icon wrapper */
-.chakra-button__icon {
+.chakra-button__icon { /* If this class is still used from a direct copy */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -153,60 +142,55 @@
 }
 
 .badge-wrapper {
-    margin-left: auto; /* Push to the right like rightIcon */
+    margin-left: auto;
 }
 
 .menu-item-label {
     flex: 1;
 }
 
-/* Badges - replicando estructura de Chakra UI */
 .badge {
-    /* Replicando chakra-badge css-p9xwd1 */
     display: inline-block;
     white-space: nowrap;
     vertical-align: middle;
-    padding-left: 0.5rem; /* 8px */
+    padding-left: 0.5rem;
     padding-right: 0.5rem;
-    padding-top: 0.125rem; /* 2px */
+    padding-top: 0.125rem;
     padding-bottom: 0.125rem;
-    border-radius: 0.125rem; /* 2px - más pequeño que antes */
+    border-radius: 0.125rem;
     font-weight: 700;
-    font-size: 0.75rem; /* 12px */
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.025em;
     line-height: 1;
-    position: relative
+    position: relative;
 }
 
     .badge.trial {
-        background-color: #3182ce; /* blue.500 */
-        color: white;
+        background-color: var(--wh-badge-trial-bg);
+        color: var(--wh-text-on-primary-bg); /* Assuming badge bg is like primary action */
     }
 
     .badge.beta {
-        background-color: #718096; /* gray.500 */
-        color: white;
+        background-color: var(--wh-badge-beta-bg);
+        color: var(--wh-text-on-primary-bg); /* Assuming badge bg is like primary action */
     }
 
-/* Menú inferior */
 .bottom-menu {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    margin-bottom: 0.5rem; /* mb={2} en Chakra UI */
-    margin-top: 1rem; /* mt={4} en Chakra UI */
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
 }
 
-/* Divider */
 .sidebar-divider {
     height: 1px;
-    background-color: var(--divider-color);
-    margin: 0.5rem 0; /* my={2} en Chakra UI */
+    background-color: var(--wh-divider-color);
+    margin: 0.5rem 0;
     border: none;
 }
 
-/* Sección de usuario */
 .user-section {
     margin-top: auto;
     position: relative;
@@ -217,31 +201,32 @@
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    padding: 0.5rem; /* px={2} py={2} en Chakra UI */
+    padding: 0.5rem;
     background: none;
     border: none;
     border-radius: 0.375rem;
     cursor: pointer;
     transition: all 0.2s ease;
-    color: var(--sidebar-text-secondary);
-    gap: 0.75rem; /* spacing={3} en HStack */
+    color: var(--wh-sidebar-text-secondary);
+    gap: 0.75rem;
 }
 
     .user-menu-button:hover {
-        background-color: var(--sidebar-hover);
+        background-color: var(--wh-sidebar-hover-bg);
+        color: var(--wh-sidebar-text);
     }
 
 .user-avatar {
-    width: 2rem; /* size="sm" en Chakra UI Avatar */
+    width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    background-color: var(--sidebar-active-green);
+    background-color: var(--wh-sidebar-active-state); /* Use a theme variable, e.g. accent or a specific avatar bg */
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
     font-size: 0.875rem;
-    color: white;
+    color: var(--wh-text-on-primary-bg); /* Text on the avatar bg */
     flex-shrink: 0;
 }
 
@@ -251,8 +236,8 @@
 }
 
 .user-name {
-    font-weight: 500; /* fontWeight="medium" en Chakra UI */
-    color: var(--sidebar-text-secondary);
+    font-weight: 500;
+    color: var(--wh-sidebar-text-secondary);
     margin: 0;
     font-size: 0.875rem;
 }
@@ -267,24 +252,23 @@
     transform: rotate(180deg);
 }
 
-/* Menú desplegable del usuario - placement="top-start" como en el original */
 .user-dropdown {
     position: absolute;
-    bottom: 100%; /* Aparece arriba del botón */
+    bottom: 100%;
     left: 0;
     right: 0;
-    background-color: var(--sidebar-bg);
-    border: 1px solid var(--sidebar-border);
+    background-color: var(--wh-sidebar-bg); /* Dropdown should also use theme variable */
+    border: 1px solid var(--wh-sidebar-border);
     border-radius: 0.375rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--wh-shadow-md); /* Use theme shadow */
     z-index: 1001;
-    margin-bottom: 0.5rem; /* Espacio entre el dropdown y el botón */
+    margin-bottom: 0.5rem;
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
     transition: all 0.2s ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); Potentially remove if not essential or causing issues */
+    /* -webkit-backdrop-filter: blur(10px); */
 }
 
     .user-dropdown.open {
@@ -302,14 +286,15 @@
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
-    color: var(--sidebar-text-secondary);
+    color: var(--wh-sidebar-text-secondary);
     font-size: 0.875rem;
     gap: 0.75rem;
     text-align: left;
 }
 
     .dropdown-item:hover {
-        background-color: var(--sidebar-hover);
+        background-color: var(--wh-sidebar-hover-bg);
+        color: var(--wh-sidebar-text);
         transform: translateX(2px);
     }
 
@@ -323,19 +308,17 @@
         border-bottom-right-radius: 0.375rem;
     }
 
-/* Bootstrap Icons */
-.bi {
+.bi { /* Bootstrap Icons, if used */
     width: 1.25rem;
     height: 1.25rem;
     fill: currentColor;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        width: 18rem; /* Un poco más ancho en móvil */
+        transition: transform 0.3s ease, background-color 0.2s ease, border-color 0.2s ease;
+        width: 18rem;
     }
 
         .sidebar.mobile-open {
@@ -343,14 +326,13 @@
         }
 }
 
-/* Overlay para móvil */
 .sidebar-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); /* This can remain hardcoded or use a variable if needed for theme */
     z-index: 999;
     opacity: 0;
     visibility: hidden;
@@ -362,20 +344,22 @@
         visibility: visible;
     }
 
-/* Contenedor del sidebar */
-.sidebar-container {
+/* Container styles from components.css - these are not part of sidebar itself but affect layout */
+/* Keep them here if they are strongly coupled or move to a layout specific CSS file */
+.sidebar-container { /* This is a wrapper in InternalLayout.razor */
     width: 18rem;
-    background-color: var(--sidebar-bg);
-    border-right: 1px solid var(--sidebar-border);
+    background-color: var(--wh-sidebar-bg); /* Ensures wrapper matches sidebar */
+    border-right: 1px solid var(--wh-sidebar-border);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 @media (max-width: 768px) {
     .sidebar-container {
-        width: auto;
+        width: auto; /* Or manage via JS if it hides/shows */
     }
 }
 
-/* Animaciones suaves */
+/* Animations and Effects (can be kept, ensure they don't conflict with theme variables) */
 .menu-item,
 .dropdown-item,
 .user-menu-button {
@@ -392,7 +376,9 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        /* Consider if this gradient needs to adapt to themes */
+        background: linear-gradient(90deg, transparent, var(--wh-sidebar-hover-bg), transparent);
+        opacity: 0.6;
         transition: left 0.5s ease;
     }
 
@@ -402,13 +388,11 @@
         left: 100%;
     }
 
-/* Animación de carga inicial */
 @keyframes slideInLeft {
     from {
         opacity: 0;
         transform: translateX(-20px);
     }
-
     to {
         opacity: 1;
         transform: translateX(0);
@@ -417,41 +401,20 @@
 
 .menu-item {
     animation: slideInLeft 0.3s ease-out forwards;
+    opacity: 0; /* Start with opacity 0 before animation */
 }
 
-    .menu-item:nth-child(1) {
-        animation-delay: 0.1s;
-    }
+    .menu-item:nth-child(1) { animation-delay: 0.1s; }
+    .menu-item:nth-child(2) { animation-delay: 0.15s; }
+    .menu-item:nth-child(3) { animation-delay: 0.2s; }
+    .menu-item:nth-child(4) { animation-delay: 0.25s; }
+    .menu-item:nth-child(5) { animation-delay: 0.3s; }
 
-    .menu-item:nth-child(2) {
-        animation-delay: 0.15s;
-    }
 
-    .menu-item:nth-child(3) {
-        animation-delay: 0.2s;
-    }
-
-    .menu-item:nth-child(4) {
-        animation-delay: 0.25s;
-    }
-
-    .menu-item:nth-child(5) {
-        animation-delay: 0.3s;
-    }
-
-/* Pulse effect for badges */
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 .badge.trial,
@@ -459,15 +422,13 @@
     animation: pulse 2s infinite;
 }
 
-/* Focus states for accessibility */
 .menu-item:focus,
 .dropdown-item:focus,
 .user-menu-button:focus {
-    outline: 2px solid var(--sidebar-active-green);
+    outline: 2px solid var(--wh-focus-ring-color); /* Use theme focus ring */
     outline-offset: 2px;
 }
 
-/* Better shadow for dropdown */
 .user-dropdown.open {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px var(--sidebar-border);
+    box-shadow: var(--wh-shadow-lg), 0 0 0 1px var(--wh-sidebar-border); /* Use theme shadow and border */
 }

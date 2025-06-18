@@ -1,0 +1,23 @@
+/* src/WaHub.Client/Layout/ThemeToggle.razor.css */
+.theme-toggle {
+    background-color: var(--wh-bg-secondary); /* Use a subtle background */
+    border: 1px solid var(--wh-border-secondary);
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--wh-text-primary); /* For the icon/text within the button */
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--wh-bg-tertiary); /* Slightly different background on hover */
+    border-color: var(--wh-border-primary);
+}
+
+.theme-toggle span { /* Style for the sun/moon icon if it's a span */
+    font-size: 1.25rem; /* Adjust as needed */
+    line-height: 1;
+}

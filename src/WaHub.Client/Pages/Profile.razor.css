@@ -1,15 +1,17 @@
 ﻿/* Profile Page Styles */
 
 .profile-page {
-    background: #f7fafc;
+    background: var(--wh-bg-primary);
     min-height: 100vh;
+    transition: background-color 0.3s ease;
 }
 
 .profile-header {
-    background: linear-gradient(90deg, #3182ce 0%, #63b3ed 100%);
+    background: var(--wh-profile-header-bg, var(--wh-primary-action-bg));
     padding: 2.5rem 0 2rem 0;
-    color: white;
+    color: var(--wh-profile-header-text, var(--wh-text-on-primary-bg));
     margin-bottom: 2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .profile-header-content {
@@ -28,17 +30,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: none;
+    background: none; /* Or var(--wh-avatar-container-bg) if needed */
 }
 
     .profile-avatar img {
         width: 120px;
         height: 120px;
         border-radius: 50%;
-        border: 4px solid #fff;
+        border: 4px solid var(--wh-avatar-border-color, var(--wh-bg-primary));
         object-fit: cover;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        background: #fff;
+        box-shadow: var(--wh-shadow-sm);
+        background: var(--wh-avatar-bg, var(--wh-bg-primary)); /* Background for image placeholder */
         display: block;
     }
 
@@ -46,8 +48,8 @@
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background: #3182ce;
-    color: #fff;
+    background: var(--wh-btn-primary-bg);
+    color: var(--wh-btn-primary-text);
     border: none;
     border-radius: 50%;
     width: 36px;
@@ -56,17 +58,17 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
-    transition: background 0.2s;
+    box-shadow: var(--wh-shadow-sm); /* Using sm, as xs is not predefined */
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
     z-index: 2;
 }
 
     .avatar-edit-btn:hover {
-        background: #2c5282;
+        background: var(--wh-btn-primary-hover-bg);
     }
 
 .profile-avatar img[alt="Avatar"] {
-    color: transparent;
+    color: transparent; /* Keeps placeholder text hidden */
 }
 
 .profile-info {
@@ -82,13 +84,15 @@
         font-size: 2rem;
         font-weight: bold;
         margin: 0 0 0.5rem 0;
-        color: #2d3748;
+        color: var(--wh-profile-header-text, var(--wh-text-on-primary-bg)); /* Text on header background */
         word-break: break-word;
+        transition: color 0.3s ease;
     }
 
 .profile-email {
-    color: #e2e8f0;
+    color: var(--wh-profile-header-subtext, var(--wh-text-secondary-on-primary-bg, rgba(255,255,255,0.8))); /* Subtler text on header */
     margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
 }
 
 .profile-badges {
@@ -100,7 +104,7 @@
     /* Asegura que los badges estén justo debajo del nombre/email */
 }
 
-.badge {
+.badge { /* Generic badge styling */
     position: relative;
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
@@ -108,16 +112,17 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .badge-primary {
-    background: #3182ce;
-    color: #fff;
+    background: var(--wh-badge-primary-bg, var(--wh-primary-action-bg));
+    color: var(--wh-badge-primary-text, var(--wh-text-on-primary-bg));
 }
 
 .badge-success {
-    background: #38a169;
-    color: #fff;
+    background: var(--wh-badge-success-bg, var(--wh-success-bg));
+    color: var(--wh-badge-success-text, var(--wh-text-on-primary-bg)); /* Assuming text on success bg should be light */
 }
 
 .profile-content {
@@ -125,17 +130,19 @@
 }
 
 .profile-tabs {
-    background: #fff;
+    background: var(--wh-card-bg, var(--wh-bg-primary));
     border-radius: 0.5rem;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    box-shadow: var(--wh-shadow-sm);
     padding: 2rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tab-navigation {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--wh-border-primary);
+    transition: border-color 0.3s ease;
 }
 
 .tab-btn {
@@ -143,16 +150,16 @@
     border: none;
     font-size: 1rem;
     font-weight: 500;
-    color: #4a5568;
+    color: var(--wh-tab-text, var(--wh-text-secondary));
     padding: 0.75rem 1.5rem;
     border-radius: 0.375rem 0.375rem 0 0;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
     .tab-btn.active, .tab-btn:hover {
-        background: #3182ce;
-        color: #fff;
+        background: var(--wh-tab-active-bg, var(--wh-primary-action-bg));
+        color: var(--wh-tab-active-text, var(--wh-text-on-primary-bg));
     }
 
 .tab-content {
@@ -178,63 +185,69 @@
 
 .form-input, .form-textarea, .form-select {
     padding: 0.75rem 1rem;
-    border: 1px solid #cbd5e0;
+    border: 1px solid var(--wh-input-border, var(--wh-border-secondary));
     border-radius: 0.375rem;
     font-size: 1rem;
     margin-top: 0.25rem;
-    background: #f7fafc;
-    color: #2d3748;
-    transition: border 0.2s;
+    background: var(--wh-input-bg, var(--wh-bg-secondary));
+    color: var(--wh-input-text, var(--wh-text-primary));
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
     .form-input:focus, .form-textarea:focus, .form-select:focus {
-        border-color: #3182ce;
+        border-color: var(--wh-input-focus-border, var(--wh-primary-action-bg));
         outline: none;
+        box-shadow: 0 0 0 2px var(--wh-focus-ring-color); /* Added focus ring */
     }
 
 .form-help {
-    color: #a0aec0;
+    color: var(--wh-text-muted);
     font-size: 0.85rem;
     margin-top: 0.25rem;
+    transition: color 0.3s ease;
 }
 
-button.btn {
-    background: #3182ce;
-    color: #fff;
-    border: none;
+button.btn { /* Default button style on this page, likely a primary action */
+    background: var(--wh-btn-primary-bg);
+    color: var(--wh-btn-primary-text);
+    border: none; /* Or 1px solid var(--wh-btn-primary-bg) */
     padding: 0.75rem 1.5rem;
     border-radius: 0.375rem;
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
 }
 
     button.btn:disabled {
-        background: #a0aec0;
+        background: var(--wh-btn-disabled-bg, var(--wh-bg-tertiary));
+        color: var(--wh-text-muted); /* Ensure text has contrast on disabled bg */
         cursor: not-allowed;
     }
 
 button.btn-outline {
-    background: none;
-    color: #3182ce;
-    border: 1px solid #3182ce;
+    background: transparent;
+    color: var(--wh-btn-outline-text, var(--wh-primary-action-bg));
+    border: 1px solid var(--wh-btn-outline-border, var(--wh-primary-action-bg));
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
     button.btn-outline:hover {
-        background: #3182ce;
-        color: #fff;
+        background: var(--wh-btn-outline-hover-bg, var(--wh-primary-action-bg));
+        color: var(--wh-btn-outline-hover-text, var(--wh-text-on-primary-bg));
     }
 
 button.btn-secondary {
-    background: #718096;
-    color: #fff;
+    background: var(--wh-btn-secondary-bg);
+    color: var(--wh-btn-secondary-text);
+    border: none; /* Or 1px solid var(--wh-btn-secondary-bg) */
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
     button.btn-secondary:hover {
-        background: #4a5568;
+        background: var(--wh-btn-secondary-hover-bg);
     }
 
 .btn-sm {
@@ -251,11 +264,12 @@ button.btn-secondary {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #f7fafc;
-    border: 1px solid #e2e8f0;
+    background: var(--wh-card-bg-alt, var(--wh-bg-secondary));
+    border: 1px solid var(--wh-border-primary);
     border-radius: 0.5rem;
     padding: 1rem 1.5rem;
     margin-bottom: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .two-factor-info {
@@ -264,9 +278,10 @@ button.btn-secondary {
     gap: 1rem;
 }
 
-    .two-factor-info i {
+    .two-factor-info i { /* Assuming i tag is for an icon */
         font-size: 2rem;
-        color: #3182ce;
+        color: var(--wh-accent-color, var(--wh-primary-action-bg));
+        transition: color 0.3s ease;
     }
 
 .sessions-list {
@@ -279,10 +294,11 @@ button.btn-secondary {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #f7fafc;
-    border: 1px solid #e2e8f0;
+    background: var(--wh-card-bg-alt, var(--wh-bg-secondary));
+    border: 1px solid var(--wh-border-primary);
     border-radius: 0.5rem;
     padding: 1rem 1.5rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .session-info {
@@ -291,9 +307,10 @@ button.btn-secondary {
     gap: 1rem;
 }
 
-    .session-info i {
+    .session-info i { /* Assuming i tag is for an icon */
         font-size: 1.5rem;
-        color: #3182ce;
+        color: var(--wh-accent-color, var(--wh-primary-action-bg));
+        transition: color 0.3s ease;
     }
 
 /* Preferences Section */
@@ -305,23 +322,26 @@ button.btn-secondary {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #f7fafc;
-    border: 1px solid #e2e8f0;
+    background: var(--wh-card-bg-alt, var(--wh-bg-secondary));
+    border: 1px solid var(--wh-border-primary);
     border-radius: 0.5rem;
     padding: 1rem 1.5rem;
     margin-bottom: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .preference-info h4 {
     margin: 0 0 0.25rem 0;
     font-size: 1.1rem;
-    color: #2d3748;
+    color: var(--wh-text-primary);
+    transition: color 0.3s ease;
 }
 
 .preference-info p {
     margin: 0;
-    color: #718096;
+    color: var(--wh-text-secondary);
     font-size: 0.95rem;
+    transition: color 0.3s ease;
 }
 
 .toggle-switch {
@@ -344,13 +364,13 @@ button.btn-secondary {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #cbd5e0;
+    background: var(--wh-toggle-bg-off, var(--wh-bg-tertiary));
     border-radius: 28px;
-    transition: background 0.2s;
+    transition: background-color 0.2s ease; /* Changed from background to background-color */
 }
 
 .toggle-switch input:checked + .toggle-slider {
-    background: #3182ce;
+    background: var(--wh-toggle-bg-on, var(--wh-primary-action-bg));
 }
 
 .toggle-slider:before {
@@ -360,9 +380,9 @@ button.btn-secondary {
     top: 4px;
     width: 20px;
     height: 20px;
-    background: #fff;
+    background: var(--wh-toggle-handle-bg, var(--wh-bg-primary));
     border-radius: 50%;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease, background-color 0.2s ease; /* Added background-color */
 }
 
 .toggle-switch input:checked + .toggle-slider:before {
@@ -377,8 +397,8 @@ button.btn-secondary {
 }
 
 .billing-card {
-    background: #f7fafc;
-    border: 1px solid #e2e8f0;
+    background: var(--wh-card-bg-alt, var(--wh-bg-secondary));
+    border: 1px solid var(--wh-border-primary);
     border-radius: 0.5rem;
     padding: 1.5rem 2rem;
     flex: 1;
@@ -386,6 +406,7 @@ button.btn-secondary {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .plan-info {
@@ -397,12 +418,14 @@ button.btn-secondary {
 }
 
 .plan-name {
-    color: #3182ce;
+    color: var(--wh-accent-color, var(--wh-primary-action-bg));
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .plan-price {
-    color: #2d3748;
+    color: var(--wh-text-primary);
+    transition: color 0.3s ease;
 }
 
 .payment-method {
@@ -410,6 +433,8 @@ button.btn-secondary {
     align-items: center;
     gap: 0.75rem;
     font-size: 1.1rem;
+    color: var(--wh-text-primary); /* Added default color */
+    transition: color 0.3s ease;
 }
 
 .billing-history {
@@ -423,13 +448,14 @@ button.btn-secondary {
 }
 
 .invoice-item {
-    background: #f7fafc;
-    border: 1px solid #e2e8f0;
+    background: var(--wh-card-bg-alt, var(--wh-bg-secondary));
+    border: 1px solid var(--wh-border-primary);
     border-radius: 0.5rem;
     padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 @media (max-width: 900px) {

@@ -1,56 +1,201 @@
-/* Variables de color - Adaptativo para light/dark mode */
+/* WaHub Theme Variables */
 :root {
-    --sidebar-bg-light: #ffffff;
-    --sidebar-bg-dark: #1a202c;
-    --sidebar-border-light: #e2e8f0;
-    --sidebar-border-dark: #2d3748;
-    --sidebar-text-light: #2d3748;
-    --sidebar-text-dark: #f7fafc;
-    --sidebar-text-secondary-light: #4a5568;
-    --sidebar-text-secondary-dark: #a0aec0;
-    --sidebar-hover-light: #f7fafc;
-    --sidebar-hover-dark: #2d3748;
-    --sidebar-active-green: #38a169;
-    --sidebar-green-light: #68d391;
-    --badge-trial-bg: #3182ce;
-    --badge-beta-bg: #718096;
-    --divider-light: #e2e8f0;
-    --divider-dark: #4a5568;
+    /* Base Palette - Light Theme */
+    --wh-bg-primary: #ffffff;
+    --wh-bg-secondary: #f8f9fa;
+    --wh-bg-tertiary: #e9ecef;
+    --wh-bg-accent: #007bff; /* Example accent */
+
+    --wh-text-primary: #212529;
+    --wh-text-secondary: #6c757d;
+    --wh-text-muted: #adb5bd;
+    --wh-text-on-primary-bg: #ffffff;
+    --wh-text-accent: #007bff; /* Example accent text */
+
+    --wh-border-primary: #dee2e6;
+    --wh-border-secondary: #ced4da;
+
+    /* Interactive Elements - Light Theme */
+    /* Buttons */
+    --wh-btn-primary-bg: #007bff;
+    --wh-btn-primary-text: #ffffff;
+    --wh-btn-primary-hover-bg: #0069d9;
+    --wh-btn-primary-active-bg: #005cbf;
+
+    --wh-btn-secondary-bg: #6c757d;
+    --wh-btn-secondary-text: #ffffff;
+    --wh-btn-secondary-hover-bg: #5a6268;
+    --wh-btn-secondary-active-bg: #545b62;
+
+    --wh-btn-accent-bg: #28a745; /* Example */
+    --wh-btn-accent-text: #ffffff;
+    --wh-btn-accent-hover-bg: #218838;
+    --wh-btn-accent-active-bg: #1e7e34;
+
+    /* Inputs */
+    --wh-input-bg: #ffffff;
+    --wh-input-text: #495057;
+    --wh-input-border: #ced4da;
+    --wh-input-focus-border: #80bdff;
+    --wh-input-placeholder-text: #6c757d;
+
+    /* Semantic States - Light Theme */
+    --wh-success-bg: #d4edda;
+    --wh-success-text: #155724;
+    --wh-error-bg: #f8d7da;
+    --wh-error-text: #721c24;
+    --wh-warning-bg: #fff3cd;
+    --wh-warning-text: #856404;
+    --wh-info-bg: #d1ecf1;
+    --wh-info-text: #0c5460;
+
+    /* General UI Elements - Light Theme */
+    --wh-link-text: #007bff;
+    --wh-link-hover-text: #0056b3;
+    --wh-focus-ring-color: rgba(0, 123, 255, 0.25);
+    --wh-shadow-color: rgba(0, 0, 0, 0.1);
+    --wh-shadow-sm: 0 .125rem .25rem var(--wh-shadow-color);
+    --wh-shadow-md: 0 .5rem 1rem var(--wh-shadow-color);
+    --wh-shadow-lg: 0 1rem 3rem var(--wh-shadow-color);
+
+    /* Component Specific Variables - Light Theme (Derived or Specific) */
+    /* Sidebar */
+    --wh-sidebar-bg: var(--wh-bg-primary);
+    --wh-sidebar-border: var(--wh-border-primary);
+    --wh-sidebar-text: var(--wh-text-primary);
+    --wh-sidebar-text-secondary: var(--wh-text-secondary);
+    --wh-sidebar-hover-bg: var(--wh-bg-secondary);
+    --wh-sidebar-active-bg: var(--wh-bg-accent); /* Example, can be more specific */
+    --wh-sidebar-active-text: var(--wh-text-on-primary-bg);
+    --wh-sidebar-active-state: #38a169; /* Existing value */
+    --wh-sidebar-accent-green: #68d391; /* Existing value */
+
+    /* Dividers */
+    --wh-divider-color: var(--wh-border-primary);
+
+    /* Badges */
+    --wh-badge-trial-bg: #3182ce; /* Existing value */
+    --wh-badge-beta-bg: #718096; /* Existing value */
+
+    /* Primary/Secondary Action (used for main CTAs, potentially different from buttons) */
+    --wh-primary-action-bg: #007bff;
+    --wh-primary-action-text: #ffffff;
+    --wh-secondary-action-bg: #6c757d;
+    --wh-secondary-action-text: #ffffff;
+
+    /* Overlays */
+    --wh-overlay-bg: rgba(248, 249, 250, 0.85); /* Semi-transparent light */
 }
 
-/* Detectar modo oscuro automáticamente */
 [data-theme="dark"] {
-    --sidebar-bg: var(--sidebar-bg-dark);
-    --sidebar-border: var(--sidebar-border-dark);
-    --sidebar-text: var(--sidebar-text-dark);
-    --sidebar-text-secondary: var(--sidebar-text-secondary-dark);
-    --sidebar-hover: var(--sidebar-hover-dark);
-    --divider-color: var(--divider-dark);
+    /* Base Palette - Dark Theme */
+    --wh-bg-primary: #121212;
+    --wh-bg-secondary: #1e1e1e;
+    --wh-bg-tertiary: #2a2a2a;
+    --wh-bg-accent: #0d6efd; /* Example accent for dark */
+
+    --wh-text-primary: #e0e0e0;
+    --wh-text-secondary: #a0a0a0;
+    --wh-text-muted: #757575;
+    --wh-text-on-primary-bg: #ffffff;
+    --wh-text-accent: #0d6efd; /* Example accent text for dark */
+
+    --wh-border-primary: #424242;
+    --wh-border-secondary: #555555;
+
+    /* Interactive Elements - Dark Theme */
+    /* Buttons */
+    --wh-btn-primary-bg: #0d6efd;
+    --wh-btn-primary-text: #ffffff;
+    --wh-btn-primary-hover-bg: #0b5ed7;
+    --wh-btn-primary-active-bg: #0a58ca;
+
+    --wh-btn-secondary-bg: #5c636a;
+    --wh-btn-secondary-text: #ffffff;
+    --wh-btn-secondary-hover-bg: #495057;
+    --wh-btn-secondary-active-bg: #454b50;
+
+    --wh-btn-accent-bg: #198754; /* Example for dark */
+    --wh-btn-accent-text: #ffffff;
+    --wh-btn-accent-hover-bg: #146c43;
+    --wh-btn-accent-active-bg: #13653f;
+
+    /* Inputs */
+    --wh-input-bg: #1e1e1e;
+    --wh-input-text: #e0e0e0;
+    --wh-input-border: #424242;
+    --wh-input-focus-border: #0d6efd;
+    --wh-input-placeholder-text: #757575;
+
+    /* Semantic States - Dark Theme */
+    --wh-success-bg: #144220; /* Darker green */
+    --wh-success-text: #a3cfbb;
+    --wh-error-bg: #5f171c; /* Darker red */
+    --wh-error-text: #f1b0b7;
+    --wh-warning-bg: #664d03; /* Darker yellow */
+    --wh-warning-text: #ffecb5;
+    --wh-info-bg: #053e50; /* Darker blue */
+    --wh-info-text: #a6e0f0;
+
+    /* General UI Elements - Dark Theme */
+    --wh-link-text: #0d6efd;
+    --wh-link-hover-text: #3b8aff;
+    --wh-focus-ring-color: rgba(13, 110, 253, 0.35);
+    --wh-shadow-color: rgba(255, 255, 255, 0.05); /* Lighter shadow for dark mode */
+    /* Shadows might need adjustment for dark theme (e.g., lighter or different spread) */
+
+    /* Component Specific Variables - Dark Theme */
+    /* Sidebar */
+    --wh-sidebar-bg: #1a202c; /* Specific dark value from old variables */
+    --wh-sidebar-border: #2d3748; /* Specific dark value */
+    --wh-sidebar-text: #f7fafc; /* Specific dark value */
+    --wh-sidebar-text-secondary: #a0aec0; /* Specific dark value */
+    --wh-sidebar-hover-bg: #2d3748; /* Specific dark value */
+    --wh-sidebar-active-bg: var(--wh-bg-accent); /* Example, can be more specific */
+    --wh-sidebar-active-text: var(--wh-text-on-primary-bg);
+    /* --wh-sidebar-active-state: #38a169; (no specific dark variant, inherits from :root or needs one) */
+    /* --wh-sidebar-accent-green: #68d391; (no specific dark variant, inherits from :root or needs one) */
+
+    /* Dividers */
+    --wh-divider-color: #4a5568; /* Specific dark value */
+
+    /* Badges (no specific dark variants, inherit from :root or need defining) */
+    /* --wh-badge-trial-bg: #3182ce; */
+    /* --wh-badge-beta-bg: #718096; */
+
+    /* Primary/Secondary Action (used for main CTAs, potentially different from buttons) */
+    --wh-primary-action-bg: #0d6efd;
+    --wh-primary-action-text: #ffffff;
+    --wh-secondary-action-bg: #5c636a;
+    --wh-secondary-action-text: #ffffff;
+
+    /* Overlays */
+    --wh-overlay-bg: rgba(18, 18, 18, 0.85); /* Semi-transparent dark */
 }
 
-[data-theme="light"], :root {
-    --sidebar-bg: var(--sidebar-bg-light);
-    --sidebar-border: var(--sidebar-border-light);
-    --sidebar-text: var(--sidebar-text-light);
-    --sidebar-text-secondary: var(--sidebar-text-secondary-light);
-    --sidebar-hover: var(--sidebar-hover-light);
-    --divider-color: var(--divider-light);
-}
+/* Typography Variables (Consider if theme-dependent) */
+/* --wh-font-family-primary: 'Arial', sans-serif; */
+/* --wh-font-size-base: 16px; */
 
-
+/* Spacing Variables (Consider if theme-dependent) */
+/* --wh-spacing-unit: 8px; */
+/* --wh-spacing-small: var(--wh-spacing-unit); */
+/* --wh-spacing-medium: calc(var(--wh-spacing-unit) * 2); */
 
 /* HomeNavbar styles - HIGH PRIORITY */
+/* The HomeNavbar is styled to be dark by default. We'll use variables that reflect this. */
+/* These variables will effectively be the "dark theme" versions, even in light mode for the navbar itself. */
 .home-navbar, nav.home-navbar, .home-navbar.navbar {
-    background-color: #2d3748 !important;
-    background: #2d3748 !important;
+    background-color: var(--wh-bg-tertiary) !important; /* Using a dark background variable */
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--wh-border-primary); /* Using a subtle border from the dark palette */
     padding: 1rem 0 !important;
     position: sticky !important;
     top: 0;
     z-index: 1100 !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: white !important;
+    box-shadow: var(--wh-shadow-md) !important; /* Using a theme shadow */
+    color: var(--wh-text-primary) !important; /* Text color for dark backgrounds */
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .navbar-content {
@@ -73,32 +218,33 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: white !important;
+    color: var(--wh-text-primary) !important; /* Text color for dark backgrounds */
     text-decoration: none !important;
     transition: all 0.2s ease;
 }
 
 .logo-link:hover {
-    color: white !important;
+    color: var(--wh-text-accent) !important; /* Accent color on hover */
     text-decoration: none !important;
     transform: translateY(-1px);
 }
 
 .logo-link:visited,
 .logo-link:active {
-    color: white !important;
+    color: var(--wh-text-primary) !important; /* Text color for dark backgrounds */
     text-decoration: none !important;
 }
 
 .logo {
     width: 2rem;
     height: 2rem;
+    /* Assuming SVG or image that works on dark backgrounds */
 }
 
 .app-name {
     font-weight: bold;
     font-size: 1.25rem;
-    color: white !important;
+    color: var(--wh-text-primary) !important; /* Text color for dark backgrounds */
 }
 
 .nav-actions {
@@ -120,7 +266,7 @@ nav.home-navbar nav.nav-menu a,
 .home-navbar nav.nav-menu a,
 nav.home-navbar .nav-actions .nav-menu a,
 nav.home-navbar .nav-actions nav.nav-menu a {
-    color: white !important;
+    color: var(--wh-text-primary) !important; /* Text color for dark backgrounds */
     text-decoration: none !important;
     font-weight: 600 !important;
     padding: 0.5rem 1rem !important;
@@ -146,12 +292,12 @@ nav.home-navbar nav.nav-menu a:hover,
 .home-navbar nav.nav-menu a:hover,
 nav.home-navbar .nav-actions .nav-menu a:hover,
 nav.home-navbar .nav-actions nav.nav-menu a:hover {
-    color: #ffd700 !important;
-    border-bottom-color: #ffd700 !important;
-    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--wh-text-accent) !important; /* Accent color e.g. #0d6efd in dark mode */
+    border-bottom-color: var(--wh-text-accent) !important;
+    background-color: var(--wh-bg-secondary) !important; /* Slightly lighter dark background */
     transform: translateY(-1px) !important;
     text-decoration: none !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important; /* Shadow could be themed too */
 }
 
 /* Estados visited, active, etc. */
@@ -161,14 +307,14 @@ nav.home-navbar .nav-menu a:link,
 .home-navbar .nav-menu a:visited,
 .home-navbar .nav-menu a:active,
 .home-navbar .nav-menu a:link {
-    color: white !important;
+    color: var(--wh-text-primary) !important; /* Text color for dark backgrounds */
     text-decoration: none !important;
 }
 
 .nav-btn {
     background-color: transparent !important;
-    color: white !important;
-    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    color: var(--wh-text-primary) !important; /* Text color for dark backgrounds */
+    border: 1px solid var(--wh-border-secondary) !important; /* Border for dark backgrounds */
     padding: 0.5rem 1rem;
     border-radius: 0.375rem;
     cursor: pointer;
@@ -180,25 +326,26 @@ nav.home-navbar .nav-menu a:link,
 }
 
 .nav-btn:hover {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    border-color: white !important;
+    background-color: var(--wh-bg-secondary) !important; /* Slightly lighter dark background */
+    border-color: var(--wh-border-primary) !important; /* Lighter border for dark backgrounds */
     transform: translateY(-1px);
-    color: white !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    color: var(--wh-text-accent) !important; /* Accent text color on hover */
+    box-shadow: var(--wh-shadow-sm) !important;
 }
 
 .nav-btn-primary {
-    background-color: white !important;
-    color: #2d3748 !important;
-    border-color: white !important;
+    background-color: var(--wh-btn-primary-bg) !important; /* Primary button on dark navbar */
+    color: var(--wh-btn-primary-text) !important;
+    border-color: var(--wh-btn-primary-bg) !important;
     font-weight: 600;
 }
 
 .nav-btn-primary:hover {
-    background-color: #f7fafc !important;
-    color: #2d3748 !important;
+    background-color: var(--wh-btn-primary-hover-bg) !important;
+    color: var(--wh-btn-primary-text) !important;
+    border-color: var(--wh-btn-primary-hover-bg) !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    box-shadow: var(--wh-shadow-md) !important;
 }
 
 /* Language switcher in navbar */
@@ -207,9 +354,9 @@ nav.home-navbar .nav-menu a:link,
 }
 
 .home-navbar .language-select {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    color: white !important;
-    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    background-color: var(--wh-input-bg) !important; /* Input field on dark background */
+    color: var(--wh-input-text) !important;
+    border: 1px solid var(--wh-input-border) !important;
     border-radius: 0.375rem;
     padding: 0.375rem 0.5rem;
     font-size: 0.875rem;
@@ -223,22 +370,22 @@ nav.home-navbar .nav-menu a:link,
 }
 
 .home-navbar .language-select:hover {
-    background-color: rgba(255, 255, 255, 0.25) !important;
-    border-color: white !important;
-    color: white !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    background-color: var(--wh-input-bg) !important; /* Darker input hover on dark bg */
+    border-color: var(--wh-input-focus-border) !important;
+    color: var(--wh-input-text) !important;
+    box-shadow: var(--wh-shadow-sm) !important;
 }
 
 .home-navbar .language-select:focus {
     outline: none !important;
-    border-color: white !important;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) !important;
-    color: white !important;
+    border-color: var(--wh-input-focus-border) !important;
+    box-shadow: 0 0 0 2px var(--wh-focus-ring-color) !important;
+    color: var(--wh-input-text) !important;
 }
 
 .home-navbar .language-select option {
-    background-color: #2d3748 !important;
-    color: white !important;
+    background-color: var(--wh-bg-secondary) !important; /* Options background for dark theme */
+    color: var(--wh-text-primary) !important;
     padding: 0.25rem;
 }
 
@@ -306,7 +453,7 @@ body nav.home-navbar .nav-actions nav.nav-menu a,
 html body nav.home-navbar .nav-actions nav.nav-menu a,
 html body .home-navbar .nav-actions .nav-menu a,
 html body nav.home-navbar nav.nav-menu a {
-    color: white !important;
+    color: var(--wh-text-primary) !important; /* Text color for dark backgrounds */
     text-decoration: none !important;
     font-weight: 600 !important;
     padding: 0.5rem 1rem !important;
@@ -328,9 +475,9 @@ body nav.home-navbar .nav-actions nav.nav-menu a:hover,
 html body nav.home-navbar .nav-actions nav.nav-menu a:hover,
 html body .home-navbar .nav-actions .nav-menu a:hover,
 html body nav.home-navbar nav.nav-menu a:hover {
-    color: #ffd700 !important;
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    border-bottom-color: #ffd700 !important;
+    color: var(--wh-text-accent) !important; /* Accent color */
+    background-color: var(--wh-bg-secondary) !important; /* Slightly lighter dark background */
+    border-bottom-color: var(--wh-text-accent) !important;
     text-decoration: none !important;
     transform: translateY(-1px) !important;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
@@ -347,10 +494,10 @@ nav.home-navbar a:active,
 .home-navbar a:link,
 .home-navbar a:visited,
 .home-navbar a:active {
-    color: white !important;
+    color: var(--wh-text-primary) !important; /* Text color for dark backgrounds */
     text-decoration: none !important;
     font-weight: 600 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    text-shadow: 0 1px 2px var(--wh-shadow-color) !important; /* Shadow for dark backgrounds */
     opacity: 1 !important;
     visibility: visible !important;
 }
@@ -360,10 +507,10 @@ nav.home-navbar button,
 .home-navbar button,
 .home-navbar .nav-btn,
 nav.home-navbar .nav-btn {
-    color: white !important;
+    color: var(--wh-text-primary) !important; /* Text color for dark backgrounds */
     font-weight: 600 !important;
     background-color: transparent !important;
-    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    border: 1px solid var(--wh-border-secondary) !important; /* Border for dark backgrounds */
     opacity: 1 !important;
     visibility: visible !important;
 }
@@ -373,41 +520,46 @@ nav.home-navbar select,
 .home-navbar select,
 .home-navbar .language-select,
 nav.home-navbar .language-select {
-    color: white !important;
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    color: var(--wh-input-text) !important;
+    background-color: var(--wh-input-bg) !important; /* Consistent with other inputs */
+    border: 1px solid var(--wh-input-border) !important;
     opacity: 1 !important;
     visibility: visible !important;
 }
 
 .home-navbar .nav-btn-primary:hover {
-    color: #2d3748 !important;
-    background-color: #f7fafc !important;
+    /* Already themed with --wh-btn-primary-hover-bg and --wh-btn-primary-text */
+     color: var(--wh-btn-primary-text) !important;
+     background-color: var(--wh-btn-primary-hover-bg) !important;
 }
 
 /* Asegurar que el select del idioma sea visible */
+/* These rules appear redundant given the more specific ones above, but harmonizing them */
 .home-navbar select,
 .home-navbar .language-select {
-    color: white !important;
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: var(--wh-input-text) !important;
+    background-color: var(--wh-input-bg) !important;
+    border: 1px solid var(--wh-input-border) !important;
     opacity: 1 !important;
     visibility: visible !important;
 }
 
 .home-navbar select:focus,
 .home-navbar .language-select:focus {
-    color: white !important;
-    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: var(--wh-input-text) !important;
+    background-color: var(--wh-input-bg) !important; /* Focus state for select */
+    border-color: var(--wh-input-focus-border) !important;
+    box-shadow: 0 0 0 2px var(--wh-focus-ring-color) !important;
 }
 
 .home-navbar select option,
 .home-navbar .language-select option {
-    background-color: #2d3748 !important;
-    color: white !important;
+    background-color: var(--wh-bg-secondary) !important; /* Options background for dark theme */
+    color: var(--wh-text-primary) !important;
 }
 
 /* Override cualquier estilo que pueda estar ocultando los elementos */
+/* This is a very broad rule, if possible, it's better to ensure elements are visible by default */
 .home-navbar * {
     visibility: visible !important;
     opacity: 1 !important;
@@ -434,15 +586,17 @@ nav.home-navbar .language-select {
 
 .sidebar-container {
     width: 18rem;
-    background-color: white;
-    border-right: 1px solid #e2e8f0;
+    background-color: var(--wh-sidebar-bg);
+    border-right: 1px solid var(--wh-sidebar-border);
+    transition: background-color 0.2s ease, border-color 0.2s ease; /* Added transition */
 }
 
 .main-content {
     flex: 1;
-    background-color: #f7fafc;
+    background-color: var(--wh-bg-secondary); /* Using secondary for main content area */
     padding: 1.5rem;
     overflow-y: auto;
+    transition: background-color 0.2s ease; /* Added transition */
 }
 
 .language-switcher-container {
@@ -669,41 +823,26 @@ nav.home-navbar .language-select {
     background: #f7fafc;
 }
 
-/* ThemeToggle Styles */
-.theme-toggle {
-    background: none;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.375rem;
-    padding: 0.5rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-}
-
-.theme-toggle:hover {
-    background: #f7fafc;
-}
-
 /* Login Page Styles - MODERNOS Y PROFESIONALES */
 .login-container {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */ /* Gradient can be a theme variable if needed */
+    background: var(--wh-bg-tertiary); /* Using a solid theme color for now */
     padding: 2rem;
+    transition: background-color 0.2s ease;
 }
 
 .login-form {
-    background: white;
+    background: var(--wh-bg-primary);
     padding: 3rem;
     border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--wh-shadow-lg);
     width: 100%;
     max-width: 450px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .login-form:hover {
@@ -713,34 +852,36 @@ nav.home-navbar .language-select {
 .login-form h1 {
     text-align: center;
     margin-bottom: 2rem;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     font-size: 2rem;
     font-weight: 700;
 }
 
-.error-message {
-    background: #fee;
-    color: #c53030;
+.error-message { /* This is a generic error message style, ensure it's themed */
+    background: var(--wh-error-bg);
+    color: var(--wh-error-text);
     padding: 1rem;
     border-radius: 8px;
-    border: 1px solid #feb2b2;
+    border: 1px solid var(--wh-error-text); /* Use error text for border for more emphasis */
     margin-bottom: 1.5rem;
     font-size: 0.875rem;
     text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .test-credentials {
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
+    background: var(--wh-bg-secondary);
+    border: 1px solid var(--wh-border-primary);
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 2rem;
     text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .test-credentials p {
     margin: 0 0 1rem 0;
-    color: #495057;
+    color: var(--wh-text-secondary);
     font-weight: 600;
 }
 
@@ -750,10 +891,10 @@ nav.home-navbar .language-select {
     gap: 0.5rem;
 }
 
-.test-cred-btn {
-    background: #007bff;
-    color: white;
-    border: none;
+.test-cred-btn { /* This is like a secondary button */
+    background: var(--wh-btn-secondary-bg);
+    color: var(--wh-btn-secondary-text);
+    border: none; /* Or var(--wh-border-primary) */
     padding: 0.5rem 1rem;
     border-radius: 6px;
     cursor: pointer;
@@ -763,45 +904,48 @@ nav.home-navbar .language-select {
 }
 
 .test-cred-btn:hover {
-    background: #0056b3;
+    background: var(--wh-btn-secondary-hover-bg);
+    color: var(--wh-btn-secondary-text);
     transform: translateY(-1px);
 }
 
-.form-group {
+.form-group { /* Already themed from modal section, ensure consistency */
     margin-bottom: 1.5rem;
 }
 
-.form-group label {
+.form-group label { /* Already themed from modal section */
     display: block;
     margin-bottom: 0.5rem;
-    color: #374151;
+    color: var(--wh-text-primary);
     font-weight: 600;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    /* font-size: 0.875rem; */ /* Kept from original */
+    /* text-transform: uppercase; */ /* Kept from original */
+    /* letter-spacing: 0.05em; */ /* Kept from original */
 }
 
-.form-group input {
+.form-group input { /* Uses .form-input which is already themed */
     width: 100%;
-    padding: 0.875rem 1rem;
-    border: 2px solid #e5e7eb;
+    padding: 0.875rem 1rem; /* Specific padding for login */
+    border: 1px solid var(--wh-input-border); /* Use themed border */
     border-radius: 8px;
     font-size: 1rem;
-    transition: all 0.2s ease;
-    background: #f9fafb;
+    transition: all 0.2s ease; /* Includes background-color, color, border-color */
+    background: var(--wh-input-bg);
+    color: var(--wh-input-text);
 }
 
-.form-group input:focus {
+.form-group input:focus { /* Uses .form-input:focus which is already themed */
     outline: none;
-    border-color: #667eea;
-    background: white;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: var(--wh-input-focus-border);
+    background: var(--wh-input-bg); /* Keep bg same on focus or slightly change if desired */
+    box-shadow: 0 0 0 3px var(--wh-focus-ring-color);
 }
 
-.login-button {
+.login-button { /* This is a primary action button */
     width: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */ /* Gradient can be a theme var if needed */
+    background: var(--wh-btn-primary-bg);
+    color: var(--wh-btn-primary-text);
     border: none;
     padding: 1rem;
     border-radius: 8px;
@@ -815,13 +959,15 @@ nav.home-navbar .language-select {
 }
 
 .login-button:hover:not([disabled]) {
+    background: var(--wh-btn-primary-hover-bg);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: var(--wh-shadow-md); /* Themed shadow */
 }
 
 .login-button:disabled {
-    opacity: 0.7;
+    opacity: 0.7; /* Standard disabled opacity */
     cursor: not-allowed;
+    background: var(--wh-btn-primary-bg); /* Keep bg but opacity handles visual */
 }
 
 .login-loading {
@@ -831,44 +977,44 @@ nav.home-navbar .language-select {
     gap: 0.5rem;
 }
 
-.login-spinner {
+.login-spinner { /* Spinner inside the button should be light on dark bg */
     width: 20px;
     height: 20px;
     border: 2px solid transparent;
-    border-top: 2px solid white;
+    border-top: 2px solid var(--wh-btn-primary-text); /* Use button text color for spinner */
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+/* @keyframes spin is already defined */
 
 .login-form p {
     text-align: center;
-    color: #6b7280;
+    color: var(--wh-text-secondary);
     margin: 0;
 }
 
 .login-form p a {
-    color: #667eea;
+    color: var(--wh-link-text);
     text-decoration: none;
     font-weight: 600;
 }
 
 .login-form p a:hover {
+    color: var(--wh-link-hover-text);
     text-decoration: underline;
 }
 
 
 
 /* Home Page Styles */
-.home-hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+.home-hero { /* This section has a gradient background, might need specific variables if it changes with theme */
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    background: var(--wh-bg-accent); /* For now, a solid accent color, replace with gradient vars if available */
+    color: var(--wh-text-on-primary-bg); /* Assuming accent bg is dark enough for light text */
     padding: 4rem 0;
     text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .hero-content {
@@ -877,17 +1023,19 @@ nav.home-navbar .language-select {
     padding: 0 2rem;
 }
 
-.hero-title {
+.hero-title { /* Text color should be --wh-text-on-primary-bg or similar */
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 1rem;
     line-height: 1.2;
+    color: var(--wh-text-on-primary-bg); /* Ensure contrast with hero background */
 }
 
-.hero-subtitle {
+.hero-subtitle { /* Text color should be --wh-text-on-primary-bg or similar */
     font-size: 1.25rem;
     margin-bottom: 2rem;
     opacity: 0.9;
+    color: var(--wh-text-on-primary-bg); /* Ensure contrast */
 }
 
 .hero-buttons {
@@ -897,9 +1045,8 @@ nav.home-navbar .language-select {
     flex-wrap: wrap;
 }
 
-.hero-button {
+.hero-button { /* Base style for hero buttons */
     padding: 0.75rem 2rem;
-    border: none;
     border-radius: 0.5rem;
     font-weight: 500;
     cursor: pointer;
@@ -909,30 +1056,32 @@ nav.home-navbar .language-select {
     align-items: center;
 }
 
-.hero-button.primary {
-    background: white;
-    color: #667eea;
+.hero-button.primary { /* Primary hero button, e.g., light button on dark hero bg */
+    background: var(--wh-bg-primary); /* Light background */
+    color: var(--wh-text-accent); /* Accent text color, or primary text of the main theme */
+    border: 1px solid transparent;
 }
 
 .hero-button.primary:hover {
-    background: #f7fafc;
+    background: var(--wh-bg-secondary); /* Slightly darker light background */
     transform: translateY(-2px);
 }
 
-.hero-button.secondary {
+.hero-button.secondary { /* Secondary hero button, e.g., outline button on dark hero bg */
     background: transparent;
-    color: white;
-    border: 2px solid white;
+    color: var(--wh-text-on-primary-bg); /* Light text */
+    border: 2px solid var(--wh-text-on-primary-bg); /* Light border */
 }
 
 .hero-button.secondary:hover {
-    background: white;
-    color: #667eea;
+    background: var(--wh-text-on-primary-bg); /* Light background on hover */
+    color: var(--wh-bg-accent); /* Text color matching hero bg's accent */
 }
 
 .features-section {
     padding: 4rem 0;
-    background: #f7fafc;
+    background: var(--wh-bg-secondary); /* Use a secondary background for sections */
+    transition: background-color 0.2s ease;
 }
 
 .features-container {
@@ -945,7 +1094,7 @@ nav.home-navbar .language-select {
     text-align: center;
     font-size: 2.5rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin-bottom: 3rem;
 }
 
@@ -956,49 +1105,54 @@ nav.home-navbar .language-select {
 }
 
 .feature-card {
-    background: white;
+    background: var(--wh-bg-primary); /* Cards on secondary background */
     padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem; /* Or a global card radius variable */
+    box-shadow: var(--wh-shadow-md);
     text-align: center;
-    transition: transform 0.2s;
+    transition: transform 0.2s, background-color 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--wh-border-primary);
 }
 
 .feature-card:hover {
     transform: translateY(-4px);
+    box-shadow: var(--wh-shadow-lg);
 }
 
-.feature-icon {
+.feature-icon { /* Icon within a feature card */
     width: 4rem;
     height: 4rem;
-    background: #667eea;
+    background: var(--wh-bg-accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem auto;
-    color: white;
+    color: var(--wh-text-on-primary-bg); /* Text/icon color on accent background */
     font-size: 1.5rem;
+    transition: background-color 0.2s ease;
 }
 
 .feature-title {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin-bottom: 0.75rem;
 }
 
 .feature-description {
-    color: #718096;
+    color: var(--wh-text-secondary);
     line-height: 1.6;
 }
 
 
 
 /* Register Page Styles */
-.register-container {
+.register-container { /* Similar to login-container */
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    background: var(--wh-bg-tertiary); /* Using a solid theme color for now */
+    transition: background-color 0.2s ease;
 }
 
 .register-content {
@@ -1007,21 +1161,22 @@ nav.home-navbar .language-select {
     margin: 0 auto;
 }
 
-.register-form-container {
+.register-form-container { /* The main form card */
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Layout specific */
     gap: 3rem;
-    background: white;
+    background: var(--wh-bg-primary);
     border-radius: 1rem;
     padding: 2rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--wh-shadow-lg);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .register-form {
     max-width: 500px;
 }
 
-.form-header {
+.form-header { /* Shared with login? */
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -1029,12 +1184,12 @@ nav.home-navbar .language-select {
 .form-header h1 {
     font-size: 2rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 0 0 0.5rem 0;
 }
 
 .form-header p {
-    color: #718096;
+    color: var(--wh-text-secondary);
     margin: 0;
 }
 
@@ -1044,33 +1199,7 @@ nav.home-navbar .language-select {
     gap: 1rem;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #4a5568;
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    transition: all 0.2s;
-    box-sizing: border-box;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: #3182ce;
-    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
-}
+/* .form-group, .form-group label, .form-group input, .form-group input:focus are already themed */
 
 .checkbox-group {
     display: flex;
@@ -1085,21 +1214,23 @@ nav.home-navbar .language-select {
     cursor: pointer;
     font-size: 0.9rem;
     line-height: 1.4;
+    color: var(--wh-text-secondary);
 }
 
-.checkbox-label input[type="checkbox"] {
+.checkbox-label input[type="checkbox"] { /* May need specific styling for checkmark itself */
     width: auto;
     margin: 0.2rem 0 0 0;
+    accent-color: var(--wh-bg-accent); /* Modern way to color checkboxes */
 }
 
-.btn {
+.btn { /* Generic button styles, ensure these are themed */
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.5rem;
+    border: 1px solid transparent; /* Default to no border or themed border */
+    border-radius: 0.5rem; /* Or a global radius var */
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
@@ -1108,61 +1239,58 @@ nav.home-navbar .language-select {
 }
 
 .btn-primary {
-    background: #3182ce;
-    color: white;
+    background: var(--wh-btn-primary-bg);
+    color: var(--wh-btn-primary-text);
+    border-color: var(--wh-btn-primary-bg); /* Match background */
 }
 
 .btn-primary:hover {
-    background: #2c5aa0;
+    background: var(--wh-btn-primary-hover-bg);
+    border-color: var(--wh-btn-primary-hover-bg);
+    color: var(--wh-btn-primary-text);
 }
 
 .btn-primary:disabled {
-    background: #a0aec0;
+    background: var(--wh-btn-secondary-bg); /* A more muted background for disabled */
+    color: var(--wh-text-muted);
+    border-color: var(--wh-btn-secondary-bg);
     cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .btn-full {
     width: 100%;
 }
 
-.loading-spinner {
+.loading-spinner { /* Spinner inside buttons, smaller */
     width: 1rem;
     height: 1rem;
     border: 2px solid transparent;
-    border-top: 2px solid currentColor;
+    border-top: 2px solid currentColor; /* Inherits color from button text */
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
+/* @keyframes spin is already defined */
 
 .form-footer {
     text-align: center;
     margin-top: 1.5rem;
-    color: #718096;
+    color: var(--wh-text-secondary);
 }
 
 .form-footer a {
-    color: #3182ce;
+    color: var(--wh-link-text);
     text-decoration: none;
     font-weight: 500;
 }
 
 .form-footer a:hover {
+    color: var(--wh-link-hover-text);
     text-decoration: underline;
 }
 
-.error-message {
-    background: #fed7d7;
-    color: #c53030;
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    text-align: center;
-}
+/* .error-message already themed */
 
 .register-benefits {
     padding: 1rem 0;
@@ -1171,7 +1299,7 @@ nav.home-navbar .language-select {
 .register-benefits h3 {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 0 0 1.5rem 0;
 }
 
@@ -1184,26 +1312,27 @@ nav.home-navbar .language-select {
 .benefits-list li {
     padding: 0.75rem 0;
     font-size: 1rem;
-    color: #4a5568;
-    border-bottom: 1px solid #e2e8f0;
+    color: var(--wh-text-secondary);
+    border-bottom: 1px solid var(--wh-border-primary);
 }
 
-.testimonial {
-    background: #f7fafc;
+.testimonial { /* Card-like element */
+    background: var(--wh-bg-secondary);
     padding: 1.5rem;
-    border-radius: 0.5rem;
-    border-left: 4px solid #3182ce;
+    border-radius: 0.5rem; /* Or global card radius */
+    border-left: 4px solid var(--wh-bg-accent); /* Accent border */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .testimonial blockquote {
     font-style: italic;
     margin: 0 0 1rem 0;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     font-size: 1.1rem;
 }
 
 .testimonial cite {
-    color: #718096;
+    color: var(--wh-text-secondary);
     font-size: 0.9rem;
     font-weight: 500;
 }
@@ -1211,7 +1340,8 @@ nav.home-navbar .language-select {
 /* Pricing Page Styles */
 .pricing-container {
     min-height: 100vh;
-    background: #f7fafc;
+    background: var(--wh-bg-secondary); /* Page background */
+    transition: background-color 0.2s ease;
 }
 
 .pricing-content {
@@ -1228,37 +1358,39 @@ nav.home-navbar .language-select {
 .pricing-header h1 {
     font-size: 3rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 0 0 1rem 0;
 }
 
 .pricing-header p {
     font-size: 1.2rem;
-    color: #718096;
+    color: var(--wh-text-secondary);
     margin: 0 0 2rem 0;
 }
 
-.billing-toggle {
+.billing-toggle { /* Interactive element */
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    background: white;
+    background: var(--wh-bg-primary);
     padding: 0.5rem;
     border-radius: 0.75rem;
     display: inline-flex;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--wh-shadow-sm);
+    border: 1px solid var(--wh-border-primary);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .toggle-label {
     font-size: 1rem;
     font-weight: 500;
-    color: #718096;
+    color: var(--wh-text-secondary);
     transition: color 0.2s;
 }
 
 .toggle-label.active {
-    color: #2d3748;
+    color: var(--wh-text-primary);
 }
 
 .toggle-switch {
@@ -1281,7 +1413,7 @@ nav.home-navbar .language-select {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #e2e8f0;
+    background-color: var(--wh-input-border); /* Uses input border for off state */
     transition: 0.3s;
     border-radius: 24px;
 }
@@ -1293,22 +1425,22 @@ nav.home-navbar .language-select {
     width: 18px;
     left: 3px;
     bottom: 3px;
-    background-color: white;
+    background-color: var(--wh-bg-primary); /* Handle on the switch */
     transition: 0.3s;
     border-radius: 50%;
 }
 
 input:checked + .slider {
-    background-color: #3182ce;
+    background-color: var(--wh-bg-accent); /* Accent color for on state */
 }
 
 input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-.discount {
-    background: #48bb78;
-    color: white;
+.discount { /* Badge-like */
+    background: var(--wh-success-text); /* Using success state colors */
+    color: var(--wh-success-bg);
     padding: 0.2rem 0.5rem;
     border-radius: 0.25rem;
     font-size: 0.8rem;
@@ -1322,28 +1454,28 @@ input:checked + .slider:before {
     margin-bottom: 4rem;
 }
 
-.pricing-card {
-    background: white;
+.pricing-card { /* Card style */
+    background: var(--wh-bg-primary);
     border-radius: 1rem;
     padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 2px solid transparent;
+    box-shadow: var(--wh-shadow-md);
+    border: 2px solid var(--wh-border-primary);
     transition: all 0.3s;
     position: relative;
 }
 
 .pricing-card.featured {
-    border-color: #3182ce;
+    border-color: var(--wh-bg-accent); /* Accent color for featured card */
     transform: scale(1.05);
 }
 
-.featured-badge {
+.featured-badge { /* Badge style */
     position: absolute;
     top: -0.5rem;
     left: 50%;
     transform: translateX(-50%);
-    background: #3182ce;
-    color: white;
+    background: var(--wh-bg-accent);
+    color: var(--wh-text-on-primary-bg);
     padding: 0.5rem 1rem;
     border-radius: 1rem;
     font-size: 0.9rem;
@@ -1358,7 +1490,7 @@ input:checked + .slider:before {
 .plan-header h3 {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 0 0 1rem 0;
 }
 
@@ -1371,33 +1503,33 @@ input:checked + .slider:before {
 
 .currency {
     font-size: 1.5rem;
-    color: #718096;
+    color: var(--wh-text-secondary);
 }
 
 .amount {
     font-size: 3rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
 }
 
 .period {
     font-size: 1rem;
-    color: #718096;
+    color: var(--wh-text-secondary);
 }
 
 .original-price {
     text-decoration: line-through;
-    color: #a0aec0;
+    color: var(--wh-text-muted);
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
 
 .plan-description {
-    color: #718096;
+    color: var(--wh-text-secondary);
     margin: 0;
 }
 
-.features-list {
+.features-list { /* List items in pricing card */
     list-style: none;
     padding: 0;
     margin: 0 0 2rem 0;
@@ -1406,18 +1538,23 @@ input:checked + .slider:before {
 .features-list li {
     padding: 0.5rem 0;
     font-size: 0.95rem;
-    color: #4a5568;
+    color: var(--wh-text-secondary);
+    border-bottom: 1px solid var(--wh-border-primary); /* Subtle divider */
+}
+.features-list li:last-child {
+    border-bottom: none;
 }
 
-.btn-outline {
+
+.btn-outline { /* Button style */
     background: transparent;
-    color: #3182ce;
-    border: 2px solid #3182ce;
+    color: var(--wh-btn-primary-bg); /* Use primary action color for text */
+    border: 2px solid var(--wh-btn-primary-bg); /* Use primary action color for border */
 }
 
 .btn-outline:hover {
-    background: #3182ce;
-    color: white;
+    background: var(--wh-btn-primary-bg);
+    color: var(--wh-btn-primary-text);
 }
 
 .pricing-faq {
@@ -1427,7 +1564,7 @@ input:checked + .slider:before {
 .pricing-faq h2 {
     font-size: 2rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     text-align: center;
     margin: 0 0 2rem 0;
 }
@@ -1438,48 +1575,52 @@ input:checked + .slider:before {
     gap: 2rem;
 }
 
-.faq-item {
-    background: white;
+.faq-item { /* Card-like */
+    background: var(--wh-bg-primary);
     padding: 1.5rem;
     border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--wh-shadow-sm);
+    border: 1px solid var(--wh-border-primary);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .faq-item h4 {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 0 0 1rem 0;
 }
 
 .faq-item p {
-    color: #718096;
+    color: var(--wh-text-secondary);
     margin: 0;
     line-height: 1.6;
 }
 
-.pricing-cta {
+.pricing-cta { /* Card-like */
     text-align: center;
-    background: white;
+    background: var(--wh-bg-primary);
     padding: 3rem 2rem;
     border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--wh-shadow-md);
+    border: 1px solid var(--wh-border-primary);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .pricing-cta h2 {
     font-size: 2rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 0 0 1rem 0;
 }
 
 .pricing-cta p {
     font-size: 1.1rem;
-    color: #718096;
+    color: var(--wh-text-secondary);
     margin: 0 0 2rem 0;
 }
 
-.btn-large {
+.btn-large { /* Button style modifier */
     padding: 1rem 2rem;
     font-size: 1.1rem;
 }
@@ -1487,29 +1628,31 @@ input:checked + .slider:before {
 /* API Documentation Styles */
 .docs-container {
     min-height: 100vh;
-    background: #f7fafc;
+    background: var(--wh-bg-secondary); /* Page background */
+    transition: background-color 0.2s ease;
 }
 
 .docs-content {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 280px 1fr; /* Layout specific */
     max-width: 1400px;
     margin: 0 auto;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px); /* Assuming navbar height */
 }
 
-.docs-sidebar {
-    background: white;
-    border-right: 1px solid #e2e8f0;
+.docs-sidebar { /* Sidebar specific to docs */
+    background: var(--wh-bg-primary);
+    border-right: 1px solid var(--wh-border-primary);
     padding: 2rem 0;
     position: sticky;
-    top: 80px;
+    top: 80px; /* Assuming navbar height */
     height: fit-content;
     max-height: calc(100vh - 80px);
     overflow-y: auto;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.sidebar-header {
+.sidebar-header { /* Shared class name, ensure no conflicts or make specific */
     padding: 0 1.5rem;
     margin-bottom: 1.5rem;
 }
@@ -1517,7 +1660,7 @@ input:checked + .slider:before {
 .sidebar-header h3 {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 0;
 }
 
@@ -1532,7 +1675,7 @@ input:checked + .slider:before {
 .nav-section h4 {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #4a5568;
+    color: var(--wh-text-secondary); /* Muted title for nav section */
     margin: 0 0 0.75rem 0;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1551,7 +1694,7 @@ input:checked + .slider:before {
 .nav-section a {
     display: block;
     padding: 0.5rem 0.75rem;
-    color: #718096;
+    color: var(--wh-text-secondary);
     text-decoration: none;
     border-radius: 0.375rem;
     font-size: 0.9rem;
@@ -1559,13 +1702,15 @@ input:checked + .slider:before {
 }
 
 .nav-section a:hover {
-    background: #f7fafc;
-    color: #2d3748;
+    background: var(--wh-bg-tertiary);
+    color: var(--wh-text-primary);
 }
+/* Active state for docs nav link would need specific class and JS */
 
 .docs-main {
     padding: 2rem 3rem;
     overflow-y: auto;
+    color: var(--wh-text-primary); /* Default text color for docs content */
 }
 
 .docs-section {
@@ -1576,7 +1721,7 @@ input:checked + .slider:before {
 .docs-section h1 {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 0 0 1rem 0;
     line-height: 1.2;
 }
@@ -1584,65 +1729,70 @@ input:checked + .slider:before {
 .docs-section h2 {
     font-size: 1.75rem;
     font-weight: 600;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 2rem 0 1rem 0;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--wh-border-secondary);
     padding-bottom: 0.5rem;
 }
 
 .docs-section h3 {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 1.5rem 0 0.75rem 0;
 }
 
 .docs-section p {
-    color: #4a5568;
+    color: var(--wh-text-secondary);
     line-height: 1.7;
     margin: 0 0 1rem 0;
 }
 
-.info-box {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+.info-box { /* Themed box */
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    background: var(--wh-info-bg); /* Use semantic info color */
+    color: var(--wh-info-text);
     padding: 1.5rem;
     border-radius: 0.75rem;
     margin: 1.5rem 0;
+    border: 1px solid var(--wh-info-text);
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .info-box h3 {
     margin: 0 0 0.5rem 0;
-    color: white;
+    color: var(--wh-info-text); /* Ensure heading color matches text */
 }
 
 .info-box p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--wh-info-text); /* Ensure p color matches text */
+    opacity: 0.9;
 }
 
-.warning-box {
-    background: #fef5e7;
-    border: 1px solid #f6ad55;
-    color: #744210;
+.warning-box { /* Themed box */
+    background: var(--wh-warning-bg);
+    border: 1px solid var(--wh-warning-text);
+    color: var(--wh-warning-text);
     padding: 1.5rem;
     border-radius: 0.5rem;
     margin: 1.5rem 0;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .warning-box h3 {
     margin: 0 0 0.5rem 0;
-    color: #744210;
+    color: var(--wh-warning-text);
 }
 
 .warning-box p {
     margin: 0;
-    color: #744210;
+    color: var(--wh-warning-text);
 }
 
-.code-block {
-    background: #1a202c;
-    color: #e2e8f0;
+.code-block { /* Specific for code display */
+    background: var(--wh-bg-tertiary); /* Darker background for code */
+    color: var(--wh-text-primary); /* Text on that dark background */
     padding: 1.5rem;
     border-radius: 0.5rem;
     margin: 1rem 0;
@@ -1650,6 +1800,8 @@ input:checked + .slider:before {
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 0.9rem;
     line-height: 1.5;
+    border: 1px solid var(--wh-border-secondary);
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .code-block code {
@@ -1662,83 +1814,92 @@ input:checked + .slider:before {
     margin: 2rem 0;
 }
 
-.step {
-    background: white;
+.step { /* Card-like */
+    background: var(--wh-bg-primary);
     padding: 2rem;
     border-radius: 0.5rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #3182ce;
+    box-shadow: var(--wh-shadow-sm);
+    border-left: 4px solid var(--wh-bg-accent); /* Accent border */
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .step h3 {
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 0 0 0.75rem 0;
     font-size: 1.1rem;
 }
 
 .step p {
-    color: #4a5568;
+    color: var(--wh-text-secondary);
     margin: 0 0 1rem 0;
 }
 
-.params-table {
+.params-table { /* Table styling */
     width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
-    background: white;
+    background: var(--wh-bg-primary);
     border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* For border-radius */
+    box-shadow: var(--wh-shadow-sm);
+    border: 1px solid var(--wh-border-secondary);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .params-table th,
 .params-table td {
     padding: 0.75rem 1rem;
     text-align: left;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--wh-border-secondary);
 }
 
 .params-table th {
-    background: #f7fafc;
+    background: var(--wh-bg-secondary); /* Header row background */
     font-weight: 600;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     font-size: 0.9rem;
 }
 
 .params-table td {
-    color: #4a5568;
+    color: var(--wh-text-secondary);
     font-size: 0.9rem;
 }
+.params-table tr:last-child td {
+    border-bottom: none;
+}
 
-.params-table code {
-    background: #edf2f7;
-    color: #2d3748;
+.params-table code { /* Inline code in table */
+    background: var(--wh-bg-tertiary);
+    color: var(--wh-text-primary); /* Match code block text */
     padding: 0.2rem 0.4rem;
     border-radius: 0.25rem;
     font-size: 0.85rem;
 }
 
-.home-container,
+.home-container, /* Page container, ensure background is themed */
 .register-container,
 .pricing-container,
-.contact-page,
+.contact-page, /* Assuming .contact-page exists */
 .docs-container,
-.legal-page {
+.legal-page { /* Assuming .legal-page exists */
     min-height: 100vh;
+    background-color: var(--wh-bg-secondary); /* Default page bg */
+    transition: background-color 0.2s ease;
 }
 
 /* Home Page Additional Styles */
-.home-container {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.home-container { /* Specific override if home is always gradient/dark */
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    background: var(--wh-bg-accent); /* Re-evaluate if this should be themed or always gradient */
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-.hero-section {
+.hero-section { /* Already updated above */
     padding: 6rem 1rem 4rem;
     text-align: center;
-    color: white;
+    color: var(--wh-text-on-primary-bg);
 }
 
 .hero-content {
@@ -1757,39 +1918,40 @@ input:checked + .slider:before {
 .status-icon {
     font-size: 1.5rem;
     animation: pulse 2s infinite;
+    color: var(--wh-text-on-primary-bg); /* Assuming on hero bg */
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
+/* @keyframes pulse is defined */
 
-.app-title {
+.app-title { /* Text on hero */
     font-size: 3rem;
     font-weight: bold;
     margin: 0;
-    color: white;
+    color: var(--wh-text-on-primary-bg);
 }
 
-.main-title {
+.main-title { /* Text on hero */
     font-size: 2.5rem;
     font-weight: bold;
     margin: 0 0 1.5rem 0;
     line-height: 1.2;
+    color: var(--wh-text-on-primary-bg);
 }
 
-.highlight {
-    color: #ffd700;
+.highlight { /* Text on hero, specific accent */
+    color: var(--wh-warning-text); /* Example: using warning color for highlight on dark bg */
+    /* Was #ffd700 */
 }
 
-.description {
+.description { /* Text on hero */
     font-size: 1.2rem;
     margin: 0 0 2rem 0;
     opacity: 0.9;
     line-height: 1.6;
+    color: var(--wh-text-on-primary-bg);
 }
 
-.action-buttons {
+.action-buttons { /* Container for hero buttons */
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -1797,83 +1959,54 @@ input:checked + .slider:before {
     flex-wrap: wrap;
 }
 
-.trial-info {
-    color: rgba(255, 255, 255, 0.8);
+.trial-info { /* Text on hero */
+    color: rgba(var(--wh-text-on-primary-bg-rgb), 0.8); /* Assuming --wh-text-on-primary-bg-rgb is defined */
+    /* Fallback: */
+    /* color: var(--wh-text-muted); but this might be too dark for hero */
     font-size: 0.9rem;
     margin: 0;
 }
 
-.container {
+.container { /* Generic container, no color styles */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
-.section-title {
+.section-title { /* Generic section title */
     font-size: 2.5rem;
     font-weight: bold;
     text-align: center;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     margin: 0 0 3rem 0;
 }
 
-.features-section {
-    background: white;
+.features-section { /* Already updated */
+    background: var(--wh-bg-secondary);
     padding: 5rem 0;
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
+/* .features-grid, .feature-card, .feature-icon, .feature-card h3, .feature-card p already themed */
 
-.feature-card {
-    text-align: center;
-    padding: 2rem;
-    border-radius: 1rem;
-    background: #f7fafc;
-    transition: transform 0.3s;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-
-.feature-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.feature-card h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #2d3748;
-    margin: 0 0 1rem 0;
-}
-
-.feature-card p {
-    color: #4a5568;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.code-section {
-    background: #1a202c;
+.code-section { /* Section with dark background */
+    background: var(--wh-bg-tertiary); /* Darker section bg */
     padding: 5rem 0;
-    color: white;
+    color: var(--wh-text-primary); /* Text on this dark bg */
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .code-section .section-title {
-    color: white;
+    color: var(--wh-text-primary); /* Ensure title contrasts with section bg */
 }
 
-.code-example {
-    background: #2d3748;
+.code-example { /* Card-like on dark section bg */
+    background: var(--wh-bg-secondary); /* Slightly lighter than section bg */
     border-radius: 1rem;
     overflow: hidden;
     max-width: 800px;
     margin: 0 auto;
+    border: 1px solid var(--wh-border-primary);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .code-header {
@@ -1881,125 +2014,54 @@ input:checked + .slider:before {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.5rem;
-    background: #4a5568;
-    border-bottom: 1px solid #718096;
+    background: var(--wh-bg-tertiary); /* Header for code example */
+    border-bottom: 1px solid var(--wh-border-secondary);
+    color: var(--wh-text-secondary);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .code-language {
     font-weight: 500;
 }
 
-.copy-btn {
-    background: #3182ce;
-    color: white;
+.copy-btn { /* Button style */
+    background: var(--wh-btn-secondary-bg);
+    color: var(--wh-btn-secondary-text);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 0.375rem;
     cursor: pointer;
     font-size: 0.9rem;
-    transition: background 0.2s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .copy-btn:hover {
-    background: #2c5aa0;
+    background: var(--wh-btn-secondary-hover-bg);
 }
 
-.code-content {
+.code-content { /* Actual code text area */
     padding: 1.5rem;
     overflow-x: auto;
     margin: 0;
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
     line-height: 1.6;
+    background: var(--wh-bg-primary); /* Code itself on a lighter bg than example container */
+    color: var(--wh-text-primary);
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.pricing-section {
-    background: #f7fafc;
+.pricing-section { /* Already updated */
+    background: var(--wh-bg-secondary);
     padding: 5rem 0;
 }
 
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.pricing-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    position: relative;
-    transition: transform 0.3s;
-}
-
-.pricing-card:hover {
-    transform: translateY(-5px);
-}
-
-.pricing-card.featured {
-    border: 2px solid #3182ce;
-    transform: scale(1.05);
-}
-
-.badge {
-    position: absolute;
-    top: -0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #3182ce;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.pricing-card h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #2d3748;
-    margin: 0 0 1rem 0;
-}
-
-.price {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.currency {
-    font-size: 1.2rem;
-    color: #718096;
-}
-
-.amount {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #2d3748;
-}
-
-.period {
-    font-size: 1rem;
-    color: #718096;
-}
-
-.features-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2rem 0;
-}
-
-.features-list li {
-    padding: 0.5rem 0;
-    color: #4a5568;
-}
+/* .pricing-grid, .pricing-card, .badge, .pricing-card h3, .price related elements already themed */
+/* .features-list (used in pricing) already themed */
 
 .testimonials-section {
-    background: white;
+    background: var(--wh-bg-primary); /* Section background */
     padding: 5rem 0;
+    transition: background-color 0.2s ease;
 }
 
 .testimonials-grid {
@@ -2008,21 +2070,25 @@ input:checked + .slider:before {
     gap: 2rem;
 }
 
-.testimonial-card {
-    background: #f7fafc;
+.testimonial-card { /* Card style */
+    background: var(--wh-bg-secondary); /* Card on primary bg */
     padding: 2rem;
     border-radius: 1rem;
     text-align: center;
+    border: 1px solid var(--wh-border-primary);
+    box-shadow: var(--wh-shadow-sm);
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.rating {
+.rating { /* Assuming this is text/icon based */
     font-size: 1.2rem;
     margin-bottom: 1rem;
+    color: var(--wh-text-accent); /* Use accent for rating stars */
 }
 
-.testimonial-card p {
+.testimonial-card p { /* Quote text */
     font-style: italic;
-    color: #4a5568;
+    color: var(--wh-text-secondary);
     margin: 0 0 1.5rem 0;
     line-height: 1.6;
 }
@@ -2033,45 +2099,62 @@ input:checked + .slider:before {
 
 .author strong {
     display: block;
-    color: #2d3748;
+    color: var(--wh-text-primary);
     font-weight: 600;
 }
 
 .author span {
-    color: #718096;
+    color: var(--wh-text-secondary);
     font-size: 0.9rem;
 }
 
-.cta-section {
-    background: linear-gradient(135deg, #3182ce 0%, #2c5aa0 100%);
-    color: white;
+.cta-section { /* Call to action, often vibrant */
+    /* background: linear-gradient(135deg, #3182ce 0%, #2c5aa0 100%); */
+    background: var(--wh-primary-action-bg); /* Use primary action variables */
+    color: var(--wh-primary-action-text);
     padding: 5rem 0;
     text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .cta-section h2 {
     font-size: 2.5rem;
     font-weight: bold;
     margin: 0 0 1rem 0;
+    color: inherit; /* Inherits from .cta-section */
 }
 
 .cta-section p {
     font-size: 1.2rem;
     margin: 0 0 2rem 0;
     opacity: 0.9;
+    color: inherit;
 }
 
-.cta-buttons {
+.cta-buttons { /* Container for buttons in CTA */
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
 }
+/* Buttons inside CTA would use .btn, .btn-primary, .btn-secondary which are already themed */
+/* Ensure they are styled to contrast with cta-section background */
+.cta-section .btn-secondary { /* Example: secondary button on dark CTA */
+    background: transparent;
+    color: var(--wh-primary-action-text); /* Text to match CTA text color */
+    border: 2px solid var(--wh-primary-action-text); /* Border to match CTA text color */
+}
+.cta-section .btn-secondary:hover {
+    background: var(--wh-primary-action-text); /* BG becomes text color */
+    color: var(--wh-primary-action-bg); /* Text becomes CTA bg color */
+}
 
-.footer {
-    background: #1a202c;
-    color: white;
+
+.footer { /* Always dark footer */
+    background: var(--wh-bg-tertiary); /* Using a dark variable from the palette */
+    color: var(--wh-text-primary); /* Text on dark background */
     padding: 3rem 0 1rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .footer-content {
@@ -2085,11 +2168,11 @@ input:checked + .slider:before {
     font-size: 1.1rem;
     font-weight: 600;
     margin: 0 0 1rem 0;
-    color: white;
+    color: var(--wh-text-primary); /* Text on dark background */
 }
 
 .footer-section p {
-    color: #a0aec0;
+    color: var(--wh-text-secondary); /* Muted text on dark background */
     line-height: 1.6;
     margin: 0;
 }
@@ -2105,72 +2188,28 @@ input:checked + .slider:before {
 }
 
 .footer-section a {
-    color: #a0aec0;
+    color: var(--wh-text-secondary); /* Muted link on dark background */
     text-decoration: none;
     transition: color 0.2s;
 }
 
 .footer-section a:hover {
-    color: white;
+    color: var(--wh-text-primary); /* Brighter link on hover */
 }
 
 .footer-bottom {
-    border-top: 1px solid #2d3748;
+    border-top: 1px solid var(--wh-border-secondary); /* Darker border for footer */
     padding-top: 1rem;
     text-align: center;
 }
 
 .footer-bottom p {
-    color: #a0aec0;
+    color: var(--wh-text-muted); /* Very muted text for copyright */
     margin: 0;
 }
 
-/* Button Styles */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    gap: 0.5rem;
-}
-
-.btn-primary {
-    background: #3182ce;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #2c5aa0;
-}
-
-.btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.btn-secondary:hover {
-    background: white;
-    color: #3182ce;
-}
-
-.btn-outline {
-    background: transparent;
-    color: #3182ce;
-    border: 2px solid #3182ce;
-}
-
-.btn-outline:hover {
-    background: #3182ce;
-    color: white;
-}
+/* Button Styles (already themed, ensure these are generic enough) */
+/* .btn, .btn-primary, .btn-secondary, .btn-outline handled above or via component specific styles */
 
 /* Responsive Design for Home Page */
 @media (max-width: 768px) {
@@ -2320,23 +2359,25 @@ input:checked + .slider:before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* This overlay color can be static or themed if needed */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1000; /* Ensure this is a high enough z-index */
     backdrop-filter: blur(3px);
 }
 
 .modal-content {
-    background-color: var(--bg-primary);
+    background-color: var(--wh-bg-primary);
     border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--wh-shadow-lg); /* Use themed shadow */
     max-width: 500px;
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
     animation: modalSlideIn 0.3s ease-out;
+    border: 1px solid var(--wh-border-primary); /* Adding a border for better definition */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .qr-modal {
@@ -2356,7 +2397,7 @@ input:checked + .slider:before {
 
 .modal-header {
     padding: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--wh-border-secondary); /* Use wh variable */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -2364,7 +2405,7 @@ input:checked + .slider:before {
 
 .modal-header h3 {
     margin: 0;
-    color: var(--text-primary);
+    color: var(--wh-text-primary); /* Use wh variable */
     font-size: 1.25rem;
     font-weight: 600;
 }
@@ -2374,53 +2415,55 @@ input:checked + .slider:before {
     border: none;
     font-size: 1.2rem;
     cursor: pointer;
-    color: var(--text-secondary);
+    color: var(--wh-text-secondary); /* Use wh variable */
     padding: 0.25rem;
     border-radius: 4px;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-close:hover {
-    background-color: var(--bg-secondary);
+    background-color: var(--wh-bg-tertiary); /* Use wh variable */
+    color: var(--wh-text-primary);
 }
 
 .modal-body {
     padding: 1.5rem;
+    color: var(--wh-text-secondary); /* Default text color for modal body */
 }
 
 .modal-footer {
     padding:  1rem 1.5rem;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--wh-border-secondary); /* Use wh variable */
     display: flex;
     justify-content: flex-end;
     gap: 0.75rem;
 }
 
-.form-group {
+.form-group { /* Assuming this is generic enough, though login/register have specific styles */
     margin-bottom: 1rem;
 }
 
 .form-group label {
-       display: block;
+    display: block;
     margin-bottom: 0.5rem;
-    color: var(--text-primary);
+    color: var(--wh-text-primary);
     font-weight: 500;
 }
 
-.form-input {
+.form-input { /* General form input styling */
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--wh-input-border);
     border-radius: 6px;
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
+    background-color: var(--wh-input-bg);
+    color: var(--wh-input-text);
     font-size: 1rem;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 .form-input:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    border-color: var(--wh-input-focus-border);
+    box-shadow: 0 0 0 3px var(--wh-focus-ring-color); /* Use themed focus ring */
 }
 
 .qr-container {
@@ -2449,58 +2492,27 @@ input:checked + .slider:before {
 .spinner {
     width: 40px;
     height: 40px;
-    border: 4px solid var(--border-color);
-    border-top: 4px solid var(--primary-color);
+    border: 4px solid var(--wh-border-secondary); /* Use wh variable */
+    border-top: 4px solid var(--wh-text-accent); /* Use wh variable, e.g. accent color for spinner */
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin-bottom: 1rem;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+/* @keyframes spin already defined above, ensure it's not duplicated or use the existing one */
 
 .error-state p {
-    color: var(--error-color);
+    color: var(--wh-error-text); /* Use wh variable */
     margin-bottom: 1rem;
     font-size: 1.1rem;
 }
 
-
-
-/* Dark theme enhancements for new elements */
-[data-theme="dark"] .modal-content {
-    background-color: var(--bg-primary);
-    border: 1px solid var(--border-color);
-}
-
-[data-theme="dark"] .form-input {
-    background-color: var(--bg-primary);
-    border-color: var(--border-color);
-    color: var(--text-primary);
-}
-
-[data-theme="dark"] .form-input:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
-}
-
-[data-theme="dark"] .spinner {
-    border-color: var(--border-color);
-    border-top-color: var(--primary-color);
-}
-
-[data-theme="dark"] .btn-close:hover {
-    background-color: var(--bg-secondary);
-}
-
-[data-theme="dark"] .btn-icon:hover {
-    background-color: var(--bg-secondary);
-}
+/* Remove specific [data-theme="dark"] overrides for .modal-content, .form-input, .spinner, .btn-close:hover as they are now handled by --wh- variables */
 
 /* Mobile navigation improvements */
 @media (max-width: 768px) {
+    /* .wahub-sidebar related styles from here are not part of this specific change block */
+    /* They were handled or should be handled separately */
     .wahub-sidebar {
         width: 280px;
         transform: translateX(-100%);
@@ -2555,54 +2567,40 @@ input:checked + .slider:before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--wh-overlay-bg); /* Use the new variable */
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
+    z-index: 9999; /* Ensure high z-index */
     backdrop-filter: blur(2px);
+    transition: background-color 0.2s ease;
 }
 
-.loading-spinner {
+.loading-spinner { /* This is a generic spinner, also used in login button */
     width: 3rem;
     height: 3rem;
-    border: 4px solid #e2e8f0;
-    border-top: 4px solid #3182ce;
+    border: 4px solid var(--wh-border-secondary);
+    border-top: 4px solid var(--wh-text-accent); /* Use accent for spinner highlight */
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
 
 .loading-text {
     margin-top: 1rem;
-    color: #4a5568;
+    color: var(--wh-text-secondary);
     font-size: 1rem;
     font-weight: 500;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+/* @keyframes spin is already defined, ensure it's not duplicated */
 
-/* Dark theme support for loading overlay */
-[data-theme="dark"] .loading-overlay {
-    background: rgba(45, 55, 72, 0.9);
-}
+/* Removed specific [data-theme="dark"] overrides for loading overlay as they are now handled by --wh- variables */
 
-[data-theme="dark"] .loading-text {
+[data-theme="dark"] .mobile-nav-toggle { /* This style block seems out of place for loading overlay but was in original search */
     color: #f7fafc;
 }
 
-[data-theme="dark"] .loading-spinner {
-    border-color: #4a5568;
-    border-top-color: #63b3ed;
-}
-
-[data-theme="dark"] .mobile-nav-toggle {
-    color: #f7fafc;
-}
-
-[data-theme="dark"] .mobile-nav-toggle:hover {
+[data-theme="dark"] .mobile-nav-toggle:hover { /* This style block seems out of place for loading overlay but was in original search */
     background: #4a5568;
     color: #f7fafc;
 }
@@ -2622,10 +2620,10 @@ input:checked + .slider:before {
 }
 
 .notification {
-    background: white;
-    border: 1px solid #e2e8f0;
+    background: var(--wh-bg-primary);
+    border: 1px solid var(--wh-border-primary);
     border-radius: 0.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--wh-shadow-lg);
     transform: translateX(100%);
     opacity: 0;
     animation: slideIn 0.3s ease forwards;
@@ -2633,6 +2631,7 @@ input:checked + .slider:before {
     max-width: 100%;
     position: relative;
     overflow: hidden;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .notification.removing {
@@ -2657,20 +2656,21 @@ input:checked + .slider:before {
     font-weight: bold;
     font-size: 14px;
     margin-top: 2px;
+    /* Background and color will be set by type */
 }
 
 .notification-message {
     flex: 1;
     font-size: 0.9rem;
     line-height: 1.4;
-    color: #2d3748;
+    color: var(--wh-text-primary); /* Default message color */
     word-wrap: break-word;
 }
 
 .notification-close {
     background: none;
     border: none;
-    color: #a0aec0;
+    color: var(--wh-text-secondary);
     font-size: 16px;
     cursor: pointer;
     padding: 0;
@@ -2680,50 +2680,50 @@ input:checked + .slider:before {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: all 0.2s;
+    transition: background-color 0.2s ease, color 0.2s ease;
     flex-shrink: 0;
 }
 
 .notification-close:hover {
-    background: #f7fafc;
-    color: #4a5568;
+    background: var(--wh-bg-tertiary);
+    color: var(--wh-text-primary);
 }
 
 /* Notification Types */
 .notification-success {
-    border-left: 4px solid #48bb78;
+    border-left: 4px solid var(--wh-success-text); /* Use text color for border accent */
 }
 
 .notification-success .notification-icon {
-    background: #48bb78;
-    color: white;
+    background: var(--wh-success-text); /* Use text color for icon background */
+    color: var(--wh-success-bg); /* Use background color for icon text for contrast */
 }
 
 .notification-error {
-    border-left: 4px solid #f56565;
+    border-left: 4px solid var(--wh-error-text);
 }
 
 .notification-error .notification-icon {
-    background: #f56565;
-    color: white;
+    background: var(--wh-error-text);
+    color: var(--wh-error-bg);
 }
 
 .notification-warning {
-    border-left: 4px solid #ed8936;
+    border-left: 4px solid var(--wh-warning-text);
 }
 
 .notification-warning .notification-icon {
-    background: #ed8936;
-    color: white;
+    background: var(--wh-warning-text);
+    color: var(--wh-warning-bg);
 }
 
 .notification-info {
-    border-left: 4px solid #4299e1;
+    border-left: 4px solid var(--wh-info-text);
 }
 
 .notification-info .notification-icon {
-    background: #4299e1;
-    color: white;
+    background: var(--wh-info-text);
+    color: var(--wh-info-bg);
 }
 
 /* Animations */
@@ -2749,25 +2749,7 @@ input:checked + .slider:before {
     }
 }
 
-/* Dark theme support for notifications */
-[data-theme="dark"] .notification {
-    background: #2d3748;
-    border-color: #4a5568;
-    color: #f7fafc;
-}
-
-[data-theme="dark"] .notification-message {
-    color: #f7fafc;
-}
-
-[data-theme="dark"] .notification-close {
-    color: #a0aec0;
-}
-
-[data-theme="dark"] .notification-close:hover {
-    background: #4a5568;
-    color: #f7fafc;
-}
+/* Remove specific [data-theme="dark"] overrides for notifications as they are now handled by --wh- variables */
 
 /* Mobile Navigation Styles */
 .mobile-nav-toggle {

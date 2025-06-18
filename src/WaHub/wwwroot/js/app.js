@@ -69,23 +69,56 @@ window.waHubApp = {
     // Theme Management
     theme: {
         current: 'light',
+
+        detectSystemPreference: function() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'dark';
+            }
+            return 'light';
+        },
         
         init: function() {
-            // Load saved theme
-            const savedTheme = localStorage.getItem('wahub-theme') || 'light';
-            this.setTheme(savedTheme);
+            const savedTheme = localStorage.getItem('wahub-theme');
+            let initialTheme;
+            if (savedTheme) {
+                initialTheme = savedTheme;
+            } else {
+                initialTheme = this.detectSystemPreference(); // Call the new method
+            }
+            this.setTheme(initialTheme); // Apply theme first
+
+            // Add transition class after a very short delay
+            setTimeout(() => {
+                if (document && document.documentElement) {
+                    document.documentElement.classList.add('theme-transition');
+                }
+            }, 50);
+
+            // Listen for system preference changes
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            mediaQuery.addEventListener('change', (e) => {
+                // Only update if no user preference is explicitly set in localStorage
+                if (!localStorage.getItem('wahub-theme')) {
+                    const newSystemTheme = e.matches ? 'dark' : 'light';
+                    this.setTheme(newSystemTheme);
+                }
+            });
         },
         
         setTheme: function(theme) {
-            this.current = theme;
-            document.documentElement.setAttribute('data-theme', theme);
+            this.current = theme; // Ensure 'this.current' is updated
+            if (document && document.documentElement) {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
             localStorage.setItem('wahub-theme', theme);
+            // Consider dispatching a custom event if simple attribute change is not enough for Blazor
+            // window.dispatchEvent(new CustomEvent('themechanged', { detail: { theme: theme } }));
         },
         
         toggle: function() {
             const newTheme = this.current === 'light' ? 'dark' : 'light';
             this.setTheme(newTheme);
-            return newTheme;
+            return newTheme; // This return is used by ThemeToggle.razor
         }
     },
     
@@ -208,6 +241,15 @@ window.waHubApp = {
 
 // Auto-initialize when script loads
 window.waHubApp.init();
+
+// Add storage event listener
+window.addEventListener('storage', (event) => {
+    if (event.key === 'wahub-theme' && event.newValue) {
+        if (document && document.documentElement && window.waHubApp && window.waHubApp.theme) {
+             window.waHubApp.theme.setTheme(event.newValue);
+        }
+    }
+});
 
 // Expose functions for Blazor interop
 window.toggleMobileNav = () => window.waHubApp.mobileNav.toggle();
