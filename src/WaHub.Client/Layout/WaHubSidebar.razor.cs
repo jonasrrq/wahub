@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Components;
-
 using WaHub.Client.Services;
 using WaHub.Shared.Models.Resouces;
 using WaHub.Shared.Services;
@@ -15,7 +13,7 @@ public partial class WaHubSidebar
     private MenuItem[] bottomMenu = Array.Empty<MenuItem>();
     private bool isUserMenuOpen = false;
 
-    
+
 
     public WaHubSidebar(NavigationService Navigation,
         ILocalizationService Localization)
@@ -24,9 +22,6 @@ public partial class WaHubSidebar
         _localization = Localization;
         // Constructor vacío, la inicialización se realiza en OnInitialized
     }
-
-
-
 
     protected override void OnInitialized()
     {

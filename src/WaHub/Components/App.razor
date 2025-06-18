@@ -1,9 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
 @using Microsoft.AspNetCore.Components.Routing
 @inject ILocalizationService Localization
+@inject IThemeService ThemeService
 
 <!DOCTYPE html>
-<html lang="@Localization.GetString(ResourceKeys.App_Lang)">
+<html lang="@Localization.GetString(ResourceKeys.App_Lang)" data-theme="@ThemeService.GetCurrentTheme()">
 
 <head>
     <meta charset="utf-8" />

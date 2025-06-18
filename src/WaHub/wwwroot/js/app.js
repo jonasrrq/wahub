@@ -65,8 +65,7 @@ window.waHubApp = {
             });
         }
     },
-    
-    // Theme Management
+      // Theme Management
     theme: {
         current: 'light',
 
@@ -76,49 +75,59 @@ window.waHubApp = {
             }
             return 'light';
         },
-        
-        init: function() {
-            const savedTheme = localStorage.getItem('wahub-theme');
-            let initialTheme;
-            if (savedTheme) {
-                initialTheme = savedTheme;
-            } else {
-                initialTheme = this.detectSystemPreference(); // Call the new method
-            }
-            this.setTheme(initialTheme); // Apply theme first
-
-            // Add transition class after a very short delay
-            setTimeout(() => {
-                if (document && document.documentElement) {
-                    document.documentElement.classList.add('theme-transition');
+          getCurrentTheme: async function() {
+            try {
+                const response = await fetch('/api/theme/current');
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.theme;
                 }
-            }, 50);
-
+            } catch (error) {
+                console.log('Error getting current theme:', error);
+            }
+            return this.detectSystemPreference();
+        },
+        
+        setTheme: async function(theme) {
+            try {
+                const response = await fetch('/api/theme/set', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ theme: theme })
+                });
+                
+                if (response.ok) {
+                    this.current = theme;
+                    // Forzar recarga para aplicar el nuevo theme
+                    window.location.reload();
+                    return theme;
+                }
+            } catch (error) {
+                console.log('Error setting theme:', error);
+            }
+            return this.current;
+        },
+        
+        toggle: async function() {
+            const newTheme = this.current === 'light' ? 'dark' : 'light';
+            return await this.setTheme(newTheme);
+        },
+        
+        init: async function() {
+            this.current = await this.getCurrentTheme();
+            
             // Listen for system preference changes
             const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-            mediaQuery.addEventListener('change', (e) => {
-                // Only update if no user preference is explicitly set in localStorage
-                if (!localStorage.getItem('wahub-theme')) {
+            mediaQuery.addEventListener('change', async (e) => {
+                // Only update if user hasn't set a preference
+                const currentFromServer = await this.getCurrentTheme();
+                if (currentFromServer === this.detectSystemPreference()) {
                     const newSystemTheme = e.matches ? 'dark' : 'light';
-                    this.setTheme(newSystemTheme);
+                    await this.setTheme(newSystemTheme);
                 }
             });
-        },
-        
-        setTheme: function(theme) {
-            this.current = theme; // Ensure 'this.current' is updated
-            if (document && document.documentElement) {
-                document.documentElement.setAttribute('data-theme', theme);
-            }
-            localStorage.setItem('wahub-theme', theme);
-            // Consider dispatching a custom event if simple attribute change is not enough for Blazor
-            // window.dispatchEvent(new CustomEvent('themechanged', { detail: { theme: theme } }));
-        },
-        
-        toggle: function() {
-            const newTheme = this.current === 'light' ? 'dark' : 'light';
-            this.setTheme(newTheme);
-            return newTheme; // This return is used by ThemeToggle.razor
         }
     },
     
@@ -224,9 +233,7 @@ window.waHubApp = {
                 }
             });
         }
-    },
-
-    // Initialize the app
+    },    // Initialize the app
     init: function() {
         this.theme.init();
         this.mobileNav.init();
@@ -236,25 +243,79 @@ window.waHubApp = {
         document.addEventListener('DOMContentLoaded', () => {
             console.log('WaHub App initialized');
         });
+        
+        // Listen for Blazor navigation events to reapply theme
+        this.setupBlazorNavigationListener();
+    },
+    
+    // Setup Blazor navigation listener
+    setupBlazorNavigationListener: function() {
+        const self = this;
+        
+        // Listen for enhancedload event (Blazor enhanced navigation)
+        document.addEventListener('enhancedload', function() {
+            setTimeout(() => {
+                self.theme.reinitialize();
+            }, 100);
+        });
+        
+        // Listen for locationchanged event (standard Blazor navigation)
+        document.addEventListener('locationchanged', function() {
+            setTimeout(() => {
+                self.theme.reinitialize();
+            }, 100);
+        });
+        
+        // Fallback: Use MutationObserver to detect DOM changes
+        if (typeof MutationObserver !== 'undefined') {
+            const observer = new MutationObserver(function(mutations) {
+                let shouldReapply = false;
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                        for (let node of mutation.addedNodes) {
+                            if (node.nodeType === 1 && (node.classList.contains('internal-layout') || node.tagName === 'MAIN')) {
+                                shouldReapply = true;
+                                break;
+                            }
+                        }
+                    }
+                });
+                
+                if (shouldReapply) {
+                    setTimeout(() => {
+                        self.theme.reinitialize();
+                    }, 50);
+                }
+            });
+            
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        }
     }
 };
 
 // Auto-initialize when script loads
 window.waHubApp.init();
 
-// Add storage event listener
-window.addEventListener('storage', (event) => {
-    if (event.key === 'wahub-theme' && event.newValue) {
-        if (document && document.documentElement && window.waHubApp && window.waHubApp.theme) {
-             window.waHubApp.theme.setTheme(event.newValue);
-        }
+// Apply theme immediately on script load to prevent flashing
+(function() {
+    const match = document.cookie.match(/(?:^|; )wahub-theme=([^;]*)/);
+    const savedTheme = match ? decodeURIComponent(match[1]) : null;
+    if (savedTheme && document && document.documentElement) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
     }
-});
+})();
+
+// Add cookie change listener (not available natively, so we'll use a custom approach)
+// Note: Cookies don't have a native change event like localStorage
 
 // Expose functions for Blazor interop
 window.toggleMobileNav = () => window.waHubApp.mobileNav.toggle();
 window.closeMobileNav = () => window.waHubApp.mobileNav.close();
 window.toggleTheme = () => window.waHubApp.theme.toggle();
+window.reinitializeTheme = () => window.waHubApp.theme.reinitialize();
 window.showLoading = (message) => window.waHubApp.loading.show(message);
 window.hideLoading = () => window.waHubApp.loading.hide();
 window.copyToClipboard = (text) => window.waHubApp.utils.copyToClipboard(text);
