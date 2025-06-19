@@ -1,28 +1,48 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-
-using WaHub.Shared.Models.Instances;
-using WaHub.Shared.Services;
+using Microsoft.EntityFrameworkCore; // For ToListAsync()
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using WaHub.Data; // For ApplicationUser
 
 namespace WaHub.Controllers
 {
-    //[Route("api/[controller]")]
-    //[ApiController]
-    //public class UserAdminController : ControllerBase
-    //{
-        
-    //    private readonly IApiAdminService _apiAdminService;
+    [Route("api/[controller]")]
+    [ApiController]
+    [Authorize(Roles = "Admin")]
+    public class UserAdminController : ControllerBase
+    {
+        private readonly UserManager<ApplicationUser> _userManager;
 
-    //    public UserAdminController(IApiAdminService apiAdminService)
-    //    {
-            
-    //        _apiAdminService = apiAdminService;
-    //    }
+        public UserAdminController(UserManager<ApplicationUser> userManager)
+        {
+            _userManager = userManager;
+        }
 
-    //    [HttpGet("users")]
-    //    public async Task<ActionResult<List<InstanceDto>>> GetUsersAsync()
-    //    {
-    //        return Ok(await _apiAdminService.GetUsersAsync());
-    //    }
-    //}
+        public class UserViewModel // Expected by Roles.razor
+        {
+            public string Id { get; set; }
+            public string UserName { get; set; }
+            public string Email { get; set; }
+            public string FirstName {get; set; }
+            public string LastName {get; set; }
+        }
+
+        [HttpGet("users")]
+        public async Task<ActionResult<List<UserViewModel>>> GetUsersAsync()
+        {
+            var users = await _userManager.Users
+                .Select(u => new UserViewModel
+                {
+                    Id = u.Id,
+                    UserName = u.UserName,
+                    Email = u.Email,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName
+                })
+                .ToListAsync();
+            return Ok(users);
+        }
+    }
 }

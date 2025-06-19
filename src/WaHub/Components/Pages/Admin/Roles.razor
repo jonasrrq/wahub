@@ -1,0 +1,406 @@
+@page "/admin/roles"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@using System.Net.Http.Json
+@using WaHub.Shared.Models // For UserInfo or other shared models if needed
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@attribute [Authorize(Roles = "Admin")]
+
+<PageTitle>Role Management</PageTitle>
+
+<h1>Role Management</h1>
+
+@if (isLoading)
+{
+    <p><em>Loading roles...</em></p>
+}
+else if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @errorMessage
+    </div>
+}
+else
+{
+    <div class="mb-3">
+        <input @bind="newRoleName" placeholder="New role name" class="form-control d-inline-block" style="width: auto; margin-right: 10px;" />
+        <button @onclick="CreateRole" class="btn btn-primary">Create Role</button>
+    </div>
+
+    @if (roles == null || !roles.Any())
+    {
+        <p>No roles found.</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var role in roles)
+                {
+                    <tr>
+                        <td>@role.Id</td>
+                        <td>
+                            @if (editingRole != null && editingRole.Id == role.Id)
+                            {
+                                <input @bind="editingRoleName" class="form-control" />
+                            }
+                            else
+                            {
+                                @role.Name
+                            }
+                        </td>
+                        <td>
+                            @if (editingRole != null && editingRole.Id == role.Id)
+                            {
+                                <button @onclick="() => SaveEditRole(role)" class="btn btn-success btn-sm">Save</button>
+                                <button @onclick="CancelEditRole" class="btn btn-secondary btn-sm">Cancel</button>
+                            }
+                            else
+                            {
+                                <button @onclick="() => StartEditRole(role)" class="btn btn-warning btn-sm">Edit</button>
+                                <button @onclick="() => DeleteRole(role.Id, role.Name)" class="btn btn-danger btn-sm">Delete</button>
+                                <button @onclick="() => OpenUserManagement(role)" class="btn btn-info btn-sm me-1">Manage Users</button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (selectedRoleForUserManagement != null)
+    {
+        <hr />
+        <h3>Manage Users for Role: @selectedRoleForUserManagement.Name</h3>
+        @if (isLoadingUsers)
+        {
+            <p><em>Loading users...</em></p>
+        }
+        else if (!string.IsNullOrEmpty(userManagementErrorMessage))
+        {
+            <div class="alert alert-danger" role="alert">
+                @userManagementErrorMessage
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Users in role (@(usersInSelectedRole?.Count ?? 0))</h4>
+                    @if (usersInSelectedRole == null || !usersInSelectedRole.Any())
+                    {
+                        <p>No users currently in this role.</p>
+                    }
+                    else
+                    {
+                        <ul class="list-group">
+                            @foreach (var userInRole in usersInSelectedRole)
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    @userInRole.UserName (ID: @userInRole.Id)
+                                    <button @onclick="() => RemoveUserFromRole(userInRole.Id, userInRole.UserName)" class="btn btn-danger btn-sm">Remove</button>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+                <div class="col-md-6">
+                    <h4>Available users (@(allUsers?.Count(u => !IsUserInSelectedRole(u)) ?? 0))</h4>
+                    @if (allUsers == null || !allUsers.Any(u => !IsUserInSelectedRole(u)))
+                    {
+                        <p>No other users available to add or all users loaded.</p>
+                    }
+                    else
+                    {
+                        <ul class="list-group">
+                            @foreach (var availableUser in allUsers.Where(u => !IsUserInSelectedRole(u)))
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    @availableUser.UserName (ID: @availableUser.Id)
+                                    <button @onclick="() => AddUserToRole(availableUser.Id, availableUser.UserName)" class="btn btn-success btn-sm">Add to Role</button>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        }
+        <button @onclick="CloseUserManagement" class="btn btn-secondary mt-3">Close User Management</button>
+    }
+}
+
+@code {
+    private List<IdentityRoleViewModel> roles; // Using a view model for potential UI properties
+    private string newRoleName;
+    private bool isLoading = true;
+    private string errorMessage;
+
+    private IdentityRoleViewModel editingRole;
+    private string editingRoleName; // For the input field during edit
+
+    // Simple ViewModel to hold IdentityRole data
+    public class IdentityRoleViewModel
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string NormalizedName { get; set; } // May not be needed for display
+        public string ConcurrencyStamp { get; set; } // May not be needed for display
+    }
+
+    public class UserViewModel // Simplified user model for UI
+    {
+        public string Id { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        // Add other properties like FirstName, LastName if available and needed
+    }
+
+    public class RoleCreationModel
+    {
+        public string RoleName { get; set; }
+    }
+
+    public class RoleUpdateModel
+    {
+        public string NewName { get; set; }
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadRoles();
+    }
+
+    private async Task LoadRoles()
+    {
+        isLoading = true;
+        errorMessage = null;
+        try
+        {
+            var fetchedRoles = await Http.GetFromJsonAsync<List<IdentityRoleViewModel>>("api/roleadmin/roles");
+            roles = fetchedRoles ?? new List<IdentityRoleViewModel>();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error loading roles: {ex.Message}";
+            roles = new List<IdentityRoleViewModel>(); // Ensure roles is not null
+        }
+        isLoading = false;
+    }
+
+    private async Task CreateRole()
+    {
+        if (string.IsNullOrWhiteSpace(newRoleName))
+        {
+            errorMessage = "Role name cannot be empty.";
+            return;
+        }
+        errorMessage = null;
+        try
+        {
+            var response = await Http.PostAsJsonAsync("api/roleadmin/roles", new RoleCreationModel { RoleName = newRoleName });
+            if (response.IsSuccessStatusCode)
+            {
+                newRoleName = string.Empty;
+                await LoadRoles(); // Refresh list
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                errorMessage = $"Error creating role: {response.ReasonPhrase}. Details: {errorContent}";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Exception creating role: {ex.Message}";
+        }
+    }
+
+    private void StartEditRole(IdentityRoleViewModel role)
+    {
+        editingRole = role;
+        editingRoleName = role.Name; // Initialize input with current name
+    }
+
+    private async Task SaveEditRole(IdentityRoleViewModel roleUnused)
+    {
+        if (editingRole == null || string.IsNullOrWhiteSpace(editingRoleName))
+        {
+            errorMessage = "Role name cannot be empty for editing.";
+            return;
+        }
+        errorMessage = null;
+        try
+        {
+            var response = await Http.PutAsJsonAsync($"api/roleadmin/roles/{editingRole.Id}", new RoleUpdateModel { NewName = editingRoleName });
+            if (response.IsSuccessStatusCode)
+            {
+                editingRole = null; // Exit edit mode
+                editingRoleName = string.Empty;
+                await LoadRoles(); // Refresh list
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                errorMessage = $"Error updating role: {response.ReasonPhrase}. Details: {errorContent}";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Exception updating role: {ex.Message}";
+        }
+    }
+
+    private void CancelEditRole()
+    {
+        editingRole = null;
+        editingRoleName = string.Empty;
+    }
+
+    private async Task DeleteRole(string roleId, string roleName)
+    {
+        // Basic confirmation, a modal dialog would be better in a real app
+        // For simplicity, JavaScript interop for confirm() is not used here yet.
+        // Consider adding a more robust confirmation dialog.
+        // bool confirmed = await JSRuntime.InvokeAsync<bool>("confirm", $"Are you sure you want to delete the role '{roleName}'?");
+        // if (!confirmed) return;
+
+        errorMessage = null;
+        try
+        {
+            var response = await Http.DeleteAsync($"api/roleadmin/roles/{roleId}");
+            if (response.IsSuccessStatusCode)
+            {
+                await LoadRoles(); // Refresh list
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                errorMessage = $"Error deleting role: {response.ReasonPhrase}. Details: {errorContent}";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Exception deleting role: {ex.Message}";
+        }
+    }
+
+    private List<UserViewModel> allUsers;
+    private List<UserViewModel> usersInSelectedRole;
+    private IdentityRoleViewModel selectedRoleForUserManagement;
+    private string userManagementErrorMessage;
+    private bool isLoadingUsers = false;
+
+    private async Task OpenUserManagement(IdentityRoleViewModel role)
+    {
+        selectedRoleForUserManagement = role;
+        userManagementErrorMessage = null;
+        isLoadingUsers = true;
+        StateHasChanged(); // Update UI to show loading state for user management
+
+        try
+        {
+            // Fetch all users - Assuming an endpoint like GET /api/useradmin/users exists
+            var allUsersResponse = await Http.GetAsync("api/useradmin/users");
+            if(allUsersResponse.IsSuccessStatusCode)
+            {
+                allUsers = await allUsersResponse.Content.ReadFromJsonAsync<List<UserViewModel>>();
+            }
+            else
+            {
+                 allUsers = new List<UserViewModel>();
+                 userManagementErrorMessage = $"Error loading all users: {allUsersResponse.ReasonPhrase}";
+            }
+
+            // Fetch users in the selected role
+            var usersInRoleResponse = await Http.GetAsync($"api/roleadmin/roles/{System.Net.WebUtility.UrlEncode(role.Name)}/users");
+            if(usersInRoleResponse.IsSuccessStatusCode)
+            {
+                usersInSelectedRole = await usersInRoleResponse.Content.ReadFromJsonAsync<List<UserViewModel>>();
+            }
+            else
+            {
+                usersInSelectedRole = new List<UserViewModel>();
+                // Corrected line:
+                userManagementErrorMessage = (userManagementErrorMessage ?? "") + $" Error loading users in role: {usersInRoleResponse.ReasonPhrase}";
+            }
+        }
+        catch (Exception ex)
+        {
+            userManagementErrorMessage = $"Exception loading user data: {ex.Message}";
+            allUsers = new List<UserViewModel>();
+            usersInSelectedRole = new List<UserViewModel>();
+        }
+        isLoadingUsers = false;
+        StateHasChanged();
+    }
+
+    private void CloseUserManagement()
+    {
+        selectedRoleForUserManagement = null;
+        allUsers = null;
+        usersInSelectedRole = null;
+        userManagementErrorMessage = null;
+    }
+
+    private async Task AddUserToRole(string userId, string userName)
+    {
+        if (selectedRoleForUserManagement == null) return;
+        userManagementErrorMessage = null;
+        try
+        {
+            var response = await Http.PostAsJsonAsync($"api/roleadmin/users/{userId}/roles", new { RoleName = selectedRoleForUserManagement.Name });
+            if (response.IsSuccessStatusCode)
+            {
+                await OpenUserManagement(selectedRoleForUserManagement);
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                userManagementErrorMessage = $"Error adding user {userName} to role: {response.ReasonPhrase}. Details: {errorContent}";
+            }
+        }
+        catch (Exception ex)
+        {
+            userManagementErrorMessage = $"Exception adding user {userName} to role: {ex.Message}";
+        }
+        StateHasChanged();
+    }
+
+    private async Task RemoveUserFromRole(string userId, string userName)
+    {
+        if (selectedRoleForUserManagement == null) return;
+        userManagementErrorMessage = null;
+        try
+        {
+            var response = await Http.DeleteAsync($"api/roleadmin/users/{userId}/roles/{System.Net.WebUtility.UrlEncode(selectedRoleForUserManagement.Name)}");
+            if (response.IsSuccessStatusCode)
+            {
+                await OpenUserManagement(selectedRoleForUserManagement);
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                userManagementErrorMessage = $"Error removing user {userName} from role: {response.ReasonPhrase}. Details: {errorContent}";
+            }
+        }
+        catch (Exception ex)
+        {
+            userManagementErrorMessage = $"Exception removing user {userName} from role: {ex.Message}";
+        }
+        StateHasChanged();
+    }
+
+    private bool IsUserInSelectedRole(UserViewModel user)
+    {
+        return usersInSelectedRole != null && usersInSelectedRole.Any(u => u.Id == user.Id);
+    }
+}

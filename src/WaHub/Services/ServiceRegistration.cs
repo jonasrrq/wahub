@@ -29,6 +29,7 @@ public static class ServiceRegistration
         builder.Services.AddScoped<NavigationService>();
         builder.Services.AddScoped<ILocalizationService, LocalizationService>();
         builder.Services.AddScoped<NotificationService>();
+        builder.Services.AddScoped<RoleService>();
         builder.Services.AddScoped<IThemeService, ThemeService>();
         builder.Services.AddHttpContextAccessor(); // Agregar para acceder al HttpContext
         //builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
@@ -49,7 +50,7 @@ public static class ServiceRegistration
         //.AddHttpClient("ApiHttpClient")//
 
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlite("Data Source=app.db"));
 
 
 
@@ -59,7 +60,7 @@ public static class ServiceRegistration
             options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
         }).AddApplicationCookie();
 
-        builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+        builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddSignInManager()
             .AddDefaultTokenProviders();
@@ -152,6 +153,19 @@ public static class ServiceRegistration
             else
             {
                 logger.LogInformation("No pending migrations found. Database is up to date.");
+            }
+
+            // Seed initial roles and admin user
+            logger.LogInformation("Attempting to seed initial roles and admin user...");
+            try
+            {
+                await DataSeeder.SeedRolesAndAdminUserAsync(scope.ServiceProvider);
+                logger.LogInformation("Data seeding completed successfully.");
+            }
+            catch (Exception exSeed)
+            {
+                logger.LogError(exSeed, "An error occurred during data seeding.");
+                if (failOnError) throw; // Optionally rethrow if seeding is critical
             }
         }
         catch (Exception ex)

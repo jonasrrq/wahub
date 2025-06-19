@@ -389,6 +389,27 @@ La API incluye endpoints de salud y métricas:
 - `GET /metrics`: Métricas en formato Prometheus
 - `GET /swagger`: Documentación interactiva de la API
 
+## Role-Based Access Control (RBAC)
+
+WaHub now includes a comprehensive Role-Based Access Control system built on ASP.NET Core Identity. This system allows for fine-grained control over user permissions and access to different parts of the application.
+
+### Key Features:
+
+*   **Role Management**: Administrators can create, view, edit, and delete roles (e.g., ""Admin"", ""User"").
+*   **User-Role Assignment**: Administrators can assign users to one or more roles.
+*   **Route and Action Protection**: Application routes and specific actions are protected based on user roles. For instance, administrative sections like Role Management itself are restricted to users in the ""Admin"" role.
+*   **Seeded Roles**: The system automatically seeds default ""Admin"" and ""User"" roles. A default administrator account (`admin@wahub.com`) is also created on initial startup if no admin user exists (password: `Admin@123!`). **It is strongly recommended to change this default password immediately after the first login.**
+
+### Administration:
+
+Role and user-role management can be accessed through the administration interface by users with the ""Admin"" role. Look for the ""Role Management"" section in the navigation sidebar.
+
+### Technical Details:
+
+*   **Backend**: Leverages `Microsoft.AspNetCore.Identity` for robust and secure role and user management.
+*   **Database**: Role information is stored in standard Identity tables (`AspNetRoles`, `AspNetUserRoles`).
+*   **API**: Role management functionalities are exposed via secure API endpoints under `/api/roleadmin/`.
+
 ## 🤝 Contribución
 ¡Las contribuciones son bienvenidas! Por favor, lee nuestras [pautas de contribución](CONTRIBUTING.md) antes de enviar un pull request.
 
