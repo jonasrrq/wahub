@@ -127,6 +127,22 @@
             filter: brightness(95%); /* Example adjustment */
         }
 
+/* Menu divider for admin section */
+.menu-divider {
+    padding: 1rem 0 0.5rem 0;
+    margin: 0.5rem 0;
+    border-top: 1px solid var(--wh-sidebar-border);
+}
+
+.divider-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--wh-sidebar-text-muted, var(--wh-text-secondary));
+    letter-spacing: 0.05em;
+    padding-left: 1.5rem;
+}
+
 .menu-item-icon {
     width: 1em;
     height: 1em;

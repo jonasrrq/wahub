@@ -19,8 +19,7 @@ public static class ServiceRegistration
     {        // Add services to the container.
         builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents()
-            .AddInteractiveWebAssemblyComponents()
-            .AddAuthenticationStateSerialization();
+            .AddInteractiveWebAssemblyComponents();
 
         builder.Services.AddControllers(); // Habilitar controladores para API
 
@@ -30,6 +29,7 @@ public static class ServiceRegistration
         builder.Services.AddScoped<ILocalizationService, LocalizationService>();
         builder.Services.AddScoped<NotificationService>();
         builder.Services.AddScoped<IThemeService, ThemeService>();
+        builder.Services.AddScoped<IRoleService, RoleService>();
         builder.Services.AddHttpContextAccessor(); // Agregar para acceder al HttpContext
         //builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
         //builder.Services.AddScoped<ICrossPlatformStorageService, CrossPlatformStorageService>();
@@ -60,11 +60,18 @@ public static class ServiceRegistration
         }).AddApplicationCookie();
 
         builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            .AddRoles<IdentityRole>()
+            .AddRoleManager<RoleManager<IdentityRole>>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddSignInManager()
             .AddDefaultTokenProviders();
 
         builder.Services.AddCascadingAuthenticationState();
+
+        // Add authorization policies
+        builder.Services.AddAuthorizationBuilder()
+            .AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"))
+            .AddPolicy("ManagerOrAdmin", policy => policy.RequireRole("Manager", "Admin"));
 
     }
 
@@ -106,11 +113,11 @@ public static class ServiceRegistration
         app.UseStaticFiles();
         app.UseAntiforgery();
 
-        // Middleware de autenticaci�n y autorizaci�n para APIs protegidas
-        //app.UseAuthentication();
-        //app.UseAuthorization();
+        // Middleware de autenticación y autorización para APIs protegidas
+        app.UseAuthentication();
+        app.UseAuthorization();
 
-        app.MapStaticAssets();
+        app.UseStaticFiles();
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode()
             .AddInteractiveWebAssemblyRenderMode()
@@ -148,6 +155,10 @@ public static class ServiceRegistration
 
                 await context.Database.MigrateAsync();
                 logger.LogInformation("All database migrations applied successfully.");
+
+                // Seed roles after successful migration
+                await RoleSeeder.SeedRolesAsync(webApp.Services);
+                logger.LogInformation("Default roles seeded successfully.");
             }
             else
             {

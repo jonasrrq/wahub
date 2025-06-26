@@ -21,10 +21,17 @@ public class ClientAuthStateProvider : AuthenticationStateProvider
             return;
         }
 
-        Claim[] claims = [
+        var claims = new List<Claim>
+        {
             new Claim(ClaimTypes.Name, userInfo.FullName),
             new Claim(ClaimTypes.Email, userInfo.Email)
-            ];
+        };
+
+        // Agregar claims de roles
+        foreach (var role in userInfo.Roles)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, role));
+        }
 
         _authenticationStateTask = 
             Task.FromResult(new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(

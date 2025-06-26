@@ -28,6 +28,21 @@
                     }
                 </button>
             }
+            
+            <!-- Admin-only menu items -->
+            <AuthorizeView Roles="Admin" Context="adminAuth">
+                <Authorized>
+                    <div class="menu-divider">
+                        <span class="divider-text">Administration</span>
+                    </div>
+                    <button class="menu-item" @onclick="@(() => NavigateToPage("/admin/roles"))">
+                        <span class="chakra-button__icon">
+                            <i class="menu-item-icon bi bi-shield-check"></i>
+                        </span>
+                        <span class="menu-item-label">Role Management</span>
+                    </button>
+                </Authorized>
+            </AuthorizeView>
         </div>
 
         <!-- Menú inferior -->
