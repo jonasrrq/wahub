@@ -30,7 +30,7 @@
             }
             
             <!-- Admin-only menu items -->
-            <AuthorizeView Roles="Admin">
+            <AuthorizeView Roles="Admin" Context="adminAuth">
                 <Authorized>
                     <div class="menu-divider">
                         <span class="divider-text">Administration</span>

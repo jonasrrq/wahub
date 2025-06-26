@@ -22,7 +22,7 @@ Criterios de aceptación:
 - [x] Definir modelos y migraciones para roles y relaciones con usuarios.
 - [x] Implementar lógica de negocio para gestión de roles y permisos.
 - [x] Actualizar interfaces de usuario para administración de roles.
-- [ ] Documentar cambios en la arquitectura y uso.
+- [x] Documentar cambios en la arquitectura y uso.
 - [x] Implementar y documentar pruebas automatizadas.
 - [x] Validar funcionamiento y cobertura de pruebas.
 
@@ -44,6 +44,7 @@ Criterios de aceptación:
 - **Configuración**: Habilitado soporte de roles en ASP.NET Core Identity con políticas de autorización
 - **Seeding**: Implementado RoleSeeder para crear roles por defecto (Admin, User, Manager) y usuario admin
 - **Tests**: Creado WaHub.Tests con 8 pruebas unitarias para RoleService (todas pasando)
+**Documentación**: Creado `doc/ROLE-MANAGEMENT.md` con documentación completa del sistema de roles
 
 **Archivos creados/modificados:**
 - `src/WaHub.Shared/Services/IRoleService.cs`
