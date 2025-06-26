@@ -19,8 +19,7 @@ public static class ServiceRegistration
     {        // Add services to the container.
         builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents()
-            .AddInteractiveWebAssemblyComponents()
-            .AddAuthenticationStateSerialization();
+            .AddInteractiveWebAssemblyComponents();
 
         builder.Services.AddControllers(); // Habilitar controladores para API
 
@@ -110,7 +109,7 @@ public static class ServiceRegistration
         //app.UseAuthentication();
         //app.UseAuthorization();
 
-        app.MapStaticAssets();
+        app.UseStaticFiles();
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode()
             .AddInteractiveWebAssemblyRenderMode()

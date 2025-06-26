@@ -6,8 +6,7 @@ using WaHub.Shared.Services;
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
 builder.Services.AddAuthorizationCore()
-    .AddCascadingAuthenticationState()
-    .AddAuthenticationStateDeserialization();
+    .AddCascadingAuthenticationState();
 
 //builder.Services.AddSingleton<AuthenticationStateProvider, ClientAuthStateProvider>();
 
