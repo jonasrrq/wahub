@@ -83,10 +83,14 @@ public class PersistAuthStateProvider : RevalidatingServerAuthenticationStatePro
 
             if (fullName != null && email != null)
             {
+                // Obtener roles del principal
+                var roles = principal.FindAll(ClaimTypes.Role).Select(c => c.Value).ToList();
+                
                 _state.PersistAsJson(nameof(UserSession), new UserSession
                 {
                     FullName = fullName,
-                    Email = email
+                    Email = email,
+                    Roles = roles
                 });
             }
         }

@@ -1,0 +1,137 @@
+@page "/admin/roles"
+@attribute [Authorize(Roles = "Admin")]
+@rendermode InteractiveAuto
+
+<div class="page-container">
+    <div class="page-header">
+        <h1>@_localization.GetString("Role Management")</h1>
+        <button class="btn btn-primary" @onclick="ShowCreateRoleModal">
+            <i class="bi bi-plus-circle"></i>
+            @_localization.GetString("Create Role")
+        </button>
+    </div>
+
+    @if (isLoading)
+    {
+        <div class="loading-container">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>@_localization.GetString("Loading roles...")</p>
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            <i class="bi bi-exclamation-triangle"></i>
+            @errorMessage
+        </div>
+    }
+    else
+    {
+        <div class="roles-grid">
+            @if (roles.Any())
+            {
+                @foreach (var role in roles)
+                {
+                    <div class="role-card">
+                        <div class="role-header">
+                            <h5 class="role-name">@role.Name</h5>
+                            <div class="role-actions">
+                                <button class="btn btn-sm btn-outline-primary" @onclick="() => EditRole(role)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger" @onclick="() => DeleteRole(role)">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="role-details">
+                            <p class="role-description">@(role.Description ?? "No description")</p>
+                            <div class="role-stats">
+                                <span class="user-count">
+                                    <i class="bi bi-people"></i>
+                                    @role.UserCount users
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="empty-state">
+                    <i class="bi bi-shield-exclamation"></i>
+                    <h3>@_localization.GetString("No roles found")</h3>
+                    <p>@_localization.GetString("Create your first role to get started")</p>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<!-- Create/Edit Role Modal -->
+@if (showCreateEditModal)
+{
+    <div class="modal fade show" style="display: block;" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@(editingRole == null ? "Create Role" : "Edit Role")</h5>
+                    <button type="button" class="btn-close" @onclick="CloseCreateEditModal"></button>
+                </div>
+                <div class="modal-body">
+                    <form @onsubmit:preventDefault="true">
+                        <div class="mb-3">
+                            <label for="roleName" class="form-label">Role Name *</label>
+                            <input type="text" class="form-control" id="roleName" @bind="roleName" @bind:event="oninput" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="roleDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="roleDescription" @bind="roleDescription" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="CloseCreateEditModal">Cancel</button>
+                    <button type="button" class="btn btn-primary" @onclick="SaveRole" disabled="@(string.IsNullOrWhiteSpace(roleName))">
+                        @(editingRole == null ? "Create" : "Update")
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}
+
+<!-- Delete Confirmation Modal -->
+@if (showDeleteModal && roleToDelete != null)
+{
+    <div class="modal fade show" style="display: block;" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Delete</h5>
+                    <button type="button" class="btn-close" @onclick="CloseDeleteModal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete the role <strong>@roleToDelete.Name</strong>?</p>
+                    @if (roleToDelete.UserCount > 0)
+                    {
+                        <div class="alert alert-warning">
+                            <i class="bi bi-exclamation-triangle"></i>
+                            This role has @roleToDelete.UserCount user(s) assigned. You must remove all users from this role before deleting it.
+                        </div>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="CloseDeleteModal">Cancel</button>
+                    <button type="button" class="btn btn-danger" @onclick="ConfirmDeleteRole" disabled="@(roleToDelete.UserCount > 0)">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}

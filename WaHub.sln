@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaHub.Client", "src\WaHub.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaHub.Shared", "src\WaHub.Shared\WaHub.Shared.csproj", "{2F585D93-742F-4E77-AAEF-05DDFEC5BFD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaHub.Tests", "WaHub.Tests\WaHub.Tests.csproj", "{610323CE-2FAD-4B45-9498-25BD22C2F09F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2F585D93-742F-4E77-AAEF-05DDFEC5BFD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F585D93-742F-4E77-AAEF-05DDFEC5BFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F585D93-742F-4E77-AAEF-05DDFEC5BFD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{610323CE-2FAD-4B45-9498-25BD22C2F09F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610323CE-2FAD-4B45-9498-25BD22C2F09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610323CE-2FAD-4B45-9498-25BD22C2F09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{610323CE-2FAD-4B45-9498-25BD22C2F09F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
